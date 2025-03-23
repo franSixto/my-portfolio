@@ -1,9 +1,11 @@
 const Footer = () => {
     return (
-      <header>
-        <p>Pie del sitio</p>
-      </header>
+        <div>
+            <footer>
+                <p>Pie del sitio</p>
+            </footer>
+        </div>
     );
-  };
-  
-  export default Footer;
+};
+
+export default Footer;
