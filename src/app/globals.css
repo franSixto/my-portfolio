@@ -1,9 +1,16 @@
 @import "tailwindcss";
 @variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme{
+  --background: #f9f9f9;
+  --foreground: #333;
+  --primary: #0070f3;
+  --secondary: #f81ce5;
+  --accent: #f81ce5;
+  --muted: #f9f9f9;
+  --error: #ff0000;
+  --success: #00ff00;
+  --warning: #ffcc00;
 }
 
 body {

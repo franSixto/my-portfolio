@@ -1,15 +1,10 @@
-// src/app/contact/page.tsx
+import ContactForm from "@/components/ContactForm";
+
 const Contact = () => {
     return (
-      <div>
-        <h1>Contact Me</h1>
-        <form>
-          <input type="text" placeholder="Your Name" />
-          <input type="email" placeholder="Your Email" />
-          <textarea placeholder="Your Message"></textarea>
-          <button type="submit">Send</button>
-        </form>
-      </div>
+      <main className="min-h-screen flex items-center justify-center bg-gray-100">
+      <ContactForm />
+    </main>
     );
   };
   

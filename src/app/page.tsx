@@ -21,7 +21,7 @@ const Home = () => {
             </code>
             .
           </li>
-          <li className='text-black dark:text-green-400'>Save and see your changes instantly.</li>
+          <li className="text-black dark:text-green-400">Save and see your changes instantly.</li>
         </ol>
       </main>
     </div>

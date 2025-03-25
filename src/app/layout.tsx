@@ -1,6 +1,6 @@
 import { ThemeProvider } from "next-themes";
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import type { Metadata } from "next";
 import './globals.css';
 
