@@ -1,17 +1,25 @@
 'use client'
 import { useTheme } from 'next-themes'
+import { RiSunLine, RiMoonLine } from "react-icons/ri";
 
 export default function ThemeSelect() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <select title='theme switcher'
-      value={theme}
-      onChange={(e) => setTheme(e.target.value)}
+    <button
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      className="p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full bg-gray-50 dark:bg-gray-800"
+      title="theme switcher"
     >
-      <option value="system">System</option>
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-    </select>
+      {theme === "light" ? (
+        <span className="text-yellow-500">
+          <RiSunLine className='text-2xl'/>
+        </span>
+      ) : (
+        <span className="text-blue-500">
+          <RiMoonLine className='text-2xl' />
+        </span>
+      )}
+    </button>
   );
 }

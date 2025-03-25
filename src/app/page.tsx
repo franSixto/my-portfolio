@@ -1,8 +1,9 @@
 import Image from "next/image";
-
+import ContactForm from "@/components/ContactForm";
+import Contact from "./contact/page";
 const Home = () => {
   return (
-    <div className="bg-white dark:bg-gray-900 grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="bg-white dark:bg-gray-800 grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
@@ -22,6 +23,8 @@ const Home = () => {
           </li>
           <li className="text-black dark:text-green-400">Save and see your changes instantly.</li>
         </ol>
+
+        <ContactForm />
       </main>
     </div>
   );

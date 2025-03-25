@@ -15,12 +15,12 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: `"Contacto Web" <${process.env.EMAIL_USER}>`,
-      to: "tu-email@ejemplo.com",
-      subject: "Nuevo mensaje de contacto",
+      to: email, 
+      subject: "Un mensaje del sitio!",
       text: `Nombre: ${name}\nEmail: ${email}\nMensaje: ${message}`,
     });
 
-    return NextResponse.json({ message: "Mensaje enviado con éxito" }, { status: 200 });
+    return NextResponse.json({ message: "Thank you for reaching out, I will get back to you shortly." }, { status: 200 });
   } catch (error) {
     console.error("Error en API:", error);
     return NextResponse.json({ error: "Error en el servidor" }, { status: 500 });
