@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import type { Metadata } from "next";
 import { Work_Sans } from 'next/font/google';
 
-const roboto = Work_Sans({
+const fontPrincipal = Work_Sans({
   subsets: ['latin'],
   weight: ['400', '700'],
 });
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-    <html lang="en" data-theme="dark" style={{ colorScheme: "dark" }} >
+    <html lang="en" data-theme="dark" style={{ colorScheme: "dark", fontFamily: fontPrincipal.style.fontFamily}} >
       <body>
         <ThemeProvider attribute="data-theme" >
           <Header />

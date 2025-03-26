@@ -1,6 +1,5 @@
 "use client";
 
-import React, { use } from "react";
 import { RiArrowRightLine, RiDownloadLine } from "react-icons/ri";
 import { GiCrackedAlienSkull } from "react-icons/gi";
 import ThreeHero from "@/components/ThreeHero"; // Ensure ThreeHero is a default export in its file
@@ -45,27 +44,32 @@ const Hero: React.FC = () => {
                 <div className="h-[400px] relative flex items-center justify-center">
                     <motion.div
                         className="absolute w-100 h-100 shadow-2xl shadow-red-200 dark:shadow-gray-950 bg-gradient-to-tr from-red-200 to-red-50 dark:from-gray-950 dark:to-gray-700 rounded-4xl flex justify-center items-center text-white opacity-50 text-4xl text-center"
+                        style={{
+                            backgroundImage: "url('/xenomorphBackground.webp')",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                        }}
                         initial={{ scale: 0, opacity: 0 }}
                         animate={{ scale: [0, 1.2, 1], opacity: [0, 1] }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                     >
                         <span className="flex flex-col items-center">
-                            <span className="absolute bg-red-100 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-semibold top-15 shadow-lg transform rotate-3 rounded-md">Hello Alien,</span>
-                            <GiCrackedAlienSkull className="w-65 h-65 mb-2 text-red-300 dark:text-gray-900" />
+                            <span className="absolute bg-red-50 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-semibold top-12 shadow-lg transform rotate-3 rounded-md">Hello Alien,</span>
+                            
                         </span>
                     </motion.div>
                     <motion.div className="w-100 h-100 flex justify-center items-center"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.5, duration: 0.5 }}
-                        
+
                     >
                         <ThreeHero />
-                        <span className="absolute bg-red-100 dark:bg-gray-950 text-red-500 dark:text-gray-400 p-2 bottom-15 text-sm shadow-lg transform -rotate-6 rounded-md">
-                        A free jailed Xenomorph just for fun!
+                        <span className="absolute bg-red-50 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 bottom-15 text-sm shadow-lg transform -rotate-6 rounded-md">
+                        Just pet the dog! 🐶🔥
                         </span>
                     </motion.div>
-                    
+
                 </div>
             </div>
         </section>

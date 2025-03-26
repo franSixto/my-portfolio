@@ -80,6 +80,21 @@ export default function Scene() {
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} castShadow intensity={1} />
+        <directionalLight
+          position={[-5, 0, -5]}
+          intensity={1}
+          color="red"
+        />
+        <directionalLight
+          position={[-2, 0, -5]}
+          intensity={3}
+          color="white"
+        />
+        <directionalLight
+          position={[-5, 0, -1]}
+          intensity={1}
+          color="black"
+        />
         <Suspense fallback={null}>
           <Character />
         </Suspense>
