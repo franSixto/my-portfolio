@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface ProjectCardProps {
     title: string;
@@ -9,8 +10,8 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl, projectUrl }) => {
     return (
-        <div className="project-card border rounded-lg shadow-lg overflow-hidden">
-            <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
+        <div className="shadow-lg rounded-lg overflow-hidden">
+            <Image src={imageUrl} alt={title} width={500} height={200} className="w-full h-48 object-cover" />
             <div className="p-4">
                 <h3 className="text-lg font-bold mb-2">{title}</h3>
                 <p className="text-gray-600 mb-4">{description}</p>
