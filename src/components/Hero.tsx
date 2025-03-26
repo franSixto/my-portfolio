@@ -1,7 +1,6 @@
 "use client";
 
 import { RiArrowRightLine, RiDownloadLine } from "react-icons/ri";
-import { GiCrackedAlienSkull } from "react-icons/gi";
 import ThreeHero from "@/components/ThreeHero"; // Ensure ThreeHero is a default export in its file
 import { motion } from "framer-motion";
 
