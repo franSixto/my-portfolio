@@ -3,6 +3,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import type { Metadata } from "next";
 import { Work_Sans } from 'next/font/google';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 const fontPrincipal = Work_Sans({
   subsets: ['latin'],
@@ -24,6 +26,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <ThemeProvider attribute="data-theme" >
           <Header />
           {children}
+          <SpeedInsights />
           <Footer /> 
         </ThemeProvider>
       </body>

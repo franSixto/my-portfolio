@@ -12,6 +12,7 @@
     "@react-three/drei": "^10.0.5",
     "@react-three/fiber": "^9.1.0",
     "@tailwindcss/vite": "^4.0.15",
+    "@vercel/speed-insights": "^1.2.0",
     "classnames": "^2.5.1",
     "framer-motion": "^12.6.2",
     "next": "15.2.3",
