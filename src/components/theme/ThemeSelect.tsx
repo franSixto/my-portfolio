@@ -12,11 +12,11 @@ export default function ThemeSelect() {
       title="theme switcher"
     >
       {theme === "light" ? (
-        <span className="text-yellow-500">
+        <span className="text-red-500">
           <RiSunLine className='text-2xl'/>
         </span>
       ) : (
-        <span className="text-blue-500">
+        <span className="text-red-500">
           <RiMoonLine className='text-2xl' />
         </span>
       )}

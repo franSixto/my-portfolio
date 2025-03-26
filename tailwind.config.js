@@ -4,7 +4,14 @@ module.exports = {
       "./src/**/*.{js,ts,jsx,tsx}", // Asegúrate de incluir todos los archivos relevantes
     ],
     theme: {
-      extend: {},
+      extend: {
+        colors: {
+          matrix: {
+            DEFAULT: '#00FF00', // Verde "Matrix"
+            dark: '#003300', // Verde oscuro
+          },
+        },
+      },
     },
     plugins: [],
   };
