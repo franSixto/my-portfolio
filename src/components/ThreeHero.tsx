@@ -7,11 +7,12 @@ import { useRef } from "react";
 
 function Character() {
   const { scene } = useGLTF("/Xenomorph.glb");
+
   const ref = useRef<THREE.Object3D>(null);
 
   useFrame(({ clock }) => {
     if (ref.current) {
-      ref.current.position.y = Math.sin(clock.elapsedTime) * 0.2;
+      ref.current.position.y = Math.sin(clock.elapsedTime) * 0.;
       ref.current.rotation.y += 0.01; // Add constant rotation to the xenomorph
     }
   });
@@ -49,55 +50,55 @@ export default function Scene() {
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
       {bubbles.map((bubble) => (
-      <span
-        key={bubble.id}
-        style={{
-          position: "absolute",
-          display: "flex",
-          flexWrap: "nowrap",
-          textWrap: "nowrap",
-          top: `${Math.min(Math.max(bubble.y, 40), 60)}%`, // Restrict vertical movement
-          left: `${bubble.x}%`,
-          transform: `translate(-50%, -50%) rotate(${bubble.rotation}deg)`,
-          background: "black",
-          padding: "10px 20px",
-          borderRadius: "10px",
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          fontSize: "16px",
-          fontWeight: "bold",
-          color: "white",
-          animation: "roar-animation 0.5s ease-in-out",
-        }}
-      >
-        {Math.random() > 0.5 ? "Ssssshhh-Krrrkkk!!!!" : "Grrrrrrr!!!!"}
-      </span>
+        <span
+          key={bubble.id}
+          style={{
+            position: "absolute",
+            display: "flex",
+            flexWrap: "nowrap",
+            textWrap: "nowrap",
+            top: `${Math.min(Math.max(bubble.y, 40), 60)}%`, // Restrict vertical movement
+            left: `${bubble.x}%`,
+            transform: `translate(-50%, -50%) rotate(${bubble.rotation}deg)`,
+            background: "black",
+            padding: "10px 20px",
+            borderRadius: "10px",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            fontSize: "16px",
+            fontWeight: "bold",
+            color: "white",
+            animation: "roar-animation 0.5s ease-in-out",
+          }}
+        >
+          {Math.random() > 0.5 ? "Ssssshhh-Krrrkkk!!!!" : "Grrrrrrr!!!!"}
+        </span>
       ))}
       <Canvas
-      shadows
-      camera={{ position: [9, 3, 2], fov: 50 }}
-      onClick={handleCanvasClick}
+        shadows
+        camera={{ position: [9, 3, 2], fov: 50 }}
+        onClick={handleCanvasClick}
       >
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[5, 5, 5]} castShadow intensity={1} />
-      <directionalLight
-        position={[-5, 0, -5]}
-        intensity={1}
-        color="red"
-      />
-      <directionalLight
-        position={[-2, 0, -5]}
-        intensity={3}
-        color="white"
-      />
-      <directionalLight
-        position={[-5, 0, -1]}
-        intensity={1}
-        color="black"
-      />
-      <Suspense fallback={null}>
-        <Character />
-      </Suspense>
-      <OrbitControls enableZoom={false} />
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 5, 5]} castShadow intensity={1} />
+        <directionalLight
+          position={[-5, 0, -5]}
+          intensity={1}
+          color="red"
+        />
+        <directionalLight
+          position={[-2, 0, -5]}
+          intensity={3}
+          color="white"
+        />
+        <directionalLight
+          position={[-5, 0, -1]}
+          intensity={1}
+          color="black"
+        />
+        <Suspense fallback={null}>
+          <Character />
+        </Suspense>
+        <OrbitControls enableZoom={false} />
       </Canvas>
       <style jsx>{`
       @keyframes roar-animation {
@@ -117,7 +118,7 @@ export default function Scene() {
         transform: translate(-50%, -50%) scale(1) rotate(0deg);
         }
       }
-      `}</style> 
+      `}</style>
     </div>
   );
 };

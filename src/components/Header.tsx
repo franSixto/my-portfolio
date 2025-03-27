@@ -15,7 +15,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 py-4">
+            <header className="bg-gray-50  text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 py-4">
                 <nav className="container mx-auto flex justify-between items-center px-6">
                     <Image
                         className="dark:invert"
@@ -30,7 +30,7 @@ export default function Header() {
                             onClick={toggleMenu}
                             className="text-black dark:text-white focus:outline-none"
                         >
-                            {isMenuOpen ? "✖" : "☰"}
+                            <span onClick={toggleMenu}>{isMenuOpen ? "✖" : "☰"}</span>
                         </button>
                     </div>
                     <ul className="hidden lg:flex space-x-6">
@@ -52,7 +52,7 @@ export default function Header() {
                         >
                             <button
                                 onClick={toggleMenu}
-                                className="absolute top-2 right-2 text-black dark:text-white focus:outline-none"
+                                className="absolute top-2 right-2 text-black dark:text-white focus:outline-none z-60"
                             >
                                 ✖
                             </button>

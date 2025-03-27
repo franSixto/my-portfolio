@@ -10,19 +10,34 @@ const Hero: React.FC = () => {
         <section className="py-20 w-full">
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
                 <div>
-                    <h1 className="text-6xl bg-gradient-to-r from-red-400 to-red-600 inline-block text-transparent bg-clip-text font-bold">
+                    <motion.h1
+                        className="text-center lg:text-start text-4xl lg:text-6xl bg-gradient-to-r from-red-400 to-red-600 inline-block text-transparent bg-clip-text font-bold"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                    >
                         Building Impactful Digital Experiences
-                    </h1>
-                    <p className="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-400 green:text-green-400">
+                    </motion.h1>
+                    <motion.p
+                        className="text-center lg:text-start mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-400 green:text-green-400"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+                    >
                         UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.
-                    </p>
-                    <div className="mt-6">
-                        <div className="flex flex-col md:flex-row items-center gap-4">
+                    </motion.p>
+                    <motion.div
+                        className="mt-6"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+                    >
+                        <div className="flex flex-row lg:justify-start justify-center items-center gap-4">
                             <a
                                 href="/projects"
                                 className="flex items-center px-6 py-3 text-white bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 rounded-lg shadow-md transition transform duration-300 hover:scale-105 ease-in-out"
                             >
-                                View My Work
+                               My Work
                                 <span className="ml-2">
                                     <RiArrowRightLine className="w-5 h-5" />
                                 </span>
@@ -32,13 +47,13 @@ const Hero: React.FC = () => {
                                 download
                                 className="flex items-center px-6 py-3 text-gray-600 border border-gray-600 hover:text-gray-700 hover:bg-gray-200 dark:text-gray-400 dark:border-gray-400 dark:hover:text-white dark:hover:bg-gray-500 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
                             >
-                                Download Resume
+                                Resume
                                 <span className="ml-2">
                                     <RiDownloadLine className="w-5 h-5" />
                                 </span>
                             </a>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className="w-[100%] relative flex items-center justify-center">
                     <motion.div
