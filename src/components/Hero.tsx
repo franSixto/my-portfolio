@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
                                 </span>
                             </a>
                             <a
-                                href="/path-to-resume.pdf"
+                                href="/cv-fran-sixto.pdf"
                                 download
                                 className="flex items-center px-6 py-3 text-gray-600 border border-gray-600 hover:text-gray-700 hover:bg-gray-200 dark:text-gray-400 dark:border-gray-400 dark:hover:text-white dark:hover:bg-gray-500 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
                             >
@@ -77,9 +77,9 @@ const Hero: React.FC = () => {
                         </motion.span>
 
                         <ThreeHero />
-ƒ
+                            
                         <motion.span
-                            className="absolute bg-red-100 right-20 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 bottom-25 text-xl font-bold shadow-lg transform -rotate-6 rounded-md"
+                            className="absolute bg-red-100 right-15 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 bottom-25 text-xl font-bold shadow-lg transform -rotate-6 rounded-md"
                             animate={{
                                 y: [0, -20, 0], // Float up and down
                                 rotate: [0, 5, -5, 0], // Slight rotation

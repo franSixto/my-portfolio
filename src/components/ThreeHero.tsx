@@ -74,7 +74,7 @@ export default function Scene() {
       ))}
       <Canvas
       shadows
-      camera={{ position: [12, 4, 0], fov: 50 }}
+      camera={{ position: [9, 3, 2], fov: 50 }}
       onClick={handleCanvasClick}
       >
       <ambientLight intensity={0.5} />
@@ -117,7 +117,7 @@ export default function Scene() {
         transform: translate(-50%, -50%) scale(1) rotate(0deg);
         }
       }
-      `}</style>
+      `}</style> 
     </div>
   );
-}
+};
