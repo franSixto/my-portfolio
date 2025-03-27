@@ -40,9 +40,9 @@ const Hero: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="h-[400px] relative flex items-center justify-center">
+                <div className="w-[100%] relative flex items-center justify-center">
                     <motion.div
-                        className="absolute w-100 h-100 shadow-2xl shadow-red-200 dark:shadow-gray-950 bg-gradient-to-tr from-red-200 to-red-50 dark:from-gray-950 dark:to-gray-700 rounded-4xl flex justify-center items-center text-white opacity-50 text-4xl text-center"
+                        className="absolute h-100 w-[80%] shadow-2xl shadow-red-100 dark:shadow-gray-950 flex items-center justify-center rounded-4xl"
                         style={{
                             backgroundImage: "url('/xenomorphBackground.webp')",
                             backgroundSize: "cover",
@@ -52,21 +52,47 @@ const Hero: React.FC = () => {
                         animate={{ scale: [0, 1.2, 1], opacity: [0, 1] }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                     >
-                        <span className="flex flex-col items-center">
-                            <span className="absolute bg-red-50 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-semibold top-12 shadow-lg transform rotate-3 rounded-md">Hello Alien,</span>
-                            
-                        </span>
                     </motion.div>
-                    <motion.div className="w-100 h-100 flex justify-center items-center"
+
+                    <motion.div className="w-[100%] h-100 flex justify-center items-center"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.5, duration: 0.5 }}
 
                     >
+                        <motion.span
+                            className="absolute top-10 left-15 lg:left-50 bg-red-100 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-semibold shadow-lg transform rotate-3 rounded-md"
+                            animate={{
+                                y: [10, -10, 10], // Subtle float up and down
+                                rotate: [0, 2, -1, 0], // Subtle rotation
+                            }}
+                            transition={{
+                                duration: 4, // Duration of one float cycle
+                                repeat: Infinity, // Repeat indefinitely
+                                ease: "easeInOut", // Smooth easing
+                                delay: 1, // Delay before animation starts
+                            }}
+                        >
+                            Hello Human,
+                        </motion.span>
+
                         <ThreeHero />
-                        <span className="absolute bg-red-50 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 bottom-15 text-sm shadow-lg transform -rotate-6 rounded-md">
-                        Just pet the dog! 🐶🔥
-                        </span>
+ƒ
+                        <motion.span
+                            className="absolute bg-red-100 right-20 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 bottom-25 text-xl font-bold shadow-lg transform -rotate-6 rounded-md"
+                            animate={{
+                                y: [0, -20, 0], // Float up and down
+                                rotate: [0, 5, -5, 0], // Slight rotation
+                            }}
+                            transition={{
+                                duration: 4, // Duration of one float cycle
+                                repeat: Infinity, // Repeat indefinitely
+                                ease: "easeInOut", // Smooth easing
+                                delay: 1, // Delay before animation starts
+                            }}
+                        >
+                            Just pet the dog! 🐶✨
+                        </motion.span>
                     </motion.div>
 
                 </div>
