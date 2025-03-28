@@ -13,7 +13,7 @@ function Character() {
   useFrame(({ clock }) => {
     if (ref.current) {
       ref.current.position.y = Math.sin(clock.elapsedTime) * 0.;
-      ref.current.rotation.y += 0.01; // Add constant rotation to the xenomorph
+      ref.current.rotation.y -= 0.01; // Add constant rotation to the xenomorph
     }
   });
 

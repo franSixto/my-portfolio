@@ -6,9 +6,17 @@ import { motion } from "framer-motion";
 
 const Hero: React.FC = () => {
     return (
-        <section className="py-20 w-full">
-            <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
-                <div>
+        <section className="py-10 lg:py-20 w-full">
+            <div className="container mx-auto px-0 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
+                <div className="px-6 lg:px-0">
+                    <motion.span
+                        className="text-gray-400 text-center text-lg"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, ease: "easeOut" }}  
+                        >
+                            👋 Im a Designer!
+                    </motion.span>
                     <motion.h1
                         className="text-center lg:text-start text-4xl lg:text-6xl bg-gradient-to-r from-red-400 to-red-600 inline-block text-transparent bg-clip-text font-bold"
                         initial={{ opacity: 0, y: -20 }}
@@ -54,9 +62,9 @@ const Hero: React.FC = () => {
                         </div>
                     </motion.div>
                 </div>
-                <div className="w-[100%] relative flex items-center justify-center">
+                <div className="w-[100%] relative flex items-center justify-center lg:justify-end">
                     <motion.div
-                        className="absolute h-100 w-[80%] shadow-2xl shadow-red-100 dark:shadow-gray-950 flex items-center justify-center rounded-4xl"
+                        className="absolute h-100 w-[85%] shadow-2xl shadow-red-100 dark:shadow-gray-950 flex items-center justify-center rounded-4xl"
                         style={{
                             backgroundImage: "url('/xenomorphBackground.webp')",
                             backgroundSize: "cover",
