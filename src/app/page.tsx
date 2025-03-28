@@ -316,7 +316,7 @@ const Home = () => {
           <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">
             I believe that living by these values helps me build meaningful
             relationships and contribute positively to my community. If you
-            share similar values, let's connect and collaborate!
+            share similar values, let&apos;s connect and collaborate!
           </p>
         </div>
         <div className="flex flex-col items-center sm:items-start">
