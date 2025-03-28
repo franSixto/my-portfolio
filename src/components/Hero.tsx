@@ -4,7 +4,6 @@ import { RiArrowRightLine, RiDownloadLine } from "react-icons/ri";
 import ThreeHero from "@/components/ThreeHero"; // Ensure ThreeHero is a default export in its file
 import { motion } from "framer-motion";
 
-
 const Hero: React.FC = () => {
     return (
         <section className="py-20 w-full">
@@ -111,6 +110,9 @@ const Hero: React.FC = () => {
                     </motion.div>
 
                 </div>
+            </div>
+            <div >
+                
             </div>
         </section>
     );
