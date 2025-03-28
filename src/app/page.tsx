@@ -229,7 +229,7 @@ const Home = () => {
             </ul>
           <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">
             I believe that having hobbies outside of work helps me stay
-            creative and balanced. If you share any of these interests, let's
+            creative and balanced. If you share any of these interests, let&apos;s
             connect and chat about them!
           </p>
         </div>
