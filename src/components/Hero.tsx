@@ -9,14 +9,14 @@ const Hero: React.FC = () => {
         <section className="py-10 lg:py-20 w-full">
             <div className="container mx-auto px-0 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
                 <div className="px-6 lg:px-0">
-                    <motion.span
+                    {/* <motion.span
                         className="text-gray-400 text-center text-lg"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: "easeOut" }}  
                         >
                             👋 Im a Designer!
-                    </motion.span>
+                    </motion.span> */}
                     <motion.h1
                         className="text-center lg:text-start text-4xl lg:text-6xl bg-gradient-to-r from-red-400 to-red-600 inline-block text-transparent bg-clip-text font-bold"
                         initial={{ opacity: 0, y: -20 }}

@@ -3,8 +3,13 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, message, honeypot } = await req.json();
 
+    // Verificar el honeypot
+    if (honeypot) {
+      return NextResponse.json({ error: "Solicitud detectada como spam." }, { status: 400 });
+    }
+    
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -15,7 +20,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: `"Contacto Web" <${process.env.EMAIL_USER}>`,
-      to: email, 
+      to: process.env.EMAIL_USER, // 🔹 Obtiene la variable desde Vercel
       subject: "Un mensaje del sitio!",
       text: `Nombre: ${name}\nEmail: ${email}\nMensaje: ${message}`,
     });
