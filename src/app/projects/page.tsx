@@ -1,49 +1,27 @@
-import ProjectCard from '../../components/ProjectCard';
+// app/projects/page.tsx
+import ProjectList from "@/components/ProjectList";
+import { TitleSubPages } from "@/components/TitleSubPages";
 
-const Projects = () => {
-  const projectList = [
-    {
-      title: "Project 1",
-      description: "This is a description for Project 1.",
-      imageUrl: "/file.svg",
-      projectUrl: "https://example.com/project1",
-    },
-    {
-      title: "Project 2",
-      description: "This is a description for Project 2.",
-      imageUrl: "/xenomorphBackground.webp",
-      projectUrl: "https://example.com/project2",
-    },
-    {
-      title: "Project 3",
-      description: "This is a description for Project 3.",
-      imageUrl: "/xenomorphBackground.webp",
-      projectUrl: "https://example.com/project3",
-    },
-    {
-      title: "Project 4",
-      description: "This is a description for Project 4.",
-      imageUrl: "/xenomorphBackground.webp",
-      projectUrl: "https://example.com/project4",
-    },
-  ];
 
-  return (
-    <div className='container mx-auto px-6 py-8'>
-      <h1 className="text-3xl font-bold mb-8">My Projects</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projectList.map((project, index) => (
-          <ProjectCard
-            key={index}
-            title={project.title}
-            description={project.description}
-            imageUrl={project.imageUrl}
-            projectUrl={project.projectUrl}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
+async function load() {
+    const res = await fetch("http://localhost:1337/api/projects?populate=*");
+    const data = await res.json();
+    console.log("Data fetched:", data); // Console log para verificar la data
+    return data;
+}
+
+async function Projects() {
+    const projects = await load();
+    console.log("Projects data:", projects); // Console log adicional si lo necesitas
+    return (
+        <div className="dark:bg-gray-800">
+            <TitleSubPages
+                title="Projects"
+                description="Here you can find some of the projects I have worked on."
+            />
+            <ProjectList projects={projects.data} />
+        </div>
+    );
+}
 
 export default Projects;

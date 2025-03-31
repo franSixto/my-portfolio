@@ -1,0 +1,26 @@
+[
+    {
+        "id": "project-1",
+        "title": "Project 1",
+        "description": "This is the first project.",
+        "imageUrl": "/images/project1.jpg",
+        "projectUrl": "https://example.com/project1",
+        "logoUrl": "/images/logo1.png"
+    },
+    {
+        "id": "project-2",
+        "title": "Project 2",
+        "description": "This is the second project.",
+        "imageUrl": "/images/project2.jpg",
+        "logoUrl": "/images/logo2.png",
+        "projectUrl": "https://example.com/project2"
+    },
+    {
+        "id": "project-3",
+        "title": "Project 3",
+        "description": "This is the third project.",
+        "imageUrl": "/images/project3.jpg",
+        "logoUrl": "/images/logo3.png",
+        "projectUrl": "https://example.com/project3"
+    }
+]

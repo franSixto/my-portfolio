@@ -7,8 +7,8 @@ module.exports = {
       extend: {
         colors: {
           matrix: {
-            DEFAULT: '#00FF00', // Verde "Matrix"
-            dark: '#003300', // Verde oscuro
+            DEFAULT: '#00FF00',
+            dark: '#003300', 
           },
         },
       },

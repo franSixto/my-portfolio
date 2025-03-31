@@ -1,30 +1,86 @@
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
 
-interface ProjectCardProps {
-    title: string;
-    description: string;
-    imageUrl: string;
-    projectUrl: string;
-}
+type ProjectCardProps = {
+  title: string;
+  description: string;
+  imageUrl: string | null;
+  imageAlt?: string;
+  logoUrl: string | null;
+  logoAlt?: string;
+  projectUrl: string;
+};
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl, projectUrl }) => {
+export default function ProjectCard({
+    title,
+    description,
+    imageUrl,
+    imageAlt = "",
+    logoUrl,
+    logoAlt = "",
+    projectUrl,
+}: ProjectCardProps) {
+    console.log("ProjectCard props:", {
+        title,
+        description,
+        imageUrl,
+        imageAlt,
+        logoUrl,
+        logoAlt,
+        projectUrl,
+    });
+
     return (
-        <div className="shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105 hover:shadow-xl">
-            <Image src={imageUrl} alt={title} width={500} height={200} className="w-full h-48 object-cover" />
-            <div className="p-6 bg-white dark:bg-gray-900">
-            <h3 className="text-xl font-semibold mb-3 text-gray-800">{title}</h3>
-            <p className="text-gray-600 mb-5">{description}</p>
-            <a
-                href={projectUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-4 py-2 text-sm font-medium text-gray-800 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors dark:text-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600"
-            >
-                View Project
-            </a>
+        <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
+            {/* Imagen principal del proyecto */}
+            <div className="relative h-48 w-full">
+                {imageUrl ? (
+                    <Image
+                        src={imageUrl}
+                        alt={imageAlt || title}
+                        fill
+                        className="object-cover"
+                    />
+                ) : (
+                    <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                        <span className="text-gray-400 dark:text-gray-500">Sin imagen</span>
+                    </div>
+                )}
+            </div>
+
+            <div className="p-6">
+                {/* Logo y título */}
+                <div className="flex items-center mb-4">
+                    {logoUrl && (
+                        <div className="relative h-12 w-12 mr-4">
+                            <Image
+                                src={logoUrl}
+                                alt={logoAlt || `Logo de ${title}`}
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                    )}
+                    <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                        {title}
+                    </h2>
+                </div>
+
+                {/* Descripción */}
+                <p className="text-gray-600 dark:text-gray-300 mb-6">{description}</p>
+
+                {/* Enlace al proyecto */}
+                <div className="mt-auto">
+                    <Link
+                        href={projectUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-300"
+                    >
+                        Ver proyecto
+                    </Link>
+                </div>
             </div>
         </div>
     );
-};
-
-export default ProjectCard;
+}
