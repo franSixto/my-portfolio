@@ -11,12 +11,8 @@ const fetchProjectBySlug = async (slug: string) => {
   return data.data[0]; // Strapi devuelve un array, tomamos el primer elemento
 };
 
-type PageProps<T> = {
-  params: T;
-};
-
 // Genera metadatos para la página del proyecto
-export async function generateMetadata({ params }: PageProps<{ slug: string }>): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const project = await fetchProjectBySlug(params.slug);
 
   if (!project) {
@@ -34,7 +30,7 @@ export async function generateMetadata({ params }: PageProps<{ slug: string }>):
   };
 }
 
-export default async function ProjectPage({ params }: PageProps<{ slug: string }>) {
+export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const project = await fetchProjectBySlug(params.slug);
 
   if (!project) {
