@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import NavMobile from "./NavMobile";
+import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,24 +23,16 @@ export default function Header() {
         <>
             <header className="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 py-4">
                 <nav className="container mx-auto flex justify-between items-center px-6">
-                    <Image
-                        className="dark:invert"
-                        src="/logo.svg"
-                        alt="Fran Sixto"
-                        width={234}
-                        height={24}
-                        priority
-                    />
-                    <div className="lg:hidden">
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={toggleMenu}
-                            className="text-black dark:text-white focus:outline-none"
-                        >
-                            <span>{isMenuOpen ? "✖" : "☰"}</span>
-                        </motion.button>
-                    </div>
+                    <Link href="/">
+                        <Image
+                            className="dark:invert"
+                            src="/logo.svg"
+                            alt="Fran Sixto"
+                            width={180}
+                            height={24}
+                            priority
+                        />
+                    </Link>
                     <ul className="hidden lg:flex space-x-6">
                         <li className="menu-item">
                             <motion.div
@@ -48,9 +41,8 @@ export default function Header() {
                             >
                                 <Link
                                     href="/"
-                                    className={`hover:text-gray-500 dark:hover:text-gray-300 ${
-                                        isActive("/") ? "font-bold" : ""
-                                    }`}
+                                    className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/") ? "font-bold" : ""
+                                        }`}
                                 >
                                     Home
                                 </Link>
@@ -63,9 +55,8 @@ export default function Header() {
                             >
                                 <Link
                                     href="/about"
-                                    className={`hover:text-gray-500 dark:hover:text-gray-300 ${
-                                        isActive("/about") ? "font-bold" : ""
-                                    }`}
+                                    className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/about") ? "font-bold" : ""
+                                        }`}
                                 >
                                     About
                                 </Link>
@@ -78,9 +69,8 @@ export default function Header() {
                             >
                                 <Link
                                     href="/projects"
-                                    className={`hover:text-gray-500 dark:hover:text-gray-300 ${
-                                        isActive("/projects") ? "font-bold" : ""
-                                    }`}
+                                    className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/projects") ? "font-bold" : ""
+                                        }`}
                                 >
                                     Projects
                                 </Link>
@@ -93,21 +83,32 @@ export default function Header() {
                             >
                                 <Link
                                     href="/contact"
-                                    className={`hover:text-gray-500 dark:hover:text-gray-300 ${
-                                        isActive("/contact") ? "font-bold" : ""
-                                    }`}
+                                    className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/contact") ? "font-bold" : ""
+                                        }`}
                                 >
                                     Contact
                                 </Link>
                             </motion.div>
                         </li>
                     </ul>
-                    <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <ThemeSelect />
-                    </motion.div>
+                    <div className="flex items-center space-x-4">
+                        <div className="lg:hidden">
+                            <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                onClick={toggleMenu}
+                                className="p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full bg-gray-50 dark:bg-gray-800"
+                            >
+                                <RiMenuLine />
+                            </motion.button>
+                        </div>
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            <ThemeSelect />
+                        </motion.div>
+                    </div>
                 </nav>
                 {isMenuOpen && <NavMobile isMenuOpen={isMenuOpen} isActive={isActive} toggleMenu={toggleMenu} />}
             </header>
