@@ -36,9 +36,9 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   if (!project) {
     return (
       <div className="container mx-auto px-6 py-12 text-center">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Proyecto no encontrado</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Project not found</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
-          El proyecto que estás buscando no existe o ha sido eliminado.
+          The project you are looking for does not exist or has been removed.
         </p>
       </div>
     );
