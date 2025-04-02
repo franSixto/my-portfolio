@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import { TitleSubPages } from "@/components/TitleSubPages";
 
@@ -10,7 +11,30 @@ const fetchProjectBySlug = async (slug: string) => {
   return data.data[0]; // Strapi devuelve un array, tomamos el primer elemento
 };
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
+interface ProjectPageProps {
+  params: {
+    slug: string;
+  };
+}
+// Genera metadatos para la página del proyecto
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+  const project = await fetchProjectBySlug(params.slug);
+
+  if (!project) {
+    return {
+      title: "Proyecto no encontrado",
+      description: "El proyecto que estás buscando no existe o ha sido eliminado.",
+    };
+  }
+
+  const { Title: title = "Untitled Project", Description: description = "No description available." } = project;
+
+  return {
+    title,
+    description,
+  };
+}
+export default async function ProjectPage({ params }: ProjectPageProps) {
   const project = await fetchProjectBySlug(params.slug);
 
   if (!project) {
