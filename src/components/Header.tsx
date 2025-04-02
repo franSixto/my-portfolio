@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import NavMobile from "./NavMobile";
-import { RiMenuLine, RiCloseLine } from "react-icons/ri";
+import { RiMenuLine } from "react-icons/ri";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
