@@ -57,6 +57,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <div className="container mx-auto px-6 py-12">
       {/* Título y descripción */}
+      
+      <div className="text-center mb-8">
+        <p className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{title}</p>
+        <p className="text-lg text-gray-600 dark:text-gray-400">{description}</p>
+      </div>
       {/* <Suspense>
       <TitleSubPages title={title} description={description} />
       </Suspense> */}
