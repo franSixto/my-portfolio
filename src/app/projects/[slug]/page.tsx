@@ -7,13 +7,13 @@ const fetchProjectBySlug = async (slug: string) => {
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?filters[slug][$eq]=${slug}&populate=*`
   );
   const data = await res.json();
-  console.log("Fetched project data:", data); // Inspecciona los datos del proyecto
   return data.data[0]; // Strapi devuelve un array, tomamos el primer elemento
 };
 
 // Genera metadatos para la página del proyecto
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const project = await fetchProjectBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params; // Espera a que se resuelva el Promise
+  const project = await fetchProjectBySlug(slug);
 
   if (!project) {
     return {
@@ -30,8 +30,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = await fetchProjectBySlug(params.slug);
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params; // Espera a que se resuelva el Promise
+  const project = await fetchProjectBySlug(slug);
 
   if (!project) {
     return (
