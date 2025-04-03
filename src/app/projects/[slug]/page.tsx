@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
-// import { TitleSubPages } from "@/components/TitleSubPages";
-// import { Suspense } from "react";
+import { TitleSubPages } from "@/components/TitleSubPages";
 
 const fetchProjectBySlug = async (slug: string) => {
   const res = await fetch(
@@ -57,14 +56,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <div className="container mx-auto px-6 py-12">
       {/* Título y descripción */}
-      
-      <div className="text-center mb-8">
-        <p className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{title}</p>
-        <p className="text-lg text-gray-600 dark:text-gray-400">{description}</p>
-      </div>
-      {/* <Suspense>
+
       <TitleSubPages title={title} description={description} />
-      </Suspense> */}
+
 
       {/* Logo */}
       {logoUrl && (
