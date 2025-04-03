@@ -29,6 +29,9 @@ export default function Scene() {
     const randomX = Math.random() * 80 + 10; // Random X position (10% to 90% of the width)
     const randomY = Math.random() * 80 + 10; // Random Y position (10% to 90% of the height)
     const randomRotation = Math.random() * 10 - 5; // Random rotation between -5 and 5
+    //z-index superior to the canvas
+    const zIndex = 10;
+    
     const newBubble = {
       id: Date.now(),
       x: randomX,

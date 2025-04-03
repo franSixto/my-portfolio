@@ -3,6 +3,7 @@
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { RiArrowDownSLine } from 'react-icons/ri';
+import ThreeSolarSystem from './ThreeSolarSystem'; // Asegúrate de que la ruta sea correcta
 
 const HomeTitle: React.FC = () => {
     const { ref, inView } = useInView({
@@ -15,23 +16,24 @@ const HomeTitle: React.FC = () => {
             <motion.div
                 ref={ref}
                 id="home-title"
-                className="relative px-6 py-8 flex flex-col items-center justify-center text-center rounded-4xl shadow-red-100 dark:shadow-gray-950 overflow-hidden"
+                className="relative px-6 py-30 flex flex-col items-center justify-center text-center rounded-4xl shadow-red-100 dark:shadow-gray-950 overflow-hidden"
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{ duration: 1, ease: "easeOut" }}
                 style={{
-                    borderBottom: '1px solid #ff0000',
-                    background: 'linear-gradient(45deg, #ff000010, #ff000030, #00000010, #ff000010)',
-                    backgroundSize: '400% 400%',
-                    animation: 'gradientAnimation 10s ease infinite',
+                    border: '2px solid #000000',
+                    background: 'linear-gradient(45deg, #000000d2, #000000f5, #000000f2, #000000d1), url("/sky.webp")',
+                    backgroundSize: '200% cover', // Ajusta el fondo sin distorsión
+                    backgroundPosition: 'center',
+                    animation: 'gradientAnimation 15s ease infinite',
                 }}
             >
 
                 {/* Contenido */}
-                <h2 className="text-5xl font-bold text-gray-900 dark:text-gray-100">
+                <h2 className="text-5xl font-bold text-gray-100">
                     Welcome to My Portfolio
                 </h2>
-                <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                <p className="mt-4 text-lg text-gray-300">
                 Explore my projects and get to know me better.
                 </p>
 
@@ -59,7 +61,9 @@ const HomeTitle: React.FC = () => {
                 }
                 `}
                 </style>
+                <ThreeSolarSystem />
             </motion.div>
+             
             <motion.span
                     className="absolute -top-3 left-15 lg:left-20 bg-red-100 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-bold shadow-lg transform -rotate-2 rounded-md"
                     animate={{
@@ -78,6 +82,7 @@ const HomeTitle: React.FC = () => {
                     I hope you enjoy your visit! 😊
                 </motion.span>
         </div>
+
     );
 };
 
