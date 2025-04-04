@@ -22,7 +22,7 @@ const HomeTitle: React.FC = () => {
                 transition={{ duration: 1, ease: "easeOut" }}
                 style={{
                     border: '2px solid #000000',
-                    background: 'linear-gradient(45deg, #000000d2, #000000f5, #000000f2, #000000d1), url("/sky.webp")',
+                    background: 'linear-gradient(190deg, #00000000, #000000f5, #000000f2, #00000000), url("/sky2.webp")',
                     backgroundSize: '200% cover', // Ajusta el fondo sin distorsión
                     backgroundPosition: 'center',
                     animation: 'gradientAnimation 15s ease infinite',

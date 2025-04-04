@@ -1,6 +1,5 @@
 import React, { Suspense, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
 import { useRef } from "react";
@@ -99,7 +98,6 @@ export default function Scene() {
         <Suspense fallback={null}>
           <Character />
         </Suspense>
-        <OrbitControls enableZoom={false} />
       </Canvas>
       <style jsx>{`
       @keyframes roar-animation {

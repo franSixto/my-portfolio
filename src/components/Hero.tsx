@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
             <div className="container mx-auto px-0 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
                 <div className="px-6 lg:px-0">
                     <motion.h1
-                        className="text-center lg:text-start text-4xl lg:text-6xl bg-gradient-to-r from-red-400 to-red-600 inline-block text-transparent bg-clip-text font-bold"
+                        className="text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl uppercase bg-gradient-to-r from-red-400 to-red-600 inline-block text-transparent bg-clip-text font-bold lg:leading-11 xl:leading-17"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: [0.42, 0, 0.58, 1] }} // Use a custom cubic-bezier easing for smoother animation
