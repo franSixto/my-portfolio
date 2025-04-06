@@ -92,6 +92,12 @@ export default function Header() {
                         </li>
                     </ul>
                     <div className="flex items-center space-x-4">
+                    <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            <ThemeSelect />
+                        </motion.div>
                         <div className="lg:hidden">
                             <motion.button
                                 whileHover={{ scale: 1.1 }}
@@ -102,12 +108,7 @@ export default function Header() {
                                 <RiMenuLine />
                             </motion.button>
                         </div>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                        >
-                            <ThemeSelect />
-                        </motion.div>
+                        
                     </div>
                 </nav>
                 {isMenuOpen && <NavMobile isMenuOpen={isMenuOpen} isActive={isActive} toggleMenu={toggleMenu} />}

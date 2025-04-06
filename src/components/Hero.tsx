@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
                             }}
                             initial={{ scale: 0.8, opacity: 0 }} // Start closer to the final state for smoother transition
                             animate={{ scale: [0.8, 1.1, 1], opacity: [0, 1] }}
-                            transition={{ duration: 1.2, ease: "easeOut" }} // Slightly faster animation
+                            transition={{ duration: 1.2, ease: "easeOut", delay: 1.3 }} // Added delay
                         >
                         </motion.div>
                     </Suspense>

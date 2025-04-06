@@ -26,8 +26,6 @@ export default async function ProjectsPageWithComponents({ projects }: { project
   
     return (
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold mb-8 text-center">Nuestros Proyectos</h1>
-  
         {safeProjects.length === 0 ? (
           <p className="text-center text-gray-600">No hay proyectos disponibles en este momento.</p>
         ) : (

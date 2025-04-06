@@ -1,7 +1,7 @@
 "use client"; //Solo hasta que saque framer motion de aca y lo lleve a components
 
 import Hero from "@/components/Hero";
-import HomeTitle from "@/components/HomeTitle";
+import HomeTitle from "@/components/HomeSubscribe";
 import { motion } from "framer-motion";
 import { FaTwitter, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
@@ -11,7 +11,7 @@ const Home = () => {
     <div className="bg-gray-50 dark:bg-gray-800 w-full">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Hero />
-        <HomeTitle />
+        
         <div className="mx-auto px-6 container">
           <div className="flex flex-col items-center sm:items-start">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -83,24 +83,11 @@ const Home = () => {
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
               Stay updated with my latest projects and insights. Subscribe to my newsletter for exclusive content and updates.
             </p>
-            <form className="flex items-center gap-4">
-              <motion.input
-          whileFocus={{ scale: 1.02 }}
-          type="email"
-          placeholder="Your email address"
-          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-red-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-200"
-              />
-              <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          type="submit"
-          className="px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 rounded-lg shadow-md transition duration-300 ease-in-out"
-              >
-          Subscribe
-              </motion.button>
-            </form>
+            
           </div>
+          
         </div>
+        <HomeTitle />
       </main>
     </div>
   );

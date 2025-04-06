@@ -22,8 +22,8 @@ export default function Scene() {
   return (
     <div style={{ position: "absolute", zIndex: "0", width: "100%", height: "100%" }}>
       <Canvas shadows camera={{ position: [2, -2, 1], fov: 50 }}>
-        <ambientLight color="red" intensity={1} />
-        <directionalLight position={[5, 5, 5]} castShadow intensity={1} />
+        <ambientLight color="red" intensity={.1} />
+        <directionalLight position={[5, 5, 5]} castShadow intensity={0.1} />
         <directionalLight position={[-5, 0, -5]} intensity={1} color="red" />
         <directionalLight position={[-2, 0, -5]} intensity={3} color="white" />
         <directionalLight position={[-5, 0, -1]} intensity={1} color="black" />

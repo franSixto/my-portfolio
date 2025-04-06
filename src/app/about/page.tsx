@@ -1,47 +1,29 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { TitleSubPages } from '@/components/TitleSubPages';
 
 const About = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <div className="bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-200 min-h-screen">
-      <div className="container mx-auto p-6">
+      <div className="container mx-auto px-6">
+        <TitleSubPages
+          title="About Me"
+          description="I am a passionate UX/UI designer and frontend developer."
+        />
         <motion.div
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: -50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
           ref={ref}
-        >
-          <motion.h1
-            className="text-5xl font-extrabold text-red-600 dark:text-red-500 mb-6"
-            initial={{ scale: 0.8 }}
-            animate={inView ? { scale: 1 } : {}}
-            transition={{ duration: 0.5 }}
-          >
-            About Me
-          </motion.h1>
-          <motion.p
-            className="text-xl max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            I am a passionate UX/UI designer and frontend developer.
-          </motion.p>
-        </motion.div>
-        <motion.div
           className="space-y-8 max-w-4xl mx-auto"
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
           variants={{
-            hidden: { opacity: 0, y: 50 },
+            hidden: { opacity: 0, y: -50 },
             visible: {
               opacity: 1,
               y: 0,
-              transition: { staggerChildren: 0.3 },
+              transition: { staggerChildren: 0.3, delayChildren: .9 },
             },
           }}
         >
@@ -56,8 +38,8 @@ const About = () => {
               key={index}
               className="text-lg leading-relaxed"
               variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0, y: -20, scale: 0.9 },
+                visible: { opacity: 1, y: 0, scale: 1 },
               }}
             >
               {text}
