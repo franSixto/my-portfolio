@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import ThreeSolarSystem from './ThreeSolarSystem'; // Asegúrate de que la ruta sea correcta
 
-const HomeTitle: React.FC = () => {
+const HomeSubscribe: React.FC = () => {
     const { ref, inView } = useInView({
         threshold: 0.2, // Porcentaje visible para activar la animación
         triggerOnce: true, // Solo activa la animación una vez
     });
 
     return (
-        <div className="relative container mx-auto px-6 mb-20">
+        <div className="relative container mx-auto px-6">
             <motion.div
                 ref={ref}
                 id="home-title"
@@ -118,4 +118,4 @@ const HomeTitle: React.FC = () => {
     );
 };
 
-export default HomeTitle;
+export default HomeSubscribe;

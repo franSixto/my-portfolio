@@ -3,7 +3,7 @@
 import { RiArrowRightLine, RiDownloadLine } from "react-icons/ri";
 import ThreeHero from "@/components/ThreeHero"; // Ensure ThreeHero is a default export in its file
 import { motion } from "framer-motion";
-import Link from "next/link";
+import Button from "@/components/theme/Button"; // Adjust the import path as necessary
 import { Suspense } from "react";
 
 const Hero: React.FC = () => {
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: [0.42, 0, 0.58, 1], delay: 0.3 }} // Match easing and slightly increase duration
                     >
-                        UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.
+                        I'm a UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.
                     </motion.p>
                     <motion.div
                         className="mt-6"
@@ -34,25 +34,24 @@ const Hero: React.FC = () => {
                         transition={{ duration: 1.2, ease: [0.42, 0, 0.58, 1], delay: 0.6 }} // Consistent easing and duration
                     >
                         <div className="flex flex-row lg:justify-start justify-center items-center gap-4">
-                            <Link
-                                href="/projects"
-                                className="flex items-center px-6 py-3 text-white bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 rounded-lg shadow-md transition transform duration-300 hover:scale-105 ease-in-out"
+                            <Button
+                                to="/projects"
                             >
                                 My Work
-                                <span className="ml-2">
+                                <span className="ml-3">
                                     <RiArrowRightLine className="w-5 h-5" />
                                 </span>
-                            </Link>
-                            <Link
-                                href="/cv-fran-sixto.pdf"
-                                download
-                                className="flex items-center px-6 py-3 text-gray-600 border border-gray-600 hover:text-gray-700 hover:bg-gray-200 dark:text-gray-400 dark:border-gray-400 dark:hover:text-white dark:hover:bg-gray-500 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                            </Button>
+                            <Button
+                                to="/cv-fran-sixto.pdf"
+                                variant="outlined"
+                                target="_blank"
                             >
                                 Resume
-                                <span className="ml-2">
+                                <span className="ml-3">
                                     <RiDownloadLine className="w-5 h-5" />
                                 </span>
-                            </Link>
+                            </Button>
                         </div>
                     </motion.div>
                 </div>
@@ -112,7 +111,6 @@ const Hero: React.FC = () => {
                             Just pet the dog! 🐶✨
                         </motion.span>
                     </motion.div>
-
                 </div>
             </div>
         </section>
