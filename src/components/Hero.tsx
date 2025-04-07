@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: [0.42, 0, 0.58, 1], delay: 0.3 }} // Match easing and slightly increase duration
                     >
-                        I'm a UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.
+                        I&apos;m a UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.
                     </motion.p>
                     <motion.div
                         className="mt-6"
