@@ -14,7 +14,7 @@ async function Projects() {
     const projects = await load();
     console.log("Projects data:", projects); // Console log adicional si lo necesitas
     return (
-        <div className="dark:bg-gray-800">
+        <div className="dark:bg-gray-950">
             <TitleSubPages
                 title="Projects"
                 description="Here you can find some of the projects I have worked on."

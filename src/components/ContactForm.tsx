@@ -41,7 +41,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 w-[100%] flex items-center justify-items-center p-8 gap-16 font-[family-name:var(--font-geist-sans)]">
+    <div className="bg-gray-50 dark:bg-gray-950 w-[100%] flex items-center justify-items-center p-8 gap-16 font-[family-name:var(--font-geist-sans)]">
       <div className="max-w-full sm:max-w-md lg:max-w-lg mx-auto w-300 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md ">
         <h2 className="text-2xl font-bold mb-4 dark:text-gray-100">Talk with me</h2>
         {submitted ? (

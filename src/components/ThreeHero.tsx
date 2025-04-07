@@ -91,9 +91,9 @@ export default function Scene() {
           color="white"
         />
         <directionalLight
-          position={[-5, 0, -1]}
+          position={[1, 0, -1]}
           intensity={1}
-          color="black"
+          color="white"
         />
         <Suspense fallback={null}>
           <Character />

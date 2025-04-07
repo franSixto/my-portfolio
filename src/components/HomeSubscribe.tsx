@@ -12,7 +12,7 @@ const HomeSubscribe: React.FC = () => {
     });
 
     return (
-        <div className="relative container mx-auto px-6">
+        <div className="relative container mx-auto px-6 mb-5">
             <motion.div
                 ref={ref}
                 id="home-title"
@@ -30,22 +30,36 @@ const HomeSubscribe: React.FC = () => {
             >
 
                 {/* Contenido */}
-                <h2 className="text-4xl sm:text-5xl font-bold text-gray-100">
+                <h2 className="text-4xl sm:text-5xl font-bold text-gray-100 uppercase">
                     I like to <span className="text-red-500">share</span>
                 </h2>
-                <p className="mt-4 text-lg text-gray-300">
+                
+                <motion.p
+                className=" mt-4 text-lg text-gray-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+            >
                     I send occasional updates about design, dev & stuff I find cool. Join in!
-                </p>
+                    </motion.p>
+                <motion.p
+                className=" text-sm text-gray-400"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+            >
+                No spam. Unsubscribe anytime.
+                </motion.p>
 
                 {/* Flecha animada */}
                 <motion.div
-                    className="flex text-3xl justify-center items-center"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    className="flex text-4xl justify-center items-center"
+                    initial={{ opacity: 1, y: 10 }}
+                    animate={{ opacity: 0.5, y: 0 }}
                     transition={{
                         repeat: Infinity,
                         repeatType: "reverse",
-                        duration: 1.5,
+                        duration: .9,
                         ease: "easeInOut",
                     }}
                 >
@@ -66,7 +80,7 @@ const HomeSubscribe: React.FC = () => {
             </motion.div>
             <div className='relative w-full flex justify-center'>
             <motion.form
-                className="absolute bottom-21 mx-auto w-100 flex justify-center items-center gap-4"
+                className="absolute -bottom-7 md:bottom-9  flex items-center flex-col gap-4 md:flex-row justify-between bg-gray-950/90 border border-red-500 p-4 rounded-2xl"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5, duration: 1, ease: "easeOut" }}
@@ -75,25 +89,17 @@ const HomeSubscribe: React.FC = () => {
                     whileFocus={{ scale: 1.02 }}
                     type="email"
                     placeholder="Your email address"
-                    className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-red-500 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-200"
+                    className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-red-500 bg-gray-900/80 dark:bg-black dark:border-white text-white dark:text-gray-100"
                 />
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     type="submit"
-                    className="px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 rounded-lg shadow-md transition duration-300 ease-in-out"
+                    className="px-4 py-2 w-full text-sm font-medium text-white bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 rounded-lg shadow-md transition duration-300 ease-in-out"
                 >
                     Subscribe
                 </motion.button>
             </motion.form>
-            <motion.p
-                className="absolute bottom-8 text-sm text-gray-400"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2, duration: 1, ease: "easeOut" }}
-            >
-                No spam. Unsubscribe anytime.
-            </motion.p>
             </div>
             <motion.span
                 className="absolute -top-3 left-15 lg:left-20 bg-red-100 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-bold shadow-lg transform -rotate-2 rounded-md"
@@ -110,7 +116,7 @@ const HomeSubscribe: React.FC = () => {
                 }}
                 initial={{ opacity: 0, y: 50 }}
             >
-                Glad you&apos;re here! 😊
+                Glad you're here! 😊
             </motion.span>
             
         </div>

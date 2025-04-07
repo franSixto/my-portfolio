@@ -7,7 +7,7 @@ const About = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-200 min-h-screen">
+    <div className="bg-gradient-to-b from-white to-gray-100 dark:from-gray-950 dark:to-gray-800 text-gray-800 dark:text-gray-200 min-h-screen">
       <div className="container mx-auto px-6">
         <TitleSubPages
           title="About Me"
