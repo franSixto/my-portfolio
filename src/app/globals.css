@@ -20,6 +20,7 @@ body {
   font-optical-sizing: auto;
 }
 
+/*Animacion de scroll de logos*/
 @keyframes scroll {
   0% {
     transform: translateX(0%);

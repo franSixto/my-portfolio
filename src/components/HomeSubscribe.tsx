@@ -116,7 +116,7 @@ const HomeSubscribe: React.FC = () => {
                 }}
                 initial={{ opacity: 0, y: 50 }}
             >
-                Glad you're here! 😊
+                Glad you&apos;re here! 😊
             </motion.span>
             
         </div>

@@ -23,9 +23,6 @@ import {
     SiCss3,
     SiJavascript,
   
-    // Testing / A11y
-    SiJest,
-  
     // DevOps / Infra
     SiGit,
     SiGithub,
