@@ -1,15 +1,15 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { TitleSubPages } from '@/components/TitleSubPages';
+import { TitleH1 } from '@/components/TitleH1';
 
 const About = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-100 dark:from-gray-950 dark:to-gray-800 text-gray-800 dark:text-gray-200 min-h-screen">
+    <div className="bg-gradient-to-b from-white to-gray-100 dark:from-gray-950 dark:to-gray-800 text-gray-800 dark:text-gray-200 min-h-screen pt-15">
       <div className="container mx-auto px-6">
-        <TitleSubPages
+        <TitleH1
           title="About Me"
           description="I am a passionate UX/UI designer and frontend developer."
         />

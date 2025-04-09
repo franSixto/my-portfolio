@@ -1,6 +1,6 @@
 // app/projects/page.tsx
 import ProjectList from "@/components/ProjectList";
-import { TitleSubPages } from "@/components/TitleSubPages";
+import { TitleH1 } from '@/components/TitleH1';
 
 
 async function load() {
@@ -14,8 +14,8 @@ async function Projects() {
     const projects = await load();
     console.log("Projects data:", projects); // Console log adicional si lo necesitas
     return (
-        <div className="dark:bg-gray-950">
-            <TitleSubPages
+        <div className="dark:bg-gray-950 pt-15">
+            <TitleH1
                 title="Projects"
                 description="Here you can find some of the projects I have worked on."
             />

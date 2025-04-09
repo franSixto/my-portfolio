@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import ThreeSpaceship from "@/components/ThreeSpaceship";
 import { FiPenTool, FiCode, FiUsers, FiTrendingUp } from "react-icons/fi";
-import { TitleSubPages } from "./TitleSubPages";
+import { TitleH2 } from "@/components/TitleH2";
 
 const services = [
     {
@@ -43,37 +43,40 @@ export default function Services() {
                     transition={{ duration: 1, ease: 'easeOut' }}
                     className="relative flex flex-col items-center justify-center mb-8"
                 >
-                    <TitleSubPages
+                    <TitleH2
                         title="What I Do"
-                        description="A combination of design thinking, solid development, and team experience." 
+                        description="A combination of design thinking, solid development, and team experience."
                     />
-                    <motion.div
-                        className="absolute xl:top-65 top-50 w-80 h-80 bg-gradient-to-r from-red-500/10 to-red-700/50 rounded-full z-6 overflow-hidden"
-                        animate={{
-                            opacity: [0.1, .9, 0.1],
-                            scale: [.8, 1, .8],
-                            filter: ["blur(10px)", "blur(0px)", "blur(10px)"],
-                        }}
-                        transition={{
-                            duration: 15,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        }}
-                    ></motion.div>
-                    <ThreeSpaceship />
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="absolute flex justify-center items-center h-full w-full">
+                            
+                            <ThreeSpaceship />
+                            <motion.div
+                                className="absolute w-80 h-80 bg-gradient-to-r from-red-500/10 to-red-700/50 rounded-full z-0 overflow-hidden"
+                                animate={{
+                                    opacity: [0.1, .9, 0.1],
+                                    scale: [.8, 1, .8],
+                                    filter: ["blur(10px)", "blur(0px)", "blur(10px)"],
+                                }}
+                                transition={{
+                                    duration: 15,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                            ></motion.div>
+                        </div>
+
                         {services.map((service, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: -30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                                viewport={{ once: true }}
                                 className="bg-white dark:bg-gray-900/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow z-2"
                             >
                                 <div className="text-4xl flex justify-center mb-4 text-red-600 dark:text-red-500">{service.icon}</div>
                                 <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">{service.title}</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm">{service.description}</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-md">{service.description}</p>
                             </motion.div>
                         ))}
                     </div>

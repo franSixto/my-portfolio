@@ -92,7 +92,7 @@ export default function Header() {
                         </li>
                     </ul>
                     <div className="flex items-center space-x-4">
-                    <motion.div
+                        <motion.div
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
@@ -108,7 +108,7 @@ export default function Header() {
                                 <RiMenuLine />
                             </motion.button>
                         </div>
-                        
+
                     </div>
                 </nav>
                 {isMenuOpen && <NavMobile isMenuOpen={isMenuOpen} isActive={isActive} toggleMenu={toggleMenu} />}

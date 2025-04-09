@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { JSX } from 'react/jsx-runtime';
-import { TitleSubPages } from './TitleSubPages';
+import { TitleH2 } from './TitleH2';
 
 import {
     // Diseño
@@ -124,7 +124,7 @@ export default function Highlights() {
       transition={{ duration: 1, ease: 'easeOut' }}
       className="container mx-auto px-6 my-12"
     >
-        <TitleSubPages
+        <TitleH2
             title="Tools & Technologies"
             description="A curated collection of the tools I use to bring ideas to life."
         />

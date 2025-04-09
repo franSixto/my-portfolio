@@ -2,7 +2,6 @@
 
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { RiArrowDownSLine } from 'react-icons/ri';
 import ThreeSolarSystem from './ThreeSolarSystem'; // Asegúrate de que la ruta sea correcta
 
 const HomeSubscribe: React.FC = () => {
@@ -17,9 +16,9 @@ const HomeSubscribe: React.FC = () => {
                 ref={ref}
                 id="home-title"
                 className="relative px-6 h-100 flex flex-col items-center justify-center text-center rounded-4xl shadow-red-100 dark:shadow-gray-950 overflow-hidden"
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                initial={{ opacity: 0, y: -30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: 'easeOut' }}
                 style={{
                     border: '2px solid #000000',
                     background: 'linear-gradient(190deg, #00000000, #000000f5, #000000f2, #00000000), url("/sky2.webp")',
@@ -30,7 +29,7 @@ const HomeSubscribe: React.FC = () => {
             >
 
                 {/* Contenido */}
-                <h2 className="text-4xl sm:text-5xl font-bold text-gray-100 uppercase">
+                <h2 className="text-4xl lg:text-6xl xl:text-8xl font-bold text-gray-100 uppercase">
                     I like to <span className="text-red-500">share</span>
                 </h2>
                 
@@ -50,21 +49,6 @@ const HomeSubscribe: React.FC = () => {
             >
                 No spam. Unsubscribe anytime.
                 </motion.p>
-
-                {/* Flecha animada */}
-                <motion.div
-                    className="flex text-4xl justify-center items-center"
-                    initial={{ opacity: 1, y: 10 }}
-                    animate={{ opacity: 0.5, y: 0 }}
-                    transition={{
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                        duration: .9,
-                        ease: "easeInOut",
-                    }}
-                >
-                    <RiArrowDownSLine className='text-red-600' />
-                </motion.div>
                 {/* Animación de fondo */}
                 <style>
                     {`

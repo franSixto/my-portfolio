@@ -9,35 +9,32 @@ import { Suspense } from "react";
 const Hero: React.FC = () => {
     return (
         <section
-            className="flex justify-center items-center w-full py-15"
+            className="flex justify-center items-center w-full pt-15 lg:pt-0"
             style={{
             height: "100%",
             minHeight: "calc(100vh - 93px)",
             }}
         >
             <div className="container mx-auto px-0 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
-            <div className="px-6 lg:px-0">
-                <motion.h1
-                className="text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl uppercase bg-gradient-to-r from-red-400 to-red-600 inline-block text-transparent bg-clip-text font-bold lg:leading-11 xl:leading-17"
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, ease: [0.42, 0, 0.58, 1] }} // Use a custom cubic-bezier easing for smoother animation
+            <motion.div
+            initial={{ scale: 0.8, y: -30, opacity: 0 }} // Start with a scale and opacity for smoother animation
+            whileInView={ { scale: 1, y: 0, opacity:1 } }
+            transition={{ duration: 1 }} // Use a custom cubic-bezier easing for smoother animation
+            className="px-6 lg:px-0">
+                <h1
+                className="text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl font-extrabold uppercase bg-gradient-to-r from-red-400 to-red-600 inline-block text-transparent bg-clip-text leading-8 lg:leading-11 xl:leading-20"
+                
                 >
                 Building Impactful Digital Experiences
-                </motion.h1>
-                <motion.p
-                className="text-center lg:text-start mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-400 green:text-green-400"
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, ease: [0.42, 0, 0.58, 1] }} // Match easing and slightly increase duration
+                </h1>
+                <p
+                className="text-center lg:text-start mt-4 text-lg ps-1 md:text-xl text-gray-600 dark:text-gray-400 green:text-green-400"
+                
                 >
                 I&apos;m a UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.
-                </motion.p>
-                <motion.div
-                className="mt-6"
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, ease: [0.42, 0, 0.58, 1] }} // Consistent easing and duration
+                </p>
+                <div
+                className="mt-6"                
                 >
                 <div className="flex flex-row lg:justify-start justify-center items-center gap-4">
                     <Button
@@ -59,8 +56,8 @@ const Hero: React.FC = () => {
                     </span>
                     </Button>
                 </div>
-                </motion.div>
-            </div>
+                </div>
+            </motion.div>
             <div className="w-[100%] relative flex items-center justify-center lg:justify-end">
                 <Suspense>
                 <motion.div
@@ -71,9 +68,9 @@ const Hero: React.FC = () => {
                     backgroundPosition: "center",
                     willChange: "transform, opacity", // Hint to the browser for smoother animations
                     }}
-                    initial={{ opacity: 0, y:-30 }} // Start closer to the final state for smoother transition
-                    whileInView={{ opacity: [0, 1], y:0 }}
-                    transition={{ duration: 1.2, ease: "easeOut"}} // Added delay
+                    initial={{ scale: 0.8, y: -20, opacity: 0 }} // Start with a scale and opacity for smoother animation
+                    whileInView={ { scale: 1, y: 0, opacity:1 } }
+                    transition={{ duration: 1 }}
                 >
                 </motion.div>
                 </Suspense>

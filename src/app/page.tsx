@@ -5,6 +5,7 @@ import HomeSubscribe from "@/components/HomeSubscribe";
 import HomeServices from "@/components/HomeServices";
 import ContactCTA from "@/components/ContactCTA";
 import Highlights from "@/components/Highlights";
+import AboutMeTeaser from "@/components/AboutMeTeaser";
 // import ClientsSlider from "@/components/ClientSlider";
 
 
@@ -15,13 +16,14 @@ const Home = () => {
     <div className="bg-gray-50 dark:bg-gray-950 w-full">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Hero />
-        <HomeServices/>
+        <HomeServices />
+        <AboutMeTeaser />
         <Highlights />
         
         {/* <ClientsSlider /> */}
        
-        <ContactCTA />
         <HomeSubscribe />
+        <ContactCTA />
       </main>
     </div>
   );

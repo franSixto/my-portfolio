@@ -28,77 +28,74 @@ const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive 
 
     return (
         <div
-            className="fixed inset-0 flex items-center justify-center bg-black/80 bg-opacity-50 z-50"
+            className="fixed inset-0 flex items-center justify-center bg-black/80 bg-opacity-50 z-50 backdrop-blur-sm"
             onClick={toggleMenu} // Cierra el menú al hacer clic en cualquier lugar del fondo
         >
             <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0 }}
-                transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                className="relative w-64 h-64 rounded-full bg-white dark:bg-gray-900 flex items-center justify-center"
-                onClick={(e) => e.stopPropagation()} // Evita que el clic dentro del menú cierre el menú
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            className="relative p-8 w-85 h-85 rounded-full bg-gradient-to-br from-white via-white/80 to-white/90 dark:from-gray-800/80 dark:via-gray-900/50 dark:to-gray-950/50 flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()} // Evita que el clic dentro del menú cierre el menú
             >
-                <button
-                    onClick={toggleMenu}
-                    className="absolute top-2 right-2 text-black dark:text-white focus:outline-none z-60"
-                >
-                    <RiCloseLine className="text-2xl" />
-                </button>
-                <ul className="relative w-full h-full">
-                    <li className="absolute top-4 left-1/2 transform -translate-x-1/2">
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                            <Link
-                                href="/"
-                                className={`hover:text-gray-500 dark:hover:text-gray-300 ${
-                                    isActive("/") ? "font-bold text-red-600" : ""
+            <button
+                onClick={toggleMenu}
+                className="absolute top-2 right-2 text-white focus:outline-none z-60"
+            >
+                <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white dark:bg-gray-900">
+                <RiCloseLine className="text-2xl text-red-500" />
+                </div>
+            </button>
+            <ul className="relative w-full h-full">
+                {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About" },
+                { href: "/blog", label: "Blog" },
+                { href: "/projects", label: "Projects" },
+                { href: "/contact", label: "Contact" },
+                ].map((item, index, arr) => {
+                const angle = (360 / arr.length) * index; // Calcula el ángulo para cada elemento
+                const x = 50 + 40 * Math.cos((angle * Math.PI) / 180); // Coordenada X
+                const y = 50 + 40 * Math.sin((angle * Math.PI) / 180); // Coordenada Y
+
+                return (
+                    <li
+                    key={item.href}
+                    style={{
+                        position: "absolute",
+                        top: `${y}%`,
+                        left: `${x}%`,
+                        transform: "translate(-50%, -50%)", // Centra el elemento
+                    }}
+                    >
+                    <motion.div
+                        initial={{ y: 0, rotate: 0 }}
+                        animate={{
+                            y: [0, Math.random() * -20 + 10, 0], // Movimiento vertical aleatorio
+                            rotate: [0, Math.random() * 30 - 20, 0], // Rotación aleatoria
+                        }}
+                        transition={{
+                            duration: Math.random() * 3 + 2, // Duración aleatoria entre 1 y 3 segundos
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        <Link
+                            href={item.href}
+                            className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive(item.href) ? "font-bold text-red-600" : ""
                                 }`}
-                                onClick={toggleMenu}
-                            >
-                                Home
-                            </Link>
-                        </motion.div>
+                            onClick={toggleMenu}
+                        >
+                            {item.label}
+                        </Link>
+                    </motion.div>
                     </li>
-                    <li className="absolute top-1/2 left-4 transform -translate-y-1/2">
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                            <Link
-                                href="/about"
-                                className={`hover:text-gray-500 dark:hover:text-gray-300 ${
-                                    isActive("/about") ? "font-bold text-red-600" : ""
-                                }`}
-                                onClick={toggleMenu}
-                            >
-                                About
-                            </Link>
-                        </motion.div>
-                    </li>
-                    <li className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                            <Link
-                                href="/projects"
-                                className={`hover:text-gray-500 dark:hover:text-gray-300 ${
-                                    isActive("/projects") ? "font-bold text-red-600" : ""
-                                }`}
-                                onClick={toggleMenu}
-                            >
-                                Projects
-                            </Link>
-                        </motion.div>
-                    </li>
-                    <li className="absolute top-1/2 right-4 transform -translate-y-1/2">
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                            <Link
-                                href="/contact"
-                                className={`hover:text-gray-500 dark:hover:text-gray-300 ${
-                                    isActive("/contact") ? "font-bold text-red-600" : ""
-                                }`}
-                                onClick={toggleMenu}
-                            >
-                                Contact
-                            </Link>
-                        </motion.div>
-                    </li>
-                </ul>
+                );
+                })}
+            </ul>
             </motion.div>
         </div>
     );
