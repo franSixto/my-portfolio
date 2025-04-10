@@ -57,7 +57,7 @@ export default function ProjectCard({
                 src={logoUrl}
                 alt={logoAlt || `Logo de ${title}`}
                 fill
-                className="object-contain"
+                className="object-contain bg-white rounded-full shadow-lg p-2"
               />
             </div>
           )}

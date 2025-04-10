@@ -25,7 +25,7 @@ export default async function ProjectsPageWithComponents({ projects }: { project
     console.log("Safe Projects:", safeProjects); 
   
     return (
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 z-2">
         {safeProjects.length === 0 ? (
           <p className="text-center text-gray-600">No hay proyectos disponibles en este momento.</p>
         ) : (

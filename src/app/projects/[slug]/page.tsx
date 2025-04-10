@@ -36,7 +36,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   if (!project) {
     return (
-      <div className="container mx-auto px-6 py-12 text-center">
+      <div className="container mx-auto px-6 py-12 text-center dark:bg-gray-950">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Project not found</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
           The project you are looking for does not exist or has been removed.
@@ -49,16 +49,20 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     Title: title = "Untitled Project",
     Description: description = "No description available.",
     LongDescription: longDescription = "",
-    Image: { url: imageUrl = null, alternativeText: imageAlt = "" } = {},
-    Logo: { url: logoUrl = null, alternativeText: logoAlt = "" } = {},
+    Image: image = null,
+    Logo: logo = null,
   } = project;
 
+  const imageUrl = image?.url || "/default-image.png"; // Imagen por defecto
+  const imageAlt = image?.alternativeText || "Imagen por defecto";
+  const logoUrl = logo?.url || "/default-logo.png"; // Logo por defecto
+  const logoAlt = logo?.alternativeText || "Logo por defecto";
+
   return (
+    <article className="dark:bg-gray-950">
     <div className="container mx-auto px-6 py-12">
       {/* Título y descripción */}
-
       <TitleH1 title={title} description={description} />
-
 
       {/* Logo */}
       {logoUrl && (
@@ -68,24 +72,25 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             alt={logoAlt || title}
             width={100}
             height={100}
-            className="object-contain"
+            className="object-contain bg-white rounded-full shadow-lg p-5 w-50 h-20"
           />
         </div>
       )}
 
       {/* Imagen principal */}
       {imageUrl ? (
-        <div className="relative w-full max-w-4xl h-96 mx-auto mb-6">
+        <div className="relative w-full mx-auto mb-6">
           <Image
             src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`}
             alt={imageAlt || title}
-            fill
-            className="object-cover rounded-lg"
+            width={1920}
+            height={1080}
+            className="rounded-4xl object-cover shadow-lg"
           />
         </div>
       ) : (
         <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-          <span className="text-gray-400 dark:text-gray-500">Sin imagen</span>
+            <span className="text-gray-400 dark:text-gray-500">{imageAlt}</span>
         </div>
       )}
 
@@ -98,5 +103,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         )}
       </div>
     </div>
+    </article>
   );
 }

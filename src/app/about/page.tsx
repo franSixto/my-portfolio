@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { TitleH1 } from '@/components/TitleH1';
 
 const About = () => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref, inView] = useInView({ threshold: 0.1 });
 
   return (
     <div className="bg-gradient-to-b from-white to-gray-100 dark:from-gray-950 dark:to-gray-800 text-gray-800 dark:text-gray-200 min-h-screen pt-15">
@@ -17,29 +17,29 @@ const About = () => {
           ref={ref}
           className="space-y-8 max-w-4xl mx-auto"
           initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
+          whileInView={inView ? 'visible' : 'hidden'}
           variants={{
-            hidden: { opacity: 0, y: -50 },
+            hidden: { opacity: 0, y: -0 },
             visible: {
               opacity: 1,
               y: 0,
-              transition: { staggerChildren: 0.3, delayChildren: .9 },
+              transition: { staggerChildren: 1, delayChildren: .1, ease: 'easeInOut' },
             },
           }}
         >
           {[
-            "I specialize in creating user-friendly and visually appealing digital experiences. My goal is to craft intuitive interfaces that enhance user engagement and satisfaction.",
-            "With a strong foundation in design principles and a keen eye for detail, I strive to deliver impactful solutions that meet both user needs and business objectives.",
-            "I am constantly exploring new technologies and design trends to stay ahead in the ever-evolving digital landscape. I believe in the power of collaboration and enjoy working closely with cross-functional teams to bring ideas to life. Whether it's through wireframing, prototyping, or coding, I am dedicated to creating seamless user experiences that leave a lasting impression.",
-            "In my free time, I love to explore new design tools, read about emerging technologies, and participate in design communities. I am always eager to learn and grow as a designer and developer, and I welcome new challenges that push me to expand my skill set.",
-            "If you're looking for a passionate UX/UI designer and frontend developer who can bring your ideas to life, feel free to reach out! Let's connect and explore how we can create impactful digital experiences together.",
+            "I'm Francisco Sixto — a UX/UI designer with a solid technical background. I work at the intersection of design and front-end development, creating digital experiences that are clear, efficient, and user-focused. I believe in good systems, smart iteration, and practical tools that help ship quality without overcomplicating things.",
+            "Over the years, I’ve led design and development teams, coordinated priorities, reviewed code and mockups, and built scalable solutions across websites, CRMs, and portals. I enjoy mentoring others, improving team workflows, and balancing creativity with clarity in every step of the process.",
+            "What drives me is the pursuit of intuitive experiences — the kind where structure, interaction, and aesthetics align naturally. Whether I’m working in Figma, VS Code, or in a team call, I’m always thinking about how to make things work better, feel smoother, and serve users with purpose.",
+            "Outside of work, I’m into sports, spending time with my family and friends, and enjoying simple moments offline. I find a lot of inspiration in everyday life — conversations, shared meals, or just being present with the people I care about.",
+            "I’m also an animal lover — especially cats. I think there’s something honest and calm about how they move through the world, and I try to bring a bit of that balance into my own way of working and living.",
           ].map((text, index) => (
             <motion.p
               key={index}
               className="text-lg leading-relaxed"
               variants={{
-                hidden: { opacity: 0, y: -20, scale: 0.9 },
-                visible: { opacity: 1, y: 0, scale: 1 },
+                hidden: { opacity: 0, y: -20  },
+                visible: { opacity: 1, y: 0 },
               }}
             >
               {text}
@@ -58,7 +58,7 @@ const About = () => {
             className="text-center mt-8"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
           >
             <p className="font-bold text-2xl">Fran Sixto</p>
             <p className="font-medium text-lg">UX/UI Designer & Frontend Developer</p>
