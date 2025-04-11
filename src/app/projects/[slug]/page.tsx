@@ -34,6 +34,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params; // Espera a que se resuelva el Promise
   const project = await fetchProjectBySlug(slug);
 
+  console.log("pruebaaaa", project);
+
   if (!project) {
     return (
       <div className="container mx-auto px-6 py-12 text-center dark:bg-gray-950">
@@ -96,10 +98,72 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       {/* Descripción larga */}
       <div className="prose dark:prose-invert max-w-4xl mx-auto">
-        {typeof longDescription === "string" ? (
-          <div dangerouslySetInnerHTML={{ __html: longDescription }} />
+        {Array.isArray(longDescription) && longDescription.length > 0 ? (
+          longDescription.map((block, index) => {
+            if (block.type === 'paragraph') {
+              return (
+                <p key={index} className="text-gray-600 dark:text-gray-300 mb-5 text-xl">
+                  {block.children.map((child: { bold?: boolean; italic?: boolean; strikethrough?: boolean; code?: boolean; type?: string; text: string; url?: string; children?: { text: string }[] }, childIndex: number) => {
+                    if (child.bold) {
+                      return <b key={childIndex}>{child.text}</b>;
+                    }
+                    if (child.italic) {
+                      return <i key={childIndex}>{child.text}</i>;
+                    }
+                    if (child.strikethrough) {
+                      return <s key={childIndex}>{child.text}</s>;
+                    }
+                    if (child.code) {
+                      return <code key={childIndex}>{child.text}</code>;
+                    }
+                    if (child.type === 'link' && child.children && child.children.length > 0) {
+                      return (
+                        <a key={childIndex} href={child.url} className="text-blue-500 underline">
+                          {child.children[0].text}
+                        </a>
+                      );
+                    }
+                    return child.text;
+                  })}
+                </p>
+              );
+            }
+            if (block.type === 'heading') {
+              const HeadingTag = block.level === 1 ? 'h2' : block.level === 2 ? 'h3' : 'h4';
+              return (
+                <HeadingTag
+                key={index}
+                className={`${
+                  block.level === 1
+                  ? 'text-4xl font-bold text-gray-900 dark:text-gray-300 mb-5'
+                  : block.level === 2
+                  ? 'text-3xl font-semibold text-gray-900 dark:text-gray-300 mb-5 border-t-2 border-gray-300 dark:border-gray-600 pt-5'
+                  : 'text-2xl font-medium text-gray-900 dark:text-gray-300 mb-5 border-t-2 border-gray-300 dark:border-gray-600 pt-5'
+                }`}
+                >
+                {block.children[0].text}
+                </HeadingTag>
+              );
+            }
+            if (block.type === 'list') {
+              const ListTag = block.format === 'ordered' ? 'ol' : 'ul';
+              return (
+                <ListTag
+                  key={index}
+                  className={block.format === 'ordered' ? 'list-decimal list-inside' : 'list-disc list-inside'}
+                >
+                  {block.children.map((item: { children: { text: string }[] }, itemIndex: number) => (
+                  <li key={itemIndex} className="text-gray-600 dark:text-gray-300">
+                    {item.children[0].text}
+                  </li>
+                  ))}
+                </ListTag>
+              );
+            }
+            return null;
+          })
         ) : (
-          <p>No hay contenido disponible.</p>
+          <p className="text-gray-600 dark:text-gray-400">No hay contenido detallado disponible.</p>
         )}
       </div>
     </div>
