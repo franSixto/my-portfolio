@@ -15,11 +15,11 @@ export default function AboutMeTeaser() {
       <motion.div 
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ delay: 0.3, duration: 0.8 }}
+      transition={{ delay: 0.6, duration: 0.8 }}
       className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center">
         <TitleH2
           title="A Bit About Me"
-          description=""
+          description="Here’s a little insight into the person behind the pixels."
         />
         <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-600 dark:text-gray-400">
           <strong>Born in a small town in southern Córdoba, Argentina</strong>, I’ve always carried big dreams and a deep passion for great design and technology.
