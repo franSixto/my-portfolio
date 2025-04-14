@@ -2,7 +2,7 @@
 
 // components/AboutMeTeaser.tsx
 import Link from "next/link";
-import { TitleH2 } from "./TitleH2";
+import { TitleH2 } from "@/components/common/TitleH2";
 import { PiIdentificationCardThin } from "react-icons/pi";
 import Image from "next/image";
 import { motion } from "framer-motion";

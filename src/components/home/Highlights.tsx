@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { JSX } from 'react/jsx-runtime';
-import { TitleH2 } from './TitleH2';
+import { TitleH2 } from '@/components/common/TitleH2';
 
 import {
     // Diseño

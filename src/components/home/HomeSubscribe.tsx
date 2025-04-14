@@ -2,7 +2,7 @@
 
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import ThreeSolarSystem from './ThreeSolarSystem'; // Asegúrate de que la ruta sea correcta
+import ThreeSolarSystem from "@/components/three/ThreeSolarSystem";
 
 const HomeSubscribe: React.FC = () => {
     const { ref, inView } = useInView({

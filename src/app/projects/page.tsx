@@ -1,6 +1,6 @@
 // app/projects/page.tsx
-import ProjectList from "@/components/ProjectList";
-import { TitleH1 } from '@/components/TitleH1';
+import ProjectList from "@/components/projects/ProjectList";
+import { TitleH1 } from "@/components/common/TitleH1";
 
 
 async function load() {

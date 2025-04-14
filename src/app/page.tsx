@@ -1,11 +1,11 @@
 "use client"; //Solo hasta que saque framer motion de aca y lo lleve a components
 
-import Hero from "@/components/Hero";
-import HomeSubscribe from "@/components/HomeSubscribe";
-import HomeServices from "@/components/HomeServices";
-import ContactCTA from "@/components/ContactCTA";
-import Highlights from "@/components/Highlights";
-import AboutMeTeaser from "@/components/AboutMeTeaser";
+import Hero from "@/components/home/Hero";
+import HomeSubscribe from "@/components/home/HomeSubscribe";
+import HomeServices from "@/components/home/HomeServices";
+import ContactCTA from "@/components/contact/ContactCTA";
+import Highlights from "@/components/home/Highlights";
+import AboutMeTeaser from "@/components/home/AboutMeTeaser";
 // import ClientsSlider from "@/components/ClientSlider";
 
 const Home = () => {

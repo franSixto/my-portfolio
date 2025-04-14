@@ -1,7 +1,7 @@
 "use client";
 
 import { RiArrowRightLine, RiDownloadLine } from "react-icons/ri";
-import ThreeHero from "@/components/ThreeHero"; // Ensure ThreeHero is a default export in its file
+import ThreeHero from "@/components/three/ThreeHero"; // Ensure ThreeHero is a default export in its file
 import { motion } from "framer-motion";
 import Button from "@/components/theme/Button"; // Adjust the import path as necessary
 import { Suspense } from "react";

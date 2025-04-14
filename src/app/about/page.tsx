@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { TitleH1 } from '@/components/TitleH1';
+import { TitleH1 } from "@/components/common/TitleH1";
 
 const About = () => {
   const [ref, inView] = useInView({ threshold: 0.1 });

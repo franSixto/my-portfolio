@@ -1,5 +1,5 @@
-import ContactForm from "@/components/ContactForm";
-import { TitleH1 } from '@/components/TitleH1';
+import ContactForm from "@/components/contact/ContactForm";
+import { TitleH1 } from "@/components/common/TitleH1";
 import Link from "next/link";
 import { SiLinkedin } from 'react-icons/si';
 

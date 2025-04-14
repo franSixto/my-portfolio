@@ -1,8 +1,8 @@
 // components/Services.tsx
 import { motion } from "framer-motion";
-import ThreeSpaceship from "@/components/ThreeSpaceship";
+import ThreeSpaceship from "@/components/three/ThreeSpaceship";
 import { FiPenTool, FiCode, FiUsers, FiTrendingUp } from "react-icons/fi";
-import { TitleH2 } from "@/components/TitleH2";
+import { TitleH2 } from "@/components/common/TitleH2";
 
 const services = [
     {

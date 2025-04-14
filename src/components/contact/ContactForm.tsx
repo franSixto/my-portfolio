@@ -2,9 +2,9 @@
 
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import Label from "./theme/Label";
-import ErrorMessage from "./theme/ErrorMessage";
-import SubmitButton from "./theme/SubmitButton";
+import Label from "@/components/theme/Label";
+import ErrorMessage from "@/components/theme/ErrorMessage";
+import SubmitButton from "@/components/theme/SubmitButton";
 import { RiCheckLine } from "react-icons/ri";
 import Link from "next/link";
 

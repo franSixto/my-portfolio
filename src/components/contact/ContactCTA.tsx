@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import Button from "./theme/Button"; // Importa el componente Button
-import { TitleH2 } from "./TitleH2";
+import Button from "@/components/theme/Button";
+import { TitleH2 } from "@/components/common/TitleH2";
 
 export default function ContactCTA() {
     return (

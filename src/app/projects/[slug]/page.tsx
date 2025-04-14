@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import { TitleH1 } from '@/components/TitleH1';
+import { TitleH1 } from "@/components/common/TitleH1";
 
 const fetchProjectBySlug = async (slug: string) => {
   const res = await fetch(

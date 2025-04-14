@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import ThemeSelect from "./theme/ThemeSelect";
+import ThemeSelect from "@/components/theme/ThemeSelect";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import NavMobile from "./NavMobile";
+import NavMobile from "@/components/common/NavMobile";
 import { RiMenuLine } from "react-icons/ri";
 
 export default function Header() {

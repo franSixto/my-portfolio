@@ -1,4 +1,4 @@
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCard from "@/components/projects/ProjectCard";
 
 // Tipo para los proyectos basado en el esquema proporcionado
 type Project = {

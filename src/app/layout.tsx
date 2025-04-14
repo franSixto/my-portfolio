@@ -1,6 +1,6 @@
 import { ThemeProvider } from "next-themes";
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
 import type { Metadata } from "next";
 import { Work_Sans } from 'next/font/google';
 import { SpeedInsights } from "@vercel/speed-insights/next"
