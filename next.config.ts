@@ -7,8 +7,13 @@ const nextConfig: NextConfig = {
       {
         hostname: "localhost",
         port: "1337",
-      }
-    ]
+      },
+      {
+        protocol: "https",
+        hostname: "my-portfolio-cms-production.up.railway.app",
+        pathname: "/uploads/**",
+      },
+    ],
   },
 };
 
