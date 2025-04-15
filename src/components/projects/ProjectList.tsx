@@ -2,10 +2,7 @@ import ProjectCard from "@/components/projects/ProjectCard";
 import { Project } from "@/app/api/projects/projectsService";
 
 export default async function ProjectsPageWithComponents({ projects }: { projects: Project[] }) {
-    const safeProjects = projects || []; 
-  
-    console.log("Safe Projects:", safeProjects); 
-  
+    const safeProjects = projects || [];   
     return (
       <div className="container mx-auto px-4 py-12 z-2">
         {safeProjects.length === 0 ? (
@@ -13,7 +10,6 @@ export default async function ProjectsPageWithComponents({ projects }: { project
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {safeProjects.map((project) => {
-              console.log("Project:", project); 
   
               const imageUrl = project.Image?.url
                 ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${project.Image.url}`

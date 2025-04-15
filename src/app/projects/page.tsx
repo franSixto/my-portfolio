@@ -18,7 +18,7 @@ async function Projects() {
                     title="Projects"
                     description="Here you can find some of the projects I have worked on."
                 />
-                <ProjectList projects={projects} />
+                <ProjectList projects={projects.projects} />
             </div>
         </div>
     );

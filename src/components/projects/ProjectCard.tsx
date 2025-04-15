@@ -20,15 +20,7 @@ export default function ProjectCard({
   logoAlt = "",
   slug,
 }: ProjectCardProps) {
-  console.log("ProjectCard props:", {
-    title,
-    description,
-    imageUrl,
-    imageAlt,
-    logoUrl,
-    logoAlt,
-    slug,
-  });
+
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">

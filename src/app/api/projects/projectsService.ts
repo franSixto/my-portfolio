@@ -18,11 +18,13 @@ type Project = {
     LongDescription?: Array<{ type: string; children: any[]; level?: number; format?: string }>;
 };
 
-// Función para obtener todos los proyectos
-export const fetchProjects = async (): Promise<Project[]> => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=*`);
+// Función para obtener todos los proyectos con soporte de paginación
+export const fetchProjects = async (page = 1, pageSize = 12): Promise<{ projects: Project[]; meta: any }> => {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
+    );
     const data = await res.json();
-    return data.data;
+    return { projects: data.data, meta: data.meta };
 };
 
 // Función para obtener un proyecto por slug
