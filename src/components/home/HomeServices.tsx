@@ -1,4 +1,5 @@
-// components/Services.tsx
+"use client";
+
 import { motion } from "framer-motion";
 import ThreeSpaceship from "@/components/three/ThreeSpaceship";
 import { FiPenTool, FiCode, FiUsers, FiTrendingUp } from "react-icons/fi";

@@ -1,5 +1,3 @@
-"use client"; //Solo hasta que saque framer motion de aca y lo lleve a components
-
 import Hero from "@/components/home/Hero";
 import HomeSubscribe from "@/components/home/HomeSubscribe";
 import HomeServices from "@/components/home/HomeServices";
