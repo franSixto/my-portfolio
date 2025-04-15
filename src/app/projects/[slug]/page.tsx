@@ -1,14 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import { TitleH1 } from "@/components/common/TitleH1";
-
-const fetchProjectBySlug = async (slug: string) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?filters[slug][$eq]=${slug}&populate=*`
-  );
-  const data = await res.json();
-  return data.data[0]; // Strapi devuelve un array, tomamos el primer elemento
-};
+import { fetchProjectBySlug } from "@/app/api/projects/projectsService";
 
 // Genera metadatos para la página del proyecto
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

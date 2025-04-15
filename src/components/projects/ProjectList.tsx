@@ -1,23 +1,5 @@
 import ProjectCard from "@/components/projects/ProjectCard";
-
-// Tipo para los proyectos basado en el esquema proporcionado
-type Project = {
-    id: number;
-
-    Title: string;
-    Description: string;
-    slug: string;
-    Image: {
-        url: string;
-        alternativeText?: string;
-    } | null;
-    Logo: {
-        url: string;
-        alternativeText?: string;
-    } | null;
-    publishedAt: string;
-
-};
+import { Project } from "@/app/api/projects/projectsService";
 
 export default async function ProjectsPageWithComponents({ projects }: { projects: Project[] }) {
     const safeProjects = projects || []; 

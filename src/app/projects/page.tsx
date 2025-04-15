@@ -1,13 +1,10 @@
 // app/projects/page.tsx
 import ProjectList from "@/components/projects/ProjectList";
 import { TitleH1 } from "@/components/common/TitleH1";
-
+import { fetchProjects } from "@/app/api/projects/projectsService";
 
 async function load() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=*`);
-    const data = await res.json();
-    console.log("Data fetched:", data); // Console log para verificar la data
-    return data;
+    return await fetchProjects();
 }
 
 async function Projects() {
@@ -21,7 +18,7 @@ async function Projects() {
                     title="Projects"
                     description="Here you can find some of the projects I have worked on."
                 />
-                <ProjectList projects={projects.data} />
+                <ProjectList projects={projects} />
             </div>
         </div>
     );
