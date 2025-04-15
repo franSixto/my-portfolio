@@ -18,8 +18,21 @@ type Project = {
     LongDescription?: Array<{ type: string; children: any[]; level?: number; format?: string }>;
 };
 
+// Definimos un tipo para la paginación
+interface Pagination {
+    page: number;
+    pageSize: number;
+    pageCount: number;
+    total: number;
+}
+
+// Definimos un tipo para los metadatos
+interface Meta {
+    pagination: Pagination;
+}
+
 // Función para obtener todos los proyectos con soporte de paginación
-export const fetchProjects = async (page = 1, pageSize = 12): Promise<{ projects: Project[]; meta: any }> => {
+export const fetchProjects = async (page = 1, pageSize = 12): Promise<{ projects: Project[]; meta: Meta }> => {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
     );

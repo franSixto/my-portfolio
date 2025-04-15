@@ -33,7 +33,7 @@ import {
   
     // Gestión y colaboración
     SiTrello,
-    SiNotion,
+    SiJirasoftware,
     SiSlack,
     SiZoom,
     SiMiro,
@@ -89,7 +89,7 @@ import {
   
     // 📋 Gestión y colaboración
     { name: 'Trello', icon: <SiTrello className="text-blue-500" />, category: 'Collaboration' },
-    { name: 'Notion', icon: <SiNotion />, category: 'Collaboration' },
+    { name: 'Jira', icon: <SiJirasoftware className="text-blue-500" />, category: 'Collaboration' },
     { name: 'Slack', icon: <SiSlack className="text-fuchsia-600" />, category: 'Collaboration' },
     { name: 'Zoom', icon: <SiZoom className="text-blue-400" />, category: 'Collaboration' },
     { name: 'Google Meet', icon: <SiGooglemeet className="text-green-500" />, category: 'Collaboration' },
@@ -117,11 +117,7 @@ function calculateDelay(tool: Tool): number {
 
 export default function Highlights() {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: -30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1, ease: 'easeOut' }}
+    <section
       className="container mx-auto px-6 my-12"
     >
         <TitleH2
@@ -142,6 +138,6 @@ export default function Highlights() {
           </motion.li>
         ))}
       </ul>
-    </motion.section>
+    </section>
   );
 }

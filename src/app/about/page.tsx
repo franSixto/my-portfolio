@@ -41,7 +41,7 @@ const About = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.8 }}
           >
-            Over the years, I’ve led design and development teams, coordinated priorities, reviewed code and mockups, and built scalable solutions across websites, CRMs, and portals. I enjoy mentoring others, improving team workflows, and balancing creativity with clarity in every step of the process.
+            Over the years, I&apos;ve led design and development teams, coordinated priorities, reviewed code and mockups, and built scalable solutions across websites, CRMs, and portals. I enjoy mentoring others, improving team workflows, and balancing creativity with clarity in every step of the process.
           </motion.p>
           <motion.p
             className="text-lg leading-relaxed"
@@ -50,7 +50,7 @@ const About = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.8 }}
           >
-            What drives me is the pursuit of intuitive experiences — the kind where structure, interaction, and aesthetics align naturally. Whether I’m working in Figma, VS Code, or in a team call, I’m always thinking about how to make things work better, feel smoother, and serve users with purpose.
+            What drives me is the pursuit of intuitive experiences — the kind where structure, interaction, and aesthetics align naturally. Whether I&apos;m working in Figma, VS Code, or in a team call, I&apos;m always thinking about how to make things work better, feel smoother, and serve users with purpose.
           </motion.p>
           <motion.p
             className="text-lg leading-relaxed"
@@ -59,7 +59,7 @@ const About = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.8 }}
           >
-            Outside of work, I’m into sports, spending time with my family and friends, and enjoying simple moments offline. I find a lot of inspiration in everyday life — conversations, shared meals, or just being present with the people I care about.
+            Outside of work, I&apos;m into sports, spending time with my family and friends, and enjoying simple moments offline. I find a lot of inspiration in everyday life — conversations, shared meals, or just being present with the people I care about.
           </motion.p>
           <motion.p
             className="text-lg leading-relaxed"
