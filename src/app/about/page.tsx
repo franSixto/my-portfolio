@@ -32,7 +32,7 @@ const About = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.8 }}
           >
-            I'm Francisco Sixto — a UX/UI designer with a solid technical background. I work at the intersection of design and front-end development, creating digital experiences that are clear, efficient, and user-focused. I believe in good systems, smart iteration, and practical tools that help ship quality without overcomplicating things.
+            I&apos;m Francisco Sixto — a UX/UI designer with a solid technical background. I work at the intersection of design and front-end development, creating digital experiences that are clear, efficient, and user-focused. I believe in good systems, smart iteration, and practical tools that help ship quality without overcomplicating things.
           </motion.p>
           <motion.p
             className="text-lg leading-relaxed"

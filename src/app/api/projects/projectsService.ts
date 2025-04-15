@@ -1,6 +1,19 @@
 // src/app/api/projects/projectsService.ts
 
 // Tipo para los proyectos basado en el esquema proporcionado
+
+// Definimos un tipo más específico para los elementos de children
+export interface Child {
+    bold?: boolean;
+    italic?: boolean;
+    strikethrough?: boolean;
+    code?: boolean;
+    type?: string;
+    text: string;
+    url?: string;
+    children?: Child[];
+}
+
 type Project = {
     id: number;
     Title: string;
@@ -15,7 +28,7 @@ type Project = {
         alternativeText?: string;
     } | null;
     publishedAt: string;
-    LongDescription?: Array<{ type: string; children: any[]; level?: number; format?: string }>;
+    LongDescription?: Array<{ type: string; children: Child[]; level?: number; format?: string }>;
 };
 
 // Definimos un tipo para la paginación

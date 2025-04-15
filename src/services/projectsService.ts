@@ -15,7 +15,7 @@ type Project = {
         alternativeText?: string;
     } | null;
     publishedAt: string;
-    LongDescription?: Array<{ type: string; children: any[]; level?: number; format?: string }>;
+    LongDescription?: Array<{ type: string; children: { text: string }[]; level?: number; format?: string }>;
 };
 
 // Función para obtener todos los proyectos
