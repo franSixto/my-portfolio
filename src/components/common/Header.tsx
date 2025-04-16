@@ -96,7 +96,9 @@ export default function Header() {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            <ThemeSelect />
+                            <div className="w-[50px] h-[50px] block">
+                                <ThemeSelect />
+                            </div>
                         </motion.div>
                         <div className="lg:hidden">
                             <motion.button

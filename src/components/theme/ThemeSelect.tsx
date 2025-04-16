@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { RiSunLine, RiMoonLine } from "react-icons/ri";
+import { motion } from 'framer-motion';
 
 export default function ThemeSelect() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -14,7 +15,11 @@ export default function ThemeSelect() {
   if (!mounted) return null; // Evitar problemas de hidratación
 
   return (
-    <div className="w-[50px] h-[50px]">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.5 }}>
       <button
         onClick={() => {
           const newTheme = resolvedTheme === "light" ? "dark" : "light";
@@ -34,6 +39,6 @@ export default function ThemeSelect() {
           </span>
         )}
       </button>
-    </div>
+    </motion.div>
   );
 }

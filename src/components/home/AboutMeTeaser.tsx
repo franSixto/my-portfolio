@@ -1,15 +1,10 @@
 "use client";
 
-// components/AboutMeTeaser.tsx
-import Link from "next/link";
 import { TitleH2 } from "@/components/common/TitleH2";
-import { PiIdentificationCardThin } from "react-icons/pi";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Button from "@/components/theme/Button";
-import { RiPoliceBadgeFill, RiVerifiedBadgeFill, RiVerifiedBadgeLine } from "react-icons/ri";
-
-
+import { RiVerifiedBadgeLine } from "react-icons/ri";
 
 export default function AboutMeTeaser() {
 
@@ -26,7 +21,6 @@ export default function AboutMeTeaser() {
         />
         <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-600 dark:text-gray-400">
           <strong>Born in a small town in southern Córdoba, Argentina</strong>, I’ve always carried big dreams and a deep passion for great design and technology.
-
           <br /><br />When I’m not creating digital experiences, you’ll find me staying active with sports—or cheering for River Plate with heart and soul. <br /><br />{" "}
           <span className="text-red-600 dark:text-red-500 font-semibold">
             That’s why red is the primary color of this site
@@ -49,7 +43,6 @@ export default function AboutMeTeaser() {
             <RiVerifiedBadgeLine className="w-5 h-5" />
           </span>
         </Button>
-
       </motion.div>
     </section>
   );

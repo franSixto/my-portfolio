@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Button from "@/components/theme/Button";
 import { TitleH2 } from "@/components/common/TitleH2";
-import { RiMailAiLine, RiUserFollowFill } from "react-icons/ri";
+import { RiMailAiLine } from "react-icons/ri";
 
 export default function ContactCTA() {
     return (
