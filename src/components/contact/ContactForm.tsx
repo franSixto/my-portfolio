@@ -7,6 +7,7 @@ import ErrorMessage from "@/components/theme/ErrorMessage";
 import SubmitButton from "@/components/theme/SubmitButton";
 import { RiCheckLine } from "react-icons/ri";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 
 type FormData = {
@@ -42,7 +43,20 @@ export default function ContactForm() {
 
   return (
     <div className="w-[100%] flex items-center justify-items-center p-4 pb-20 gap-16 font-[family-name:var(--font-geist-sans)] z-2">
-      <div className="max-w-full sm:max-w-md lg:max-w-lg mx-auto w-300 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl shadow-md ">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.5 }}
+        whileHover={{ scale: 1.02 }}
+        id="contact-form"
+        role="form"
+        aria-label="Contact Form"
+        aria-live="polite"
+        aria-busy={isSubmitting}
+        tabIndex={0}
+        // className="max-w-full sm:max-w-md lg:max-w-lg mx-auto w-300 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl shadow-md "
+       className="max-w-full sm:max-w-md lg:max-w-lg mx-auto w-300 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl shadow-md ">
         <h2 className="text-2xl font-bold mb-4 dark:text-gray-100">Talk with me</h2>
         {submitted ? (
           <div className="flex flex-col items-center p-5 rounded-2xl bg-green-600/10">
@@ -98,7 +112,7 @@ export default function ContactForm() {
             <SubmitButton isSubmitting={isSubmitting} />
           </form>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }

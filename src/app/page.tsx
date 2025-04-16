@@ -18,7 +18,6 @@ const Home = () => {
         
         {/* <ClientsSlider /> */}
        
-        
         <ContactCTA />
       </main>
     </div>

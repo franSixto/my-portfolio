@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type ProjectCardProps = {
   title: string;
@@ -23,11 +26,22 @@ export default function ProjectCard({
 
 
   return (
-    <Link
-      href={`/projects/${slug}`} // Usamos el slug para construir la URL
-      className="block"
+    <motion.div
+    initial={{ opacity: 0, scale: 0.95 }}
+    animate={{ opacity: 1, scale: 1 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 0.95 }}
+    transition={{ duration: 0.5 }}
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    
     >
+    
       <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 h-full flex flex-col">
+      <Link
+      className="flex flex-col h-full"
+      href={`/projects/${slug}`} // Usamos el slug para construir la URL
+    >
       {/* Imagen principal del proyecto */}
       <div className="relative h-48 w-full">
         {logoUrl && (
@@ -67,7 +81,9 @@ export default function ProjectCard({
         {description}
         </p>
       </div>
+      </Link>
       </div>
-    </Link>
+
+    </motion.div>
   );
 }
