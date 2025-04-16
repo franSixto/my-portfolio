@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
                     to="/projects"
                     >
                     My Work
-                    <span className="ml-3">
+                    <span className="ml-1">
                         <RiArrowRightLine className="w-5 h-5" />
                     </span>
                     </Button>
@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
                     target="_blank"
                     >
                     Resume
-                    <span className="ml-3">
+                    <span className="ml-1">
                         <RiDownloadLine className="w-5 h-5" />
                     </span>
                     </Button>

@@ -9,9 +9,9 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ to, children, className = '', variant = "default", target = "_self" }) => {
-    const baseStyles = "flex items-center px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:scale-105 ease-in-out";
-    const defaultStyles = "text-white bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600";
-    const outlinedStyles = "text-red-500 border border-red-500 hover:bg-red-500 hover:text-white dark:text-red-500 dark:border-red-500 dark:hover:bg-red-500 dark:hover:text-white";
+    const baseStyles = "flex items-center px-6 py-3 rounded-lg transition transform duration-300 hover:scale-105 ease-in-out";
+    const defaultStyles = "text-gray-800 dark:text-gray-200 bg-red-100 hover:bg-red-200 dark:bg-red-500/10 dark:hover:bg-red-500/20";
+    const outlinedStyles = "text-gray-800 dark:text-gray-200 bg-red-100 hover:bg-red-200 dark:bg-red-500/10 dark:hover:bg-red-500/20";
 
     const variantStyles = variant === "outlined" ? outlinedStyles : defaultStyles;
 
