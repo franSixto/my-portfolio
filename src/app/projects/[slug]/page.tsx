@@ -96,7 +96,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                       if (child.code) return <code key={childIndex}>{child.text}</code>;
                       if (child.type === 'link' && child.children?.length) {
                         return (
-                          <a key={childIndex} href={child.url} className="text-blue-500 underline">
+                          <a key={childIndex} href={child.url} target="blank" rel="noopener noreferrer" className="text-blue-500 underline">
                             {child.children.map((nestedChild: Child, nestedIndex: number) => (
                               <span key={nestedIndex}>{nestedChild.text}</span>
                             ))}
