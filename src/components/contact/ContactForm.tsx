@@ -64,7 +64,7 @@ export default function ContactForm() {
             <p className="text-green-600">Message sent successfully.</p>
             <Link
               href="/"
-              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 dark:focus:ring-blue-500"
+              className="mt-4 px-4 py-2 bg-gray-500/20 text-gray-900 dark:text-white  rounded-lg hover:bg-gray-700/20 focus:outline-none focus:ring focus:ring-blue-300 dark:focus:ring-blue-500"
             >
               Go to Home
             </Link>
@@ -93,7 +93,7 @@ export default function ContactForm() {
               <input
                 type="email"
                 {...register("email", { required: "Email is required", pattern: { value: /^\S+@\S+$/, message: "Invalid email" } })}
-                className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300 dark:focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
+                className="w-full p-2 border rounded-lg focus:ring focus:ring-red-300 dark:focus:ring-red-500/20 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
                 placeholder="your@email.com"
               />
               {errors.email && <ErrorMessage message={errors.email.message || ""} />}
@@ -103,13 +103,13 @@ export default function ContactForm() {
               <Label htmlFor="message" text="Message" />
               <textarea
                 {...register("message", { required: "Message is required" })}
-                className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300 dark:focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
+                className="w-full p-2 border rounded-lg focus:ring focus:ring-red-300 dark:focus:ring-red-500/20 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
                 rows={4}
                 placeholder="Your message"
               ></textarea>
               {errors.email && <ErrorMessage message={errors.email.message || ""} />}
             </div>
-            <SubmitButton isSubmitting={isSubmitting} />
+            <SubmitButton isSubmitting={isSubmitting} submittingText={"Sending..."} defaultText={"Send message"} />
           </form>
         )}
       </motion.div>
