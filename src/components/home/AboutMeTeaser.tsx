@@ -20,10 +20,11 @@ export default function AboutMeTeaser() {
         transition={{ delay: 0.6, duration: 0.8 }}
         className="dark:bg-gray-900/30 bg-gray-200/30 backdrop-blur-xl rounded-2xl p-8 max-w-2xl mx-auto text-start flex flex-col items-center justify-center">
         <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-600 dark:text-gray-400">
-          <strong>Born in a small town in southern Córdoba, Argentina</strong>, I&quot;ve always carried big dreams and a deep passion for great design and technology.
+          <strong>Born in a small town in southern Córdoba, Argentina</strong>, I’ve always carried big dreams and a deep passion for great design and technology.
+
         </p>
         <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-600 dark:text-gray-400">
-          When I&quot;m not creating digital experiences, you&quot;ll find me staying active with sports—or cheering for River Plate with heart and soul.
+          When I’m not creating digital experiences, you’ll find me staying active with sports—or cheering for River Plate with heart and soul.
         </p>
         <div className="flex row items-center text-gray-600 dark:text-gray-400 shadow-lg p-3 bg-gray-50 dark:bg-gray-950 rounded-lg mb-6">
           <Image
@@ -35,9 +36,9 @@ export default function AboutMeTeaser() {
           />
           <div className="italic">
             <span className="text-red-600 dark:text-red-500 font-semibold">
-              " That&quot;s why red is the primary color of this site
+            &quot; That’s why red is the primary color of this site
             </span>
-            —it&quot;s part of who I am. "
+            —it’s part of who I am. &quot;
           </div>
         </div>
 
