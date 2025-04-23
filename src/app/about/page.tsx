@@ -18,7 +18,7 @@ const About = () => {
         />
         <motion.div
           ref={ref}
-          className="space-y-8 max-w-4xl mx-auto"
+          className="space-y-8 max-w-3xl mx-auto"
         >
           <motion.p
             className="text-lg leading-relaxed"

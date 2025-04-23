@@ -73,7 +73,7 @@ export default function Services() {
                                 initial={{ opacity: 0, y: -30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                                className="bg-white dark:bg-gray-900/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow z-2"
+                                className="dark:bg-gray-900/30 bg-white/30 backdrop-blur-xl rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow z-2"
                             >
                                 <div className="text-4xl flex justify-center mb-4 text-red-600 dark:text-red-500">{service.icon}</div>
                                 <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">{service.title}</h3>

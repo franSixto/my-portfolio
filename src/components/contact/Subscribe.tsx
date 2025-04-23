@@ -68,14 +68,14 @@ export default function Subscribe() {
     return (
         <div className="w-full flex justify-center">
             {submitted ? (
-                <div className="absolute bottom-4 md:bottom-7 flex flex-row items-center p-1 pe-4 rounded-2xl bg-green-600/10">
+                <div className="absolute bottom-4 md:bottom-7 flex flex-row items-center p-1 pe-4 rounded-2xl bg-green-600/10 backdrop-blur-xl">
                     <RiCheckLine className="w-[50px] h-[50px] text-green-600 text-2xl m-2 bg-green-600/10 rounded-full p-2" />
                     <p className="text-green-600">Thank you for subscribing!</p>
                 </div>
             ) : (
                 <motion.form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="absolute -bottom-14 md:bottom-5 flex items-center flex-col gap-4 md:flex-row justify-between bg-gray-950/90 p-4 rounded-2xl"
+                    className="absolute -bottom-14 md:bottom-5 flex items-center flex-col gap-4 md:flex-row justify-between dark:bg-gray-900/30 bg-gray-200/30 backdrop-blur-xl  p-4 rounded-2xl"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.5, duration: 1, ease: "easeOut" }}
