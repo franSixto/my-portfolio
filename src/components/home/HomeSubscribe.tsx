@@ -3,6 +3,7 @@
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import ThreeSolarSystem from "@/components/three/ThreeSolarSystem";
+import Subscribe from '../contact/Subscribe';
 
 const HomeSubscribe: React.FC = () => {
     const { ref, inView } = useInView({
@@ -62,29 +63,8 @@ const HomeSubscribe: React.FC = () => {
                 <ThreeSolarSystem />
                 
             </motion.div>
-            <div className='relative w-full flex justify-center'>
-            <motion.form
-                className="absolute -bottom-7 md:bottom-9  flex items-center flex-col gap-4 md:flex-row justify-between bg-gray-950/90 border border-red-500 p-4 rounded-2xl"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5, duration: 1, ease: "easeOut" }}
-            >
-                <motion.input
-                    whileFocus={{ scale: 1.02 }}
-                    type="email"
-                    placeholder="Your email address"
-                    className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-red-500 bg-gray-900/80 dark:bg-black dark:border-white text-white dark:text-gray-100"
-                />
-                <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    type="submit"
-                    className="px-4 py-2 w-full text-sm font-medium text-white bg-red-500 hover:bg-red-600 dark:bg-red-500 dark:hover:bg-red-600 rounded-lg shadow-md transition duration-300 ease-in-out"
-                >
-                    Subscribe
-                </motion.button>
-            </motion.form>
-            </div>
+            <Subscribe />
+            {/* Subscribe Form */}
             <motion.span
                 className="absolute -top-3 left-15 lg:left-20 bg-red-100 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-bold shadow-lg transform -rotate-2 rounded-md"
                 animate={{

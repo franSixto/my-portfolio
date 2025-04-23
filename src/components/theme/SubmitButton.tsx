@@ -11,8 +11,8 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ isSubmitting }) => {
       className={classNames(
         'px-6 py-3 text-white font-bold rounded-md  inline-flex items-center transition-colors duration-300 ease-in-out',
         {
-          'bg-red-600 hover:bg-red-500': !isSubmitting,
-          'bg-red-800 cursor-not-allowed': isSubmitting,
+          'text-gray-800 dark:text-gray-200 bg-red-100 hover:bg-red-200 dark:bg-red-500/10 dark:hover:bg-red-500/20': !isSubmitting,
+          'cursor-not-allowed': isSubmitting,
         }
       )}
       disabled={isSubmitting}

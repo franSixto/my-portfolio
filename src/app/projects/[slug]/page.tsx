@@ -76,8 +76,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`}
               alt={imageAlt}
-              width={1920}
-              height={1080}
+              width={1366}
+              height={792}
               className="rounded-4xl object-cover shadow-lg"
             />
           </div>
