@@ -105,7 +105,7 @@ export default function Header() {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 onClick={toggleMenu}
-                                className="p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full bg-gray-50 dark:bg-gray-800"
+                                className="p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full bg-red-100 dark:bg-red-500/10"
                             >
                                 <RiMenuLine />
                             </motion.button>

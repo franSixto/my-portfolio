@@ -5,7 +5,7 @@ import { useState } from "react";
 import Label from "@/components/theme/Label";
 import ErrorMessage from "@/components/theme/ErrorMessage";
 import SubmitButton from "@/components/theme/SubmitButton";
-import { RiCheckLine } from "react-icons/ri";
+import { RiCheckLine, RiMailSendLine } from "react-icons/ri";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -109,7 +109,7 @@ export default function ContactForm() {
               ></textarea>
               {errors.email && <ErrorMessage message={errors.email.message || ""} />}
             </div>
-            <SubmitButton isSubmitting={isSubmitting} submittingText={"Sending..."} defaultText={"Send message"} />
+            <SubmitButton isSubmitting={isSubmitting} submittingText={"Sending..."} defaultText={"Send message"} Icon={RiMailSendLine} />
           </form>
         )}
       </motion.div>

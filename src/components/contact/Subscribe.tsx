@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import SubmitButton from "@/components/theme/SubmitButton";
 import ErrorMessage from "@/components/theme/ErrorMessage";
-import { RiCheckLine } from "react-icons/ri";
+import { RiCheckLine, RiCheckboxCircleLine} from "react-icons/ri";
 
 type FormData = {
     email: string;
@@ -75,7 +75,7 @@ export default function Subscribe() {
             ) : (
                 <motion.form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="absolute -bottom-14 md:bottom-5 flex items-center flex-col gap-4 md:flex-row justify-between dark:bg-gray-900/30 bg-gray-200/30 backdrop-blur-xl  p-4 rounded-2xl"
+                    className="absolute -bottom-14 md:bottom-5 flex items-center flex-col gap-4 md:flex-row justify-between bg-gray-900/30 backdrop-blur-xl p-4 rounded-2xl border border-black"
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.5, duration: 1, ease: "easeOut" }}
@@ -100,7 +100,7 @@ export default function Subscribe() {
                         className="hidden"
                         {...register("honey", { validate: (value) => value === "" })}
                     />
-                    <SubmitButton isSubmitting={isSubmitting} submittingText={"Subscribing..."} defaultText={"Subscribe"} />
+                    <SubmitButton isSubmitting={isSubmitting} submittingText={"Subscribing..."} defaultText={"Subscribe"} Icon={RiCheckboxCircleLine} />
                 </motion.form>
             )}
         </div>

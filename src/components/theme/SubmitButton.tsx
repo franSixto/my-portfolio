@@ -1,12 +1,14 @@
 import classNames from 'classnames';
+import { IconType } from 'react-icons';
 
 interface SubmitButtonProps {
   isSubmitting: boolean;
   submittingText: string;
   defaultText: string;
+  Icon?: IconType;
 }
 
-const SubmitButton: React.FC<SubmitButtonProps> = ({ isSubmitting, submittingText, defaultText }) => {
+const SubmitButton: React.FC<SubmitButtonProps> = ({ isSubmitting, submittingText, defaultText, Icon }) => {
   return (
     <button
       type="submit"
@@ -35,7 +37,10 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ isSubmitting, submittingTex
           {submittingText}
         </>
       ) : (
-        defaultText
+        <>
+          {defaultText}
+          {Icon && <Icon className="ms-2" />}
+        </>
       )}
     </button>
   );
