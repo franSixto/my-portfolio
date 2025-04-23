@@ -50,9 +50,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   } = project;
 
   const imageUrl = image?.url || "/default-image.png";
-  const imageAlt = image?.alternativeText || "Imagen por defecto";
+  const imageAlt = image?.alternativeText || "Default image of the project";
   const logoUrl = logo?.url || "/default-logo.png";
-  const logoAlt = logo?.alternativeText || "Logo por defecto";
+  const logoAlt = logo?.alternativeText || "Default Logo of the project";
 
   return (
     <article className="dark:bg-gray-950">
@@ -78,7 +78,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               alt={imageAlt}
               width={1366}
               height={792}
-              className="rounded-4xl object-cover shadow-lg"
+              className="rounded-3xl object-cover shadow-lg"
             />
           </div>
         )}
