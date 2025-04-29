@@ -25,7 +25,7 @@ export default function Header() {
                 <nav className="container mx-auto flex justify-between items-center px-6">
                     <Link href="/">
                         <Image
-                            className="dark:invert"
+                            className="dark:invert rotate-350"
                             src="/logo.svg"
                             alt="Fran Sixto"
                             width={180}

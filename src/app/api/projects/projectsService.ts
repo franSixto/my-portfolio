@@ -1,7 +1,4 @@
 // src/app/api/projects/projectsService.ts
-
-// Tipo para los proyectos basado en el esquema proporcionado
-
 // Definimos un tipo más específico para los elementos de children
 export interface Child {
     bold?: boolean;

@@ -11,7 +11,7 @@ type ProjectCardProps = {
   imageAlt?: string;
   logoUrl: string | null;
   logoAlt?: string;
-  slug: string; // Cambiamos projectUrl por slug
+  slug: string; 
 };
 
 export default function ProjectCard({

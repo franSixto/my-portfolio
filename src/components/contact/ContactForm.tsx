@@ -107,7 +107,7 @@ export default function ContactForm() {
                 rows={4}
                 placeholder="Your message"
               ></textarea>
-              {errors.email && <ErrorMessage message={errors.email.message || ""} />}
+              {errors.message && <ErrorMessage message={errors.message.message || ""} />}
             </div>
             <SubmitButton isSubmitting={isSubmitting} submittingText={"Sending..."} defaultText={"Send message"} Icon={RiMailSendLine} />
           </form>
