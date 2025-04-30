@@ -10,7 +10,7 @@ const About = () => {
   const [ref, inView] = useInView({ threshold: 0.1 });
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-200 min-h-screen py-15">
+    <div className="bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-200 min-h-screen py-15">
       <div className="container mx-auto px-6">
         <TitleH1
           title="About Me"
