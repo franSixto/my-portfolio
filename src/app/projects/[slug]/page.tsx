@@ -75,7 +75,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         {logoUrl && (
           <div className="flex flex-row items-center justify-between max-w-2xl mx-auto my-6 p-3 ps-5 bg-gray-100 dark:bg-gray-900 rounded-full">
-            <div className="relative text-gray-700 pe-2">
+            <div className="relative text-gray-700 dark:text-gray-300 pe-2">
             <span className="text-lg font-medium">This project was made for</span>
             </div>
             <Image
@@ -89,7 +89,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         )}
 
         {imageUrl && (
-          <div className="relative w-full mx-auto mb-16">
+          <div className="relative max-w-2xl mx-auto mb-16">
             <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`}
               alt={imageAlt}
