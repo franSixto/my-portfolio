@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import { TitleH1 } from "@/components/common/TitleH1";
 import { fetchProjectBySlug } from "@/app/api/projects/projectsService";
 import type { Child } from "@/app/api/projects/projectsService";
 
