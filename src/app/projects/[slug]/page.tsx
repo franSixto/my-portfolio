@@ -57,22 +57,40 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <article className="dark:bg-gray-950">
       <div className="container mx-auto px-6 py-12">
-        <TitleH1 title={title} description={description} />
+      <h1
+        className="text-4xl max-w-2xl mx-auto lg:text-5xl xl:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 text-transparent bg-clip-text uppercase mb-2"
+        // initial={{ scale: 0.8 }}
+        // whileInView={inView ? { scale: 1 } : {}}
+        // transition={{ duration: 0.5 }}
+      >
+        {title}
+      </h1>
+      <p
+        className="text-xl max-w-2xl mx-auto leading-relaxed dark:text-gray-400"
+        // initial={{ opacity: 0 }}
+        // whileInView={inView ? { opacity: 1 } : {}}
+        // transition={{ delay: 0.3, duration: 0.8 }}
+      >
+        {description}
+      </p>
 
         {logoUrl && (
-          <div className="flex justify-center mb-6">
+          <div className="flex flex-row items-center justify-between max-w-2xl mx-auto my-6 p-3 ps-5 bg-gray-100 rounded-full">
+            <div className="relative text-gray-700 pe-2">
+            <span className="text-lg font-medium">This project was made for</span>
+            </div>
             <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${logoUrl}`}
               alt={logoAlt}
-              width={100}
-              height={100}
-              className="object-contain bg-white rounded-full shadow-lg p-5 w-50 h-20"
+              width={80}
+              height={80}
+              className="object-contain bg-white rounded-full shadow-lg p-5 w-70 h-15"
             />
           </div>
         )}
 
         {imageUrl && (
-          <div className="relative w-full mx-auto mb-6">
+          <div className="relative w-full mx-auto mb-16">
             <Image
               src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`}
               alt={imageAlt}
@@ -83,7 +101,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         )}
 
-        <div className="prose dark:prose-invert max-w-4xl mx-auto">
+        <div className="prose dark:prose-invert max-w-2xl mx-auto">
           {Array.isArray(longDescription) && longDescription.length > 0 ? (
             longDescription.map((block, index) => {
               if (block.type === 'paragraph') {
