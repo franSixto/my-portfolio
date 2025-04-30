@@ -83,7 +83,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               alt={logoAlt}
               width={80}
               height={80}
-              className="object-contain bg-white rounded-full shadow-lg p-5 w-70 h-15"
+              className="object-contain bg-white rounded-full shadow-lg p-2 w-40 h-15"
             />
           </div>
         )}
