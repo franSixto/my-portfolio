@@ -74,7 +74,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </p>
 
         {logoUrl && (
-          <div className="flex flex-row items-center justify-between max-w-2xl mx-auto my-6 p-3 ps-5 bg-gray-100 rounded-full">
+          <div className="flex flex-row items-center justify-between max-w-2xl mx-auto my-6 p-3 ps-5 bg-gray-100 dark:bg-gray-900 rounded-full">
             <div className="relative text-gray-700 pe-2">
             <span className="text-lg font-medium">This project was made for</span>
             </div>
