@@ -95,7 +95,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               alt={imageAlt}
               width={1366}
               height={792}
-              className="rounded-3xl object-cover shadow-lg"
+              className="rounded-2xl object-cover shadow-lg"
             />
           </div>
         )}
