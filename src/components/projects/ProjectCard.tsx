@@ -77,7 +77,7 @@ export default function ProjectCard({
         </div>
 
         {/* Descripción */}
-        <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">
+        <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3 m-0">
         {description}
         </p>
       </div>
