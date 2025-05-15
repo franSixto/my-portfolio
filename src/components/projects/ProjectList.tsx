@@ -12,11 +12,11 @@ export default async function ProjectsPageWithComponents({ projects }: { project
             {safeProjects.map((project) => {
   
               const imageUrl = project.Image?.url
-                ? `${process.env.CLOUDINARY_URL}${project.Image.url}`
+                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${project.Image.url}`
                 : null;
   
               const logoUrl = project.Logo?.url
-                ? `${process.env.CLOUDINARY_URL}${project.Logo.url}`
+                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${project.Logo.url}`
                 : null;
   
               return (
