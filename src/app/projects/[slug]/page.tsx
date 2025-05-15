@@ -49,9 +49,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     Logo: logo = null,
   } = project;
 
-  const imageUrl = image?.url || "/default-image.png";
+  // Utilidad para manejar URLs absolutas o relativas
+  const getImageUrl = (url?: string | null) => {
+    if (!url) return null;
+    return url.startsWith("http") ? url : `${process.env.NEXT_PUBLIC_STRAPI_URL}${url}`;
+  };
+
+  const imageUrl = getImageUrl(image?.url) || "/default-image.png";
   const imageAlt = image?.alternativeText || "Default image of the project";
-  const logoUrl = logo?.url || "/default-logo.png";
+  const logoUrl = getImageUrl(logo?.url) || "/default-logo.png";
   const logoAlt = logo?.alternativeText || "Default Logo of the project";
 
   return (
@@ -59,17 +65,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <div className="container mx-auto px-6 py-12">
       <h1
         className="text-4xl max-w-2xl mx-auto lg:text-5xl xl:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 text-transparent bg-clip-text uppercase mb-2"
-        // initial={{ scale: 0.8 }}
-        // whileInView={inView ? { scale: 1 } : {}}
-        // transition={{ duration: 0.5 }}
       >
         {title}
       </h1>
       <p
         className="text-xl max-w-2xl mx-auto leading-relaxed dark:text-gray-400"
-        // initial={{ opacity: 0 }}
-        // whileInView={inView ? { opacity: 1 } : {}}
-        // transition={{ delay: 0.3, duration: 0.8 }}
       >
         {description}
       </p>
@@ -80,7 +80,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <span className="text-lg font-medium">This project was made for</span>
             </div>
             <Image
-              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${logoUrl}`}
+              src={logoUrl}
               alt={logoAlt}
               width={80}
               height={80}
@@ -92,7 +92,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {imageUrl && (
           <div className="relative max-w-2xl mx-auto mb-16">
             <Image
-              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`}
+              src={imageUrl}
               alt={imageAlt}
               width={1366}
               height={792}
