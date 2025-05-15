@@ -11,13 +11,15 @@ export default async function ProjectsPageWithComponents({ projects }: { project
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {safeProjects.map((project) => {
   
-              const imageUrl = project.Image?.url
-                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${project.Image.url}`
-                : null;
-  
-              const logoUrl = project.Logo?.url
-                ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${project.Logo.url}`
-                : null;
+              const getImageUrl = (imgObj?: { url?: string | null }) => {
+                if (!imgObj?.url) return null;
+                return imgObj.url.startsWith("http")
+                  ? imgObj.url
+                  : `${process.env.NEXT_PUBLIC_STRAPI_URL}${imgObj.url}`;
+              };
+
+              const imageUrl = getImageUrl(project.Image ?? undefined);
+              const logoUrl = getImageUrl(project.Logo ?? undefined);
   
               return (
                 <ProjectCard
