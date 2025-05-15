@@ -3,7 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    
+    domains: [
+      "res.cloudinary.com",
+    ],
     remotePatterns: [
       {
         hostname: "localhost",
@@ -11,7 +13,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "res.cloudinary.com",
+        hostname: "my-portfolio-cms-production.up.railway.app",
         pathname: "/uploads/**",
       },
     ],
