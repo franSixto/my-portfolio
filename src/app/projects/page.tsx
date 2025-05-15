@@ -11,7 +11,18 @@ async function Projects() {
     const projects = await load();
     console.log("Projects data:", projects); // Console log adicional si lo necesitas
     return (
-        <div className="dark:bg-gray-950 pt-15 px-6">
+        <div
+            className="dark:bg-gray-950 pt-15 px-6"
+            style={{
+                backgroundImage: 'url("/fondo.webp")',
+                backgroundSize: '70%',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)'
+            }}
+        >
             <div className="relative overflow-hidden flex flex-col items-center justify-center">
             
                 <TitleH1
