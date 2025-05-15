@@ -4,11 +4,11 @@ import { fetchProjectBySlug } from "@/app/api/projects/projectsService";
 import type { Child } from "@/app/api/projects/projectsService";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const resolvedParams = await params; 
+  const resolvedParams = await params;
   const { slug } = resolvedParams;
   const project = await fetchProjectBySlug(slug);
 
-  console.log("PROJECT DATA:", project);  
+  console.log("PROJECT DATA:", project);
 
   if (!project) {
     return {
@@ -61,23 +61,33 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const logoAlt = logo?.alternativeText || "Default Logo of the project";
 
   return (
-    <article className="dark:bg-gray-950">
+    <article className="dark:bg-gray-950"
+      style={{
+        backgroundImage: 'url("/fondo.webp")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)'
+      }}
+    >
       <div className="container mx-auto px-6 py-12">
-      <h1
-        className="text-4xl max-w-2xl mx-auto lg:text-5xl xl:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 text-transparent bg-clip-text uppercase mb-2"
-      >
-        {title}
-      </h1>
-      <p
-        className="text-xl max-w-2xl mx-auto leading-relaxed dark:text-gray-400"
-      >
-        {description}
-      </p>
+        <h1
+          className="text-4xl max-w-2xl mx-auto lg:text-5xl xl:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 text-transparent bg-clip-text uppercase mb-2"
+        >
+          {title}
+        </h1>
+        <p
+          className="text-xl max-w-2xl mx-auto leading-relaxed dark:text-gray-400"
+        >
+          {description}
+        </p>
 
         {logoUrl && (
           <div className="flex flex-row items-center justify-between max-w-2xl mx-auto my-6 p-3 ps-5 bg-gray-100 dark:bg-gray-900 rounded-full">
             <div className="relative text-gray-700 dark:text-gray-300 pe-2">
-            <span className="text-lg font-medium">This project was made for</span>
+              <span className="text-lg font-medium">This project was made for</span>
             </div>
             <Image
               src={logoUrl}
@@ -131,13 +141,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 return (
                   <HeadingTag
                     key={index}
-                    className={`${
-                      block.level === 1
+                    className={`${block.level === 1
                         ? 'text-4xl font-bold text-gray-900 dark:text-gray-300 mb-5'
                         : block.level === 2
-                        ? 'text-3xl font-semibold text-gray-900 dark:text-gray-300 mb-5 border-t-2 border-gray-300 dark:border-gray-600 pt-5'
-                        : 'text-2xl font-medium text-gray-900 dark:text-gray-300 mb-5 border-t-2 border-gray-300 dark:border-gray-600 pt-5'
-                    }`}
+                          ? 'text-3xl font-semibold text-gray-900 dark:text-gray-300 mb-5 border-t-2 border-gray-300 dark:border-gray-600 pt-5'
+                          : 'text-2xl font-medium text-gray-900 dark:text-gray-300 mb-5 border-t-2 border-gray-300 dark:border-gray-600 pt-5'
+                      }`}
                   >
                     {block.children[0]?.text || ''}
                   </HeadingTag>
