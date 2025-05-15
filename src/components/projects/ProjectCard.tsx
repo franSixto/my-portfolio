@@ -38,27 +38,30 @@ export default function ProjectCard({
     >
 
       <div className="
-          bg-gradient-to-t h-full flex flex-col p-[1px] rounded-lg overflow-hidden shadow-lg transition duration-300
+          bg-gradient-to-tr h-full flex flex-col p-[1px] rounded-lg overflow-hidden shadow-lg transition duration-300
           hover:shadow-xl hover:-translate-y-2
         from-white/10 via-white/10 to-gray-500/20
-        hover:from-white hover:via-white hover:to-red-500 
+        hover:from-white hover:via-white hover:to-gray-500 
         dark:from-gray-950 dark:via-gray-900/80 dark:to-gray-500/80
-        hover:dark:via-gray-600 hover:dark:from-gray-600 hover:dark:to-red-600 
+        hover:dark:via-gray-600 hover:dark:from-gray-600 hover:dark:to-gray-400 
        ">
-        <div className="bg-gradient-to-t from-white/10 via-white to-white dark:from-gray-800/80 dark:via-gray-900/80 dark:to-gray-800/80 rounded-lg transition duration-300 hover:dark:to-gray-950 overflow-hidden shadow-lg h-full flex flex-col p-2">
+        <div className="bg-gradient-to-tr rounded-lg transition duration-300 overflow-hidden shadow-lg h-full flex flex-col p-2
+        from-white/10 via-white to-white 
+        dark:from-gray-800/80 dark:via-gray-900/80 dark:to-gray-800/80 
+        hover:dark:to-gray-900">
           <Link
             className="flex flex-col h-full"
             href={`/projects/${slug}`}
           >
             {/* Imagen principal del proyecto */}
-            <div className="relative h-48 w-full rounded-md overflow-hidden">
+            <div className="relative h-60 w-full rounded-md overflow-hidden">
               {logoUrl && (
-                <div className="absolute right-3 top-3 z-1 h-12 w-30">
+                <div className="absolute right-3 top-3 z-1 h-10 w-25">
                   <Image
                     src={logoUrl}
                     alt={logoAlt || `Logo de ${title}`}
                     fill
-                    className="object-contain bg-white rounded-xl p-2 shadow"
+                    className="object-contain bg-white rounded-md p-2 shadow"
                   />
                 </div>
               )}
@@ -85,7 +88,7 @@ export default function ProjectCard({
               </div>
 
               {/* Descripción */}
-              <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3 m-0">
+              <p className="text-gray-600 dark:text-gray-300 line-clamp-3 m-0">
                 {description}
               </p>
             </div>
