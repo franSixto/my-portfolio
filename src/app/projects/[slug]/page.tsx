@@ -3,11 +3,12 @@ import Image from "next/image";
 import { fetchProjectBySlug } from "@/app/api/projects/projectsService";
 import type { Child } from "@/app/api/projects/projectsService";
 
-// Ajuste en el manejo de `params` para evitar el uso de `Promise` innecesario
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const resolvedParams = await params; // Espera a que se resuelva la promesa
+  const resolvedParams = await params; 
   const { slug } = resolvedParams;
   const project = await fetchProjectBySlug(slug);
+
+  console.log("PROJECT DATA:", project);  
 
   if (!project) {
     return {
