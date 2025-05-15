@@ -15,7 +15,7 @@ async function Projects() {
             className="dark:bg-gray-950 pt-15 px-6"
             style={{
                 backgroundImage: 'url("/fondo.webp")',
-                backgroundSize: '70%',
+                backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'fixed',
