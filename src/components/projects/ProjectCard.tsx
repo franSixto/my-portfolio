@@ -38,17 +38,17 @@ export default function ProjectCard({
     >
 
       <div className="
-          bg-gradient-to-tr h-full flex flex-col p-[1px] rounded-lg overflow-hidden shadow-lg transition duration-300
+          bg-gradient-to-tr  h-full flex flex-col p-[1px] rounded-lg overflow-hidden shadow-lg transition duration-300
           hover:shadow-xl hover:-translate-y-2
-        from-white/10 via-white/10 to-gray-500/20
-        hover:from-white hover:via-white hover:to-gray-500 
+        from-white/10 via-gray-300/10 to-gray-500/20
+        hover:from-white hover:via-white hover:to-red-500/50 
         dark:from-gray-950 dark:via-gray-900/80 dark:to-gray-500/80
-        hover:dark:via-gray-600 hover:dark:from-gray-600 hover:dark:to-gray-400 
+        hover:dark:via-gray-600 hover:dark:from-gray-600 hover:dark:to-red-500/50 
        ">
         <div className="bg-gradient-to-tr rounded-lg transition duration-300 overflow-hidden shadow-lg h-full flex flex-col p-2
-        from-white/10 via-white to-white 
-        dark:from-gray-800/80 dark:via-gray-900/80 dark:to-gray-800/80 
-        hover:dark:to-gray-900">
+        from-white/10 via-white to-white
+        dark:from-gray-800/50 dark:via-gray-900/50 dark:to-gray-800/90 
+        hover:dark:from-gray-900/50  hover:dark:via-gray-900 hover:dark:to-gray-950/90">
           <Link
             className="flex flex-col h-full"
             href={`/projects/${slug}`}
