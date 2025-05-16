@@ -54,7 +54,7 @@ export default function ProjectCard({
             href={`/projects/${slug}`}
           >
             {/* Imagen principal del proyecto */}
-            <div className="relative h-60 w-full rounded-md overflow-hidden">
+            <div className="relative w-full rounded-md overflow-hidden">
               {logoUrl && (
                 <div className="absolute right-3 top-3 z-1 h-10 w-25">
                   <Image
@@ -65,18 +65,20 @@ export default function ProjectCard({
                   />
                 </div>
               )}
-              {imageUrl ? (
-                <Image
-                  src={imageUrl}
-                  alt={imageAlt || title}
-                  fill
-                  className="object-contain object-bottom"
-                />
-              ) : (
-                <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                  <span className="text-gray-400 dark:text-gray-500">Sin imagen</span>
-                </div>
-              )}
+              <div className="relative w-full aspect-[16/9] rounded-md overflow-hidden">
+                {imageUrl ? (
+                  <Image
+                    src={imageUrl}
+                    alt={imageAlt || title}
+                    fill
+                    className="object-contain object-bottom"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                    <span className="text-gray-400 dark:text-gray-500">Sin imagen</span>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="pt-5 p-1 flex-grow">
