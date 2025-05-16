@@ -61,17 +61,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const logoAlt = logo?.alternativeText || "Default Logo of the project";
 
   return (
-    <article className="dark:bg-gray-950"
-      style={{
-        backgroundImage: 'url("/fondo.webp")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)'
-      }}
-    >
+    <article className="dark:bg-gray-950">
       <div className="container mx-auto px-6 py-12">
         <h1
           className="text-4xl max-w-2xl mx-auto lg:text-5xl xl:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 text-transparent bg-clip-text uppercase mb-2"
