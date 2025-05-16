@@ -70,7 +70,7 @@ export default function ProjectCard({
                   src={imageUrl}
                   alt={imageAlt || title}
                   fill
-                  className="object-cover"
+                  className="object-contain object-bottom"
                 />
               ) : (
                 <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">

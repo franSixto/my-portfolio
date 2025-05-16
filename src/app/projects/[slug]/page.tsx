@@ -85,16 +85,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </p>
 
         {logoUrl && (
-          <div className="flex flex-row items-center justify-between max-w-2xl mx-auto my-6 p-3 ps-5 bg-gray-100 dark:bg-gray-900 rounded-full">
+          <div className="flex flex-row items-center justify-between max-w-2xl mx-auto my-6 p-3 ps-5 bg-gray-100 dark:bg-gray-900 rounded-xl">
             <div className="relative text-gray-700 dark:text-gray-300 pe-2">
-              <span className="text-lg font-medium">This project was made for</span>
+              <span className="text-lg font-medium">Made for</span>
             </div>
             <Image
               src={logoUrl}
               alt={logoAlt}
               width={80}
               height={80}
-              className="object-contain bg-white rounded-full shadow-lg p-2 w-40 h-15"
+              className="object-contain bg-white rounded-lg shadow-lg p-2 w-40 h-15"
             />
           </div>
         )}
@@ -116,7 +116,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             longDescription.map((block, index) => {
               if (block.type === 'paragraph') {
                 return (
-                  <p key={index} className="text-gray-600 dark:text-gray-300 mb-5 text-xl">
+                  <p key={index} className="text-gray-600 dark:text-gray-300 mb-5">
                     {block.children.map((child: Child, childIndex: number) => {
                       if (child.bold) return <b key={childIndex}>{child.text}</b>;
                       if (child.italic) return <i key={childIndex}>{child.text}</i>;
