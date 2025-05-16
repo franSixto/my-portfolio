@@ -79,7 +79,7 @@ export default function ProjectCard({
               )}
             </div>
 
-            <div className="p-6 flex-grow">
+            <div className="pt-5 p-1 flex-grow">
               {/* Logo y título */}
               <div className="flex items-center mb-4">
                 <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
