@@ -29,7 +29,7 @@ export default function Header() {
                             src="/logo.svg"
                             alt="Fran Sixto"
                             width={180}
-                            height={95}
+                            height={89}
                             priority
                         />
                     </Link>
