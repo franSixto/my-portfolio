@@ -19,8 +19,6 @@ async function Projects() {
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'fixed',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)'
             }}
         >
             <div className="relative overflow-hidden flex flex-col items-center justify-center">
