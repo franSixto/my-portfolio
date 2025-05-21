@@ -1,62 +1,43 @@
 // src/app/api/projects/projectsService.ts
-// Definimos un tipo más específico para los elementos de children
+// Ahora lee los proyectos desde un archivo local JSON en vez de Strapi
+import fs from 'fs/promises';
+import path from 'path';
+
 export interface Child {
-    bold?: boolean;
-    italic?: boolean;
-    strikethrough?: boolean;
-    code?: boolean;
-    type?: string;
-    text: string;
-    url?: string;
-    children?: Child[];
+  bold?: boolean;
+  italic?: boolean;
+  strikethrough?: boolean;
+  code?: boolean;
+  type?: string;
+  text: string;
+  url?: string;
+  children?: Child[];
 }
 
-type Project = {
-    id: number;
-    Title: string;
-    Description: string;
-    slug: string;
-    Image: {
-        url: string;
-        alternativeText?: string;
-    } | null;
-    Logo: {
-        url: string;
-        alternativeText?: string;
-    } | null;
-    publishedAt: string;
-    LongDescription?: Array<{ type: string; children: Child[]; level?: number; format?: string }>;
+export type Project = {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl?: string;
+  logoUrl?: string;
+  projectUrl?: string;
+  slug?: string;
+  longDescription?: Array<{ type: string; children: Child[]; level?: number; format?: string }>;
 };
 
-// Definimos un tipo para la paginación
-interface Pagination {
-    page: number;
-    pageSize: number;
-    pageCount: number;
-    total: number;
-}
-
-// Definimos un tipo para los metadatos
-interface Meta {
-    pagination: Pagination;
-}
-
-// Función para obtener todos los proyectos con soporte de paginación
-export const fetchProjects = async (page = 1, pageSize = 12): Promise<{ projects: Project[]; meta: Meta }> => {
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
-    );
-    const data = await res.json();
-    return { projects: data.data, meta: data.meta };
+// Lee el archivo local de proyectos
+const getProjectsData = async (): Promise<Project[]> => {
+  const filePath = path.join(process.cwd(), 'public', 'data', 'projects.json');
+  const file = await fs.readFile(filePath, 'utf-8');
+  return JSON.parse(file);
 };
 
-// Función para obtener un proyecto por slug
+export const fetchProjects = async (): Promise<{ projects: Project[] }> => {
+  const projects = await getProjectsData();
+  return { projects };
+};
+
 export const fetchProjectBySlug = async (slug: string): Promise<Project | null> => {
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?filters[slug][$eq]=${slug}&populate=*`
-    );
-    const data = await res.json();
-    return data.data[0] || null;
+  const projects = await getProjectsData();
+  return projects.find((p) => p.slug === slug || p.id === slug) || null;
 };
-
-export type { Project };
