@@ -4,12 +4,15 @@ import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import ThreeSolarSystem from "@/components/three/ThreeSolarSystem";
 import Subscribe from '../contact/Subscribe';
+import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
 
 const HomeSubscribe: React.FC = () => {
     const { ref, inView } = useInView({
         threshold: 0.2, // Porcentaje visible para activar la animación
         triggerOnce: true, // Solo activa la animación una vez
     });
+
+    const { mainColor } = useColorContext();
 
     return (
         <div className="relative container mx-auto px-6 mb-5">
@@ -31,7 +34,7 @@ const HomeSubscribe: React.FC = () => {
 
                 {/* Contenido */}
                 <h2 className="text-4xl lg:text-6xl xl:text-8xl font-bold text-gray-100 uppercase">
-                    I like to <span className="text-red-500">share</span>
+                    I like to <span className={`text-${mainColor}-500 transition-colors duration-300`}>share</span>
                 </h2>
                 
                 <motion.p
@@ -66,7 +69,7 @@ const HomeSubscribe: React.FC = () => {
             <Subscribe />
             {/* Subscribe Form */}
             <motion.span
-                className="absolute -top-3 left-15 lg:left-20 bg-red-100 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-bold shadow-lg transform -rotate-2 rounded-md"
+                className={`absolute -top-3 left-15 lg:left-20 ${COLOR_CLASS_MAP[mainColor]} dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-bold shadow-lg transform -rotate-2 rounded-md transition-colors duration-300`}
                 animate={{
                     y: [0, -20, 0], // Float up and down
                     rotate: [0, 3, -1, 0], // Slight rotation

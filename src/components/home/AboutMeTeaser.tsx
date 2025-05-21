@@ -5,8 +5,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Button from "@/components/theme/Button";
 import { RiVerifiedBadgeLine } from "react-icons/ri";
+import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
 
 export default function AboutMeTeaser() {
+  const { mainColor } = useColorContext();
 
   return (
     <section className="container mx-auto px-6 md:py-20 pt-15">
@@ -26,7 +28,8 @@ export default function AboutMeTeaser() {
             alt="This is me"
             width={100}
             height={211}
-            className="w-30 h-30 lg:w-100 lg:h-45 object-cover object-top rounded-full shadow-2xl dark:bg-gray-950 shadow-red-300 dark:shadow-red-500/70"
+            className="w-30 h-30 lg:w-100 lg:h-45 object-cover object-top rounded-full shadow-2xl dark:bg-gray-950 "
+            style={{ boxShadow: `0 4px 24px 0 var(--tw-shadow-color, ${COLOR_CLASS_MAP[mainColor].split(' ')[0].replace('bg-', '').replace('-100', '')})` }}
           />
           <div className="flex flex-col justify-center items-center ms-4">
             <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-600 dark:text-gray-400">
@@ -48,8 +51,8 @@ export default function AboutMeTeaser() {
             className="rounded-lg p-4"
           />
           <div className="italic">
-            <span className="text-red-600 dark:text-red-500 font-semibold">
-              &quot; That’s why red is the primary color of this site
+            <span className={`text-${mainColor}-600 dark:text-${mainColor}-500 font-semibold transition-colors duration-300`}>
+              &quot; That’s why {mainColor} is the primary color of this site
             </span>
             —it’s part of who I am. &quot;
           </div>

@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { Work_Sans } from 'next/font/google';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import { ColorProvider } from '@/components/theme/ColorContext';
+import FloatingColorSelector from '@/components/theme/FloatingColorSelector';
 
 const fontPrincipal = Work_Sans({
   subsets: ['latin'],
@@ -24,11 +26,13 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <html lang="en" data-theme="dark" style={{ colorScheme: "dark", fontFamily: fontPrincipal.style.fontFamily }} >
         <body>
           <ThemeProvider attribute="data-theme" >
-            <Header />
-            {children}
-            <SpeedInsights />
-            <Analytics />
-            <Footer />
+            <ColorProvider>
+              <Header />
+              {children}
+              <SpeedInsights />
+              <Analytics />
+              <Footer />
+            </ColorProvider>
           </ThemeProvider>
         </body>
       </html>

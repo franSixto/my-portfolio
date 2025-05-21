@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { IconType } from 'react-icons';
+import { useColorContext, COLOR_CLASS_MAP } from './ColorContext';
 
 interface SubmitButtonProps {
   isSubmitting: boolean;
@@ -9,13 +10,15 @@ interface SubmitButtonProps {
 }
 
 const SubmitButton: React.FC<SubmitButtonProps> = ({ isSubmitting, submittingText, defaultText, Icon }) => {
+  const { mainColor } = useColorContext();
+  const colorStyles = COLOR_CLASS_MAP[mainColor];
   return (
     <button
       type="submit"
       className={classNames(
         'px-4 py-3 text-gray-800 dark:text-gray-300 font-medium rounded-md inline-flex items-center transition transform duration-300 hover:scale-105 active:scale-95 ease-in-out',
         {
-          'text-gray-800 dark:text-gray-200 bg-red-100 hover:bg-red-200 dark:bg-red-500/10 dark:hover:bg-red-500/20': !isSubmitting,
+          [`text-gray-800 dark:text-gray-200 ${colorStyles}`]: !isSubmitting,
           'cursor-not-allowed': isSubmitting,
         }
       )}

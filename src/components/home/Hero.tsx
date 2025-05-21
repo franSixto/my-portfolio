@@ -5,8 +5,37 @@ import ThreeHero from "@/components/three/ThreeHero"; // Ensure ThreeHero is a d
 import { motion } from "framer-motion";
 import Button from "@/components/theme/Button"; // Adjust the import path as necessary
 import { Suspense } from "react";
+import { TitleH1 } from "@/components/common/TitleH1";
+import { useColorContext } from '@/components/theme/ColorContext';
 
 const Hero: React.FC = () => {
+    const { mainColor } = useColorContext();
+    // Mapeo para gradientes de Tailwind
+    const gradientMap: Record<string, { from: string; to: string }> = {
+      red: { from: 'from-red-400', to: 'to-red-600' },
+      blue: { from: 'from-blue-400', to: 'to-blue-600' },
+      green: { from: 'from-green-400', to: 'to-green-600' },
+      yellow: { from: 'from-yellow-400', to: 'to-yellow-600' },
+      purple: { from: 'from-purple-400', to: 'to-purple-600' },
+      pink: { from: 'from-pink-400', to: 'to-pink-600' },
+      indigo: { from: 'from-indigo-400', to: 'to-indigo-600' },
+      teal: { from: 'from-teal-400', to: 'to-teal-600' },
+      orange: { from: 'from-orange-400', to: 'to-orange-600' },
+      cyan: { from: 'from-cyan-400', to: 'to-cyan-600' },
+      emerald: { from: 'from-emerald-400', to: 'to-emerald-600' },
+      lime: { from: 'from-lime-400', to: 'to-lime-600' },
+      amber: { from: 'from-amber-400', to: 'to-amber-600' },
+      violet: { from: 'from-violet-400', to: 'to-violet-600' },
+      fuchsia: { from: 'from-fuchsia-400', to: 'to-fuchsia-600' },
+      rose: { from: 'from-rose-400', to: 'to-rose-600' },
+      sky: { from: 'from-sky-400', to: 'to-sky-600' },
+      slate: { from: 'from-slate-400', to: 'to-slate-600' },
+      zinc: { from: 'from-zinc-400', to: 'to-zinc-600' },
+      neutral: { from: 'from-neutral-400', to: 'to-neutral-600' },
+      stone: { from: 'from-stone-400', to: 'to-stone-600' },
+    };
+    const gradient = gradientMap[mainColor] || gradientMap.red;
+
     return (
         <section
             className="flex justify-center items-center w-full pt-15 lg:pt-0"
@@ -22,7 +51,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 1 }} // Use a custom cubic-bezier easing for smoother animation
             className="px-6 lg:px-0">
                 <h1
-                className="text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl font-extrabold uppercase bg-gradient-to-r from-red-400 to-red-600 inline-block text-transparent bg-clip-text leading-8 lg:leading-11 xl:leading-20"
+                className={`text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} inline-block text-transparent bg-clip-text leading-8 lg:leading-11 xl:leading-20 transition-colors duration-300`}
                 
                 >
                 Building Impactful Digital Experiences
@@ -81,7 +110,7 @@ const Hero: React.FC = () => {
 
                 >
                 <motion.span
-                    className="absolute top-10 left-15 lg:left-50 bg-red-100 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-semibold shadow-lg transform rotate-3 rounded-md"
+                    className={`absolute top-10 left-15 lg:left-50 bg-${mainColor}-100 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-semibold shadow-lg transform rotate-3 rounded-md transition-colors duration-300`}
                     animate={{
                     y: [10, -10, 10], // Subtle float up and down
                     rotate: [0, 2, -1, 0], // Subtle rotation
@@ -99,7 +128,7 @@ const Hero: React.FC = () => {
                 <ThreeHero />
 
                 <motion.span
-                    className="absolute bg-red-100 right-15 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 bottom-25 text-xl font-bold shadow-lg transform -rotate-6 rounded-md"
+                    className={`absolute bg-${mainColor}-100 right-15 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 bottom-25 text-xl font-bold shadow-lg transform -rotate-6 rounded-md transition-colors duration-300`}
                     animate={{
                     y: [0, -20, 0], // Float up and down
                     rotate: [0, 5, -5, 0], // Slight rotation

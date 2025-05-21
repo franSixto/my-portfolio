@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { RiCloseLine } from "react-icons/ri";
+import { useColorContext } from '@/components/theme/ColorContext';
 
 interface NavMobileProps {
     isMenuOpen: boolean;
@@ -10,6 +11,8 @@ interface NavMobileProps {
 }
 
 const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive }) => {
+    const { mainColor } = useColorContext();
+
     // Añadir o eliminar la clase "overflow-hidden" al <body>
     useEffect(() => {
         if (isMenuOpen) {
@@ -44,7 +47,7 @@ const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive 
                 className="absolute top-2 right-2 text-white focus:outline-none z-60"
             >
                 <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white dark:bg-gray-900">
-                <RiCloseLine className="text-2xl text-red-500" />
+                <RiCloseLine className={`text-2xl text-${mainColor}-500 transition-colors duration-300`} />
                 </div>
             </button>
             <ul className="relative w-full h-full">
@@ -85,8 +88,7 @@ const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive 
                     >
                         <Link
                             href={item.href}
-                            className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive(item.href) ? "font-bold text-red-600" : ""
-                                }`}
+                            className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive(item.href) ? `font-bold text-${mainColor}-600 transition-colors duration-300` : ""}`}
                             onClick={toggleMenu}
                         >
                             {item.label}

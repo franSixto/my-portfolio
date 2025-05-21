@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { RiSunLine, RiMoonLine } from "react-icons/ri";
 import { motion } from 'framer-motion';
+import { useColorContext, COLOR_CLASS_MAP } from './ColorContext';
 
 export default function ThemeSelect() {
   const { resolvedTheme, setTheme } = useTheme();
+  const { mainColor } = useColorContext();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export default function ThemeSelect() {
           setTheme(newTheme);
           localStorage.setItem('theme', newTheme); // Guardar el tema seleccionado
         }}
-        className="p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full bg-red-100 dark:bg-red-500/10"
+        className={`p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]}`}
         title="theme switcher"
       >
         {resolvedTheme === "light" ? (

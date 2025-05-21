@@ -8,10 +8,12 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import NavMobile from "@/components/common/NavMobile";
 import { RiMenuLine } from "react-icons/ri";
-
+import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
+import FloatingColorSelector from "@/components/theme/FloatingColorSelector";
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
+    const { mainColor } = useColorContext();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -105,7 +107,7 @@ export default function Header() {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 onClick={toggleMenu}
-                                className="p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full bg-red-100 dark:bg-red-500/10"
+                                className={`p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]}`}
                             >
                                 <RiMenuLine />
                             </motion.button>
@@ -113,6 +115,7 @@ export default function Header() {
 
                     </div>
                 </nav>
+                <FloatingColorSelector />
                 {isMenuOpen && <NavMobile isMenuOpen={isMenuOpen} isActive={isActive} toggleMenu={toggleMenu} />}
             </header>
         </>
