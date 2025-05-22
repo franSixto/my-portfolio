@@ -2,9 +2,9 @@
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-// Lista de colores tailwind principales
+// Lista de colores tailwind principales ordenada por escala cromática
 export const TAILWIND_COLORS = [
-  'red', 'blue', 'green', 'yellow', 'purple', 'pink', 'indigo', 'teal', 'orange', 'cyan', 'emerald', 'lime', 'amber', 'violet', 'fuchsia', 'rose', 'sky', 'slate', 'zinc', 'neutral', 'stone'
+  'red', 'rose', 'pink', 'fuchsia', 'purple', 'violet', 'indigo', 'blue', 'sky', 'cyan', 'teal', 'emerald', 'green', 'lime', 'yellow', 'amber', 'orange', 'stone', 'neutral', 'zinc', 'slate'
 ];
 
 export type MainColor = typeof TAILWIND_COLORS[number];
@@ -85,25 +85,25 @@ export const COLOR_TEXT_CLASS_MAP: Record<MainColor, string> = {
 
 // Mapeo explícito de gradientes para títulos
 export const COLOR_GRADIENT_MAP: Record<MainColor, { from: string; to: string }> = {
-  red: { from: 'from-red-400', to: 'to-red-700' },
-  blue: { from: 'from-blue-400', to: 'to-blue-700' },
-  green: { from: 'from-green-400', to: 'to-green-700' },
-  yellow: { from: 'from-yellow-400', to: 'to-yellow-700' },
-  purple: { from: 'from-purple-400', to: 'to-purple-700' },
-  pink: { from: 'from-pink-400', to: 'to-pink-700' },
-  indigo: { from: 'from-indigo-400', to: 'to-indigo-700' },
-  teal: { from: 'from-teal-400', to: 'to-teal-700' },
-  orange: { from: 'from-orange-400', to: 'to-orange-700' },
-  cyan: { from: 'from-cyan-400', to: 'to-cyan-700' },
-  emerald: { from: 'from-emerald-400', to: 'to-emerald-700' },
-  lime: { from: 'from-lime-400', to: 'to-lime-700' },
-  amber: { from: 'from-amber-400', to: 'to-amber-700' },
-  violet: { from: 'from-violet-400', to: 'to-violet-700' },
-  fuchsia: { from: 'from-fuchsia-400', to: 'to-fuchsia-700' },
-  rose: { from: 'from-rose-400', to: 'to-rose-700' },
-  sky: { from: 'from-sky-400', to: 'to-sky-700' },
-  slate: { from: 'from-slate-400', to: 'to-slate-700' },
-  zinc: { from: 'from-zinc-400', to: 'to-zinc-700' },
-  neutral: { from: 'from-neutral-400', to: 'to-neutral-700' },
-  stone: { from: 'from-stone-400', to: 'to-stone-700' },
+  red: { from: 'from-red-300', to: 'to-red-700' },
+  blue: { from: 'from-blue-300', to: 'to-blue-700' },
+  green: { from: 'from-green-300', to: 'to-green-700' },
+  yellow: { from: 'from-yellow-300', to: 'to-yellow-700' },
+  purple: { from: 'from-purple-300', to: 'to-purple-700' },
+  pink: { from: 'from-pink-300', to: 'to-pink-700' },
+  indigo: { from: 'from-indigo-300', to: 'to-indigo-700' },
+  teal: { from: 'from-teal-300', to: 'to-teal-700' },
+  orange: { from: 'from-orange-300', to: 'to-orange-700' },
+  cyan: { from: 'from-cyan-300', to: 'to-cyan-700' },
+  emerald: { from: 'from-emerald-300', to: 'to-emerald-700' },
+  lime: { from: 'from-lime-300', to: 'to-lime-700' },
+  amber: { from: 'from-amber-300', to: 'to-amber-700' },
+  violet: { from: 'from-violet-300', to: 'to-violet-700' },
+  fuchsia: { from: 'from-fuchsia-300', to: 'to-fuchsia-700' },
+  rose: { from: 'from-rose-300', to: 'to-rose-700' },
+  sky: { from: 'from-sky-300', to: 'to-sky-700' },
+  slate: { from: 'from-slate-300', to: 'to-slate-700' },
+  zinc: { from: 'from-zinc-300', to: 'to-zinc-700' },
+  neutral: { from: 'from-neutral-300', to: 'to-neutral-700' },
+  stone: { from: 'from-stone-300', to: 'to-stone-700' },
 };

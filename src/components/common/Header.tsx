@@ -93,7 +93,9 @@ export default function Header() {
                             </motion.div>
                         </li>
                     </ul>
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center justify-end space-x-4 w-[180px]">
+                        
+                        <FloatingColorSelector />
                         <motion.div
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
@@ -115,7 +117,7 @@ export default function Header() {
 
                     </div>
                 </nav>
-                <FloatingColorSelector />
+
                 {isMenuOpen && <NavMobile isMenuOpen={isMenuOpen} isActive={isActive} toggleMenu={toggleMenu} />}
             </header>
         </>
