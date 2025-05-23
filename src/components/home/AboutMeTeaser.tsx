@@ -22,40 +22,36 @@ export default function AboutMeTeaser() {
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.8 }}
         className="dark:bg-gray-900/30 bg-gray-200/30 backdrop-blur-xl rounded-2xl p-8 max-w-2xl mx-auto text-start flex flex-col items-center justify-center">
-        <div className="flex flex-col gap-5 lg:flex-row mb-6">
+        <div className="relative flex flex-col gap-5 mb-6">
+          <div className={`relative flex justify-center items-center h-full w-full bg-${mainColor}-500 rounded-xl`}
+          style={{ boxShadow: `0 4px 24px 0 var(--tw-shadow-color, ${COLOR_CLASS_MAP[mainColor].split(' ')[0].replace('bg-', '').replace('-100', '')})` }}>
           <Image
-            src="/me.webp"
+            src="/me.svg"
             alt="This is me"
             width={100}
             height={211}
-            className="w-30 h-30 lg:w-100 lg:h-45 object-cover object-top rounded-full shadow-2xl dark:bg-gray-950 "
-            style={{ boxShadow: `0 4px 24px 0 var(--tw-shadow-color, ${COLOR_CLASS_MAP[mainColor].split(' ')[0].replace('bg-', '').replace('-100', '')})` }}
+            className={`z-1 w-[100%] h-50 object-cover object-top rounded-xl shadow-2xl`}
           />
+          <b className="absolute text-[6rem] lg:text-[14rem] left-1/2 -translate-x-1/2 text-white opacity-30 top-50% lg:-top-18">FRAN</b>
+          </div>
           <div className="flex flex-col justify-center items-center ms-4">
             <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-600 dark:text-gray-400">
               <strong>Born in a small town in southern Córdoba, Argentina</strong>, I’ve always carried big dreams and a deep passion for great design and technology.
-            </p>
+            </p>           
             <p className="text-lg md:text-xl leading-relaxed mb-0 text-gray-600 dark:text-gray-400">
-              When I’m not creating digital experiences, you’ll find me staying active with sports—or cheering for River Plate with heart and soul.
+              When I’m not creating digital experiences, you’ll find me staying active with sports—or cheering for
+              <span className="inline-flex items-center mx-1">
+                antes <Image src="/riverplate.webp" alt="icono" width={16} height={16} className="mx-1" />
+              </span>
+              River Plate with heart and soul.
             </p>
           </div>
         </div>
 
 
         <div className="flex row items-center text-gray-600 dark:text-gray-400 shadow-lg p-3 bg-gray-50 dark:bg-gray-950 rounded-lg mb-6">
-          <Image
-            src="/riverplate.webp"
-            alt="About Me"
-            width={80}
-            height={80}
-            className="rounded-lg p-4"
-          />
-          <div className="italic">
-            <span className={`text-${mainColor}-600 dark:text-${mainColor}-500 font-semibold transition-colors duration-300`}>
-              &quot; That’s why {mainColor} is the primary color of this site
-            </span>
-            —it’s part of who I am. &quot;
-          </div>
+
+
         </div>
 
         <Button
