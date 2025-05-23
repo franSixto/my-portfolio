@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Lista de colores tailwind principales ordenada por escala cromática
 export const TAILWIND_COLORS = [
-  'red', 'rose', 'pink', 'fuchsia', 'purple', 'violet', 'indigo', 'blue', 'sky', 'cyan', 'teal', 'emerald', 'green', 'lime', 'yellow', 'amber', 'orange', 'stone', 'neutral', 'zinc', 'slate'
+  'red', 'rose', 'pink', 'fuchsia', 'purple', 'violet', 'indigo', 'blue', 'sky', 'cyan', 'teal', 'emerald', 'green', 'lime', 'yellow', 'amber', 'orange', 'stone', 'slate'
 ];
 
 export type MainColor = typeof TAILWIND_COLORS[number];
@@ -51,36 +51,76 @@ export const COLOR_CLASS_MAP: Record<MainColor, string> = {
   rose: 'bg-rose-100 hover:bg-rose-200 dark:bg-rose-500/10 dark:hover:bg-rose-500/20',
   sky: 'bg-sky-100 hover:bg-sky-200 dark:bg-sky-500/10 dark:hover:bg-sky-500/20',
   slate: 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-500/10 dark:hover:bg-slate-500/20',
-  zinc: 'bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-500/10 dark:hover:bg-zinc-500/20',
-  neutral: 'bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-500/10 dark:hover:bg-neutral-500/20',
   stone: 'bg-stone-100 hover:bg-stone-200 dark:bg-stone-500/10 dark:hover:bg-stone-500/20',
 };
 
 // Mapeo explícito de clases tailwind para bordes
 export const COLOR_BORDER_CLASS_MAP: Record<MainColor, string> = {
-  red: 'border-red-500', blue: 'border-blue-500', green: 'border-green-500', yellow: 'border-yellow-500',
-  purple: 'border-purple-500', pink: 'border-pink-500', indigo: 'border-indigo-500', teal: 'border-teal-500',
-  orange: 'border-orange-500', cyan: 'border-cyan-500', emerald: 'border-emerald-500', lime: 'border-lime-500',
-  amber: 'border-amber-500', violet: 'border-violet-500', fuchsia: 'border-fuchsia-500', rose: 'border-rose-500',
-  sky: 'border-sky-500', slate: 'border-slate-500', zinc: 'border-zinc-500', neutral: 'border-neutral-500', stone: 'border-stone-500',
+  red: 'border-red-500', 
+  blue: 'border-blue-500', 
+  green: 'border-green-500', 
+  yellow: 'border-yellow-500',
+  purple: 'border-purple-500', 
+  pink: 'border-pink-500', 
+  indigo: 'border-indigo-500', 
+  teal: 'border-teal-500',
+  orange: 'border-orange-500', 
+  cyan: 'border-cyan-500', 
+  emerald: 'border-emerald-500', 
+  lime: 'border-lime-500',
+  amber: 'border-amber-500', 
+  violet: 'border-violet-500', 
+  fuchsia: 'border-fuchsia-500', 
+  rose: 'border-rose-500',
+  sky: 'border-sky-500', 
+  slate: 'border-slate-500', 
+  stone: 'border-stone-500',
 };
 
 // Mapeo explícito de clases tailwind para sombras
 export const COLOR_SHADOW_CLASS_MAP: Record<MainColor, string> = {
-  red: 'shadow-red-400', blue: 'shadow-blue-400', green: 'shadow-green-400', yellow: 'shadow-yellow-400',
-  purple: 'shadow-purple-400', pink: 'shadow-pink-400', indigo: 'shadow-indigo-400', teal: 'shadow-teal-400',
-  orange: 'shadow-orange-400', cyan: 'shadow-cyan-400', emerald: 'shadow-emerald-400', lime: 'shadow-lime-400',
-  amber: 'shadow-amber-400', violet: 'shadow-violet-400', fuchsia: 'shadow-fuchsia-400', rose: 'shadow-rose-400',
-  sky: 'shadow-sky-400', slate: 'shadow-slate-400', zinc: 'shadow-zinc-400', neutral: 'shadow-neutral-400', stone: 'shadow-stone-400',
+  red: 'shadow-red-400', 
+  blue: 'shadow-blue-400', 
+  green: 'shadow-green-400', 
+  yellow: 'shadow-yellow-400',
+  purple: 'shadow-purple-400', 
+  pink: 'shadow-pink-400', 
+  indigo: 'shadow-indigo-400', 
+  teal: 'shadow-teal-400',
+  orange: 'shadow-orange-400', 
+  cyan: 'shadow-cyan-400', 
+  emerald: 'shadow-emerald-400', 
+  lime: 'shadow-lime-400',
+  amber: 'shadow-amber-400', 
+  violet: 'shadow-violet-400', 
+  fuchsia: 'shadow-fuchsia-400', 
+  rose: 'shadow-rose-400',
+  sky: 'shadow-sky-400', 
+  slate: 'shadow-slate-400', 
+  stone: 'shadow-stone-400',
 };
 
 // Mapeo explícito de clases tailwind para texto
 export const COLOR_TEXT_CLASS_MAP: Record<MainColor, string> = {
-  red: 'text-red-500', blue: 'text-blue-500', green: 'text-green-500', yellow: 'text-yellow-500',
-  purple: 'text-purple-500', pink: 'text-pink-500', indigo: 'text-indigo-500', teal: 'text-teal-500',
-  orange: 'text-orange-500', cyan: 'text-cyan-500', emerald: 'text-emerald-500', lime: 'text-lime-500',
-  amber: 'text-amber-500', violet: 'text-violet-500', fuchsia: 'text-fuchsia-500', rose: 'text-rose-500',
-  sky: 'text-sky-500', slate: 'text-slate-500', zinc: 'text-zinc-500', neutral: 'text-neutral-500', stone: 'text-stone-500',
+  red: 'text-red-500', 
+  blue: 'text-blue-500', 
+  green: 'text-green-500', 
+  yellow: 'text-yellow-500',
+  purple: 'text-purple-500', 
+  pink: 'text-pink-500', 
+  indigo: 'text-indigo-500', 
+  teal: 'text-teal-500',
+  orange: 'text-orange-500', 
+  cyan: 'text-cyan-500', 
+  emerald: 'text-emerald-500', 
+  lime: 'text-lime-500',
+  amber: 'text-amber-500', 
+  violet: 'text-violet-500', 
+  fuchsia: 'text-fuchsia-500', 
+  rose: 'text-rose-500',
+  sky: 'text-sky-500', 
+  slate: 'text-slate-500', 
+  stone: 'text-stone-500',
 };
 
 // Mapeo explícito de gradientes para títulos
@@ -103,7 +143,5 @@ export const COLOR_GRADIENT_MAP: Record<MainColor, { from: string; to: string }>
   rose: { from: 'from-rose-300', to: 'to-rose-700' },
   sky: { from: 'from-sky-300', to: 'to-sky-700' },
   slate: { from: 'from-slate-300', to: 'to-slate-700' },
-  zinc: { from: 'from-zinc-300', to: 'to-zinc-700' },
-  neutral: { from: 'from-neutral-300', to: 'to-neutral-700' },
   stone: { from: 'from-stone-300', to: 'to-stone-700' },
 };

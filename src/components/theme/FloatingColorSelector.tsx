@@ -10,7 +10,7 @@ const colorMap: Record<MainColor, string> = {
     purple: 'bg-purple-500', violet: 'bg-violet-500', indigo: 'bg-indigo-500', blue: 'bg-blue-500',
     sky: 'bg-sky-500', cyan: 'bg-cyan-500', teal: 'bg-teal-500', emerald: 'bg-emerald-500',
     green: 'bg-green-500', lime: 'bg-lime-500', yellow: 'bg-yellow-400', amber: 'bg-amber-400',
-    orange: 'bg-orange-500', stone: 'bg-stone-500', neutral: 'bg-neutral-500', zinc: 'bg-zinc-500', slate: 'bg-slate-500',
+    orange: 'bg-orange-500', stone: 'bg-stone-500', slate: 'bg-slate-500',
 };
 
 export default function FloatingColorSelector() {
@@ -108,17 +108,11 @@ export default function FloatingColorSelector() {
                                     <path d="M6 6L14 14M14 6L6 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                                 </svg>
                             </button>
-                            <div className="relative gap-1 w-[320px] h-10 flex items-center justify-between mt-2">
-                                {TAILWIND_COLORS.map((color, i) => (
-                                    <div
-                                        key={color}
-                                        className={`h-3 w-3 rounded-full ${colorMap[color]} border-2 ${mainColor === color ? 'border-black dark:border-white scale-110 z-10' : 'border-transparent'} transition-transform duration-200`}
-                                    />
-                                ))}
-                            </div>
+                            
+                            <span className="text-xs text-neutral-500 mt-1">Drag the circle to select a color</span>
                             <div
                                 ref={containerRef}
-                                className="relative w-[320px] h-5 bg-white dark:bg-neutral-900 shadow-lg rounded-full flex items-center border border-neutral-200 dark:border-neutral-700 cursor-pointer"
+                                className="relative w-[320px] h-5 bg-white dark:bg-neutral-900 shadow-lg rounded-full flex items-center border border-neutral-200 dark:border-neutral-700 cursor-pointer mt-2"
                                 onMouseDown={handleMouseDown}
                                 onMouseMove={handleMouseMove}
                                 onMouseUp={handleMouseUp}
@@ -135,7 +129,15 @@ export default function FloatingColorSelector() {
                                     }}
                                 />
                             </div>
-                            <span className="text-xs text-neutral-500 mt-1">Drag the circle to select a color</span>
+                            <div className="relative gap-1 w-[320px] h-10 flex items-center justify-between my-1">
+                                {TAILWIND_COLORS.map((color, i) => (
+                                    <div
+                                        key={color}
+                                        className={`h-3 w-3 rounded-full ${colorMap[color]} border-2 ${mainColor === color ? 'border-black dark:border-white scale-110 z-10' : 'border-transparent'} transition-transform duration-200`}
+                                    />
+                                ))}
+                            </div>
+                            <span className={`p-2 rounded bg-${mainColor}-100 text-xs text-${mainColor}-500 mt-1`}>Current color: <b>{mainColor}</b></span>
                         </>
                     )}
                 </div>

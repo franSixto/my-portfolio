@@ -5,7 +5,6 @@ import ThreeHero from "@/components/three/ThreeHero"; // Ensure ThreeHero is a d
 import { motion } from "framer-motion";
 import Button from "@/components/theme/Button"; // Adjust the import path as necessary
 import { Suspense } from "react";
-import { TitleH1 } from "@/components/common/TitleH1";
 import { useColorContext } from '@/components/theme/ColorContext';
 
 const Hero: React.FC = () => {
@@ -38,7 +37,7 @@ const Hero: React.FC = () => {
 
     return (
         <section
-            className="flex justify-center items-center w-full pt-15 lg:pt-0"
+            className="flex justify-center items-center w-full"
             style={{
             height: "100%",
             minHeight: "calc(100vh - 93px)",
@@ -52,7 +51,6 @@ const Hero: React.FC = () => {
             className="px-6 lg:px-0">
                 <h1
                 className={`text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} inline-block text-transparent bg-clip-text leading-8 lg:leading-11 xl:leading-20 transition-colors duration-300`}
-                
                 >
                 Building Impactful Digital Experiences
                 </h1>
@@ -110,7 +108,7 @@ const Hero: React.FC = () => {
 
                 >
                 <motion.span
-                    className={`absolute top-10 left-15 lg:left-50 bg-${mainColor}-100 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 text-xl font-semibold shadow-lg transform rotate-3 rounded-md transition-colors duration-300`}
+                    className={`absolute top-10 left-15 lg:left-50 bg-${mainColor}-100 text-${mainColor}-500 p-2 text-xl font-semibold shadow-lg transform rotate-3 rounded-md transition-colors duration-300`}
                     animate={{
                     y: [10, -10, 10], // Subtle float up and down
                     rotate: [0, 2, -1, 0], // Subtle rotation
@@ -128,7 +126,7 @@ const Hero: React.FC = () => {
                 <ThreeHero />
 
                 <motion.span
-                    className={`absolute bg-${mainColor}-100 right-15 dark:bg-gray-950 text-gray-900 dark:text-gray-400 p-2 bottom-25 text-xl font-bold shadow-lg transform -rotate-6 rounded-md transition-colors duration-300`}
+                    className={`absolute right-15 bg-${mainColor}-100 text-${mainColor}-500 p-2 bottom-25 text-xl font-bold shadow-lg transform -rotate-6 rounded-md transition-colors duration-300`}
                     animate={{
                     y: [0, -20, 0], // Float up and down
                     rotate: [0, 5, -5, 0], // Slight rotation
@@ -140,7 +138,7 @@ const Hero: React.FC = () => {
                     delay: 1, // Delay before animation starts
                     }}
                 >
-                    Just pet the dog! 🐶✨
+                    Just pet the dog! ✨
                 </motion.span>
                 </motion.div>
             </div>
