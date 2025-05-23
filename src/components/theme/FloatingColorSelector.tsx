@@ -130,7 +130,7 @@ export default function FloatingColorSelector() {
                                 />
                             </div>
                             <div className="relative gap-1 w-[320px] h-10 flex items-center justify-between my-1">
-                                {TAILWIND_COLORS.map((color, i) => (
+                                {TAILWIND_COLORS.map((color) => (
                                     <div
                                         key={color}
                                         className={`h-3 w-3 rounded-full ${colorMap[color]} border-2 ${mainColor === color ? 'border-black dark:border-white scale-110 z-10' : 'border-transparent'} transition-transform duration-200`}
