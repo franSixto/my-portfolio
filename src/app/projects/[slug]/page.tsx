@@ -5,9 +5,8 @@ import type { Child } from "@/app/api/projects/projectsService";
 import ReactMarkdown from "react-markdown";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 
-export async function generateMetadata(props: { params: { slug: string } }): Promise<Metadata> {
-  const { params } = props;
-  const { slug } = params;
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await props.params;
   const project = await fetchProjectBySlug(slug);
   if (!project) {
     return {
@@ -21,9 +20,8 @@ export async function generateMetadata(props: { params: { slug: string } }): Pro
   };
 }
 
-export default async function ProjectPage(props: { params: { slug: string } }) {
-  const { params } = props;
-  const { slug } = params; // Corregido: quitar await
+export default async function ProjectPage(props: { params: Promise<{ slug: string }> }) {
+  const { slug } = await props.params;
   const project = await fetchProjectBySlug(slug);
   if (!project) {
     return (
