@@ -2,6 +2,7 @@
 import ProjectList from "@/components/projects/ProjectList";
 import { TitleH1 } from "@/components/common/TitleH1";
 import { fetchProjects } from "@/app/api/projects/projectsService";
+import Breadcrumbs from "@/components/common/Breadcrumbs";
 
 async function Projects() {
   const { projects } = await fetchProjects();
@@ -17,6 +18,9 @@ async function Projects() {
       }}
     >
       <div className="relative overflow-hidden flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
+          <Breadcrumbs />
+        </div>
         <TitleH1
           title="Projects"
           description="Here you can find some of the projects I have worked on."

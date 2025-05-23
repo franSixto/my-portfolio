@@ -3,6 +3,7 @@ import Image from "next/image";
 import { fetchProjectBySlug } from "@/app/api/projects/projectsService";
 import type { Child } from "@/app/api/projects/projectsService";
 import ReactMarkdown from "react-markdown";
+import Breadcrumbs from "@/components/common/Breadcrumbs";
 
 export async function generateMetadata(props: { params: { slug: string } }): Promise<Metadata> {
   const { params } = props;
@@ -27,6 +28,9 @@ export default async function ProjectPage(props: { params: { slug: string } }) {
   if (!project) {
     return (
       <div className="container mx-auto px-6 py-12 text-center dark:bg-gray-950">
+        <div className="flex flex-col items-center justify-center">
+          <Breadcrumbs />
+        </div>
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Project not found</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
           The project you are looking for does not exist or has been removed.
@@ -44,6 +48,9 @@ export default async function ProjectPage(props: { params: { slug: string } }) {
   return (
     <article className="dark:bg-gray-950">
       <div className="container mx-auto px-6 py-12">
+        <div className="flex flex-col items-center justify-center">
+          <Breadcrumbs />
+        </div>
         <h1 className="text-4xl max-w-2xl mx-auto lg:text-5xl xl:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 text-transparent bg-clip-text uppercase mb-2">
           {title}
         </h1>
@@ -82,7 +89,7 @@ export default async function ProjectPage(props: { params: { slug: string } }) {
                 if (block.type === 'paragraph') {
                   return (
                     <p key={index} className="text-gray-600 dark:text-gray-300 mb-5">
-                      {block.children.map((child: Child, childIndex: number) => child.text)}
+                      {block.children.map((child: Child) => child.text)}
                     </p>
                   );
                 }

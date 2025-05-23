@@ -6,6 +6,7 @@ import Highlights from "@/components/home/Highlights";
 import AboutMeTeaser from "@/components/home/AboutMeTeaser";
 // import ClientsSlider from "@/components/ClientSlider";
 
+
 const Home = () => {
   return (
     <div className="bg-gray-50 dark:bg-gray-950 w-full">
