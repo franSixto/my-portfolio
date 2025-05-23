@@ -20,6 +20,22 @@ export default function FloatingColorSelector() {
     const [open, setOpen] = useState(false);
     const [showContent, setShowContent] = useState(false);
 
+    // Persistencia del color en localStorage
+    React.useEffect(() => {
+        // Al montar, intenta cargar el color guardado
+        const savedColor = typeof window !== 'undefined' ? localStorage.getItem('mainColor') : null;
+        if (savedColor && TAILWIND_COLORS.includes(savedColor as MainColor)) {
+            setMainColor(savedColor as MainColor);
+        }
+    }, [setMainColor]);
+
+    React.useEffect(() => {
+        // Cada vez que cambia el color, lo guarda
+        if (mainColor) {
+            localStorage.setItem('mainColor', mainColor);
+        }
+    }, [mainColor]);
+
     // Detectar el color según la posición del mouse/touch
     const handleMove = (clientX: number) => {
         if (!containerRef.current) return;
@@ -75,7 +91,7 @@ export default function FloatingColorSelector() {
             >
                 <FaPalette />
             </motion.button>
-            <div className="absolute top-30 d-flex flex-col items-center justify-center">
+            <div className="absolute top-30 z-50 d-flex flex-col items-center justify-center">
                 <div
                     className={`p-4 border bg-white dark:bg-gray-950 ${COLOR_BORDER_CLASS_MAP[mainColor]} rounded transition-all duration-500 overflow-hidden w-full ${open ? 'max-h-[200px] opacity-100 scale-100' : 'max-h-0 opacity-0 scale-95'}`}
                 >

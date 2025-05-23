@@ -2,9 +2,11 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { fetchProjectBySlug } from "@/app/api/projects/projectsService";
 import type { Child } from "@/app/api/projects/projectsService";
+import ReactMarkdown from "react-markdown";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { slug } = params;
+export async function generateMetadata(props: { params: { slug: string } }): Promise<Metadata> {
+  const { params } = props;
+  const { slug } = await params;
   const project = await fetchProjectBySlug(slug);
   if (!project) {
     return {
@@ -18,8 +20,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function ProjectPage(props: { params: { slug: string } }) {
+  const { params } = props;
+  const { slug } = await params;
   const project = await fetchProjectBySlug(slug);
   if (!project) {
     return (
@@ -34,7 +37,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   const {
     title = "Untitled Project",
     description = "No description available.",
-    longDescription = [],
+    longDescription = "",
     imageUrl = "/default-image.png",
     logoUrl = "/default-logo.png",
   } = project;
@@ -72,20 +75,28 @@ export default async function ProjectPage({ params }: { params: { slug: string }
             />
           </div>
         )}
-        <div className="prose dark:prose-invert max-w-2xl mx-auto">
-          {Array.isArray(longDescription) && longDescription.length > 0 ? (
-            longDescription.map((block, index) => {
-              if (block.type === 'paragraph') {
-                return (
-                  <p key={index} className="text-gray-600 dark:text-gray-300 mb-5">
-                    {block.children.map((child: Child, childIndex: number) => child.text)}
-                  </p>
-                );
-              }
-              return null;
-            })
+        <div className="prose dark:prose-invert text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          {Array.isArray(longDescription) ? (
+            longDescription.length > 0 ? (
+              longDescription.map((block, index) => {
+                if (block.type === 'paragraph') {
+                  return (
+                    <p key={index} className="text-gray-600 dark:text-gray-300 mb-5">
+                      {block.children.map((child: Child, childIndex: number) => child.text)}
+                    </p>
+                  );
+                }
+                return null;
+              })
+            ) : (
+              <p className="text-gray-600 dark:text-gray-400">No hay contenido detallado disponible.</p>
+            )
           ) : (
-            <p className="text-gray-600 dark:text-gray-400">No hay contenido detallado disponible.</p>
+            longDescription ? (
+              <ReactMarkdown>{longDescription}</ReactMarkdown>
+            ) : (
+              <p className="text-gray-600 dark:text-gray-400">No hay contenido detallado disponible.</p>
+            )
           )}
         </div>
       </div>
