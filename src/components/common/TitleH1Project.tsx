@@ -20,7 +20,6 @@ export const TitleH1Project: React.FC<TitleH1PagesProps> = ({ title, description
       className="mb-12 text-start"
       initial={{ opacity: 0, y: -10 }}
       whileInView={inView ? { opacity: 1, y: 0 } : {}}
-      exit={{ opacity: 0, y: 1000 }}
       transition={{ duration: 0.8 }}
       ref={ref}
     >
