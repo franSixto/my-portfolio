@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useColorContext } from "../theme/ColorContext";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 export default function Breadcrumbs() {
     const pathname = usePathname();
