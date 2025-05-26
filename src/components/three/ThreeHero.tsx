@@ -95,17 +95,17 @@ export default function Scene() {
         <directionalLight position={[5, 5, 5]} castShadow intensity={1} />
         <directionalLight
           position={[-5, 0, -5]}
-          intensity={1}
+          intensity={6}
           color={threeColor}
         />
         <directionalLight
           position={[-2, 0, -5]}
-          intensity={3}
+          intensity={11}
           color={threeColor}
         />
         <directionalLight
           position={[1, 0, -1]}
-          intensity={1}
+          intensity={8}
           color={threeColor}
         />
         <Suspense fallback={null}>

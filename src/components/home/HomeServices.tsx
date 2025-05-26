@@ -56,7 +56,7 @@ export default function Services() {
                             
                             <ThreeSpaceship />
                             <motion.div
-                                className={`absolute w-80 h-80 bg-gradient-to-r from-${mainColor}-500/10 to-${mainColor}-700/50 rounded-full z-0 overflow-hidden`}
+                                className={`absolute w-80 h-80 bg-gradient-to-r from-${mainColor}-500 to-${mainColor}-700 rounded-full z-0 overflow-hidden`}
                                 animate={{
                                     opacity: [0.1, .9, 0.1],
                                     scale: [.8, 1, .8],

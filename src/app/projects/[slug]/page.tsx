@@ -4,6 +4,7 @@ import { fetchProjectBySlug } from "@/app/api/projects/projectsService";
 import type { Child } from "@/app/api/projects/projectsService";
 import ReactMarkdown from "react-markdown";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
+import { TitleH1Project } from "@/components/common/TitleH1Project";
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await props.params;
@@ -41,7 +42,9 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
     description = "No description available.",
     longDescription = "",
     imageUrl = "/default-image.png",
+    imageAlt = "Imagen del proyecto",
     logoUrl = "/default-logo.png",
+    logoAlt = "Logo del proyecto",
   } = project;
   return (
     <article className="dark:bg-gray-950">
@@ -49,12 +52,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
         <div className="flex flex-col items-center justify-center">
           <Breadcrumbs />
         </div>
-        <h1 className="text-4xl max-w-2xl mx-auto lg:text-5xl xl:text-6xl font-extrabold bg-gradient-to-r from-red-400 to-red-600 text-transparent bg-clip-text uppercase mb-2">
-          {title}
-        </h1>
-        <p className="text-xl max-w-2xl mx-auto leading-relaxed dark:text-gray-400">
-          {description}
-        </p>
+        <TitleH1Project title={title} description={description} />
         {logoUrl && (
           <div className="flex flex-row items-center justify-between max-w-2xl mx-auto my-6 p-3 ps-5 bg-gray-100 dark:bg-gray-900 rounded-xl">
             <div className="relative text-gray-700 dark:text-gray-300 pe-2">
@@ -62,7 +60,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
             </div>
             <Image
               src={logoUrl}
-              alt={title}
+              alt={logoAlt}
               width={80}
               height={80}
               className="object-contain bg-white rounded-lg shadow-lg p-2 w-40 h-15"
@@ -73,10 +71,10 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
           <div className="relative max-w-2xl mx-auto mb-16">
             <Image
               src={imageUrl}
-              alt={title}
+              alt={imageAlt}
               width={1366}
               height={792}
-              className="rounded-2xl object-cover shadow-lg"
+              className="rounded-2xl object-cover bg-gray-100 dark:bg-gray-900"
             />
           </div>
         )}

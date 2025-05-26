@@ -41,9 +41,9 @@ export default function ProjectCard({
           bg-gradient-to-tr h-full flex flex-col p-[1px] rounded-lg overflow-hidden shadow-lg transition duration-300
           hover:shadow-xl hover:-translate-y-2
         from-white/10 via-gray-300/10 to-gray-500/20
-        hover:from-white hover:via-white hover:to-red-500/50 
+        hover:from-white hover:via-white hover:to-white 
         dark:from-gray-950 dark:via-gray-900/80 dark:to-gray-500/80
-        hover:dark:via-gray-600 hover:dark:from-gray-600 hover:dark:to-red-500/50 
+        hover:dark:via-gray-600 hover:dark:from-gray-600 hover:dark:to-white
        ">
         <div className="bg-gradient-to-tr rounded-lg transition duration-300 overflow-hidden shadow-lg h-full flex flex-col p-2
         from-white/10 via-white to-white

@@ -35,9 +35,9 @@ export default function Scene() {
       <Canvas shadows camera={{ position: [2, -2, 1], fov: 50 }}>
         <ambientLight color={threeColor} intensity={.1} />
         <directionalLight position={[5, 5, 5]} castShadow intensity={0.1} />
-        <directionalLight position={[-5, 0, -5]} intensity={1} color={threeColor} />
-        <directionalLight position={[-2, 0, -5]} intensity={3} color="white" />
-        <directionalLight position={[-5, 0, -1]} intensity={1} color="black" />
+        <directionalLight position={[-5, 0, -5]} intensity={10} color={threeColor} />
+        <directionalLight position={[-2, 0, -5]} intensity={3} color={threeColor}  />
+        <directionalLight position={[-5, 0, -1]} intensity={10} color={threeColor}  />
         <Suspense fallback={null}>
           <Character />
         </Suspense>

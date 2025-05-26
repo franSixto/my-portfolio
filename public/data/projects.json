@@ -1,28 +1,37 @@
 [
     {
-        "id": "project-1",
-        "title": "Project 1",
-        "description": "This is the first project.",
-        "imageUrl": "/images/project1.jpg",
+        "id": "experience-at-startu",
+        "slug": "experience-at-startu",
+        "title": "My experience at Start University: strategic design, leadership, and digital transformation",
+        "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion.",
+        "imageUrl": "/projects/websites-startu-small.webp",
+        "imageAlt": "Sitio web de Start University",
         "projectUrl": "https://example.com/project1",
-        "logoUrl": "/images/logo1.png",
+        "logoUrl": "/projects/logo-startu.png",
+        "logoAlt": "Logo de Start University",
         "longDescription": "## Project 1\n\nEste es un **proyecto de ejemplo**.\n\n- Característica 1\n- Característica 2\n\n[Ver más](https://example.com/project1)"
     },
     {
         "id": "project-2",
+        "slug": "project-2",
         "title": "Project 2",
         "description": "This is the second project.",
         "imageUrl": "/images/project2.jpg",
+        "imageAlt": "Captura de pantalla de Project 2",
         "logoUrl": "/images/logo2.png",
+        "logoAlt": "Logo de Project 2",
         "projectUrl": "https://example.com/project2",
         "longDescription": "## Project 2\n\nDescripción larga en *markdown* para el segundo proyecto.\n\n- Detalle A\n- Detalle B\n\n[Ver más](https://example.com/project2)"
     },
     {
         "id": "project-3",
+        "slug": "project-3",
         "title": "Project 3",
         "description": "This is the third project.",
         "imageUrl": "/images/project3.jpg",
+        "imageAlt": "Captura de pantalla de Project 3",
         "logoUrl": "/images/logo3.png",
+        "logoAlt": "Logo de Project 3",
         "projectUrl": "https://example.com/project3",
         "longDescription": "## Project 3\n\nTexto de ejemplo para la descripción larga del tercer proyecto.\n\n- Punto X\n- Punto Y\n\n[Ver más](https://example.com/project3)"
     }

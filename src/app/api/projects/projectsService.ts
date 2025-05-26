@@ -19,10 +19,12 @@ export type Project = {
   title: string;
   description: string;
   imageUrl?: string;
+  imageAlt?: string;
   logoUrl?: string;
+  logoAlt?: string;
   projectUrl?: string;
   slug?: string;
-  longDescription?: Array<{ type: string; children: Child[]; level?: number; format?: string }>;
+  longDescription?: Array<{ type: string; children: Child[]; level?: number; format?: string }> | string;
 };
 
 // Lee el archivo local de proyectos
