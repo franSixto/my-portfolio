@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useColorContext, TAILWIND_COLORS } from '@/components/theme/ColorContext';
 // @ts-ignore
 import confetti from "canvas-confetti";
+import { FaPlay, FaStop } from "react-icons/fa";
 
 export default function PartyModeButton() {
     const [partyMode, setPartyMode] = useState(false);
@@ -26,7 +27,7 @@ export default function PartyModeButton() {
                         confetti({
                             particleCount: 50,
                             angle: 60 + Math.random() * 60, // entre 60 y 120 grados
-                            spread: 120,
+                            spread: 150,
                             startVelocity: 55,
                             origin: {
                                 x: Math.random(),
@@ -75,6 +76,19 @@ export default function PartyModeButton() {
         };
     }, [partyMode, setMainColor]);
 
+    useEffect(() => {
+        // Pausar party mode si la ventana pierde el foco
+        const handleVisibility = () => {
+            if (document.hidden && partyMode) {
+                setPartyMode(false);
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisibility);
+        return () => {
+            document.removeEventListener('visibilitychange', handleVisibility);
+        };
+    }, [partyMode]);
+
     return (
         <>
             <motion.button
@@ -91,7 +105,17 @@ export default function PartyModeButton() {
                     }
                 }}
             >
-                <span className="flex flex-row justify-between items-center gap-4 text-md px-4">Fun mode <span className="text-2xl">🎉</span></span>
+                {partyMode ? (
+                    <span className="flex flex-row justify-between items-center gap-3 text-md px-4">
+                        <FaStop className="text-xl" />
+                        stop this please
+                    </span>
+                ) : (
+                    <span className="flex flex-row justify-between items-center gap-3 text-md px-4">
+                        <FaPlay className="text-xl" />
+                        play fun mode
+                    </span>
+                )}
             </motion.button>
             <audio ref={audioRef} src="/t-bless-korobeiniki-8-bit-version.mp3" loop style={{ display: 'none' }} />
             {showPartyWarning && (

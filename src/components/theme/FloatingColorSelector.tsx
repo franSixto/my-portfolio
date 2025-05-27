@@ -91,7 +91,7 @@ export default function FloatingColorSelector() {
             >
                 <FaPalette />
             </motion.button>
-            <div className="absolute top-30 z-50 d-flex flex-col items-center justify-center">
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-27 z-50 d-flex flex-col items-center justify-center">
                 <div
                     className={`p-4 border bg-white dark:bg-gray-950 ${COLOR_BORDER_CLASS_MAP[mainColor]} rounded transition-all duration-500 overflow-hidden w-full ${open ? 'max-h-[200px] opacity-100 scale-100' : 'max-h-0 opacity-0 scale-95'}`}
                 >
