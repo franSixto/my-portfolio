@@ -10,7 +10,6 @@ import NavMobile from "@/components/common/NavMobile";
 import { RiMenuLine } from "react-icons/ri";
 import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
 import FloatingColorSelector from "@/components/theme/FloatingColorSelector";
-import React, { useRef } from "react";
 import PartyModeButton from "@/components/common/PartyModeButton";
 
 export default function Header() {

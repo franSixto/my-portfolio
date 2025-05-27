@@ -18,13 +18,13 @@ export default function PartyModeButton() {
             partyInterval.current = setInterval(() => {
                 const randomColor = TAILWIND_COLORS[Math.floor(Math.random() * TAILWIND_COLORS.length)];
                 setMainColor(randomColor);
-            }, 300);
+            }, 1500);
             // Lanzar fuegos artificiales cada 3 segundos
             fireworksInterval.current = setInterval(() => {
                 for (let i = 0; i < 3; i++) {
                     setTimeout(() => {
                         confetti({
-                            particleCount: 100,
+                            particleCount: 50,
                             angle: 60 + Math.random() * 60, // entre 60 y 120 grados
                             spread: 120,
                             startVelocity: 55,
@@ -38,7 +38,7 @@ export default function PartyModeButton() {
                         });
                     }, i * 400);
                 }
-            }, 1500);
+            }, 1400);
             if (audioRef.current) {
                 audioRef.current.currentTime = 0;
                 audioRef.current.play();
@@ -93,7 +93,7 @@ export default function PartyModeButton() {
             >
                 <span className="flex flex-row justify-between items-center gap-4 text-md px-4">Fun mode <span className="text-2xl">🎉</span></span>
             </motion.button>
-            <audio ref={audioRef} src="/brazil-funk-1.mp3" loop style={{ display: 'none' }} />
+            <audio ref={audioRef} src="/t-bless-korobeiniki-8-bit-version.mp3" loop style={{ display: 'none' }} />
             {showPartyWarning && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
                     <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-xl max-w-xs text-center">
