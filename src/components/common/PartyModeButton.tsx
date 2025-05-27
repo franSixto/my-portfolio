@@ -1,16 +1,15 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useColorContext, TAILWIND_COLORS } from '@/components/theme/ColorContext';
-// @ts-ignore
 import confetti from "canvas-confetti";
 import { FaPlay, FaStop } from "react-icons/fa";
+import Bailarin from "./Bailarin";
 
 export default function PartyModeButton() {
     const [partyMode, setPartyMode] = useState(false);
     const [showPartyWarning, setShowPartyWarning] = useState(false);
     const partyInterval = useRef<NodeJS.Timeout | null>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
-    const confettiInterval = useRef<NodeJS.Timeout | null>(null);
     const fireworksInterval = useRef<NodeJS.Timeout | null>(null);
     const { setMainColor } = useColorContext();
 
@@ -91,6 +90,7 @@ export default function PartyModeButton() {
 
     return (
         <>
+            {partyMode && <Bailarin />}
             <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -108,7 +108,7 @@ export default function PartyModeButton() {
                 {partyMode ? (
                     <span className="flex flex-row justify-between items-center gap-3 text-md px-4">
                         <FaStop className="text-xl" />
-                        stop this please
+                        Stop this!<span className="hidden md:inline"> party mode</span>
                     </span>
                 ) : (
                     <span className="flex flex-row justify-between items-center gap-3 text-md px-4">
@@ -122,7 +122,7 @@ export default function PartyModeButton() {
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
                     <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-xl max-w-xs text-center">
                         <h2 className="text-lg font-bold mb-2 text-red-600">Heads up!</h2>
-                        <p className="mb-4 text-sm">This mode is intentionally chaotic, probably the worst user experience I've ever designed… <b>but it's also a lot of fun</b>. Give it a try if you're okay with flashing colors!</p>
+                        <p className="mb-4 text-sm">This mode is intentionally chaotic, probably the worst user experience I&apos;ve ever designed… <b>but it&apos;s also a lot of fun</b>. Give it a try if you&apos;re okay with flashing colors!</p>
                         <div className="flex gap-3 justify-center">
                             <button
                                 className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 cursor-pointer"
