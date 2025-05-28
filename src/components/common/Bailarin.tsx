@@ -1,7 +1,6 @@
 import React, { Suspense, useEffect, useRef } from "react";
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { FaRegSmileWink } from "react-icons/fa";
 import * as THREE from 'three';
 
 function HipHopFBX() {
@@ -11,16 +10,18 @@ function HipHopFBX() {
 
     useEffect(() => {
         let mounted = true;
-        let loader: any;
+        let loader: THREE.Loader | undefined;
         // Import dinámico del FBXLoader
         import('three/examples/jsm/loaders/FBXLoader.js').then((mod) => {
             loader = new mod.FBXLoader();
-            loader.load('/hip-hop.fbx', (fbx: THREE.Group & { animations?: THREE.AnimationClip[] }) => {
+            loader.load('/hip-hop.fbx', (fbx: unknown) => {
                 if (!mounted) return;
-                setModel(fbx);
-                if (fbx.animations && fbx.animations.length > 0) {
-                    mixer.current = new THREE.AnimationMixer(fbx);
-                    mixer.current.clipAction(fbx.animations[0]).play();
+                // Forzamos el tipo adecuado para el modelo FBX
+                const group = fbx as THREE.Group & { animations?: THREE.AnimationClip[] };
+                setModel(group);
+                if (group.animations && group.animations.length > 0) {
+                    mixer.current = new THREE.AnimationMixer(group);
+                    mixer.current.clipAction(group.animations[0]).play();
                 }
             });
         });
@@ -44,9 +45,6 @@ function SkeletonLoader() {
 export default function Bailarin() {
     return (
         <div className="fixed inset-0 z-40 flex flex-col items-center justify-center pointer-events-none w-screen h-screen">
-            <span className="text-[120px] animate-bounce text-yellow-400 drop-shadow-lg mb-4">
-                {/* <FaRegSmileWink /> */}
-            </span>
             <div className="w-full h-full bg-transparent">
                 <Suspense fallback={<SkeletonLoader />}>
                     <Canvas camera={{ position: [-100, 400, -300], fov: 100 }}>
