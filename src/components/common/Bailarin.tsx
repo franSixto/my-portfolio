@@ -43,15 +43,15 @@ function SkeletonLoader() {
 
 export default function Bailarin() {
     return (
-        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center pointer-events-none">
+        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center pointer-events-none w-screen h-screen">
             <span className="text-[120px] animate-bounce text-yellow-400 drop-shadow-lg mb-4">
                 {/* <FaRegSmileWink /> */}
             </span>
-            <div className="w-[100%] h-[50%] bg-transparent">
+            <div className="w-full h-full bg-transparent">
                 <Suspense fallback={<SkeletonLoader />}>
-                    <Canvas camera={{ position: [500, 250, 100], fov: 100 }}>
+                    <Canvas camera={{ position: [-100, 400, -300], fov: 100 }}>
                         <ambientLight intensity={0.8} />
-                        <directionalLight position={[2, 5, 2]} intensity={1.2} />
+                        <directionalLight position={[2, 5, 2]} intensity={5} />
                         <HipHopFBX />
                         <OrbitControls enablePan={false} enableZoom={false} autoRotate autoRotateSpeed={2} />
                     </Canvas>
