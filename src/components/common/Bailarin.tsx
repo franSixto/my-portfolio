@@ -45,17 +45,40 @@ function SkeletonLoader() {
 
 export default function Bailarin() {
     const { mainColor } = useColorContext();
+    // Utilidad para mapear el color tailwind a un color de three.js
+    const colorMap: Record<string, string> = {
+        red: '#ef4444', blue: '#3b82f6', green: '#22c55e', yellow: '#eab308',
+        purple: '#a21caf', pink: '#ec4899', indigo: '#6366f1', teal: '#14b8a6',
+        orange: '#f59e42', cyan: '#06b6d4', emerald: '#10b981', lime: '#84cc16',
+        amber: '#f59e42', violet: '#8b5cf6', fuchsia: '#d946ef', rose: '#f43f5e',
+        sky: '#0ea5e9', slate: '#64748b', zinc: '#71717a', neutral: '#737373', stone: '#78716c',
+    };
+    const threeColor = colorMap[mainColor] || '#ef4444';
+
     return (
         <div className="fixed inset-0 z-40 flex flex-col items-center justify-center pointer-events-none w-screen h-screen">
             <div className="w-full h-full bg-transparent">
                 <Suspense fallback={<SkeletonLoader />}>
                     <Canvas camera={{ position: [-100, 400, -300], fov: 70 }}>
-                        <ambientLight intensity={3} color={mainColor} />
-                        <directionalLight position={[2, 5, 2]} intensity={5} color={mainColor} />
-                        <directionalLight position={[0, 8, 8]} intensity={5} color={mainColor} />
-                        <directionalLight position={[5, 0, 5]} intensity={1} color="00xffffff" />
+                        {/* <ambientLight intensity={3} color={mainColor} /> */}
+                        <directionalLight position={[5, 5, 5]} castShadow intensity={1} />
+                        <directionalLight
+                            position={[-5, 0, -5]}
+                            intensity={6}
+                            color={threeColor}
+                        />
+                        <directionalLight
+                            position={[-2, 0, -5]}
+                            intensity={11}
+                            color={threeColor}
+                        />
+                        <directionalLight
+                            position={[1, 0, -1]}
+                            intensity={8}
+                            color={threeColor}
+                        />
                         <HipHopFBX />
-                        <OrbitControls enablePan={false} enableZoom={false}  />
+                        <OrbitControls enablePan={false} enableZoom={false} />
                     </Canvas>
                 </Suspense>
             </div>
