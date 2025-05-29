@@ -117,7 +117,7 @@ export default function PartyModeButton() {
                     </span>
                 )}
             </motion.button>
-            <audio ref={audioRef} src="/t-bless-korobeiniki-8-bit-version.mp3" loop style={{ display: 'none' }} />
+            <audio ref={audioRef} src="/t-bless-korobeiniki-8-bit-version.mp3" onEnded={() => setPartyMode(false)} style={{ display: 'none' }} />
             {showPartyWarning && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
                     <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-xl max-w-xs text-center">

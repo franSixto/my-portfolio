@@ -43,7 +43,7 @@ export default function AboutMeTeaser() {
             style={{ boxShadow: `0 4px 24px 0 var(--tw-shadow-color, ${COLOR_CLASS_MAP[mainColor].split(' ')[0].replace('bg-', '').replace('-100', '')})` }}>
             <Image
               src="/me.svg"
-              alt="This is me"
+              alt="This is also me"
               width={100}
               height={211}
               className={`z-1 w-[200%] lg:w-[100%] h-50 object-cover object-bottom rounded-xl shadow-2xl`}

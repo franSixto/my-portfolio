@@ -27,7 +27,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <ThemeProvider attribute="data-theme" >
             <ColorProvider>
               <Header />
-              {children}
+              <main id="main-content">
+                {children}
+              </main>
               <SpeedInsights />
               <Analytics />
               <Footer />
