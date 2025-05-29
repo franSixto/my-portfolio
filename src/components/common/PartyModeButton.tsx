@@ -18,7 +18,7 @@ export default function PartyModeButton() {
             partyInterval.current = setInterval(() => {
                 const randomColor = TAILWIND_COLORS[Math.floor(Math.random() * TAILWIND_COLORS.length)];
                 setMainColor(randomColor);
-            }, 1400);
+            }, 500);
             // Lanzar fuegos artificiales cada 3 segundos
             fireworksInterval.current = setInterval(() => {
                 for (let i = 0; i < 3; i++) {
@@ -38,7 +38,7 @@ export default function PartyModeButton() {
                         });
                     }, i * 400);
                 }
-            }, 1400);
+            }, 1000);
             if (audioRef.current) {
                 audioRef.current.currentTime = 0;
                 audioRef.current.play();
@@ -96,7 +96,7 @@ export default function PartyModeButton() {
                 whileTap={{ scale: 0.9 }}
                 aria-pressed={partyMode}
                 title={partyMode ? 'Stop Party Mode' : 'Play Party Mode'}
-                className={`fixed bottom-5 right-5 z-30 p-2 h-[50px] flex justify-center items-center rounded-full border transition-colors duration-200 ${partyMode ? 'bg-yellow-200 text-gray-950 border-yellow-500 animate-pulse' : 'bg-white dark:bg-gray-900 border-neutral-300 dark:border-gray-700'}`}
+                className={`fixed bottom-5 right-5 z-40 p-2 h-[50px] flex justify-center items-center rounded-full border transition-colors duration-200 ${partyMode ? 'bg-yellow-200 text-gray-950 border-yellow-500 animate-pulse' : 'bg-white dark:bg-gray-900 border-neutral-300 dark:border-gray-700'}`}
                 onClick={() => {
                     if (!partyMode) {
                         setShowPartyWarning(true);
@@ -108,12 +108,12 @@ export default function PartyModeButton() {
                 {partyMode ? (
                     <span className="flex flex-row justify-between items-center gap-3 text-md px-4">
                         <FaStop className="text-xl" />
-                        Stop this!<span className="hidden md:inline"> party mode</span>
+                        Stop this!
                     </span>
                 ) : (
                     <span className="flex flex-row justify-between items-center gap-3 text-md px-4">
                         <FaPlay className="text-xl" />
-                        play fun mode
+                        Play fun mode
                     </span>
                 )}
             </motion.button>

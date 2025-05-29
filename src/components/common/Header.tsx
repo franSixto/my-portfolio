@@ -26,7 +26,7 @@ export default function Header() {
     return (
         <>
             <header className="bg-gray-50 text-black dark:bg-gray-950 dark:text-white transition-colors duration-300 py-4">
-                <nav className="container mx-auto flex justify-between items-center px-6">
+                <nav className="container mx-auto flex justify-between items-center px-6 z-50">
                     <Link href="/">
                         <Image
                             className="dark:invert rotate-350"

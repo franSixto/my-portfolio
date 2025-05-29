@@ -54,12 +54,37 @@ export default function Bailarin() {
         sky: '#0ea5e9', slate: '#64748b', zinc: '#71717a', neutral: '#737373', stone: '#78716c',
     };
     const threeColor = colorMap[mainColor] || '#ef4444';
+    // Color para el haz de luz
+    const beamColor = threeColor + '80'; // 50% opacidad
 
     return (
         <div className="fixed inset-0 z-40 flex flex-col items-center justify-center pointer-events-none w-screen h-screen">
+            {/* Haz de luz superior derecho */}
+            <div
+                className="pointer-events-none fixed -top-20 -left-10 z-0"
+                style={{
+                    width: '60vw',
+                    height: '60vh',
+                    background: `radial-gradient(ellipse 100% 60% at 0% 0%, ${beamColor} 0%, transparent 80%)`,
+                    filter: 'blur(60px)',
+                    opacity: 0.7,
+                    mixBlendMode: 'screen',
+                }}
+            />
+            <div
+                className="pointer-events-none fixed -top-20 -right-10 z-0"
+                style={{
+                    width: '60vw',
+                    height: '60vh',
+                    background: `radial-gradient(ellipse 100% 60% at 100% 0%, ${beamColor} 0%, transparent 80%)`,
+                    filter: 'blur(60px)',
+                    opacity: 0.7,
+                    mixBlendMode: 'screen',
+                }}
+            />
             <div className="w-full h-full bg-transparent">
                 <Suspense fallback={<SkeletonLoader />}>
-                    <Canvas camera={{ position: [-100, 400, -300], fov: 70 }}>
+                    <Canvas camera={{ position: [-100, 400, 300], fov: 70 }}>
                         {/* <ambientLight intensity={3} color={mainColor} /> */}
                         <directionalLight position={[5, 5, 5]} castShadow intensity={1} />
                         <directionalLight
