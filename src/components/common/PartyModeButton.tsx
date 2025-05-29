@@ -18,7 +18,7 @@ export default function PartyModeButton() {
             partyInterval.current = setInterval(() => {
                 const randomColor = TAILWIND_COLORS[Math.floor(Math.random() * TAILWIND_COLORS.length)];
                 setMainColor(randomColor);
-            }, 1500);
+            }, 1400);
             // Lanzar fuegos artificiales cada 3 segundos
             fireworksInterval.current = setInterval(() => {
                 for (let i = 0; i < 3; i++) {

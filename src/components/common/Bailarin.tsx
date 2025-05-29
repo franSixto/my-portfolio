@@ -2,6 +2,7 @@ import React, { Suspense, useEffect, useRef } from "react";
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
+import { useColorContext } from '@/components/theme/ColorContext';
 
 function HipHopFBX() {
     const group = useRef<THREE.Group>(null);
@@ -14,7 +15,7 @@ function HipHopFBX() {
         // Import dinámico del FBXLoader
         import('three/examples/jsm/loaders/FBXLoader.js').then((mod) => {
             loader = new mod.FBXLoader();
-            loader.load('/hip-hop.fbx', (fbx: unknown) => {
+            loader.load('/hip-hop-2.fbx', (fbx: unknown) => {
                 if (!mounted) return;
                 // Forzamos el tipo adecuado para el modelo FBX
                 const group = fbx as THREE.Group & { animations?: THREE.AnimationClip[] };
@@ -43,15 +44,18 @@ function SkeletonLoader() {
 }
 
 export default function Bailarin() {
+    const { mainColor } = useColorContext();
     return (
         <div className="fixed inset-0 z-40 flex flex-col items-center justify-center pointer-events-none w-screen h-screen">
             <div className="w-full h-full bg-transparent">
                 <Suspense fallback={<SkeletonLoader />}>
-                    <Canvas camera={{ position: [-100, 400, -300], fov: 100 }}>
-                        <ambientLight intensity={0.8} />
-                        <directionalLight position={[2, 5, 2]} intensity={5} />
+                    <Canvas camera={{ position: [-100, 400, -300], fov: 70 }}>
+                        <ambientLight intensity={3} color={mainColor} />
+                        <directionalLight position={[2, 5, 2]} intensity={5} color={mainColor} />
+                        <directionalLight position={[0, 8, 8]} intensity={5} color={mainColor} />
+                        <directionalLight position={[5, 0, 5]} intensity={1} color="00xffffff" />
                         <HipHopFBX />
-                        <OrbitControls enablePan={false} enableZoom={false} autoRotate autoRotateSpeed={2} />
+                        <OrbitControls enablePan={false} enableZoom={false}  />
                     </Canvas>
                 </Suspense>
             </div>
