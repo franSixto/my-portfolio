@@ -11,13 +11,51 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const project = await fetchProjectBySlug(slug);
   if (!project) {
     return {
-      title: "Proyecto no encontrado",
-      description: "El proyecto que estás buscando no existe o ha sido eliminado.",
+      title: "Project not found",
+      description: "The project you are looking for does not exist or has been removed.",
+      openGraph: {
+        title: "Project not found",
+        description: "The project you are looking for does not exist or has been removed.",
+        url: `https://www.fransixto.com.ar/projects/${slug}`,
+        siteName: "Francisco Sixto Portfolio",
+        locale: "en_US",
+        type: "article",
+        images: [
+          {
+            url: "/meta-image.jpg",
+            width: 1200,
+            height: 630,
+            alt: "Francisco Sixto Portfolio"
+          }
+        ]
+      },
+      alternates: {
+        canonical: `https://www.fransixto.com.ar/projects/${slug}`
+      }
     };
   }
   return {
     title: project.title || "Untitled Project",
     description: project.description || "No description available.",
+    openGraph: {
+      title: project.title || "Untitled Project",
+      description: project.description || "No description available.",
+      url: `https://www.fransixto.com.ar/projects/${slug}`,
+      siteName: "Francisco Sixto Portfolio",
+      locale: "en_US",
+      type: "article",
+      images: [
+        {
+          url: "/meta-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Francisco Sixto Portfolio"
+        }
+      ]
+    },
+    alternates: {
+      canonical: `https://www.fransixto.com.ar/projects/${slug}`
+    }
   };
 }
 
