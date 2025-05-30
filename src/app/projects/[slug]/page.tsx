@@ -96,7 +96,23 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
             )
           ) : (
             longDescription ? (
-              <ReactMarkdown>{longDescription}</ReactMarkdown>
+              <ReactMarkdown
+                components={{
+                  p: ({ node, ...props }) => <p className="mb-5 leading-relaxed text-gray-700 dark:text-gray-200" {...props} />,
+                  h1: ({ node, ...props }) => <h1 className="text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-white" {...props} />,
+                  h2: ({ node, ...props }) => <h2 className="text-2xl font-semibold mt-8 mb-3 text-gray-900 dark:text-white" {...props} />,
+                  h3: ({ node, ...props }) => <h3 className="text-xl font-semibold mt-6 mb-2 text-gray-900 dark:text-white" {...props} />,
+                  ul: ({ node, ...props }) => <ul className="list-disc pl-6 mb-5 space-y-2" {...props} />,
+                  ol: ({ node, ...props }) => <ol className="list-decimal pl-6 mb-5 space-y-2" {...props} />,
+                  li: ({ node, ...props }) => <li className="mb-1" {...props} />,
+                  a: ({ node, ...props }) => <a className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors" target="_blank" rel="noopener noreferrer" {...props} />,
+                  strong: ({ node, ...props }) => <strong className="font-semibold text-gray-900 dark:text-white" {...props} />,
+                  em: ({ node, ...props }) => <em className="italic text-gray-700 dark:text-gray-200" {...props} />,
+                  hr: () => <hr className="my-8 border-gray-300 dark:border-gray-700" />,
+                  blockquote: ({ node, ...props }) => <blockquote className="border-l-4 border-blue-400 pl-4 italic text-gray-700 dark:text-gray-300 my-6" {...props} />,
+                  code: ({ node, ...props }) => <code className="bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5 text-sm font-mono" {...props} />,
+                }}
+              >{longDescription}</ReactMarkdown>
             ) : (
               <p className="text-gray-600 dark:text-gray-400">No hay contenido detallado disponible.</p>
             )

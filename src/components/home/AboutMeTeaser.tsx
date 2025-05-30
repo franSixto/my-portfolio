@@ -22,7 +22,7 @@ export default function AboutMeTeaser() {
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.8 }}
         className="dark:bg-gray-900/30 bg-gray-200/30 backdrop-blur-xl rounded-2xl p-8 max-w-2xl mx-auto text-start flex flex-col items-center justify-center">
-        <div className="relative flex flex-col gap-5 mb-6">
+        <div className="relative flex flex-col gap-5 mb-0 lg:mb-6">
           <div className={`relative flex justify-center items-center h-full w-full bg-${mainColor}-500 rounded-xl`}
             style={{ boxShadow: `0 4px 24px 0 var(--tw-shadow-color, ${COLOR_CLASS_MAP[mainColor].split(' ')[0].replace('bg-', '').replace('-100', '')})` }}>
             <Image
@@ -34,7 +34,7 @@ export default function AboutMeTeaser() {
             />
             <b className="absolute text-[6rem] lg:text-[14rem] left-1/2 -translate-x-1/2 text-white opacity-30 top-50% lg:-top-18">FRAN</b>
           </div>
-          <div className="flex flex-col justify-center items-center ms-4">
+          <div className="flex flex-col justify-center items-center">
             <p className="text-lg md:text-xl leading-relaxed mb-0 text-gray-600 dark:text-gray-400">
               <strong>Born in a small town in southern Córdoba, Argentina</strong>, I’ve always carried big dreams and a deep passion for great design and technology.
             </p>
@@ -46,7 +46,7 @@ export default function AboutMeTeaser() {
               alt="This is also me"
               width={100}
               height={211}
-              className={`z-1 w-[200%] lg:w-[100%] h-50 object-cover object-bottom rounded-xl shadow-2xl`}
+              className={`hidden lg:flex z-1 w-[200%] lg:w-[100%] h-50 object-cover object-bottom rounded-xl shadow-2xl`}
             />
             <b className="absolute text-[6rem] lg:text-[14rem] left-1/2 -translate-x-1/2 text-white opacity-30 top-50% lg:-top-18">SIXTO</b>
           </div>
