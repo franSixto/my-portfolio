@@ -10,6 +10,9 @@ type FormData = {
     honey: string;
 };
 
+const GOOGLE_FORM_ACTION_URL = process.env.NEXT_PUBLIC_GOOGLE_FORM_ACTION_URL!;
+const GOOGLE_FORM_EMAIL_ENTRY = process.env.NEXT_PUBLIC_GOOGLE_FORM_EMAIL_ENTRY!;
+
 export default function Subscribe() {
     const {
         register,
@@ -39,27 +42,21 @@ export default function Subscribe() {
 
         setIsSubmitting(true);
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/newsletters`, {
+            const formData = new FormData();
+            formData.append(GOOGLE_FORM_EMAIL_ENTRY, data.email);
+
+            await fetch(GOOGLE_FORM_ACTION_URL, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    data: {
-                        email: data.email,
-                    },
-                }),
+                mode: "no-cors",
+                body: formData,
             });
 
-            if (response.ok) {
-                setSubmitted(true);
-                sessionStorage.setItem("isSubscribed", "true");
-                reset();
-            } else {
-                console.error("Error al suscribirse:", await response.json());
-            }
+            // Google Forms siempre responde 0 por CORS, así que asumimos éxito
+            setSubmitted(true);
+            sessionStorage.setItem("isSubscribed", "true");
+            reset();
         } catch (error) {
-            console.error("Error de red:", error);
+            console.error("Error al suscribirse:", error);
         } finally {
             setIsSubmitting(false);
         }

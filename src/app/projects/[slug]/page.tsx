@@ -5,6 +5,7 @@ import type { Child } from "@/app/api/projects/projectsService";
 import ReactMarkdown from "react-markdown";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import { TitleH1Project } from "@/components/common/TitleH1Project";
+import ProjectLogoBanner from "@/components/projects/ProjectLogoBanner";
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await props.params;
@@ -92,18 +93,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
         </div>
         <TitleH1Project title={title} description={description} />
         {logoUrl && (
-          <div className="flex flex-row items-center justify-between max-w-2xl mx-auto my-6 p-3 ps-5 bg-gray-100 dark:bg-gray-900 rounded-xl">
-            <div className="relative text-gray-700 dark:text-gray-300 pe-2">
-              <span className="text-lg font-medium">Made for</span>
-            </div>
-            <Image
-              src={logoUrl}
-              alt={logoAlt}
-              width={80}
-              height={80}
-              className="object-contain bg-white rounded-lg shadow-lg p-2 w-40 h-15"
-            />
-          </div>
+          <ProjectLogoBanner logoUrl={logoUrl} logoAlt={logoAlt} />
         )}
         {imageUrl && (
           <div className="relative max-w-2xl mx-auto mb-16">

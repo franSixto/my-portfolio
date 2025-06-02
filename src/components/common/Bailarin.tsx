@@ -1,8 +1,9 @@
-import React, { Suspense, useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { useColorContext } from '@/components/theme/ColorContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function HipHopFBX() {
     const group = useRef<THREE.Group>(null);
@@ -35,15 +36,20 @@ function HipHopFBX() {
     return model ? <primitive ref={group} object={model} scale={1.5} position={[0, -1, 0]} /> : null;
 }
 
-function SkeletonLoader() {
+function LoaderMesh() {
+    // Loader 3D: esfera simple en la misma posición y escala
     return (
-        <div className="w-[300px] h-[300px] flex items-center justify-center">
-            <div className="animate-pulse w-24 h-24 rounded-full bg-yellow-200 opacity-60" />
-        </div>
+        <mesh position={[0, -1, 0]} scale={1.5}>
+            <sphereGeometry args={[1, 32, 32]} />
+            <meshStandardMaterial color="#eab308" opacity={0.5} transparent />
+        </mesh>
     );
 }
 
-export default function Bailarin() {
+export default function Bailarin({
+    show = true,
+    onExited
+}: { show?: boolean; onExited?: () => void }) {
     const { mainColor } = useColorContext();
     // Utilidad para mapear el color tailwind a un color de three.js
     const colorMap: Record<string, string> = {
@@ -57,56 +63,81 @@ export default function Bailarin() {
     // Color para el haz de luz
     const beamColor = threeColor + '80'; // 50% opacidad
 
+    const [visible, setVisible] = useState(show);
+    useEffect(() => {
+        if (show) {
+            setVisible(true);
+        } else {
+            setTimeout(() => {
+                setVisible(false);
+                if (onExited) onExited();
+            }, 600); // Duración de la animación de salida
+        }
+    }, [show, onExited]);
+
+    if (!visible) return null;
+
     return (
-        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center pointer-events-none w-screen h-screen">
-            {/* Haz de luz superior derecho */}
-            <div
-                className="pointer-events-none fixed -top-20 -left-10 z-0"
-                style={{
-                    width: '60vw',
-                    height: '60vh',
-                    background: `radial-gradient(ellipse 100% 60% at 0% 0%, ${beamColor} 0%, transparent 80%)`,
-                    filter: 'blur(60px)',
-                    opacity: 0.7,
-                    mixBlendMode: 'screen',
-                }}
-            />
-            <div
-                className="pointer-events-none fixed -top-20 -right-10 z-0"
-                style={{
-                    width: '60vw',
-                    height: '60vh',
-                    background: `radial-gradient(ellipse 100% 60% at 100% 0%, ${beamColor} 0%, transparent 80%)`,
-                    filter: 'blur(60px)',
-                    opacity: 0.7,
-                    mixBlendMode: 'screen',
-                }}
-            />
-            <div className="w-full h-full bg-transparent">
-                <Suspense fallback={<SkeletonLoader />}>
-                    <Canvas camera={{ position: [-100, 400, 300], fov: 70 }}>
-                        {/* <ambientLight intensity={3} color={mainColor} /> */}
-                        <directionalLight position={[5, 5, 5]} castShadow intensity={1} />
-                        <directionalLight
-                            position={[-5, 0, -5]}
-                            intensity={6}
-                            color={threeColor}
-                        />
-                        <directionalLight
-                            position={[-2, 0, -5]}
-                            intensity={11}
-                            color={threeColor}
-                        />
-                        <directionalLight
-                            position={[1, 0, -1]}
-                            intensity={8}
-                            color={threeColor}
-                        />
-                        <HipHopFBX />
-                        <OrbitControls enablePan={false} enableZoom={false} />
-                    </Canvas>
-                </Suspense>
-            </div>
-        </div>
+        <AnimatePresence>
+            {show && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="fixed inset-0 z-40 flex flex-col items-center justify-center pointer-events-none w-screen h-screen"
+                >
+                    {/* Haz de luz superior derecho */}
+                    <div
+                        className="pointer-events-none fixed -top-20 -left-10 z-0"
+                        style={{
+                            width: '60vw',
+                            height: '60vh',
+                            background: `radial-gradient(ellipse 100% 60% at 0% 0%, ${beamColor} 0%, transparent 80%)`,
+                            filter: 'blur(60px)',
+                            opacity: 0.7,
+                            mixBlendMode: 'screen',
+                        }}
+                    />
+                    <div
+                        className="pointer-events-none fixed -top-20 -right-10 z-0"
+                        style={{
+                            width: '60vw',
+                            height: '60vh',
+                            background: `radial-gradient(ellipse 100% 60% at 100% 0%, ${beamColor} 0%, transparent 80%)`,
+                            filter: 'blur(60px)',
+                            opacity: 0.7,
+                            mixBlendMode: 'screen',
+                        }}
+                    />
+                    <div className="w-full h-full bg-transparent">
+                        <Suspense fallback={null}>
+                            <Canvas camera={{ position: [-100, 400, 300], fov: 70 }}>
+                                <directionalLight position={[5, 5, 5]} castShadow intensity={1} />
+                                <directionalLight
+                                    position={[-5, 0, -5]}
+                                    intensity={6}
+                                    color={threeColor}
+                                />
+                                <directionalLight
+                                    position={[-2, 0, -5]}
+                                    intensity={11}
+                                    color={threeColor}
+                                />
+                                <directionalLight
+                                    position={[1, 0, -1]}
+                                    intensity={8}
+                                    color={threeColor}
+                                />
+                                <React.Suspense fallback={<LoaderMesh />}> {/* Loader 3D dentro del canvas */}
+                                    <HipHopFBX />
+                                </React.Suspense>
+                                <OrbitControls enablePan={false} enableZoom={false} />
+                            </Canvas>
+                        </Suspense>
+                    </div>
+                </motion.div>
+            )}
+        </AnimatePresence>
     );
 }
