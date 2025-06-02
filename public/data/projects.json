@@ -5,34 +5,64 @@
         "title": "My experience at Start University: strategic design, leadership, and digital transformation",
         "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion.",
         "imageUrl": "/projects/websites-startu-small.webp",
-        "imageAlt": "Sitio web de Start University",
-        "projectUrl": "https://example.com/project1",
+        "imageAlt": "Sitios y Aplicaciones creados en Start University",
         "logoUrl": "/projects/logo-startu.png",
         "logoAlt": "Logo de Start University",
         "longDescription": "👉 **Role**: UX/UI and Frontend Development Lead\n📍 **Markets**: Latam and India\n\n---\n\n🔧 **What I did**\n\n- Designed and developed digital experiences for 20+ websites (universities, aggregators, blogs)\n- Led a team of designers and frontend developers\n- Delivered visual design, HTML/CSS builds, code reviews, and fast marketing solutions\n\n📈 **Key results**\n\n- Migrated and redesigned 5 legacy websites to .NET Core\n- Built 7 new sites from a shared base system\n- Increased conversions through optimized landings, forms, and campaigns\n\n💡 **Major innovations**\n\n- Standardized the **Student Portal**: unified UX/UI across all institutions with minimal CSS overrides\n- Redesigned aggregators: consistent UI across different databases, adapted per region with localized assets\n\n🛠️ **Tools & tech**\n\nFigma, Bootstrap, HTML, CSS, JavaScript, .NET Core, Jira, SourceTree\n→ Accessibility and SEO best practices included in every delivery\n\n🤝 **Soft skills**\n\nLeadership, decision-making, collaboration with content, marketing, and sales teams\n\n---\n\nAt Start University, I held the role of UX/UI and Frontend Development Lead, driving the creation of high-impact digital experiences across key markets like Latin America and India. My work combined strategy, design, and technology to build websites that connected users with educational opportunities.\n\nI led the visual and frontend development of over 20 active websites, including university sites, content aggregators, and blogs. Together with my team—designers and HTML/CSS developers—we handled everything from wireframes and visual design to frontend implementation and code reviews. We also supported the marketing team with quick-turnaround solutions like landing pages, campaign assets, and form optimizations that improved conversion rates.\n\nA significant part of my work involved migrating and redesigning outdated websites to .NET Core. This process included aligning the brand identity of each educational institution and enhancing user experience across platforms. We successfully migrated five client university websites and established a reusable base system that allowed us to launch seven new sites for incoming partners faster and more efficiently.\n\nOne of my biggest achievements was the standardization of the student portal. Previously, each site had its own version, requiring individual updates. I designed a modular, unified portal interface that adapted to different institutions with minimal CSS changes. This greatly streamlined development, reduced maintenance time, and delivered a consistent experience to all users.\n\nI also led the redesign of content aggregators to ensure visual consistency across platforms, even though they pulled data from different sources. We achieved a cohesive look and feel using dynamic visual adjustments like color schemes, imagery, and localized branding.\n\nThroughout this role, I used tools such as Figma, Bootstrap, HTML, CSS, JavaScript, .NET Core, Jira, and SourceTree. Accessibility and SEO were integrated into every deliverable by default.\n\nBeyond the technical skills, this experience sharpened my leadership, decision-making, and communication with cross-functional teams like content, marketing, and sales. Start University wasn’t just a job—it was a professional platform where I led transformation, built scalable solutions, and helped bridge people to education through thoughtful digital design."
+    },
+    {
+        "id": "experience-at-autocity",
+        "slug": "experience-at-autocity",
+        "title": "My experience at Autocity & Grupo Tagle: interactive websites for automotive, hospitality, and premium lifestyle brands",
+        "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences.",
+        "imageUrl": "/projects/autocity-grupo-tagle-small.webp",
+        "imageAlt": "Websites created for Autocity and Grupo Tagle brands",
+        "logoUrl": "/projects/logo-autocity.png",
+        "logoAlt": "Logo of Autocity / Grupo Tagle",
+        "longDescription": "👉 **Role**: UX/UI Designer & Frontend Developer\n📅 **Dates**: Feb 2019 – Aug 2020\n📍 **Location**: Córdoba, Argentina\n\n---\n\n🔧 **What I did**\n\n- Led the redesign of Autocity’s automotive catalog with new interactive features: vehicle comparison, pricing estimator, and dynamic filtering\n- Created new websites for premium lifestyle and hospitality brands under Grupo Tagle:\n  - **Scratch House** (luxury hotel)\n  - **El Terrón Golf Club** (exclusive golf resort)\n  - **Grupo Tagle corporate website**\n  - **Motoplex Córdoba** and **Royal Enfield Córdoba** (motorcycle brands)\n\n📈 **Key results**\n\n- Enhanced user experience across all digital platforms with responsive design and improved navigation\n- Delivered on-brand interfaces for each business vertical, adapting tone and visual identity accordingly\n- Increased lead generation with improved UX in quotation and inquiry flows\n\n💡 **Major innovations**\n\n- Developed a vehicle comparison tool that simplified decision-making for users\n- Streamlined internal CMS workflows for updating catalogs and brand content\n- Applied tailored design systems to balance premium aesthetics and usability\n\n🛠️ **Tools & tech**\n\nAdobe XD, Illustrator, Photoshop, HTML, CSS, JavaScript, Bootstrap\n→ Focus on responsive design, performance optimization, and brand storytelling\n\n🤝 **Soft skills**\n\nClient communication, adaptability across industries, attention to detail, iterative design, team collaboration\n\n---\n\nDuring my time at Autocity and Grupo Tagle, I worked on digital platforms that spanned diverse industries—from the fast-paced world of automotive sales to the refined experiences of luxury hospitality and golf.\n\nOne of the core achievements was the revamp of Autocity’s car catalog. We introduced powerful tools for users to compare models, estimate prices, and filter options with ease, resulting in a far more engaging and practical browsing experience.\n\nIn parallel, I collaborated on building new digital presences for Scratch House and El Terrón Golf Club—two high-end lifestyle brands. These websites focused on elegance, exclusivity, and ease of access to information and booking processes. For Grupo Tagle’s corporate site and motorcycle divisions (Motoplex and Royal Enfield), the goal was a clean, brand-aligned presence that inspired trust and action.\n\nThis experience helped me apply my UX/UI design expertise to very different audiences and expectations, maintaining quality and performance across the board."
     },
     {
         "id": "sixto-van-garret",
         "slug": "sixto-van-garret",
         "title": "Sixto Van Garret: A Sophisticated, Minimalist E-commerce for a Premium Lifestyle Brand",
         "description": "Premium lifestyle meets simplicity in a visually refined e-commerce experience.",
-        "imageUrl": "/images/project2.jpg",
-        "imageAlt": "Captura de pantalla de Project 2",
-        "logoUrl": "/images/logo2.png",
-        "logoAlt": "Logo de Project 2",
-        "projectUrl": "https://example.com/project2",
-        "longDescription": "I designed and launched a sleek online store for **Sixto Van Garret**, a premium lifestyle brand. The goal was to reflect elegance and exclusivity through a simple and effective e-commerce experience.\n\n### 🎯 Goal\nLaunch a simple, functional e-commerce site for a high-end lifestyle brand, with a strong focus on visual aesthetics and user experience.\n\n### 🛠️ How we did it\nBuilt using **Tienda Nube** for quick deployment. The design was customized with a dominant **gold color palette** to reflect the brand’s premium identity. Clear navigation and content hierarchy let the product visuals take center stage.\n\n### ✨ What stands out\nMinimalist layout with a luxurious feel. Gold accents elevate the brand image without overwhelming the interface.\n\n### 📦 Result\nA clean, stylish store — easy to navigate, visually striking, and ready to grow."
+        "imageUrl": "/projects/sixto-van-garret.webp",
+        "imageAlt": "Mockup del sitio web de Sixto Van Garret",
+        "logoUrl": "/projects/logo-sixto-van-garret.png",
+        "logoAlt": "Logo Sixto Van Garret",
+        "longDescription": "I designed and launched a sleek online store for **Sixto Van Garret**, a premium lifestyle brand. The goal was to reflect elegance and exclusivity through a simple and effective e-commerce experience.\n\n### 🎯 Goal\nLaunch a simple, functional e-commerce site for a high-end lifestyle brand, with a strong focus on visual aesthetics and user experience.\n\n### 🛠️ How i did it\nBuilt using **Tienda Nube** for quick deployment. The design was customized with a dominant **gold color palette** to reflect the brand’s premium identity. Clear navigation and content hierarchy let the product visuals take center stage.\n\n### ✨ What stands out\nMinimalist layout with a luxurious feel. Gold accents elevate the brand image without overwhelming the interface.\n\n### 📦 Result\nA clean, stylish store — easy to navigate, visually striking, and ready to grow."
     },
     {
-        "id": "project-3",
-        "slug": "project-3",
-        "title": "Project 3",
-        "description": "This is the third project.",
-        "imageUrl": "/images/project3.jpg",
-        "imageAlt": "Captura de pantalla de Project 3",
-        "logoUrl": "/images/logo3.png",
-        "logoAlt": "Logo de Project 3",
-        "projectUrl": "https://example.com/project3",
-        "longDescription": "## Project 3\n\nTexto de ejemplo para la descripción larga del tercer proyecto.\n\n- Punto X\n- Punto Y\n\n[Ver más](https://example.com/project3)"
+        "id": "retia-soft",
+        "slug": "retia-soft",
+        "title": "Retia Soft — Internal tools for healthcare operations",
+        "description": "Designed UX/UI and frontend for internal tools used by medical operators.",
+        "imageUrl": "/projects/retia-soft.jpg",
+        "imageAlt": "Screenshot of Retia Soft platform",
+        "logoUrl": "/projects/retia-soft-logo.png",
+        "logoAlt": "Logo of Retia Soft",
+        "longDescription": "## Retia Soft\n\nI designed and developed frontend solutions for internal tools used by clinics and healthcare providers to manage operations.\n\n- Dashboards and custom interfaces for clinic administrators\n- Built flexible UI components for patient data and scheduling\n- Collaborated with developers to ensure implementation matched design intent\n\n[Learn more](https://example.com/retia-soft)"
+    },
+    {
+        "id": "red-sanitaria",
+        "slug": "red-sanitaria",
+        "title": "Red Sanitaria — Patient-focused digital experiences",
+        "description": "Created UX/UI for a healthcare network's appointment and patient systems.",
+        "imageUrl": "/projects/red-sanitaria.jpg",
+        "imageAlt": "Screenshot of Red Sanitaria system",
+        "logoUrl": "/projects/red-sanitaria-logo.png",
+        "logoAlt": "Logo of Red Sanitaria",
+        "longDescription": "## Red Sanitaria\n\nI worked as the UX/UI designer for a regional network of clinics, improving their digital platforms for patient engagement and medical staff.\n\n- Redesigned the appointment booking system\n- Simplified user flows for patients and medical staff\n- Conducted testing and collected user feedback to improve usability\n\n[Learn more](https://example.com/red-sanitaria)"
+    },
+    {
+        "id": "experience-at-apex-america",
+        "slug": "experience-at-apex-america",
+        "title": "My experience at Apex America: communications, UX, and customer engagement in LATAM",
+        "description": "I led communication strategies, built internal and external digital platforms, and supported innovation, HR, and customer retention across five Latin American countries.",
+        "imageUrl": "/projects/apex-america-small.webp",
+        "imageAlt": "Screens and campaigns developed for Apex America",
+        "logoUrl": "/projects/logo-apex-america.png",
+        "logoAlt": "Logo of Apex America",
+        "longDescription": "👉 **Roles**: Designer & Corporate Communications Specialist / Customer Retention Specialist / CSR\n📍 **Location**: Córdoba, Argentina · Regional impact across LATAM\n\n---\n\n🔧 **What I did**\n\n- Led communication strategies and executed multilingual campaigns in Argentina, Chile, Colombia, Paraguay, and Honduras\n- Designed and managed digital experiences: websites, intranets, digital signage, and branded content for social media\n- Coordinated corporate events and visual communication for internal and external stakeholders\n- Managed customer retention, offering tech support and upgrade solutions to improve satisfaction\n- Supported cross-functional teams: sustainability, innovation, HR, and sales\n\n📈 **Key results**\n\n- Strengthened brand identity across five countries with consistent messaging\n- Boosted internal communication with improved UX for intranet and signage systems\n- Reduced churn by addressing technical and economic concerns in real-time\n\n💡 **Major innovations**\n\n- Unified corporate messaging through multilingual strategies and visual storytelling\n- Developed branded, dynamic content for corporate campaigns and internal initiatives\n- Coordinated internal process flow to improve response times and issue resolution for customers\n\n🛠️ **Tools & tech**\n\nAdobe Suite, HTML/CSS, Illustrator, Premiere, After Effects, CMS platforms, internal signage systems\n→ Focus on multilingual content strategy, design consistency, and user support workflows\n\n🤝 **Soft skills**\n\nStrategic communication, empathy, cross-functional collaboration, client retention, real-time problem solving\n\n---\n\nMy journey at Apex America spanned almost four years, evolving from frontline customer service into a strategic role leading internal and external communication initiatives across Latin America.\n\nIn my first roles, I handled customer service and retention—solving connectivity and technical issues while proposing upgrades and services that reduced churn. I coordinated internal processes and acted as a link between clients and various departments, ensuring smooth support and timely responses.\n\nAs I transitioned into the communications team, I led the creation of multilingual campaigns and digital experiences that supported Apex's values and business objectives. My work impacted five countries, with tailored content for internal platforms, events, and external branding efforts.\n\nI was deeply involved in designing intranets, signage systems, and websites that reflected the company’s innovation, sustainability, and people-first culture. I collaborated with HR, marketing, and leadership teams to ensure that every initiative—from employee campaigns to corporate events—was aligned, engaging, and on-brand.\n\nApex America was a key chapter where I developed a 360° view of communication, technology, and customer engagement."
     }
 ]

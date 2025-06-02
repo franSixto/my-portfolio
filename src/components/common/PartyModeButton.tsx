@@ -11,9 +11,11 @@ export default function PartyModeButton() {
     const [progress, setProgress] = useState(0); // Progreso del audio (0-100)
     const [audioDuration, setAudioDuration] = useState(0); // Duración total del audio
     const [showBailarin, setShowBailarin] = useState(false);
+    const [isButtonVisible, setIsButtonVisible] = useState(true);
     const partyInterval = useRef<NodeJS.Timeout | null>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const fireworksInterval = useRef<NodeJS.Timeout | null>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
     const { setMainColor } = useColorContext();
 
     useEffect(() => {
@@ -119,6 +121,24 @@ export default function PartyModeButton() {
         if (!partyMode) setProgress(0);
     }, [partyMode]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const footer = document.querySelector('footer');
+            const button = buttonRef.current;
+            if (!footer || !button) return;
+            const footerRect = footer.getBoundingClientRect();
+            const buttonRect = button.getBoundingClientRect();
+            // Si el botón está por encima del footer, debe ser visible
+            if (buttonRect.bottom > footerRect.top) {
+                setIsButtonVisible(false);
+            } else {
+                setIsButtonVisible(true);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <>
             {showBailarin && (
@@ -128,6 +148,7 @@ export default function PartyModeButton() {
                 />
             )}
             <motion.button
+                ref={buttonRef}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 aria-pressed={partyMode}
@@ -140,6 +161,8 @@ export default function PartyModeButton() {
                         setPartyMode(false);
                     }
                 }}
+                animate={{ opacity: isButtonVisible ? 1 : 0, pointerEvents: isButtonVisible ? 'auto' : 'none' }}
+                transition={{ duration: 0.4 }}
             >
                 {partyMode ? (
                     <span className="flex flex-row justify-between items-center gap-3 text-md px-4">
@@ -169,16 +192,16 @@ export default function PartyModeButton() {
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
                     <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-xl max-w-xs text-center">
                         <h2 className="text-lg font-bold mb-2 text-red-600">Heads up!</h2>
-                        <p className="mb-4 text-sm">This mode is intentionally chaotic, but it&apos;s also a lot of fun. Give it a try if you&apos;re okay with flashing colors!</p>
+                        <p className="mb-4 text-sm">This mode has music, flashing colors and animations, but it&apos;s also a lot of fun. Give it a try if you&apos;re okay.</p>
                         <div className="flex gap-3 justify-center">
                             <button
                                 className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 cursor-pointer"
                                 onClick={() => { setShowPartyWarning(false); setPartyMode(true); }}
-                            >Go go go!</button>
+                            >Play</button>
                             <button
                                 className="px-4 py-2 rounded bg-gray-300 text-gray-800 hover:bg-gray-400 cursor-pointer"
                                 onClick={() => setShowPartyWarning(false)}
-                            >Nope</button>
+                            >Cancel</button>
                         </div>
                     </div>
                 </div>

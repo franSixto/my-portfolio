@@ -1,6 +1,5 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { useColorContext } from '@/components/theme/ColorContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -132,7 +131,6 @@ export default function Bailarin({
                                 <React.Suspense fallback={<LoaderMesh />}> {/* Loader 3D dentro del canvas */}
                                     <HipHopFBX />
                                 </React.Suspense>
-                                <OrbitControls enablePan={false} enableZoom={false} />
                             </Canvas>
                         </Suspense>
                     </div>
