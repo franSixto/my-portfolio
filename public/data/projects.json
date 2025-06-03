@@ -2,7 +2,7 @@
     {
         "id": "experience-at-startu",
         "slug": "experience-at-startu",
-        "title": "My experience at Start University: strategic design, leadership, and digital transformation",
+        "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
         "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion.",
         "imageUrl": "/projects/websites-startu-small.webp",
         "imageAlt": "Sitios y Aplicaciones creados en Start University",
@@ -13,11 +13,11 @@
     {
         "id": "experience-at-autocity",
         "slug": "experience-at-autocity",
-        "title": "My experience at Autocity & Grupo Tagle: interactive websites for automotive, hospitality, and premium lifestyle brands",
+        "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
         "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences.",
-        "imageUrl": "/projects/autocity-grupo-tagle-small.webp",
+        "imageUrl": "/projects/autocity-grupo-tagle.webp",
         "imageAlt": "Websites created for Autocity and Grupo Tagle brands",
-        "logoUrl": "/projects/logo-autocity.png",
+        "logoUrl": "/projects/logo-autocity.svg",
         "logoAlt": "Logo of Autocity / Grupo Tagle",
         "longDescription": "👉 **Role**: UX/UI Designer & Frontend Developer\n📅 **Dates**: Feb 2019 – Aug 2020\n📍 **Location**: Córdoba, Argentina\n\n---\n\n🔧 **What I did**\n\n- Led the redesign of Autocity’s automotive catalog with new interactive features: vehicle comparison, pricing estimator, and dynamic filtering\n- Created new websites for premium lifestyle and hospitality brands under Grupo Tagle:\n  - **Scratch House** (luxury hotel)\n  - **El Terrón Golf Club** (exclusive golf resort)\n  - **Grupo Tagle corporate website**\n  - **Motoplex Córdoba** and **Royal Enfield Córdoba** (motorcycle brands)\n\n📈 **Key results**\n\n- Enhanced user experience across all digital platforms with responsive design and improved navigation\n- Delivered on-brand interfaces for each business vertical, adapting tone and visual identity accordingly\n- Increased lead generation with improved UX in quotation and inquiry flows\n\n💡 **Major innovations**\n\n- Developed a vehicle comparison tool that simplified decision-making for users\n- Streamlined internal CMS workflows for updating catalogs and brand content\n- Applied tailored design systems to balance premium aesthetics and usability\n\n🛠️ **Tools & tech**\n\nAdobe XD, Illustrator, Photoshop, HTML, CSS, JavaScript, Bootstrap\n→ Focus on responsive design, performance optimization, and brand storytelling\n\n🤝 **Soft skills**\n\nClient communication, adaptability across industries, attention to detail, iterative design, team collaboration\n\n---\n\nDuring my time at Autocity and Grupo Tagle, I worked on digital platforms that spanned diverse industries—from the fast-paced world of automotive sales to the refined experiences of luxury hospitality and golf.\n\nOne of the core achievements was the revamp of Autocity’s car catalog. We introduced powerful tools for users to compare models, estimate prices, and filter options with ease, resulting in a far more engaging and practical browsing experience.\n\nIn parallel, I collaborated on building new digital presences for Scratch House and El Terrón Golf Club—two high-end lifestyle brands. These websites focused on elegance, exclusivity, and ease of access to information and booking processes. For Grupo Tagle’s corporate site and motorcycle divisions (Motoplex and Royal Enfield), the goal was a clean, brand-aligned presence that inspired trust and action.\n\nThis experience helped me apply my UX/UI design expertise to very different audiences and expectations, maintaining quality and performance across the board."
     },
@@ -33,36 +33,25 @@
         "longDescription": "I designed and launched a sleek online store for **Sixto Van Garret**, a premium lifestyle brand. The goal was to reflect elegance and exclusivity through a simple and effective e-commerce experience.\n\n### 🎯 Goal\nLaunch a simple, functional e-commerce site for a high-end lifestyle brand, with a strong focus on visual aesthetics and user experience.\n\n### 🛠️ How i did it\nBuilt using **Tienda Nube** for quick deployment. The design was customized with a dominant **gold color palette** to reflect the brand’s premium identity. Clear navigation and content hierarchy let the product visuals take center stage.\n\n### ✨ What stands out\nMinimalist layout with a luxurious feel. Gold accents elevate the brand image without overwhelming the interface.\n\n### 📦 Result\nA clean, stylish store — easy to navigate, visually striking, and ready to grow."
     },
     {
-        "id": "retia-soft",
-        "slug": "retia-soft",
-        "title": "Retia Soft — Internal tools for healthcare operations",
-        "description": "Designed UX/UI and frontend for internal tools used by medical operators.",
-        "imageUrl": "/projects/retia-soft.jpg",
-        "imageAlt": "Screenshot of Retia Soft platform",
-        "logoUrl": "/projects/retia-soft-logo.png",
-        "logoAlt": "Logo of Retia Soft",
-        "longDescription": "## Retia Soft\n\nI designed and developed frontend solutions for internal tools used by clinics and healthcare providers to manage operations.\n\n- Dashboards and custom interfaces for clinic administrators\n- Built flexible UI components for patient data and scheduling\n- Collaborated with developers to ensure implementation matched design intent\n\n[Learn more](https://example.com/retia-soft)"
-    },
-    {
         "id": "red-sanitaria",
         "slug": "red-sanitaria",
-        "title": "Red Sanitaria — Patient-focused digital experiences",
+        "title": "Designing Tools that Save Lives: UX/UI for Healthcare Operations",
         "description": "Created UX/UI for a healthcare network's appointment and patient systems.",
         "imageUrl": "/projects/red-sanitaria.jpg",
         "imageAlt": "Screenshot of Red Sanitaria system",
-        "logoUrl": "/projects/red-sanitaria-logo.png",
+        "logoUrl": "/projects/logo-red-sanitaria.png",
         "logoAlt": "Logo of Red Sanitaria",
         "longDescription": "## Red Sanitaria\n\nI worked as the UX/UI designer for a regional network of clinics, improving their digital platforms for patient engagement and medical staff.\n\n- Redesigned the appointment booking system\n- Simplified user flows for patients and medical staff\n- Conducted testing and collected user feedback to improve usability\n\n[Learn more](https://example.com/red-sanitaria)"
     },
     {
-        "id": "experience-at-apex-america",
-        "slug": "experience-at-apex-america",
-        "title": "My experience at Apex America: communications, UX, and customer engagement in LATAM",
-        "description": "I led communication strategies, built internal and external digital platforms, and supported innovation, HR, and customer retention across five Latin American countries.",
+        "id": "experience-at-apex",
+        "slug": "experience-at-apex",
+        "title": "Connecting People Inside Out: Internal Communication & Brand Consistency Across Latam",
+        "description": "I supported internal communication efforts across five countries, collaborated in innovation sprints, and developed brand-aligned signage and content for Apex America's Latin American sites.",
         "imageUrl": "/projects/apex-america-small.webp",
-        "imageAlt": "Screens and campaigns developed for Apex America",
-        "logoUrl": "/projects/logo-apex-america.png",
+        "imageAlt": "Internal campaigns and signage systems at Apex America",
+        "logoUrl": "/projects/logo-apex.png",
         "logoAlt": "Logo of Apex America",
-        "longDescription": "👉 **Roles**: Designer & Corporate Communications Specialist / Customer Retention Specialist / CSR\n📍 **Location**: Córdoba, Argentina · Regional impact across LATAM\n\n---\n\n🔧 **What I did**\n\n- Led communication strategies and executed multilingual campaigns in Argentina, Chile, Colombia, Paraguay, and Honduras\n- Designed and managed digital experiences: websites, intranets, digital signage, and branded content for social media\n- Coordinated corporate events and visual communication for internal and external stakeholders\n- Managed customer retention, offering tech support and upgrade solutions to improve satisfaction\n- Supported cross-functional teams: sustainability, innovation, HR, and sales\n\n📈 **Key results**\n\n- Strengthened brand identity across five countries with consistent messaging\n- Boosted internal communication with improved UX for intranet and signage systems\n- Reduced churn by addressing technical and economic concerns in real-time\n\n💡 **Major innovations**\n\n- Unified corporate messaging through multilingual strategies and visual storytelling\n- Developed branded, dynamic content for corporate campaigns and internal initiatives\n- Coordinated internal process flow to improve response times and issue resolution for customers\n\n🛠️ **Tools & tech**\n\nAdobe Suite, HTML/CSS, Illustrator, Premiere, After Effects, CMS platforms, internal signage systems\n→ Focus on multilingual content strategy, design consistency, and user support workflows\n\n🤝 **Soft skills**\n\nStrategic communication, empathy, cross-functional collaboration, client retention, real-time problem solving\n\n---\n\nMy journey at Apex America spanned almost four years, evolving from frontline customer service into a strategic role leading internal and external communication initiatives across Latin America.\n\nIn my first roles, I handled customer service and retention—solving connectivity and technical issues while proposing upgrades and services that reduced churn. I coordinated internal processes and acted as a link between clients and various departments, ensuring smooth support and timely responses.\n\nAs I transitioned into the communications team, I led the creation of multilingual campaigns and digital experiences that supported Apex's values and business objectives. My work impacted five countries, with tailored content for internal platforms, events, and external branding efforts.\n\nI was deeply involved in designing intranets, signage systems, and websites that reflected the company’s innovation, sustainability, and people-first culture. I collaborated with HR, marketing, and leadership teams to ensure that every initiative—from employee campaigns to corporate events—was aligned, engaging, and on-brand.\n\nApex America was a key chapter where I developed a 360° view of communication, technology, and customer engagement."
+        "longDescription": "👉 **Role**: Internal Communication Specialist & Designer\n📅 **Dates**: May 2015 – Feb 2019\n📍 **Location**: Córdoba, Argentina\n\n---\n\n🔧 **What I did**\n\n- Developed and executed **internal communication campaigns** across Apex sites in Latin America\n- Created **signage systems** (arquigrafía) for multiple office locations, ensuring consistent brand expression\n- Designed **branded content** for internal channels, newsletters, and events\n- Provided occasional support for digital experiences like intranets and corporate websites\n- Collaborated with the **Innovation team** on company-wide sprints using **Design Sprint methodology**\n\n📈 **Key contributions**\n\n- Enhanced employee engagement through clear, visually cohesive messaging\n- Helped shape Apex’s internal brand across Argentina, Chile, Colombia, Paraguay, and Honduras\n- Contributed to ideation and prototyping phases of innovation projects across departments\n\n💡 **Highlights**\n\n- Participated in multidisciplinary innovation programs using iterative, design-led processes\n- Created signage adapted to the identity and architecture of each office location\n- Supported HR, innovation, sustainability, and sales communication initiatives\n\n🛠️ **Tools & tech**\n\nIllustrator, Photoshop, InDesign, PowerPoint, internal CMS platforms, Design Sprint methodology\n→ Focus on print and spatial design, internal culture, and collaborative innovation support\n\n🤝 **Soft skills**\n\nCross-functional teamwork, communication design, cultural sensitivity, attention to detail\n\n---\n\nAt Apex America, I served as an **Internal Communication Specialist & Designer**, supporting communication strategies for employees across the region. My role focused on reinforcing the company's identity through clear messaging, engaging content, and visual consistency in physical and digital environments.\n\nOne of my most impactful contributions was the development of **signage systems** and visual branding for Apex’s offices throughout Latin America. I also worked closely with the **Innovation team**, participating in sprints that used collaborative methodologies to solve internal challenges and spark new ideas.\n\nWhile my core focus was internal communication, I also contributed to digital content, branding for corporate events, and the alignment of materials across departments like HR and Sustainability. This experience strengthened my ability to deliver meaningful, context-aware design in diverse professional settings."
     }
 ]
