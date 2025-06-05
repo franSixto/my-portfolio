@@ -45,7 +45,7 @@ function LoaderMesh() {
     );
 }
 
-export default function Bailarin({
+export default function Dancer({
     show = true,
     onExited
 }: { show?: boolean; onExited?: () => void }) {

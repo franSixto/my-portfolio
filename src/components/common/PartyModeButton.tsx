@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 import { useColorContext, TAILWIND_COLORS } from '@/components/theme/ColorContext';
 import confetti from "canvas-confetti";
 import { FaPlay, FaStop } from "react-icons/fa";
-import Bailarin from "./Bailarin";
+import Dancer from "../three/Dancer";
 
 export default function PartyModeButton() {
     const [partyMode, setPartyMode] = useState(false);
     const [showPartyWarning, setShowPartyWarning] = useState(false);
     const [progress, setProgress] = useState(0); // Progreso del audio (0-100)
     const [audioDuration, setAudioDuration] = useState(0); // Duración total del audio
-    const [showBailarin, setShowBailarin] = useState(false);
+    const [showDancer, setShowDancer] = useState(false);
     const [isButtonVisible, setIsButtonVisible] = useState(true);
     const partyInterval = useRef<NodeJS.Timeout | null>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -22,7 +22,7 @@ export default function PartyModeButton() {
         // Copiar el valor de audioRef.current al inicio del efecto
         const audio = audioRef.current;
         if (partyMode) {
-            setShowBailarin(true);
+            setShowDancer(true);
             partyInterval.current = setInterval(() => {
                 const randomColor = TAILWIND_COLORS[Math.floor(Math.random() * TAILWIND_COLORS.length)];
                 setMainColor(randomColor);
@@ -65,7 +65,7 @@ export default function PartyModeButton() {
                 audio.pause();
                 audio.currentTime = 0;
             }
-            setTimeout(() => setShowBailarin(false), 600); // Espera animación de salida
+            setTimeout(() => setShowDancer(false), 600); // Espera animación de salida
         }
         return () => {
             if (partyInterval.current) {
@@ -141,10 +141,10 @@ export default function PartyModeButton() {
 
     return (
         <>
-            {showBailarin && (
-                <Bailarin
+            {showDancer && (
+                <Dancer
                     show={partyMode}
-                    onExited={() => setShowBailarin(false)}
+                    onExited={() => setShowDancer(false)}
                 />
             )}
             <motion.button
