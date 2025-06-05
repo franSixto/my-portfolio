@@ -16,7 +16,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: "Francisco Sixto",
-  description: "A designer of everithing",
+  description: "A designer of everything",
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
