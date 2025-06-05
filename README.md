@@ -44,6 +44,40 @@ You can start editing the main page by modifying `app/page.tsx`. The page auto-u
 - `/public/data`: Project and portfolio data
 - `/public/projects`: Project images and resources
 
+## 🛠️ Main Dependencies
+
+This project uses the following main libraries:
+
+**Runtime:**
+- next
+- react
+- react-dom
+- next-themes
+- axios
+- framer-motion
+- react-hook-form
+- react-icons
+- react-intersection-observer
+- react-markdown
+- three
+- @react-three/fiber
+- @react-three/drei
+- @react-three/cannon
+- canvas-confetti
+- classnames
+- nodemailer
+- @vercel/analytics
+- @vercel/speed-insights
+
+**Development:**
+- typescript
+- tailwindcss
+- eslint
+- eslint-config-next
+- @types/* (TypeScript type definitions)
+
+For the full list, see `package.json`.
+
 ## 📚 Learn More
 
 - [Next.js Documentation](https://nextjs.org/docs)

@@ -54,7 +54,7 @@ export default function AboutMeTeaser() {
         <p className="text-lg md:text-xl leading-relaxed mb-5 text-gray-600 dark:text-gray-400">
               When I’m not creating digital experiences, you’ll find me staying active with sports—or cheering for
               <span className="inline-flex items-center mx-1">
-                antes <Image src="/riverplate.webp" alt="icono" width={16} height={16} className="mx-1" />
+                <Image src="/riverplate.webp" alt="icono" width={16} height={16} className="mx-1" />
               </span>
               River Plate with heart and soul.
             </p>
