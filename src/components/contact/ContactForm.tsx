@@ -8,6 +8,7 @@ import SubmitButton from "@/components/theme/SubmitButton";
 import { RiCheckLine, RiMailSendLine } from "react-icons/ri";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 type FormData = {
@@ -21,14 +22,19 @@ export default function ContactForm() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false); // Estado para manejar el envío
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
   const onSubmit = async (data: FormData) => {
+    if (!recaptchaToken) {
+      alert("Por favor, completa el reCAPTCHA.");
+      return;
+    }
     setIsSubmitting(true);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptchaToken }),
       });
 
       if (response.ok) {
@@ -108,6 +114,12 @@ export default function ContactForm() {
                 placeholder="Your message"
               ></textarea>
               {errors.message && <ErrorMessage message={errors.message.message || ""} />}
+            </div>
+            <div className="flex justify-center">
+              <ReCAPTCHA
+                sitekey="6LeC3lcrAAAAAGIC5fThStXnImx2Xn2Lv_ogQPUS"
+                onChange={(token: string | null) => setRecaptchaToken(token)}
+              />
             </div>
             <SubmitButton isSubmitting={isSubmitting} submittingText={"Sending..."} defaultText={"Send message"} Icon={RiMailSendLine} />
           </form>

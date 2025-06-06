@@ -3,11 +3,26 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message, honeypot } = await req.json();
+    const { name, email, message, honeypot, recaptchaToken } = await req.json();
 
     // Verificar el honeypot
     if (honeypot) {
       return NextResponse.json({ error: "Solicitud detectada como spam." }, { status: 400 });
+    }
+
+    // Validar reCAPTCHA
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY; // <--- PON AQUÍ TU CLAVE SECRETA
+    const recaptchaRes = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `secret=${secretKey}&response=${recaptchaToken}`,
+      }
+    );
+    const recaptchaData = await recaptchaRes.json();
+    if (!recaptchaData.success) {
+      return NextResponse.json({ error: "Falló la verificación reCAPTCHA." }, { status: 400 });
     }
     
     const transporter = nodemailer.createTransport({
