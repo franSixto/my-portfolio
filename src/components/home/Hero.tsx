@@ -26,7 +26,13 @@ const Hero: React.FC = () => {
             transition={{ duration: 1 }} // Use a custom cubic-bezier easing for smoother animation
             className="px-6 lg:px-0">
                 <h1
-                className={`text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text leading-8 lg:leading-11 xl:leading-20 transition-colors duration-300`}
+                className={`text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text leading-[1.1] lg:leading-[1.1] xl:leading-[1.1] transition-colors duration-300 anti-zapateo`}
+                style={{
+                  WebkitFontSmoothing: 'antialiased',
+                  WebkitBackfaceVisibility: 'hidden',
+                  backfaceVisibility: 'hidden',
+                  willChange: 'opacity, transform',
+                }}
                 >
                 Building Impactful Digital Experiences
                 </h1>
