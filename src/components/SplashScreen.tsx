@@ -75,7 +75,7 @@ const SplashScreen = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.7 }}
               >
-                UX/UI & Frontend Developer
+                Designer of everything
               </motion.span>
               <motion.div
                 className="flex gap-2 mt-2"
