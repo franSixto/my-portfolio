@@ -32,7 +32,7 @@ export default function Header() {
                             className="dark:invert rotate-350"
                             src="/logo.svg"
                             alt="Fran Sixto"
-                            width={180}
+                            width={170}
                             height={89}
                             priority
                         />

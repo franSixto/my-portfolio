@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import { ColorProvider } from '@/components/theme/ColorContext';
 import HotjarScript from '@/components/HotjarScript';
+import SplashScreen from '@/components/SplashScreen';
 
 const fontPrincipal = Work_Sans({
   subsets: ['latin'],
@@ -30,6 +31,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <body>
           <ThemeProvider attribute="data-theme" >
             <ColorProvider>
+              <SplashScreen />
               <Header />
               <main id="main-content">
                 {children}

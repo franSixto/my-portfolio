@@ -5,35 +5,11 @@ import ThreeHero from "@/components/three/ThreeHero"; // Ensure ThreeHero is a d
 import { motion } from "framer-motion";
 import Button from "@/components/theme/Button"; // Adjust the import path as necessary
 import { Suspense } from "react";
-import { useColorContext } from '@/components/theme/ColorContext';
+import { useColorContext, COLOR_GRADIENT_MAP } from '@/components/theme/ColorContext';
 
 const Hero: React.FC = () => {
     const { mainColor } = useColorContext();
-    // Mapeo para gradientes de Tailwind
-    const gradientMap: Record<string, { from: string; to: string }> = {
-      red: { from: 'from-red-400', to: 'to-red-600' },
-      blue: { from: 'from-blue-400', to: 'to-blue-600' },
-      green: { from: 'from-green-400', to: 'to-green-600' },
-      yellow: { from: 'from-yellow-400', to: 'to-yellow-600' },
-      purple: { from: 'from-purple-400', to: 'to-purple-600' },
-      pink: { from: 'from-pink-400', to: 'to-pink-600' },
-      indigo: { from: 'from-indigo-400', to: 'to-indigo-600' },
-      teal: { from: 'from-teal-400', to: 'to-teal-600' },
-      orange: { from: 'from-orange-400', to: 'to-orange-600' },
-      cyan: { from: 'from-cyan-400', to: 'to-cyan-600' },
-      emerald: { from: 'from-emerald-400', to: 'to-emerald-600' },
-      lime: { from: 'from-lime-400', to: 'to-lime-600' },
-      amber: { from: 'from-amber-400', to: 'to-amber-600' },
-      violet: { from: 'from-violet-400', to: 'to-violet-600' },
-      fuchsia: { from: 'from-fuchsia-400', to: 'to-fuchsia-600' },
-      rose: { from: 'from-rose-400', to: 'to-rose-600' },
-      sky: { from: 'from-sky-400', to: 'to-sky-600' },
-      slate: { from: 'from-slate-400', to: 'to-slate-600' },
-      zinc: { from: 'from-zinc-400', to: 'to-zinc-600' },
-      neutral: { from: 'from-neutral-400', to: 'to-neutral-600' },
-      stone: { from: 'from-stone-400', to: 'to-stone-600' },
-    };
-    const gradient = gradientMap[mainColor] || gradientMap.red;
+    const gradient = COLOR_GRADIENT_MAP[mainColor] || COLOR_GRADIENT_MAP.red;
 
     return (
         <section
