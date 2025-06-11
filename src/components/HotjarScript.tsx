@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 
 // Extiende la interfaz Window para evitar errores de TypeScript
