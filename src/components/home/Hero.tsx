@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 1 }} // Use a custom cubic-bezier easing for smoother animation
             className="px-6 lg:px-0">
                 <h1
-                className={`text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} inline-block text-transparent bg-clip-text leading-8 lg:leading-11 xl:leading-20 transition-colors duration-300`}
+                className={`text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text leading-8 lg:leading-11 xl:leading-20 transition-colors duration-300`}
                 >
                 Building Impactful Digital Experiences
                 </h1>
