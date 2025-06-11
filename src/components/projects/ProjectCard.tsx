@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useColorContext, COLOR_TEXT_CLASS_MAP } from '@/components/theme/ColorContext';
 
 type ProjectCardProps = {
   title: string;
@@ -23,7 +24,8 @@ export default function ProjectCard({
   logoAlt = "",
   slug,
 }: ProjectCardProps) {
-
+  const { mainColor } = useColorContext();
+  const textColor = COLOR_TEXT_CLASS_MAP[mainColor] || 'text-red-500';
 
   return (
     <motion.div
@@ -84,7 +86,7 @@ export default function ProjectCard({
             <div className="pt-5 p-1 flex-grow">
               {/* Logo y título */}
               <div className="flex items-center mb-4">
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                <h2 className={`text-2xl font-semibold ${textColor}`}>
                   {title}
                 </h2>
               </div>
