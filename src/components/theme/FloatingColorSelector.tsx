@@ -89,11 +89,17 @@ export default function FloatingColorSelector() {
                 transition={{ duration: 0.5 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className={`p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]} cursor-pointer`}
+                className={`relative p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]} cursor-pointer`}
                 onClick={handleToggle}
                 aria-expanded={open}
             >
                 <FaPalette />
+                {/* Badge de color actual */}
+                <span
+                  className={`absolute top-0 right-0 w-4 h-4 rounded-full border-2 border-white shadow ${colorMap[mainColor]}`}
+                  style={{ boxShadow: '0 0 0 2px rgba(0,0,0,0.08)' }}
+                  aria-label={`Color actual: ${mainColor}`}
+                />
             </motion.button>
             <div className="absolute left-1/2 transform -translate-x-1/2 top-27 z-50 d-flex flex-col items-center justify-center">
                 <div
