@@ -1,9 +1,8 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useState, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useColorContext } from "../theme/ColorContext";
 import { useGLTF } from "@react-three/drei";
-import { useRef } from "react";
 import Image from "next/image";
 
 function Character() {
@@ -40,23 +39,20 @@ export default function Scene() {
 
   // Estado para el jumpscare
   const [showJumpscare, setShowJumpscare] = useState(false);
-  // Estado para contar los clicks
-  const [xenoClicks, setXenoClicks] = useState(0);
+  // Contador de clicks con useRef para evitar warning de variable no usada
+  const xenoClicks = useRef(0);
 
   const handleCanvasClick = () => {
-    setXenoClicks((prev) => {
-      const newCount = prev + 1;
-      if (newCount === 4) {
-        setShowJumpscare(true);
-        // Sonido jumpscare
-        const jumpscareAudio = new Audio("/xenomorph3.mp3");
-        jumpscareAudio.volume = 1;
-        jumpscareAudio.play();
-        setTimeout(() => setShowJumpscare(false), 2000);
-        return 0; // Reiniciar contador
-      }
-      return newCount;
-    });
+    xenoClicks.current += 1;
+    if (xenoClicks.current === 4) {
+      setShowJumpscare(true);
+      // Sonido jumpscare
+      const jumpscareAudio = new Audio("/xenomorph3.mp3");
+      jumpscareAudio.volume = 1;
+      jumpscareAudio.play();
+      setTimeout(() => setShowJumpscare(false), 2000);
+      xenoClicks.current = 0; // Reiniciar contador
+    }
 
     const randomX = Math.random() * 80 + 10; // Random X position (10% to 90% of the width)
     const randomY = Math.random() * 80 + 10; // Random Y position (10% to 90% of the height)
