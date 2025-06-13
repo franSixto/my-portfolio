@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { useColorContext } from "../theme/ColorContext";
 import { useGLTF } from "@react-three/drei";
 import { useRef } from "react";
+import Image from "next/image";
 
 function Character() {
   const { scene } = useGLTF("/Xenomorph.glb");
@@ -37,7 +38,26 @@ export default function Scene() {
     { id: number; x: number; y: number; rotation: number }[]
   >([]);
 
+  // Estado para el jumpscare
+  const [showJumpscare, setShowJumpscare] = useState(false);
+  // Estado para contar los clicks
+  const [xenoClicks, setXenoClicks] = useState(0);
+
   const handleCanvasClick = () => {
+    setXenoClicks((prev) => {
+      const newCount = prev + 1;
+      if (newCount === 4) {
+        setShowJumpscare(true);
+        // Sonido jumpscare
+        const jumpscareAudio = new Audio("/xenomorph3.mp3");
+        jumpscareAudio.volume = 1;
+        jumpscareAudio.play();
+        setTimeout(() => setShowJumpscare(false), 2000);
+        return 0; // Reiniciar contador
+      }
+      return newCount;
+    });
+
     const randomX = Math.random() * 80 + 10; // Random X position (10% to 90% of the width)
     const randomY = Math.random() * 80 + 10; // Random Y position (10% to 90% of the height)
     const randomRotation = Math.random() * 10 - 5; // Random rotation between -5 and 5
@@ -62,6 +82,41 @@ export default function Scene() {
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      {/* Jumpscare overlay */}
+      {showJumpscare && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0,0,0,0.95)",
+            zIndex: 9999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "opacity 0.2s",
+          }}
+        >
+          <Image
+            src="/xeno.webp"
+            alt="Jumpscare"
+            width={1200}
+            height={900}
+            style={{
+              maxWidth: "90vw",
+              maxHeight: "90vh",
+              objectFit: "contain",
+              filter: "drop-shadow(0 0 40px #000) brightness(1.2)",
+              animation: "jumpscare-pop 0.3s ease"
+            }}
+            className="rounded"
+            priority
+            unoptimized
+          />
+        </div>
+      )}
       {bubbles.map((bubble) => (
         <span
           key={bubble.id}
@@ -129,6 +184,11 @@ export default function Scene() {
         100% {
         transform: translate(-50%, -50%) scale(1) rotate(0deg);
         }
+      }
+      @keyframes jumpscare-pop {
+        0% { transform: scale(0.7); opacity: 0; }
+        80% { transform: scale(2); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
       }
       `}</style>
     </div>
