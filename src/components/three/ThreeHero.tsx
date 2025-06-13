@@ -91,8 +91,7 @@ export default function Scene() {
             zIndex: 9999,
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
-            transition: "opacity 0.2s",
+            justifyContent: "center",            
           }}
         >
           <div style={{
@@ -100,7 +99,7 @@ export default function Scene() {
             display: "inline-block",
             width: "fit-content",
             height: "fit-content",
-            animation: "jumpscare-pop 0.3s ease",
+            animation: "jumpscare-pop 1s ease",
           }}>
             <Image
               src="/xeno.webp"
