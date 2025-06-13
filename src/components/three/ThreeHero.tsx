@@ -99,22 +99,44 @@ export default function Scene() {
             transition: "opacity 0.2s",
           }}
         >
-          <Image
-            src="/xeno.webp"
-            alt="Jumpscare"
-            width={1200}
-            height={900}
-            style={{
-              maxWidth: "90vw",
-              maxHeight: "90vh",
-              objectFit: "contain",
-              filter: "drop-shadow(0 0 40px #000) brightness(1.2)",
-              animation: "jumpscare-pop 0.3s ease"
-            }}
-            className="rounded"
-            priority
-            unoptimized
-          />
+          <div style={{
+            position: "relative",
+            display: "inline-block",
+            width: "fit-content",
+            height: "fit-content",
+            animation: "jumpscare-pop 0.3s ease",
+          }}>
+            <Image
+              src="/xeno.webp"
+              alt="Jumpscare"
+              width={1200}
+              height={900}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                filter: "drop-shadow(0 0 40px #000) brightness(1.2)",
+                zIndex: 2,
+                borderRadius: "25px"
+              }}
+              className="rounded"
+              priority
+              unoptimized
+            />
+            {/* Overlay de color SOLO sobre la imagen */}
+            <div style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: `${threeColor}CC`,
+              mixBlendMode: "multiply",
+              borderRadius: "12px",
+              pointerEvents: "none",
+              zIndex: 3
+            }} />
+          </div>
         </div>
       )}
       {bubbles.map((bubble) => (
