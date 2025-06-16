@@ -12,11 +12,13 @@ declare global {
 
 type HotjarFunction = ((...args: unknown[]) => void) & { q?: unknown[] };
 
-const HOTJAR_ID = "6432200"; 
+// Usa variable de entorno para el ID de Hotjar
+const HOTJAR_ID = process.env.NEXT_PUBLIC_HOTJAR_ID || "";
 const HOTJAR_SNIPPET_VERSION = 6;
 
 const HotjarScript = () => {
   useEffect(() => {
+    if (!HOTJAR_ID) return;
     if (typeof window === "undefined") return;
     if (window.hj) return; // Evita doble carga
     const hj: HotjarFunction = function (...args) {
