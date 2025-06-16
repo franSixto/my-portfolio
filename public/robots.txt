@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://fransixto.com.ar
+
+# Sitemaps
+Sitemap: https://fransixto.com.ar/sitemap.xml
