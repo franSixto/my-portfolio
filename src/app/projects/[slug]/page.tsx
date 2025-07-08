@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import { TitleH1Project } from "@/components/common/TitleH1Project";
 import ProjectLogoBanner from "@/components/projects/ProjectLogoBanner";
+import LiveProjectButton from "@/components/projects/LiveProjectButton";
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await props.params;
@@ -84,6 +85,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
     imageAlt = "Imagen del proyecto",
     logoUrl = "/default-logo.png",
     logoAlt = "Logo del proyecto",
+    liveUrl,
   } = project;
   return (
     <article className="dark:bg-gray-950">
@@ -105,6 +107,9 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
               className="rounded-2xl object-cover bg-gray-100 dark:bg-gray-900"
             />
           </div>
+        )}
+        {liveUrl && (
+          <LiveProjectButton liveUrl={liveUrl} />
         )}
         <div className="prose dark:prose-invert text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           {Array.isArray(longDescription) ? (

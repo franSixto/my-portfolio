@@ -23,6 +23,7 @@ export type Project = {
   logoUrl?: string;
   logoAlt?: string;
   projectUrl?: string;
+  liveUrl?: string;
   slug?: string;
   longDescription?: Array<{ type: string; children: Child[]; level?: number; format?: string }> | string;
 };

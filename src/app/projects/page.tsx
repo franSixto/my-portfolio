@@ -7,6 +7,8 @@ import Breadcrumbs from "@/components/common/Breadcrumbs";
 async function Projects() {
   const { projects } = await fetchProjects();
   return (
+    
+    
     <div
       className="dark:bg-gray-950 pt-15 px-6"
       style={{

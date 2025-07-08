@@ -1,5 +1,17 @@
 [
     {
+        "id": "officina-artis",
+        "slug": "officina-artis",
+        "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
+        "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction.",
+        "imageUrl": "/projects/officina-artis.webp",
+        "imageAlt": "3D view of the Officina Artis virtual gallery",
+        "logoUrl": "/projects/logo-officina-artis.webp",
+        "logoAlt": "Logo of Officina Artis",
+        "liveUrl": "https://galery-psi.vercel.app",
+        "longDescription": "👉 **Role**: Creative Director & 3D Developer\n📍 **Format**: Self-initiated project\n\n---\n\n🎨 **What I did**\n\n- Designed the concept and structure of a virtual art gallery where users explore curated exhibitions in a 3D space\n- Developed interactive navigation with smooth camera transitions, lighting systems, and environmental audio\n- Created a modular architecture to host rotating exhibits, integrating both personal and invited works\n\n💡 **Creative goals**\n\n- Simulate the contemplative experience of physical art galleries using real-time 3D\n- Explore curation as a spatial narrative: how position, lighting, and transitions affect perception\n- Combine minimal UI with spatial UX to let the environment communicate meaning\n\n🛠️ **Tools & tech**\n\nThree.js, WebGL, Blender, GLSL, HTML, CSS, JavaScript\n→ Fully web-based experience, optimized for desktop browsers\n\n🧠 **Design philosophy**\n\nOfficina Artis is both an artwork and a space for art. It challenges the idea of a gallery as static architecture, instead treating it as a living interface between creator and audience. Each exhibition is a narrative told through layout, rhythm, and silence.\n\n---\n\nI created Officina Artis as a way to merge my passions for visual design, code, and contemporary art. It’s a self-directed experiment that pushes the boundaries of interaction and curatorial storytelling in virtual environments.\n\nAs Creative Director and Developer, I handled every aspect—from the spatial design and lighting to the code that powers movement and ambiance. The result is an elegant, contemplative digital space that reimagines how we engage with artworks online.\n\nOfficina Artis represents my personal design philosophy: minimal, poetic, experimental, and deeply human-centered. It’s not just a tech demo—it’s a statement about how form, space, and code can evoke emotion and presence in the digital age."
+    },
+    {
         "id": "experience-at-startu",
         "slug": "experience-at-startu",
         "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",

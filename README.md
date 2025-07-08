@@ -77,9 +77,3 @@ This project uses the following main libraries:
 - @types/* (TypeScript type definitions)
 
 For the full list, see `package.json`.
-
-## 📚 Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Next.js Interactive Tutorial](https://nextjs.org/learn)
-- [Next.js GitHub Repository](https://github.com/vercel/next.js)
