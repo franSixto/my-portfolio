@@ -20,10 +20,30 @@
       "riverPlate": "River Plate with heart and soul."
     },
     "highlights": {
-      "toolsAndTechnologies": "Tools & Technologies"
+      "title": "Tools & Technologies",
+      "description": "A curated collection of the tools I use to bring ideas to life.",
+      "categories": {
+        "design": {
+          "title": "Design",
+          "description": "Creating beautiful and functional user interfaces"
+        },
+        "frontend": {
+          "title": "Frontend",
+          "description": "Building responsive and performant web applications"
+        },
+        "backend": {
+          "title": "Backend",
+          "description": "Developing robust server-side solutions"
+        },
+        "tools": {
+          "title": "Tools",
+          "description": "Essential tools for development and design workflow"
+        }
+      }
     },
     "services": {
       "title": "What I Do",
+      "description": "A combination of design thinking, solid development, and team experience.",
       "uxui": {
         "title": "UX/UI Design",
         "description": "From early-stage wireframes to polished prototypes, I design user interfaces that are both intuitive and scalable. I combine design thinking with user research, accessibility standards, and usability testing to ensure every experience delivers real impact."
@@ -76,9 +96,33 @@
       "relatedProjects": "Related Projects"
     },
     "contact": {
-      "title": "Let's Connect",
-      "description": "If you have any questions or just want to say hi, feel free to reach out!"
+      "title": "Contact Me",
+      "description": "Have a project in mind? Let's talk!",
+      "letsConnect": "Let's Connect",
+      "getInTouch": "Get In Touch",
+      "getInTouchDescription": "Have a question or want to work together?",
+      "cta": {
+        "title": "Let's build something great together",
+        "description": "Whether you're looking for a UX/UI designer, a frontend developer, or a team leader to bring your ideas to life — I'm ready to jump in. Feel free to reach out, I'd be happy to connect.",
+        "button": "Contact Me"
+      },
+      "subscribe": {
+        "title": "Stay Updated",
+        "description": "Subscribe to my newsletter for the latest updates on projects and industry insights.",
+        "placeholder": "Your email address",
+        "button": "Subscribe",
+        "success": "Thank you for subscribing!",
+        "error": "Subscription error. Please try again.",
+        "emailRequired": "Email is required",
+        "invalidEmail": "Invalid email address"
+      }
     }
+  },
+  "subscribe": {
+    "homeTitle": "I like to share",
+    "homeDescription": "I send occasional updates about design, dev & stuff I find cool. Join in!",
+    "homeDisclaimer": "No spam. Unsubscribe anytime.",
+    "homeWelcome": "Glad you're here! 😊"
   },
   "projects": {
     "officina-artis": {

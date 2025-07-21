@@ -5,15 +5,20 @@ import Button from "@/components/theme/Button";
 import { TitleH2 } from "@/components/common/TitleH2";
 import { RiMailSendLine } from "react-icons/ri";
 import { useColorContext, COLOR_BORDER_CLASS_MAP, COLOR_SHADOW_CLASS_MAP } from '@/components/theme/ColorContext';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useRTL } from '@/hooks/useRTL';
 
 export default function ContactCTA() {
     const { mainColor } = useColorContext();
+    const { t } = useLanguage();
+    const { rtlClass } = useRTL();
+
     return (
         <motion.section
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeInOut' }}
-            className="w-full px-6 flex flex-col items-center justify-center text-center h-[100vh] relative">
+            className={`w-full px-6 flex flex-col items-center justify-center text-center h-[100vh] relative ${rtlClass('text-left')}`}>
             {/* Background blurred lights */}
 
             <motion.div
@@ -28,20 +33,19 @@ export default function ContactCTA() {
 
             {/* Content with blurred background */}
             <div className="container relative z-10 dark:bg-gray-900/30 bg-white/30 backdrop-blur-xl py-10 rounded-4xl w-full mx-auto px-6 flex flex-col items-center shadow-2xl">
-                <TitleH2
-                    title="Let’s build something great together"
-                    description="Whether you’re looking for a UX/UI designer, a frontend developer, or a team leader to bring your ideas to life — I’m ready to jump in. Feel free to reach out, I’d be happy to connect."
-                />
                 <motion.div
                     initial={{ opacity: 0, y: -30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: 'easeInOut' }}>
-
+                    <TitleH2 
+                        title={t('pages.contact.cta.title')}
+                        description={t('pages.contact.cta.description')}
+                    />
                 </motion.div>
                 <Button
                     to="/contact"
                 >
-                    Contact Me
+                    {t('pages.contact.cta.button')}
                     <span className="ml-3">
                         <RiMailSendLine className="w-5 h-5" />
                     </span>

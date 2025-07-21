@@ -1,166 +1,285 @@
 {
   "home": {
     "hero": {
-      "tagline": "Construindo Experiências Digitais Impactantes.",
-      "title": "Líder UX/UI e Desenvolvedor Frontend",
-      "description": "Sou especialista em UX/UI e desenvolvedor frontend criando produtos digitais intuitivos, acessíveis e visualmente envolventes.",
-      "myWork": "Meu Trabalho",
-      "resume": "Currículo",
-      "helloHuman": "Olá Humano,",
-      "petDog": "Apenas faça carinho no cachorro! ✨"
+      "tagline": "Building Impactful Digital Experiences.",
+      "title": "UX/UI Lead & Frontend Developer",
+      "description": "I'm a UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.",
+      "myWork": "My Work",
+      "resume": "Resume",
+      "helloHuman": "Hello Human,",
+      "petDog": "Just pet the dog! ✨"
     },
     "aboutTeaser": {
-      "title": "Um Pouco Sobre Mim",
-      "description": "Aqui está uma pequena perspectiva sobre a pessoa por trás dos pixels.",
-      "readMore": "Leia mais sobre mim",
-      "altText": "Este sou eu",
-      "birthPlace": "Nascido em uma pequena cidade no sul de Córdoba, Argentina",
-      "birthDescription": "Sempre carreguei grandes sonhos e uma paixão profunda por ótimo design e tecnologia.",
-      "sportsText": "Quando não estou criando experiências digitais, você me encontrará me mantendo ativo com esportes—ou torcendo pelo",
-      "riverPlate": "River Plate de coração e alma."
+      "title": "A Bit About Me",
+      "description": "Here's a little insight into the person behind the pixels.",
+      "readMore": "Read more about me",
+      "altText": "This is me",
+      "birthPlace": "Born in a small town in southern Córdoba, Argentina",
+      "birthDescription": "I've always carried big dreams and a deep passion for great design and technology.",
+      "sportsText": "When I'm not creating digital experiences, you'll find me staying active with sports—or cheering for",
+      "riverPlate": "River Plate with heart and soul."
     },
     "highlights": {
-      "toolsAndTechnologies": "Ferramentas e Tecnologias"
+      "title": "Tools & Technologies",
+      "description": "A curated collection of the tools I use to bring ideas to life.",
+      "categories": {
+        "design": {
+          "title": "Design",
+          "description": "Creating beautiful and functional user interfaces"
+        },
+        "frontend": {
+          "title": "Frontend",
+          "description": "Building responsive and performant web applications"
+        },
+        "backend": {
+          "title": "Backend",
+          "description": "Developing robust server-side solutions"
+        },
+        "tools": {
+          "title": "Tools",
+          "description": "Essential tools for development and design workflow"
+        }
+      }
     },
     "services": {
-      "title": "O Que Eu Faço",
-      "frontend": {
-        "title": "Desenvolvimento Frontend",
-        "description": "Criando interfaces modernas e responsivas com React, Next.js e as mais recentes tecnologias web."
-      },
+      "title": "What I Do",
+      "description": "A combination of design thinking, solid development, and team experience.",
       "uxui": {
-        "title": "Design UX/UI",
-        "description": "Projetando experiências de usuário intuitivas e interfaces visualmente atrativas que encantam os usuários."
+        "title": "UX/UI Design",
+        "description": "From early-stage wireframes to polished prototypes, I design user interfaces that are both intuitive and scalable. I combine design thinking with user research, accessibility standards, and usability testing to ensure every experience delivers real impact."
       },
-      "consulting": {
-        "title": "Consultoria Técnica",
-        "description": "Fornecendo orientação especializada sobre arquitetura, melhores práticas e otimização de performance."
+      "frontend": {
+        "title": "Frontend Development",
+        "description": "I build high-performing, responsive, and accessible web apps using React, Next.js, Tailwind CSS, and TypeScript. My toolkit also includes WordPress, Bootstrap, and .NET Core for cases where flexibility or backend integration is key."
+      },
+      "teamLeadership": {
+        "title": "Team Leadership",
+        "description": "I lead design and dev teams through planning, code reviews, mentoring, and task coordination. I bridge gaps between designers, developers, and stakeholders to align vision, timelines, and deliverables. Clear communication and a user-first mindset are always my priority."
+      },
+      "optimization": {
+        "title": "Optimization & Deploy",
+        "description": "I handle SEO optimization, site performance enhancements, version control with Git, and streamlined CI/CD workflows. From semantic HTML to asset optimization and production deploys, I ensure that every project is fast, discoverable, and future-proof."
       }
     }
   },
   "navigation": {
-    "home": "Início",
-    "about": "Sobre",
-    "projects": "Projetos",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
     "blog": "Blog",
-    "contact": "Contato"
+    "contact": "Contact"
   },
   "pages": {
     "about": {
-      "title": "Sobre Mim",
-      "description": "Sou um designer UX/UI apaixonado e desenvolvedor frontend.",
-      "paragraph1": "Sou Francisco Sixto — um designer UX/UI com uma sólida formação técnica. Trabalho na interseção do design e desenvolvimento frontend, criando experiências digitais que são claras, eficientes e focadas no usuário. Acredito em bons sistemas, iteração inteligente e ferramentas práticas que ajudam a entregar qualidade sem complicar demasiadamente as coisas.",
-      "paragraph2": "Ao longo dos anos, liderei equipes de design e desenvolvimento, coordenei prioridades, revisei código e mockups, e construí soluções escaláveis em sites, CRMs e portais. Gosto de mentorar outros, melhorar fluxos de trabalho da equipe e equilibrar criatividade com clareza em cada etapa do processo.",
-      "paragraph3": "O que me motiva é a busca por experiências intuitivas — do tipo onde estrutura, interação e estética se alinham naturalmente. Seja trabalhando no Figma, VS Code, ou em uma chamada de equipe, sempre estou pensando em como fazer as coisas funcionarem melhor, se sentirem mais suaves e servirem aos usuários com propósito.",
-      "paragraph4": "Fora do trabalho, gosto de esportes, passar tempo com minha família e amigos, e aproveitar momentos simples offline. Encontro muita inspiração na vida cotidiana — conversas, refeições compartilhadas, ou apenas estar presente com as pessoas de quem gosto.",
-      "niceToMeet": "Prazer em conhecê-lo! 😎",
-      "thankYou": "Obrigado por visitar meu portfólio! Espero ansiosamente pela oportunidade de colaborar e criar algo incrível.",
-      "jobTitle": "Designer UX/UI e Desenvolvedor Frontend",
-      "location": "Localização: Córdoba, Argentina",
-      "myWork": "Meu Trabalho",
-      "downloadResume": "Currículo"
+      "title": "About Me",
+      "description": "I am a passionate UX/UI designer and frontend developer.",
+      "paragraph1": "I'm Francisco Sixto — a UX/UI designer with a solid technical background. I work at the intersection of design and front-end development, creating digital experiences that are clear, efficient, and user-focused. I believe in good systems, smart iteration, and practical tools that help ship quality without overcomplicating things.",
+      "paragraph2": "Over the years, I've led design and development teams, coordinated priorities, reviewed code and mockups, and built scalable solutions across websites, CRMs, and portals. I enjoy mentoring others, improving team workflows, and balancing creativity with clarity in every step of the process.",
+      "paragraph3": "What drives me is the pursuit of intuitive experiences — the kind where structure, interaction, and aesthetics align naturally. Whether I'm working in Figma, VS Code, or in a team call, I'm always thinking about how to make things work better, feel smoother, and serve users with purpose.",
+      "paragraph4": "Outside of work, I'm into sports, spending time with my family and friends, and enjoying simple moments offline. I find a lot of inspiration in everyday life — conversations, shared meals, or just being present with the people I care about.",
+      "niceToMeet": "Nice to meet you! 😎",
+      "thankYou": "Thank you for visiting my portfolio! I look forward to the opportunity to collaborate and create something amazing.",
+      "jobTitle": "UX/UI Designer & Frontend Developer",
+      "location": "Location: Córdoba, Argentina",
+      "myWork": "My Work",
+      "downloadResume": "Resume"
     },
     "projects": {
-      "title": "Projetos",
-      "description": "Aqui você pode encontrar alguns dos projetos em que trabalhei.",
-      "noImage": "Sem imagem",
-      "viewProject": "Ver Projeto",
-      "liveProject": "Projeto Ativo",
-      "techStack": "Stack Tecnológico",
-      "category": "Categoria",
-      "projectDetails": "Detalhes do Projeto",
-      "challenge": "O Desafio",
-      "solution": "A Solução",
-      "results": "Resultados",
-      "projectsLoading": "Carregando projetos...",
-      "projectsError": "Erro ao carregar projetos",
-      "noProjects": "Nenhum projeto encontrado"
-    },
-    "blog": {
-      "title": "Blog",
-      "description": "Pensamentos, tutoriais e perspectivas sobre design e desenvolvimento.",
-      "comingSoon": "Em Breve!",
-      "comingSoonDescription": "Estou trabalhando em alguns artigos interessantes. Fique ligado!"
+      "title": "Projects",
+      "description": "Here you can find some of the projects I have worked on.",
+      "noImage": "No image",
+      "viewProject": "View Project",
+      "liveProject": "Live Project",
+      "technologies": "Technologies",
+      "role": "My Role",
+      "backToProjects": "← Back to Projects",
+      "relatedProjects": "Related Projects"
     },
     "contact": {
-      "title": "Entre em Contato",
-      "description": "Tem um projeto em mente? Vamos conversar!",
-      "letsConnect": "Vamos Nos Conectar",
-      "getInTouch": "Entre em Contato",
-      "getInTouchDescription": "Tem uma pergunta ou quer trabalhar juntos?",
-      "form": {
-        "name": "Nome",
-        "email": "Email",
-        "subject": "Assunto",
-        "message": "Mensagem",
-        "send": "Enviar Mensagem",
-        "sending": "Enviando...",
-        "success": "Mensagem enviada com sucesso!",
-        "error": "Erro ao enviar mensagem. Tente novamente.",
-        "required": "Este campo é obrigatório",
-        "invalidEmail": "Por favor, insira um email válido"
-      },
-      "directContact": {
-        "title": "Contato Direto",
-        "description": "Prefere contato direto? Você pode me encontrar aqui:",
-        "email": "Enviar Email",
-        "linkedin": "Conectar no LinkedIn",
-        "github": "Ver GitHub"
-      },
+      "title": "Contact Me",
+      "description": "Have a project in mind? Let's talk!",
+      "letsConnect": "Let's Connect",
+      "getInTouch": "Get In Touch",
+      "getInTouchDescription": "Have a question or want to work together?",
       "cta": {
-        "title": "Pronto para Criar Algo Incrível?",
-        "description": "Vamos conversar sobre seu próximo projeto e como podemos torná-lo realidade juntos.",
-        "button": "Vamos Começar"
+        "title": "Let's build something great together",
+        "description": "Whether you're looking for a UX/UI designer, a frontend developer, or a team leader to bring your ideas to life — I'm ready to jump in. Feel free to reach out, I'd be happy to connect.",
+        "button": "Contact Me"
       },
       "subscribe": {
-        "title": "Mantenha-se Atualizado",
-        "description": "Inscreva-se na minha newsletter para receber as últimas atualizações sobre projetos e perspectivas da indústria.",
-        "placeholder": "Digite seu email",
-        "button": "Inscrever-se",
-        "success": "Inscrição realizada com sucesso!",
-        "error": "Erro na inscrição. Tente novamente."
+        "title": "Stay Updated",
+        "description": "Subscribe to my newsletter for the latest updates on projects and industry insights.",
+        "placeholder": "Your email address",
+        "button": "Subscribe",
+        "success": "Thank you for subscribing!",
+        "error": "Subscription error. Please try again.",
+        "emailRequired": "Email is required",
+        "invalidEmail": "Invalid email address"
       }
     }
   },
-  "common": {
-    "loading": "Carregando...",
-    "error": "Erro",
-    "tryAgain": "Tentar Novamente",
-    "backToHome": "Voltar ao Início",
-    "readMore": "Ler Mais",
-    "showLess": "Mostrar Menos",
-    "previous": "Anterior",
-    "next": "Próximo",
-    "close": "Fechar",
-    "open": "Abrir",
-    "menu": "Menu",
-    "skipToContent": "Pular para o conteúdo",
-    "footer": {
-      "copyright": "© 2024 Francisco Sixto. Todos os direitos reservados.",
-      "builtWith": "Construído com",
-      "madeWithLove": "Feito com ❤️ em Córdoba, Argentina"
+  "projects": {
+    "officina-artis": {
+      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
+      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction."
+    },
+    "experience-at-startu": {
+      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
+      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion."
+    },
+    "experience-at-autocity": {
+      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
+      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences."
+    },
+    "experience-at-sixto-van-garret": {
+      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
+      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience."
+    },
+    "experience-at-deep-creek": {
+      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
+      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives."
+    },
+    "experience-at-red-sanitaria": {
+      "title": "Healthcare Innovation: Designing Accessible Digital Solutions for Medical Networks",
+      "description": "I developed user-centered digital platforms for healthcare providers, prioritizing accessibility, trust, and seamless patient-provider communication."
+    },
+    "experience-at-apex": {
+      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
+      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence."
     }
   },
-  "metadata": {
-    "home": {
-      "title": "Francisco Sixto - Designer UX/UI e Desenvolvedor Frontend",
-      "description": "Sou Francisco Sixto, especialista em UX/UI e desenvolvedor frontend criando experiências digitais impactantes. Explore meu portfólio e projetos."
-    },
-    "about": {
-      "title": "Sobre - Francisco Sixto",
-      "description": "Conheça mais sobre Francisco Sixto, designer UX/UI e desenvolvedor frontend com paixão por criar experiências digitais excepcionais."
-    },
-    "projects": {
-      "title": "Projetos - Francisco Sixto",
-      "description": "Explore os projetos de Francisco Sixto, showcasing design UX/UI e desenvolvimento frontend em diversas indústrias."
-    },
-    "blog": {
-      "title": "Blog - Francisco Sixto",
-      "description": "Leia perspectivas, tutoriais e pensamentos de Francisco Sixto sobre design UX/UI, desenvolvimento frontend e tendências da indústria."
-    },
-    "contact": {
-      "title": "Contato - Francisco Sixto",
-      "description": "Entre em contato com Francisco Sixto para projetos de design UX/UI e desenvolvimento frontend. Vamos conversar sobre seu próximo projeto!"
+  "contact": {
+    "form": {
+      "title": "Talk with me",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for your message. I'll get back to you soon!",
+      "recaptchaError": "Please complete the reCAPTCHA.",
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "messageRequired": "Message is required"
     }
-  }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "backHome": "Back to Home",
+    "readMore": "Read More",
+    "viewProject": "View Project",
+    "liveProject": "Live Project",
+    "toolsAndTechnologies": {
+      "title": "Tools & Technologies",
+      "description": "A curated collection of the tools I use to bring ideas to life."
+    },
+    "services": {
+      "title": "What I Do",
+      "description": "A combination of design thinking, solid development, and team experience.",
+      "uxUiDesign": {
+        "title": "UX/UI Design",
+        "description": "From early-stage wireframes to polished prototypes, I design user interfaces that are both intuitive and scalable. I combine design thinking with user research, accessibility standards, and usability testing to ensure every experience delivers real impact."
+      },
+      "frontendDevelopment": {
+        "title": "Frontend Development",
+        "description": "I build high-performing, responsive, and accessible web apps using React, Next.js, Tailwind CSS, and TypeScript. My toolkit also includes WordPress, Bootstrap, and .NET Core for cases where flexibility or backend integration is key."
+      },
+      "teamLeadership": {
+        "title": "Team Leadership",
+        "description": "I lead design and dev teams through planning, code reviews, mentoring, and task coordination. I bridge gaps between designers, developers, and stakeholders to align vision, timelines, and deliverables. Clear communication and a user-first mindset are always my priority."
+      },
+      "optimizationDeploy": {
+        "title": "Optimization & Deploy",
+        "description": "I handle SEO optimization, site performance enhancements, version control with Git, and streamlined CI/CD workflows. From semantic HTML to asset optimization and production deploys, I ensure that every project is fast, discoverable, and future-proof."
+      }
+    },
+    "funMode": {
+      "play": "Play Party Mode",
+      "stop": "Stop Party Mode",
+      "playButton": "Play fun mode",
+      "stopButton": "Stop this!",
+      "warning": {
+        "title": "Heads up!",
+        "message": "This mode has music, flashing colors and animations, but it's also a lot of fun. Give it a try if you're okay.",
+        "play": "Play",
+        "cancel": "Cancel"
+      }
+    }
+  },
+  "projectsData": [
+    {
+      "id": "officina-artis",
+      "slug": "officina-artis",
+      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
+      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction.",
+      "imageUrl": "/projects/officina-artis.webp",
+      "imageAlt": "3D view of the Officina Artis virtual gallery",
+      "logoUrl": "/projects/logo-officina-artis.webp",
+      "logoAlt": "Logo of Officina Artis",
+      "liveUrl": "https://galery-psi.vercel.app"
+    },
+    {
+      "id": "experience-at-startu",
+      "slug": "experience-at-startu", 
+      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
+      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion.",
+      "imageUrl": "/projects/websites-startu-small.webp",
+      "imageAlt": "Sites and Applications created at Start University",
+      "logoUrl": "/projects/logo-startu.png",
+      "logoAlt": "Start University Logo"
+    },
+    {
+      "id": "experience-at-autocity",
+      "slug": "experience-at-autocity",
+      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
+      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences.",
+      "imageUrl": "/projects/autocity-grupo-tagle.webp",
+      "imageAlt": "Autocity Grupo Tagle project view",
+      "logoUrl": "/projects/logo-autocity.svg",
+      "logoAlt": "Autocity Logo"
+    },
+    {
+      "id": "experience-at-sixto-van-garret",
+      "slug": "experience-at-sixto-van-garret",
+      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
+      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience.",
+      "imageUrl": "/projects/sixto-van-garret.webp",
+      "imageAlt": "Sixto Van Garret project showcase",
+      "logoUrl": "/projects/logo-sixto-van-garret.png",
+      "logoAlt": "Sixto Van Garret Logo"
+    },
+    {
+      "id": "experience-at-deep-creek",
+      "slug": "experience-at-deep-creek",
+      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
+      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives.",
+      "imageUrl": "/projects/deep-creek-solutions.webp",
+      "imageAlt": "Deep Creek Solutions project view",
+      "logoUrl": "/projects/logo-deep-creek.png",
+      "logoAlt": "Deep Creek Solutions Logo"
+    },
+    {
+      "id": "experience-at-red-sanitaria",
+      "slug": "experience-at-red-sanitaria",
+      "title": "Healthcare Innovation: Designing Accessible Digital Solutions for Medical Networks",
+      "description": "I developed user-centered digital platforms for healthcare providers, prioritizing accessibility, trust, and seamless patient-provider communication.",
+      "imageUrl": "/projects/apex-projects.webp",
+      "imageAlt": "Red Sanitaria project interface",
+      "logoUrl": "/projects/logo-red-sanitaria.png",
+      "logoAlt": "Red Sanitaria Logo"
+    },
+    {
+      "id": "experience-at-apex",
+      "slug": "experience-at-apex",
+      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
+      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence.",
+      "imageUrl": "/projects/apex-projects.webp",
+      "imageAlt": "Apex projects overview",
+      "logoUrl": "/projects/logo-apex.png",
+      "logoAlt": "Apex Logo"
+    }
+  ]
 }

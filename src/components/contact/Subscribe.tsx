@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import SubmitButton from "@/components/theme/SubmitButton";
 import ErrorMessage from "@/components/theme/ErrorMessage";
 import { RiCheckLine, RiCheckboxCircleLine} from "react-icons/ri";
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useRTL } from '@/hooks/useRTL';
 
 type FormData = {
     email: string;
@@ -14,6 +16,8 @@ const GOOGLE_FORM_ACTION_URL = process.env.NEXT_PUBLIC_GOOGLE_FORM_ACTION_URL!;
 const GOOGLE_FORM_EMAIL_ENTRY = process.env.NEXT_PUBLIC_GOOGLE_FORM_EMAIL_ENTRY!;
 
 export default function Subscribe() {
+    const { t } = useLanguage();
+    const { rtlClass } = useRTL();
     const {
         register,
         handleSubmit,
@@ -65,9 +69,9 @@ export default function Subscribe() {
     return (
         <div className="w-full flex justify-center">
             {submitted ? (
-                <div className="absolute bottom-4 md:bottom-7 flex flex-row items-center p-1 pe-4 rounded-2xl bg-green-600/10 backdrop-blur-xl">
+                <div className={`absolute bottom-4 md:bottom-7 flex flex-row items-center p-1 pe-4 rounded-2xl bg-green-600/10 backdrop-blur-xl ${rtlClass('text-left')}`}>
                     <RiCheckLine className="w-[50px] h-[50px] text-green-600 text-2xl m-2 bg-green-600/10 rounded-full p-2" />
-                    <p className="text-green-600">Thank you for subscribing!</p>
+                    <p className="text-green-600">{t('pages.contact.subscribe.success')}</p>
                 </div>
             ) : (
                 <motion.form
@@ -80,13 +84,13 @@ export default function Subscribe() {
                     <motion.input
                         whileFocus={{ scale: 1.02 }}
                         type="email"
-                        placeholder="Your email address"
+                        placeholder={t('pages.contact.subscribe.placeholder')}
                         className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-red-500 bg-gray-900/80 dark:bg-black dark:border-white text-white dark:text-gray-100"
                         {...register("email", {
-                            required: "Email is required",
+                            required: t('pages.contact.subscribe.emailRequired'),
                             pattern: {
                                 value: /^\S+@\S+$/i,
-                                message: "Invalid email address",
+                                message: t('pages.contact.subscribe.invalidEmail'),
                             },
                         })}
                     />
@@ -97,7 +101,12 @@ export default function Subscribe() {
                         className="hidden"
                         {...register("honey", { validate: (value) => value === "" })}
                     />
-                    <SubmitButton isSubmitting={isSubmitting} submittingText={"Subscribing..."} defaultText={"Subscribe"} Icon={RiCheckboxCircleLine} />
+                    <SubmitButton 
+                        isSubmitting={isSubmitting} 
+                        submittingText={t('pages.contact.subscribe.button')} 
+                        defaultText={t('pages.contact.subscribe.button')} 
+                        Icon={RiCheckboxCircleLine} 
+                    />
                 </motion.form>
             )}
         </div>

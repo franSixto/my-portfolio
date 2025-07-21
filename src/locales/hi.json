@@ -1,145 +1,211 @@
 {
   "home": {
     "hero": {
-      "tagline": "प्रभावशाली डिजिटल अनुभव बनाना।",
-      "title": "UX/UI लीडर और फ्रंटएंड डेवलपर",
-      "description": "मैं एक UX/UI विशेषज्ञ और फ्रंटएंड डेवलपर हूं जो सहज, सुलभ और दृष्टिगत रूप से आकर्षक डिजिटल उत्पाद बनाता हूं।",
-      "myWork": "मेरा काम",
-      "resume": "रेज़्यूमे",
-      "helloHuman": "नमस्ते मानव,",
-      "petDog": "बस कुत्ते को प्यार करें! ✨"
+      "tagline": "Building Impactful Digital Experiences.",
+      "title": "UX/UI Lead & Frontend Developer",
+      "description": "I'm a UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.",
+      "myWork": "My Work",
+      "resume": "Resume",
+      "helloHuman": "Hello Human,",
+      "petDog": "Just pet the dog! ✨"
     },
     "aboutTeaser": {
-      "title": "मेरे बारे में थोड़ा",
-      "description": "यहाँ पिक्सेल के पीछे के व्यक्ति के बारे में थोड़ी जानकारी है।",
-      "readMore": "मेरे बारे में और पढ़ें",
-      "altText": "यह मैं हूं",
-      "birthPlace": "दक्षिणी कॉर्डोबा, अर्जेंटीना के एक छोटे शहर में जन्म",
-      "birthDescription": "मैंने हमेशा बड़े सपने और महान डिजाइन और प्रौद्योगिकी के लिए गहरा जुनून रखा है।",
-      "sportsText": "जब मैं डिजिटल अनुभव नहीं बना रहा होता, तो आप मुझे खेल के साथ सक्रिय रहते हुए पाएंगे—या दिल और आत्मा से",
-      "riverPlate": "रिवर प्लेट के लिए जयकार करते हुए।"
+      "title": "A Bit About Me",
+      "description": "Here's a little insight into the person behind the pixels.",
+      "readMore": "Read more about me",
+      "altText": "This is me",
+      "birthPlace": "Born in a small town in southern Córdoba, Argentina",
+      "birthDescription": "I've always carried big dreams and a deep passion for great design and technology.",
+      "sportsText": "When I'm not creating digital experiences, you'll find me staying active with sports—or cheering for",
+      "riverPlate": "River Plate with heart and soul."
     },
     "highlights": {
-      "toolsAndTechnologies": "उपकरण और प्रौद्योगिकियां"
+      "title": "Tools & Technologies",
+      "description": "A curated collection of the tools I use to bring ideas to life.",
+      "categories": {
+        "design": {
+          "title": "Design",
+          "description": "Creating beautiful and functional user interfaces"
+        },
+        "frontend": {
+          "title": "Frontend",
+          "description": "Building responsive and performant web applications"
+        },
+        "backend": {
+          "title": "Backend",
+          "description": "Developing robust server-side solutions"
+        },
+        "tools": {
+          "title": "Tools",
+          "description": "Essential tools for development and design workflow"
+        }
+      }
     },
     "services": {
-      "title": "मैं क्या करता हूं",
-      "frontend": {
-        "title": "फ्रंटएंड डेवलपमेंट",
-        "description": "React, Next.js और नवीनतम वेब तकनीकों के साथ आधुनिक और रेस्पॉन्सिव इंटरफेस बनाना।"
-      },
+      "title": "What I Do",
+      "description": "A combination of design thinking, solid development, and team experience.",
       "uxui": {
-        "title": "UX/UI डिज़ाइन",
-        "description": "उपयोगकर्ताओं को प्रसन्न करने वाले सहज उपयोगकर्ता अनुभव और दृश्य रूप से आकर्षक इंटरफेस डिज़ाइन करना।"
+        "title": "UX/UI Design",
+        "description": "From early-stage wireframes to polished prototypes, I design user interfaces that are both intuitive and scalable. I combine design thinking with user research, accessibility standards, and usability testing to ensure every experience delivers real impact."
       },
-      "consulting": {
-        "title": "तकनीकी सलाह",
-        "description": "आर्किटेक्चर, सर्वोत्तम प्रथाओं और प्रदर्शन अनुकूलन पर विशेषज्ञ मार्गदर्शन प्रदान करना।"
+      "frontend": {
+        "title": "Frontend Development",
+        "description": "I build high-performing, responsive, and accessible web apps using React, Next.js, Tailwind CSS, and TypeScript. My toolkit also includes WordPress, Bootstrap, and .NET Core for cases where flexibility or backend integration is key."
+      },
+      "teamLeadership": {
+        "title": "Team Leadership",
+        "description": "I lead design and dev teams through planning, code reviews, mentoring, and task coordination. I bridge gaps between designers, developers, and stakeholders to align vision, timelines, and deliverables. Clear communication and a user-first mindset are always my priority."
+      },
+      "optimization": {
+        "title": "Optimization & Deploy",
+        "description": "I handle SEO optimization, site performance enhancements, version control with Git, and streamlined CI/CD workflows. From semantic HTML to asset optimization and production deploys, I ensure that every project is fast, discoverable, and future-proof."
       }
     }
   },
   "navigation": {
-    "home": "होम",
-    "about": "के बारे में",
-    "projects": "प्रोजेक्ट्स",
-    "blog": "ब्लॉग",
-    "contact": "संपर्क"
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
   },
   "pages": {
     "about": {
-      "title": "मेरे बारे में",
-      "description": "मैं एक भावुक UX/UI डिजाइनर और फ्रंटएंड डेवलपर हूं।",
-      "paragraph1": "मैं Francisco Sixto हूं — एक ठोस तकनीकी पृष्ठभूमि वाला UX/UI डिजाइनर। मैं डिजाइन और फ्रंट-एंड डेवलपमेंट के चौराहे पर काम करता हूं, डिजिटल अनुभव बनाता हूं जो स्पष्ट, कुशल और उपयोगकर्ता-केंद्रित हैं। मैं अच्छी सिस्टम, स्मार्ट पुनरावृत्ति, और व्यावहारिक उपकरणों में विश्वास करता हूं जो चीजों को जटिल बनाए बिना गुणवत्ता भेजने में मदद करते हैं।",
-      "paragraph2": "वर्षों से, मैंने डिजाइन और डेवलपमेंट टीमों का नेतृत्व किया है, प्राथमिकताओं का समन्वय किया है, कोड और मॉकअप की समीक्षा की है, और वेबसाइटों, CRM, और पोर्टल्स में स्केलेबल समाधान बनाए हैं। मुझे दूसरों को मार्गदर्शन देना, टीम वर्कफ़्लो में सुधार करना, और प्रक्रिया के हर चरण में रचनात्मकता और स्पष्टता को संतुलित करना पसंद है।",
-      "paragraph3": "मुझे प्रेरित करता है सहज अनुभवों की खोज — वह प्रकार जहां संरचना, इंटरैक्शन, और सौंदर्यशास्त्र प्राकृतिक रूप से संरेखित होते हैं। चाहे मैं Figma, VS Code में काम कर रहा हूं, या टीम कॉल में, मैं हमेशा इस बारे में सोच रहा हूं कि चीजों को बेहतर कैसे काम करवाया जाए, कैसे चिकना महसूस कराया जाए, और उद्देश्य के साथ उपयोगकर्ताओं की सेवा कैसे की जाए।",
-      "paragraph4": "काम के बाहर, मुझे खेल, अपने परिवार और दोस्तों के साथ समय बिताना, और ऑफ़लाइन सरल क्षणों का आनंद लेना पसंद है। मुझे रोजमर्रा की जिंदगी से बहुत प्रेरणा मिलती है — बातचीत, साझा भोजन, या बस उन लोगों के साथ उपस्थित रहना जिनकी मुझे परवाह है।",
-      "niceToMeet": "आपसे मिलकर खुशी हुई! 😎",
-      "thankYou": "मेरे पोर्टफोलियो में आने के लिए धन्यवाद! मैं सहयोग करने और कुछ अद्भुत बनाने के अवसर की प्रतीक्षा कर रहा हूं।",
-      "jobTitle": "UX/UI डिजाइनर और फ्रंटएंड डेवलपर",
-      "location": "स्थान: कॉर्डोबा, अर्जेंटीना",
-      "myWork": "मेरा काम",
-      "downloadResume": "रेज़्यूमे"
+      "title": "About Me",
+      "description": "I am a passionate UX/UI designer and frontend developer.",
+      "paragraph1": "I'm Francisco Sixto — a UX/UI designer with a solid technical background. I work at the intersection of design and front-end development, creating digital experiences that are clear, efficient, and user-focused. I believe in good systems, smart iteration, and practical tools that help ship quality without overcomplicating things.",
+      "paragraph2": "Over the years, I've led design and development teams, coordinated priorities, reviewed code and mockups, and built scalable solutions across websites, CRMs, and portals. I enjoy mentoring others, improving team workflows, and balancing creativity with clarity in every step of the process.",
+      "paragraph3": "What drives me is the pursuit of intuitive experiences — the kind where structure, interaction, and aesthetics align naturally. Whether I'm working in Figma, VS Code, or in a team call, I'm always thinking about how to make things work better, feel smoother, and serve users with purpose.",
+      "paragraph4": "Outside of work, I'm into sports, spending time with my family and friends, and enjoying simple moments offline. I find a lot of inspiration in everyday life — conversations, shared meals, or just being present with the people I care about.",
+      "niceToMeet": "Nice to meet you! 😎",
+      "thankYou": "Thank you for visiting my portfolio! I look forward to the opportunity to collaborate and create something amazing.",
+      "jobTitle": "UX/UI Designer & Frontend Developer",
+      "location": "Location: Córdoba, Argentina",
+      "myWork": "My Work",
+      "downloadResume": "Resume"
     },
     "projects": {
-      "title": "प्रोजेक्ट्स",
-      "description": "यहाँ आप कुछ प्रोजेक्ट्स पा सकते हैं जिन पर मैंने काम किया है।",
-      "noImage": "कोई इमेज नहीं",
-      "viewProject": "प्रोजेक्ट देखें",
-      "liveProject": "लाइव प्रोजेक्ट",
-      "technologies": "तकनीकें",
-      "role": "मेरी भूमिका",
-      "backToProjects": "← प्रोजेक्ट्स पर वापस",
-      "relatedProjects": "संबंधित प्रोजेक्ट्स"
+      "title": "Projects",
+      "description": "Here you can find some of the projects I have worked on.",
+      "noImage": "No image",
+      "viewProject": "View Project",
+      "liveProject": "Live Project",
+      "technologies": "Technologies",
+      "role": "My Role",
+      "backToProjects": "← Back to Projects",
+      "relatedProjects": "Related Projects"
     },
     "contact": {
-      "title": "आइए जुड़ते हैं",
-      "description": "यदि आपके कोई प्रश्न हैं या सिर्फ हैलो कहना चाहते हैं, तो बेझिझक संपर्क करें!"
+      "title": "Contact Me",
+      "description": "Have a project in mind? Let's talk!",
+      "letsConnect": "Let's Connect",
+      "getInTouch": "Get In Touch",
+      "getInTouchDescription": "Have a question or want to work together?",
+      "cta": {
+        "title": "Let's build something great together",
+        "description": "Whether you're looking for a UX/UI designer, a frontend developer, or a team leader to bring your ideas to life — I'm ready to jump in. Feel free to reach out, I'd be happy to connect.",
+        "button": "Contact Me"
+      },
+      "subscribe": {
+        "title": "Stay Updated",
+        "description": "Subscribe to my newsletter for the latest updates on projects and industry insights.",
+        "placeholder": "Your email address",
+        "button": "Subscribe",
+        "success": "Thank you for subscribing!",
+        "error": "Subscription error. Please try again.",
+        "emailRequired": "Email is required",
+        "invalidEmail": "Invalid email address"
+      }
     }
   },
   "projects": {
     "officina-artis": {
-      "title": "Officina Artis: स्थान, इंटरैक्शन, और क्यूरेशन की खोज करने वाली एक वर्चुअल 3D आर्ट गैलरी",
-      "description": "मैंने एक 3D इमर्सिव अनुभव डिजाइन और डेवलप किया है जो वर्चुअल गैलरी में कलाकृतियों का अन्वेषण करता है, क्रिएटिव कोडिंग, स्थानीय कहानी कहने, और कलात्मक निर्देशन को मिलाता है।"
+      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
+      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction."
     },
     "experience-at-startu": {
-      "title": "ऑनलाइन शिक्षा का रूपांतरण: 20+ विश्वविद्यालय साइटों के लिए UX रणनीति और स्केलेबल डिजाइन",
-      "description": "मैंने कई बाजारों में डिजिटल अनुभवों के डिजाइन और डेवलपमेंट का नेतृत्व किया, रणनीति, प्रौद्योगिकी, और टीमवर्क को मिलाकर 20+ शैक्षिक वेबसाइटों को बदलने और उपयोगिता और रूपांतरण को बढ़ाने का काम किया।"
+      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
+      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion."
     },
     "experience-at-autocity": {
-      "title": "इंजन से एलिगेंस तक: ऑटोमोटिव, हॉस्पिटैलिटी, और लाइफस्टाइल ब्रांड्स के लिए डिजिटल इकोसिस्टम",
-      "description": "मैंने कई उद्योगों में इमर्सिव, हाई-कन्वर्जन वेबसाइट्स डिजाइन और डेवलप कीं—उन्नत सुविधाओं वाले ऑटोमोटिव प्लेटफॉर्म से लेकर हाई-एंड हॉस्पिटैलिटी और गोल्फ क्लब डिजिटल अनुभवों तक।"
+      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
+      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences."
     },
     "experience-at-sixto-van-garret": {
-      "title": "बेस्पोक डिजिटल पहचान का निर्माण: अनूठे ब्रांड्स के लिए कस्टम वेब समाधान",
-      "description": "मैंने विशिष्ट ब्रांड्स के लिए तैयार डिजिटल अनुभव बनाए, लक्जरी सेवाओं से लेकर नवाचार स्टार्टअप तक, कस्टम डिजाइन और रणनीतिक उपयोगकर्ता अनुभव पर केंद्रित।"
+      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
+      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience."
     },
     "experience-at-deep-creek": {
-      "title": "रणनीतिक डिजिटल रूपांतरण: एंटरप्राइज़ समाधानों के लिए पूर्ण-चक्र विकास",
-      "description": "मैंने अवधारणा से तैनाती तक व्यापक डिजिटल परियोजनाओं का नेतृत्व किया, उपयोगकर्ता अनुभव और व्यावसायिक उद्देश्यों पर केंद्रित स्केलेबल एंटरप्राइज़ समाधान प्रदान किए।"
+      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
+      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives."
     },
     "experience-at-red-sanitaria": {
-      "title": "स्वास्थ्य सेवा नवाचार: मेडिकल नेटवर्क्स के लिए सुलभ डिजिटल समाधान डिजाइन करना",
-      "description": "मैंने स्वास्थ्य सेवा प्रदाताओं के लिए उपयोगकर्ता-केंद्रित डिजिटल प्लेटफॉर्म विकसित किए, पहुंच, विश्वास, और निर्बाध रोगी-प्रदाता संचार को प्राथमिकता देते हुए।"
+      "title": "Healthcare Innovation: Designing Accessible Digital Solutions for Medical Networks",
+      "description": "I developed user-centered digital platforms for healthcare providers, prioritizing accessibility, trust, and seamless patient-provider communication."
     },
     "experience-at-apex": {
-      "title": "प्रदर्शन-संचालित डिजिटल समाधान: विकास-केंद्रित कंपनियों के लिए उच्च-प्रभाव परियोजनाएं",
-      "description": "मैंने रूपांतरण और वृद्धि के लिए अनुकूलित अत्याधुनिक डिजिटल अनुभव प्रदान किए, रणनीतिक सोच और तकनीकी उत्कृष्टता को मिलाते हुए।"
+      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
+      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence."
     }
   },
   "contact": {
     "form": {
-      "title": "मुझसे बात करें",
-      "name": "नाम",
-      "email": "ईमेल",
-      "message": "संदेश",
-      "send": "संदेश भेजें",
-      "sending": "भेज रहे हैं...",
-      "successTitle": "संदेश भेज दिया गया!",
-      "successMessage": "आपके संदेश के लिए धन्यवाद। मैं जल्द ही आपसे संपर्क करूंगा!",
-      "recaptchaError": "कृपया reCAPTCHA पूरा करें।",
-      "nameRequired": "नाम आवश्यक है",
-      "emailRequired": "ईमेल आवश्यक है",
-      "emailInvalid": "कृपया वैध ईमेल दर्ज करें",
-      "messageRequired": "संदेश आवश्यक है"
+      "title": "Talk with me",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for your message. I'll get back to you soon!",
+      "recaptchaError": "Please complete the reCAPTCHA.",
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "messageRequired": "Message is required"
     }
   },
   "common": {
-    "loading": "लोड हो रहा है...",
-    "error": "त्रुटि",
-    "backHome": "होम पर वापस",
-    "readMore": "और पढ़ें",
-    "viewProject": "प्रोजेक्ट देखें",
-    "liveProject": "लाइव प्रोजेक्ट",
+    "loading": "Loading...",
+    "error": "Error",
+    "backHome": "Back to Home",
+    "readMore": "Read More",
+    "viewProject": "View Project",
+    "liveProject": "Live Project",
+    "toolsAndTechnologies": {
+      "title": "Tools & Technologies",
+      "description": "A curated collection of the tools I use to bring ideas to life."
+    },
+    "services": {
+      "title": "What I Do",
+      "description": "A combination of design thinking, solid development, and team experience.",
+      "uxUiDesign": {
+        "title": "UX/UI Design",
+        "description": "From early-stage wireframes to polished prototypes, I design user interfaces that are both intuitive and scalable. I combine design thinking with user research, accessibility standards, and usability testing to ensure every experience delivers real impact."
+      },
+      "frontendDevelopment": {
+        "title": "Frontend Development",
+        "description": "I build high-performing, responsive, and accessible web apps using React, Next.js, Tailwind CSS, and TypeScript. My toolkit also includes WordPress, Bootstrap, and .NET Core for cases where flexibility or backend integration is key."
+      },
+      "teamLeadership": {
+        "title": "Team Leadership",
+        "description": "I lead design and dev teams through planning, code reviews, mentoring, and task coordination. I bridge gaps between designers, developers, and stakeholders to align vision, timelines, and deliverables. Clear communication and a user-first mindset are always my priority."
+      },
+      "optimizationDeploy": {
+        "title": "Optimization & Deploy",
+        "description": "I handle SEO optimization, site performance enhancements, version control with Git, and streamlined CI/CD workflows. From semantic HTML to asset optimization and production deploys, I ensure that every project is fast, discoverable, and future-proof."
+      }
+    },
     "funMode": {
-      "play": "पार्टी मोड चलाएं",
-      "stop": "पार्टी मोड बंद करें",
-      "playButton": "फन मोड चलाएं",
-      "stopButton": "इसे रोकें!",
+      "play": "Play Party Mode",
+      "stop": "Stop Party Mode",
+      "playButton": "Play fun mode",
+      "stopButton": "Stop this!",
       "warning": {
-        "title": "सावधान!",
-        "message": "इस मोड में संगीत, चमकते रंग और एनीमेशन हैं, लेकिन यह बहुत मजेदार भी है। यदि आप ठीक हैं तो इसे आजमाएं।",
-        "play": "चलाएं",
-        "cancel": "रद्द करें"
+        "title": "Heads up!",
+        "message": "This mode has music, flashing colors and animations, but it's also a lot of fun. Give it a try if you're okay.",
+        "play": "Play",
+        "cancel": "Cancel"
       }
     }
   },
@@ -147,73 +213,73 @@
     {
       "id": "officina-artis",
       "slug": "officina-artis",
-      "title": "Officina Artis: स्थान, इंटरैक्शन, और क्यूरेशन की खोज करने वाली एक वर्चुअल 3D आर्ट गैलरी",
-      "description": "मैंने एक 3D इमर्सिव अनुभव डिजाइन और डेवलप किया है जो वर्चुअल गैलरी में कलाकृतियों का अन्वेषण करता है, क्रिएटिव कोडिंग, स्थानीय कहानी कहने, और कलात्मक निर्देशन को मिलाता है।",
+      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
+      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction.",
       "imageUrl": "/projects/officina-artis.webp",
-      "imageAlt": "Officina Artis वर्चुअल गैलरी का 3D दृश्य",
+      "imageAlt": "3D view of the Officina Artis virtual gallery",
       "logoUrl": "/projects/logo-officina-artis.webp",
-      "logoAlt": "Officina Artis का लोगो",
+      "logoAlt": "Logo of Officina Artis",
       "liveUrl": "https://galery-psi.vercel.app"
     },
     {
       "id": "experience-at-startu",
       "slug": "experience-at-startu", 
-      "title": "ऑनलाइन शिक्षा का रूपांतरण: 20+ विश्वविद्यालय साइटों के लिए UX रणनीति और स्केलेबल डिजाइन",
-      "description": "मैंने कई बाजारों में डिजिटल अनुभवों के डिजाइन और डेवलपमेंट का नेतृत्व किया, रणनीति, प्रौद्योगिकी, और टीमवर्क को मिलाकर 20+ शैक्षिक वेबसाइटों को बदलने और उपयोगिता और रूपांतरण को बढ़ाने का काम किया।",
+      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
+      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion.",
       "imageUrl": "/projects/websites-startu-small.webp",
-      "imageAlt": "Start University में बनाई गई साइटें और एप्लिकेशन",
+      "imageAlt": "Sites and Applications created at Start University",
       "logoUrl": "/projects/logo-startu.png",
-      "logoAlt": "Start University लोगो"
+      "logoAlt": "Start University Logo"
     },
     {
       "id": "experience-at-autocity",
       "slug": "experience-at-autocity",
-      "title": "इंजन से एलिगेंस तक: ऑटोमोटिव, हॉस्पिटैलिटी, और लाइफस्टाइल ब्रांड्स के लिए डिजिटल इकोसिस्टम",
-      "description": "मैंने कई उद्योगों में इमर्सिव, हाई-कन्वर्जन वेबसाइट्स डिजाइन और डेवलप कीं—उन्नत सुविधाओं वाले ऑटोमोटिव प्लेटफॉर्म से लेकर हाई-एंड हॉस्पिटैलिटी और गोल्फ क्लब डिजिटल अनुभवों तक।",
+      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
+      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences.",
       "imageUrl": "/projects/autocity-grupo-tagle.webp",
-      "imageAlt": "Autocity Grupo Tagle प्रोजेक्ट दृश्य",
+      "imageAlt": "Autocity Grupo Tagle project view",
       "logoUrl": "/projects/logo-autocity.svg",
-      "logoAlt": "Autocity लोगो"
+      "logoAlt": "Autocity Logo"
     },
     {
       "id": "experience-at-sixto-van-garret",
       "slug": "experience-at-sixto-van-garret",
-      "title": "बेस्पोक डिजिटल पहचान का निर्माण: अनूठे ब्रांड्स के लिए कस्टम वेब समाधान",
-      "description": "मैंने विशिष्ट ब्रांड्स के लिए तैयार डिजिटल अनुभव बनाए, लक्जरी सेवाओं से लेकर नवाचार स्टार्टअप तक, कस्टम डिजाइन और रणनीतिक उपयोगकर्ता अनुभव पर केंद्रित।",
+      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
+      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience.",
       "imageUrl": "/projects/sixto-van-garret.webp",
-      "imageAlt": "Sixto Van Garret प्रोजेक्ट प्रदर्शनी",
+      "imageAlt": "Sixto Van Garret project showcase",
       "logoUrl": "/projects/logo-sixto-van-garret.png",
-      "logoAlt": "Sixto Van Garret लोगो"
+      "logoAlt": "Sixto Van Garret Logo"
     },
     {
       "id": "experience-at-deep-creek",
       "slug": "experience-at-deep-creek",
-      "title": "रणनीतिक डिजिटल रूपांतरण: एंटरप्राइज़ समाधानों के लिए पूर्ण-चक्र विकास",
-      "description": "मैंने अवधारणा से तैनाती तक व्यापक डिजिटल परियोजनाओं का नेतृत्व किया, उपयोगकर्ता अनुभव और व्यावसायिक उद्देश्यों पर केंद्रित स्केलेबल एंटरप्राइज़ समाधान प्रदान किए।",
+      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
+      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives.",
       "imageUrl": "/projects/deep-creek-solutions.webp",
-      "imageAlt": "Deep Creek Solutions प्रोजेक्ट दृश्य",
+      "imageAlt": "Deep Creek Solutions project view",
       "logoUrl": "/projects/logo-deep-creek.png",
-      "logoAlt": "Deep Creek Solutions लोगो"
+      "logoAlt": "Deep Creek Solutions Logo"
     },
     {
       "id": "experience-at-red-sanitaria",
       "slug": "experience-at-red-sanitaria",
-      "title": "स्वास्थ्य सेवा नवाचार: मेडिकल नेटवर्क्स के लिए सुलभ डिजिटल समाधान डिजाइन करना",
-      "description": "मैंने स्वास्थ्य सेवा प्रदाताओं के लिए उपयोगकर्ता-केंद्रित डिजिटल प्लेटफॉर्म विकसित किए, पहुंच, विश्वास, और निर्बाध रोगी-प्रदाता संचार को प्राथमिकता देते हुए।",
+      "title": "Healthcare Innovation: Designing Accessible Digital Solutions for Medical Networks",
+      "description": "I developed user-centered digital platforms for healthcare providers, prioritizing accessibility, trust, and seamless patient-provider communication.",
       "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "Red Sanitaria प्रोजेक्ट इंटरफेस",
+      "imageAlt": "Red Sanitaria project interface",
       "logoUrl": "/projects/logo-red-sanitaria.png",
-      "logoAlt": "Red Sanitaria लोगो"
+      "logoAlt": "Red Sanitaria Logo"
     },
     {
       "id": "experience-at-apex",
       "slug": "experience-at-apex",
-      "title": "प्रदर्शन-संचालित डिजिटल समाधान: विकास-केंद्रित कंपनियों के लिए उच्च-प्रभाव परियोजनाएं",
-      "description": "मैंने रूपांतरण और वृद्धि के लिए अनुकूलित अत्याधुनिक डिजिटल अनुभव प्रदान किए, रणनीतिक सोच और तकनीकी उत्कृष्टता को मिलाते हुए।",
+      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
+      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence.",
       "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "Apex प्रोजेक्ट्स अवलोकन",
+      "imageAlt": "Apex projects overview",
       "logoUrl": "/projects/logo-apex.png",
-      "logoAlt": "Apex लोगो"
+      "logoAlt": "Apex Logo"
     }
   ]
 }

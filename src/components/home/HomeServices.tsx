@@ -47,7 +47,7 @@ export default function Services() {
                 >
                     <TitleH2
                         title={t('home.services.title')}
-                        description="A combination of design thinking, solid development, and team experience."
+                        description={t('home.services.description')}
                     />
                     <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="absolute flex justify-center items-center h-full w-full">

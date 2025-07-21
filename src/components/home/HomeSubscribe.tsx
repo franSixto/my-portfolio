@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import ThreeSolarSystem from "@/components/three/ThreeSolarSystem";
 import Subscribe from '../contact/Subscribe';
 import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const HomeSubscribe: React.FC = () => {
     const { ref, inView } = useInView({
@@ -13,6 +14,7 @@ const HomeSubscribe: React.FC = () => {
     });
 
     const { mainColor } = useColorContext();
+    const { t } = useLanguage();
 
     return (
         <div className="relative container mx-auto px-6 mb-5">
@@ -34,7 +36,7 @@ const HomeSubscribe: React.FC = () => {
 
                 {/* Contenido */}
                 <h2 className="text-4xl lg:text-6xl xl:text-8xl font-bold text-gray-100 uppercase">
-                    I like to <span className={`text-${mainColor}-500 transition-colors duration-300`}>share</span>
+                    {t('subscribe.homeTitle')} <span className={`text-${mainColor}-500 transition-colors duration-300`}>share</span>
                 </h2>
                 
                 <motion.p
@@ -43,7 +45,7 @@ const HomeSubscribe: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                    I send occasional updates about design, dev & stuff I find cool. Join in!
+                    {t('subscribe.homeDescription')}
                     </motion.p>
                 <motion.p
                 className=" text-sm text-gray-400"
@@ -51,7 +53,7 @@ const HomeSubscribe: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                No spam. Unsubscribe anytime.
+                {t('subscribe.homeDisclaimer')}
                 </motion.p>
                 {/* Animación de fondo */}
                 <style>
@@ -83,7 +85,7 @@ const HomeSubscribe: React.FC = () => {
                 }}
                 initial={{ opacity: 0, y: 50 }}
             >
-                Glad you&apos;re here! 😊
+                {t('subscribe.homeWelcome')}
             </motion.span>
             
         </div>
