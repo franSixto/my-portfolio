@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { RiCloseLine } from "react-icons/ri";
 import { useColorContext } from '@/components/theme/ColorContext';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 interface NavMobileProps {
     isMenuOpen: boolean;
@@ -11,6 +12,7 @@ interface NavMobileProps {
 }
 
 const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive }) => {
+    const { t } = useTranslation();
     const { mainColor } = useColorContext();
 
     // Añadir o eliminar la clase "overflow-hidden" al <body>
@@ -52,11 +54,11 @@ const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive 
             </button>
             <ul className="relative w-full h-full">
                 {[
-                { href: "/", label: "Home" },
-                { href: "/about", label: "About" },
-                { href: "/blog", label: "Blog" },
-                { href: "/projects", label: "Projects" },
-                { href: "/contact", label: "Contact" },
+                { href: "/", label: t('navigation.home') },
+                { href: "/about", label: t('navigation.about') },
+                { href: "/blog", label: t('navigation.blog') },
+                { href: "/projects", label: t('navigation.projects') },
+                { href: "/contact", label: t('navigation.contact') },
                 ].map((item, index, arr) => {
                 const angle = (360 / arr.length) * index; // Calcula el ángulo para cada elemento
                 const x = 50 + 40 * Math.cos((angle * Math.PI) / 180); // Coordenada X

@@ -9,6 +9,7 @@ import { RiCheckLine, RiMailSendLine } from "react-icons/ri";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 
 type FormData = {
@@ -23,10 +24,11 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false); // Estado para manejar el envío
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const { t } = useLanguage();
 
   const onSubmit = async (data: FormData) => {
     if (!recaptchaToken) {
-      alert("Por favor, completa el reCAPTCHA.");
+      alert(t('contact.form.recaptchaError'));
       return;
     }
     setIsSubmitting(true);
@@ -63,16 +65,17 @@ export default function ContactForm() {
         tabIndex={0}
         // className="max-w-full sm:max-w-md lg:max-w-lg mx-auto w-300 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl shadow-md "
        className="max-w-full sm:max-w-md lg:max-w-lg mx-auto w-300 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl shadow-md ">
-        <h2 className="text-2xl font-bold mb-4 dark:text-gray-100">Talk with me</h2>
+        <h2 className="text-2xl font-bold mb-4 dark:text-gray-100">{t('contact.form.title')}</h2>
         {submitted ? (
           <div className="flex flex-col items-center p-5 rounded-2xl bg-green-600/10">
             <RiCheckLine className="w-[50px] h-[50px] text-green-600 text-2xl m-2 bg-green-600/10 rounded-full p-2" />
-            <p className="text-green-600">Message sent successfully.</p>
+            <h3 className="text-green-600 font-semibold text-lg">{t('contact.form.successTitle')}</h3>
+            <p className="text-green-600">{t('contact.form.successMessage')}</p>
             <Link
               href="/"
               className="mt-4 px-4 py-2 bg-gray-500/20 text-gray-900 dark:text-white  rounded-lg hover:bg-gray-700/20 focus:outline-none focus:ring focus:ring-blue-300 dark:focus:ring-blue-500"
             >
-              Go to Home
+              {t('common.backHome')}
             </Link>
           </div>
         ) : (
@@ -85,33 +88,39 @@ export default function ContactForm() {
               />
             </div>
             <div>
-              <Label htmlFor="name" text="Name" />
+              <Label htmlFor="name" text={t('contact.form.name')} />
               <input
-                {...register("name", { required: "Name is required" })}
+                {...register("name", { required: t('contact.form.nameRequired') })}
                 className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300 dark:focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
-                placeholder="Your name"
+                placeholder={t('contact.form.name')}
               />
               {errors.name && <ErrorMessage message={errors.name.message || ""} />}
             </div>
 
             <div>
-              <Label htmlFor="email" text="Email" />
+              <Label htmlFor="email" text={t('contact.form.email')} />
               <input
                 type="email"
-                {...register("email", { required: "Email is required", pattern: { value: /^\S+@\S+$/, message: "Invalid email" } })}
+                {...register("email", { 
+                  required: t('contact.form.emailRequired'), 
+                  pattern: { 
+                    value: /^\S+@\S+$/, 
+                    message: t('contact.form.emailInvalid') 
+                  } 
+                })}
                 className="w-full p-2 border rounded-lg focus:ring focus:ring-red-300 dark:focus:ring-red-500/20 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
-                placeholder="your@email.com"
+                placeholder={t('contact.form.email')}
               />
               {errors.email && <ErrorMessage message={errors.email.message || ""} />}
             </div>
 
             <div>
-              <Label htmlFor="message" text="Message" />
+              <Label htmlFor="message" text={t('contact.form.message')} />
               <textarea
-                {...register("message", { required: "Message is required" })}
+                {...register("message", { required: t('contact.form.messageRequired') })}
                 className="w-full p-2 border rounded-lg focus:ring focus:ring-red-300 dark:focus:ring-red-500/20 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
                 rows={4}
-                placeholder="Your message"
+                placeholder={t('contact.form.message')}
               ></textarea>
               {errors.message && <ErrorMessage message={errors.message.message || ""} />}
             </div>
@@ -121,7 +130,12 @@ export default function ContactForm() {
                 onChange={(token: string | null) => setRecaptchaToken(token)}
               />
             </div>
-            <SubmitButton isSubmitting={isSubmitting} submittingText={"Sending..."} defaultText={"Send message"} Icon={RiMailSendLine} />
+            <SubmitButton 
+              isSubmitting={isSubmitting} 
+              submittingText={t('contact.form.sending')} 
+              defaultText={t('contact.form.send')} 
+              Icon={RiMailSendLine} 
+            />
           </form>
         )}
       </motion.div>

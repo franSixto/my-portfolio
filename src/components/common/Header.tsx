@@ -11,8 +11,11 @@ import { RiMenuLine } from "react-icons/ri";
 import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
 import FloatingColorSelector from "@/components/theme/FloatingColorSelector";
 import PartyModeButton from "@/components/common/PartyModeButton";
+import LanguageSelector from "@/components/common/LanguageSelector";
+import { useTranslation } from '@/contexts/LanguageContext';
 
 export default function Header() {
+    const { t } = useTranslation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
     const { mainColor } = useColorContext();
@@ -48,7 +51,7 @@ export default function Header() {
                                     className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/") ? "font-bold" : ""
                                         }`}
                                 >
-                                    Home
+                                    {t('navigation.home')}
                                 </Link>
                             </motion.div>
                         </li>
@@ -62,7 +65,7 @@ export default function Header() {
                                     className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/about") ? "font-bold" : ""
                                         }`}
                                 >
-                                    About
+                                    {t('navigation.about')}
                                 </Link>
                             </motion.div>
                         </li>
@@ -76,7 +79,7 @@ export default function Header() {
                                     className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/projects") ? "font-bold" : ""
                                         }`}
                                 >
-                                    Projects
+                                    {t('navigation.projects')}
                                 </Link>
                             </motion.div>
                         </li>
@@ -90,12 +93,13 @@ export default function Header() {
                                     className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/contact") ? "font-bold" : ""
                                         }`}
                                 >
-                                    Contact
+                                    {t('navigation.contact')}
                                 </Link>
                             </motion.div>
                         </li>
                     </ul>
                     <div className="flex items-center justify-end space-x-4 w-[180px]">
+                        <LanguageSelector />
                         <FloatingColorSelector />
                         {/* Party Mode Button extraído a componente */}
                         <PartyModeButton />

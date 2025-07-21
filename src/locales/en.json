@@ -1,0 +1,201 @@
+{
+  "home": {
+    "hero": {
+      "tagline": "Building Impactful Digital Experiences.",
+      "title": "UX/UI Lead & Frontend Developer",
+      "description": "I'm a UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.",
+      "myWork": "My Work",
+      "resume": "Resume",
+      "helloHuman": "Hello Human,",
+      "petDog": "Just pet the dog! ✨"
+    },
+    "aboutTeaser": {
+      "title": "A Bit About Me",
+      "description": "Here's a little insight into the person behind the pixels.",
+      "readMore": "Read more about me",
+      "altText": "This is me",
+      "birthPlace": "Born in a small town in southern Córdoba, Argentina",
+      "birthDescription": "I've always carried big dreams and a deep passion for great design and technology.",
+      "sportsText": "When I'm not creating digital experiences, you'll find me staying active with sports—or cheering for",
+      "riverPlate": "River Plate with heart and soul."
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "pages": {
+    "about": {
+      "title": "About Me",
+      "description": "I am a passionate UX/UI designer and frontend developer.",
+      "paragraph1": "I'm Francisco Sixto — a UX/UI designer with a solid technical background. I work at the intersection of design and front-end development, creating digital experiences that are clear, efficient, and user-focused. I believe in good systems, smart iteration, and practical tools that help ship quality without overcomplicating things.",
+      "paragraph2": "Over the years, I've led design and development teams, coordinated priorities, reviewed code and mockups, and built scalable solutions across websites, CRMs, and portals. I enjoy mentoring others, improving team workflows, and balancing creativity with clarity in every step of the process.",
+      "paragraph3": "What drives me is the pursuit of intuitive experiences — the kind where structure, interaction, and aesthetics align naturally. Whether I'm working in Figma, VS Code, or in a team call, I'm always thinking about how to make things work better, feel smoother, and serve users with purpose.",
+      "paragraph4": "Outside of work, I'm into sports, spending time with my family and friends, and enjoying simple moments offline. I find a lot of inspiration in everyday life — conversations, shared meals, or just being present with the people I care about.",
+      "niceToMeet": "Nice to meet you! 😎",
+      "thankYou": "Thank you for visiting my portfolio! I look forward to the opportunity to collaborate and create something amazing.",
+      "jobTitle": "UX/UI Designer & Frontend Developer",
+      "location": "Location: Córdoba, Argentina",
+      "myWork": "My Work",
+      "downloadResume": "Resume"
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Here you can find some of the projects I have worked on.",
+      "noImage": "No image",
+      "viewProject": "View Project",
+      "liveProject": "Live Project",
+      "technologies": "Technologies",
+      "role": "My Role",
+      "backToProjects": "← Back to Projects",
+      "relatedProjects": "Related Projects"
+    },
+    "contact": {
+      "title": "Let's Connect",
+      "description": "If you have any questions or just want to say hi, feel free to reach out!"
+    }
+  },
+  "projects": {
+    "officina-artis": {
+      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
+      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction."
+    },
+    "experience-at-startu": {
+      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
+      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion."
+    },
+    "experience-at-autocity": {
+      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
+      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences."
+    },
+    "experience-at-sixto-van-garret": {
+      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
+      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience."
+    },
+    "experience-at-deep-creek": {
+      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
+      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives."
+    },
+    "experience-at-red-sanitaria": {
+      "title": "Healthcare Innovation: Designing Accessible Digital Solutions for Medical Networks",
+      "description": "I developed user-centered digital platforms for healthcare providers, prioritizing accessibility, trust, and seamless patient-provider communication."
+    },
+    "experience-at-apex": {
+      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
+      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence."
+    }
+  },
+  "contact": {
+    "form": {
+      "title": "Talk with me",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for your message. I'll get back to you soon!",
+      "recaptchaError": "Please complete the reCAPTCHA.",
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "messageRequired": "Message is required"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "backHome": "Back to Home",
+    "readMore": "Read More",
+    "viewProject": "View Project",
+    "liveProject": "Live Project",
+    "funMode": {
+      "play": "Play Party Mode",
+      "stop": "Stop Party Mode",
+      "playButton": "Play fun mode",
+      "stopButton": "Stop this!",
+      "warning": {
+        "title": "Heads up!",
+        "message": "This mode has music, flashing colors and animations, but it's also a lot of fun. Give it a try if you're okay.",
+        "play": "Play",
+        "cancel": "Cancel"
+      }
+    }
+  },
+  "projectsData": [
+    {
+      "id": "officina-artis",
+      "slug": "officina-artis",
+      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
+      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction.",
+      "imageUrl": "/projects/officina-artis.webp",
+      "imageAlt": "3D view of the Officina Artis virtual gallery",
+      "logoUrl": "/projects/logo-officina-artis.webp",
+      "logoAlt": "Logo of Officina Artis",
+      "liveUrl": "https://galery-psi.vercel.app"
+    },
+    {
+      "id": "experience-at-startu",
+      "slug": "experience-at-startu", 
+      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
+      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion.",
+      "imageUrl": "/projects/websites-startu-small.webp",
+      "imageAlt": "Sites and Applications created at Start University",
+      "logoUrl": "/projects/logo-startu.png",
+      "logoAlt": "Start University Logo"
+    },
+    {
+      "id": "experience-at-autocity",
+      "slug": "experience-at-autocity",
+      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
+      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences.",
+      "imageUrl": "/projects/autocity-grupo-tagle.webp",
+      "imageAlt": "Autocity Grupo Tagle project view",
+      "logoUrl": "/projects/logo-autocity.svg",
+      "logoAlt": "Autocity Logo"
+    },
+    {
+      "id": "experience-at-sixto-van-garret",
+      "slug": "experience-at-sixto-van-garret",
+      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
+      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience.",
+      "imageUrl": "/projects/sixto-van-garret.webp",
+      "imageAlt": "Sixto Van Garret project showcase",
+      "logoUrl": "/projects/logo-sixto-van-garret.png",
+      "logoAlt": "Sixto Van Garret Logo"
+    },
+    {
+      "id": "experience-at-deep-creek",
+      "slug": "experience-at-deep-creek",
+      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
+      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives.",
+      "imageUrl": "/projects/deep-creek-solutions.webp",
+      "imageAlt": "Deep Creek Solutions project view",
+      "logoUrl": "/projects/logo-deep-creek.png",
+      "logoAlt": "Deep Creek Solutions Logo"
+    },
+    {
+      "id": "experience-at-red-sanitaria",
+      "slug": "experience-at-red-sanitaria",
+      "title": "Healthcare Innovation: Designing Accessible Digital Solutions for Medical Networks",
+      "description": "I developed user-centered digital platforms for healthcare providers, prioritizing accessibility, trust, and seamless patient-provider communication.",
+      "imageUrl": "/projects/apex-projects.webp",
+      "imageAlt": "Red Sanitaria project interface",
+      "logoUrl": "/projects/logo-red-sanitaria.png",
+      "logoAlt": "Red Sanitaria Logo"
+    },
+    {
+      "id": "experience-at-apex",
+      "slug": "experience-at-apex",
+      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
+      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence.",
+      "imageUrl": "/projects/apex-projects.webp",
+      "imageAlt": "Apex projects overview",
+      "logoUrl": "/projects/logo-apex.png",
+      "logoAlt": "Apex Logo"
+    }
+  ]
+}

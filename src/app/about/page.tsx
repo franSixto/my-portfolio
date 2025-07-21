@@ -6,8 +6,10 @@ import Image from 'next/image';
 import Button from "@/components/theme/Button";
 import { RiArrowRightLine, RiDownloadLine } from "react-icons/ri";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
+import { useTranslation } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useTranslation();
   const [ref, inView] = useInView({ threshold: 0.1 });
 
   return (
@@ -17,8 +19,8 @@ const About = () => {
       </div>
       <div className="container mx-auto px-6">
         <TitleH1
-          title="About Me"
-          description="I am a passionate UX/UI designer and frontend developer."
+          title={t('pages.about.title')}
+          description={t('pages.about.description')}
         />
         <motion.div
           ref={ref}
@@ -31,7 +33,7 @@ const About = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.8 }}
           >
-            I&apos;m Francisco Sixto — a UX/UI designer with a solid technical background. I work at the intersection of design and front-end development, creating digital experiences that are clear, efficient, and user-focused. I believe in good systems, smart iteration, and practical tools that help ship quality without overcomplicating things.
+            {t('pages.about.paragraph1')}
           </motion.p>
           <motion.p
             className="text-lg leading-relaxed"
@@ -40,7 +42,7 @@ const About = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.8 }}
           >
-            Over the years, I&apos;ve led design and development teams, coordinated priorities, reviewed code and mockups, and built scalable solutions across websites, CRMs, and portals. I enjoy mentoring others, improving team workflows, and balancing creativity with clarity in every step of the process.
+            {t('pages.about.paragraph2')}
           </motion.p>
           <motion.p
             className="text-lg leading-relaxed"
@@ -49,7 +51,7 @@ const About = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.8 }}
           >
-            What drives me is the pursuit of intuitive experiences — the kind where structure, interaction, and aesthetics align naturally. Whether I&apos;m working in Figma, VS Code, or in a team call, I&apos;m always thinking about how to make things work better, feel smoother, and serve users with purpose.
+            {t('pages.about.paragraph3')}
           </motion.p>
           <motion.p
             className="text-lg leading-relaxed"
@@ -58,7 +60,7 @@ const About = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.8 }}
           >
-            Outside of work, I&apos;m into sports, spending time with my family and friends, and enjoying simple moments offline. I find a lot of inspiration in everyday life — conversations, shared meals, or just being present with the people I care about.
+            {t('pages.about.paragraph4')}
           </motion.p>
 
 
@@ -149,21 +151,21 @@ const About = () => {
                 }}
                 initial={{ opacity: 0, y: 50 }}
               >
-                Nice to meet you! 😎
+                {t('pages.about.niceToMeet')}
               </motion.span>
             </div>
 
             <p className="text-lg leading-relaxed text-center italic">
-              Thank you for visiting my portfolio! I look forward to the opportunity to collaborate and create something amazing.
+              {t('pages.about.thankYou')}
             </p>
             <p className="font-bold text-2xl mb-5">Fran Sixto</p>
-            <p className="font-medium text-lg">UX/UI Designer & Frontend Developer</p>
-            <p className="font-medium text-lg border-b-2 border-gray-300 dark:border-gray-600 pb-5">Location: Córdoba, Argentina</p>
+            <p className="font-medium text-lg">{t('pages.about.jobTitle')}</p>
+            <p className="font-medium text-lg border-b-2 border-gray-300 dark:border-gray-600 pb-5">{t('pages.about.location')}</p>
             <div className='flex flex-row items-center justify-center gap-4 mt-5'>
               <Button
                 to="/projects"
               >
-                My Work
+                {t('pages.about.myWork')}
                 <span className="ml-3">
                   <RiArrowRightLine className="w-5 h-5" />
                 </span>
@@ -173,7 +175,7 @@ const About = () => {
                 variant="outlined"
                 target="_blank"
               >
-                Resume
+                {t('pages.about.downloadResume')}
                 <span className="ml-3">
                   <RiDownloadLine className="w-5 h-5" />
                 </span>

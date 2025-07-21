@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useColorContext, TAILWIND_COLORS } from '@/components/theme/ColorContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import confetti from "canvas-confetti";
 import { FaPlay, FaStop } from "react-icons/fa";
 import Dancer from "../three/Dancer";
@@ -17,6 +18,7 @@ export default function PartyModeButton() {
     const fireworksInterval = useRef<NodeJS.Timeout | null>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
     const { setMainColor } = useColorContext();
+    const { t } = useLanguage();
 
     useEffect(() => {
         // Copiar el valor de audioRef.current al inicio del efecto
@@ -152,7 +154,7 @@ export default function PartyModeButton() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 aria-pressed={partyMode}
-                title={partyMode ? 'Stop Party Mode' : 'Play Party Mode'}
+                title={partyMode ? t('common.funMode.stop') : t('common.funMode.play')}
                 className={`fixed bottom-5 right-5 z-40 p-2 h-[50px] flex justify-center items-center rounded-full border transition-colors duration-200 ${partyMode ? 'bg-yellow-200 text-gray-950 border-yellow-500 animate-pulse' : 'bg-white dark:bg-gray-900 border-neutral-300 dark:border-gray-700'}`}
                 onClick={() => {
                     if (!partyMode) {
@@ -167,12 +169,12 @@ export default function PartyModeButton() {
                 {partyMode ? (
                     <span className="flex flex-row justify-between items-center gap-3 text-md px-4">
                         <FaStop className="text-xl" />
-                        Stop this!
+                        {t('common.funMode.stopButton')}
                     </span>
                 ) : (
                     <span className="flex flex-row justify-between items-center gap-3 text-md px-4">
                         <FaPlay className="text-xl" />
-                        Play fun mode
+                        {t('common.funMode.playButton')}
                     </span>
                 )}
             </motion.button>
@@ -191,17 +193,17 @@ export default function PartyModeButton() {
             {showPartyWarning && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
                     <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-xl max-w-xs text-center">
-                        <h2 className="text-lg font-bold mb-2 text-red-600">Heads up!</h2>
-                        <p className="mb-4 text-sm">This mode has music, flashing colors and animations, but it&apos;s also a lot of fun. Give it a try if you&apos;re okay.</p>
+                        <h2 className="text-lg font-bold mb-2 text-red-600">{t('common.funMode.warning.title')}</h2>
+                        <p className="mb-4 text-sm">{t('common.funMode.warning.message')}</p>
                         <div className="flex gap-3 justify-center">
                             <button
                                 className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 cursor-pointer"
                                 onClick={() => { setShowPartyWarning(false); setPartyMode(true); }}
-                            >Play</button>
+                            >{t('common.funMode.warning.play')}</button>
                             <button
                                 className="px-4 py-2 rounded bg-gray-300 text-gray-800 hover:bg-gray-400 cursor-pointer"
                                 onClick={() => setShowPartyWarning(false)}
-                            >Cancel</button>
+                            >{t('common.funMode.warning.cancel')}</button>
                         </div>
                     </div>
                 </div>

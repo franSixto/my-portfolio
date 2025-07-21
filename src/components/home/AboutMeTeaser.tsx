@@ -6,16 +6,18 @@ import { motion } from "framer-motion";
 import Button from "@/components/theme/Button";
 import { RiVerifiedBadgeLine } from "react-icons/ri";
 import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AboutMeTeaser() {
   const { mainColor } = useColorContext();
+  const { t } = useLanguage();
 
   return (
     <section className="container mx-auto px-6 md:py-20 pt-15">
 
       <TitleH2
-        title="A Bit About Me"
-        description="Here’s a little insight into the person behind the pixels."
+        title={t('home.aboutTeaser.title')}
+        description={t('home.aboutTeaser.description')}
       />
       <motion.div
         initial={{ opacity: 0 }}
@@ -27,7 +29,7 @@ export default function AboutMeTeaser() {
             style={{ boxShadow: `0 4px 24px 0 var(--tw-shadow-color, ${COLOR_CLASS_MAP[mainColor].split(' ')[0].replace('bg-', '').replace('-100', '')})` }}>
             <Image
               src="/me.svg"
-              alt="This is me"
+              alt={t('home.aboutTeaser.altText')}
               width={100}
               height={211}
               className={`z-1 w-[100%] h-50 object-cover object-top rounded-xl shadow-2xl`}
@@ -36,22 +38,22 @@ export default function AboutMeTeaser() {
           </div>
           <div className="flex flex-col justify-center items-center">
             <p className="text-lg md:text-xl leading-relaxed mb-0 text-gray-600 dark:text-gray-400">
-              <strong>Born in a small town in southern Córdoba, Argentina</strong>, I’ve always carried big dreams and a deep passion for great design and technology.
+              <strong>{t('home.aboutTeaser.birthPlace')}</strong>, {t('home.aboutTeaser.birthDescription')}
             </p>
           </div>
         </div>
         <p className="text-lg md:text-xl leading-relaxed mb-5 text-gray-600 dark:text-gray-400">
-              When I’m not creating digital experiences, you’ll find me staying active with sports—or cheering for
-              <span className="inline-flex items-center mx-1">
-                <Image src="/riverplate.webp" alt="icono" width={16} height={16} className="mx-1" />
-              </span>
-              River Plate with heart and soul.
-            </p>
+          {t('home.aboutTeaser.sportsText')}
+          <span className="inline-flex items-center mx-1">
+            <Image src="/riverplate.webp" alt="icono" width={16} height={16} className="mx-1" />
+          </span>
+          {t('home.aboutTeaser.riverPlate')}
+        </p>
         <Button
           to="/about"
           variant="outlined"
           className="flex items-center gap-2"
-        >Read more about me
+        >{t('home.aboutTeaser.readMore')}
           <span className="ml-1">
             <RiVerifiedBadgeLine className="w-5 h-5" />
           </span>

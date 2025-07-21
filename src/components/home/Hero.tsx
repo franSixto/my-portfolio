@@ -6,8 +6,10 @@ import { motion } from "framer-motion";
 import Button from "@/components/theme/Button"; // Adjust the import path as necessary
 import { Suspense } from "react";
 import { useColorContext, COLOR_GRADIENT_MAP } from '@/components/theme/ColorContext';
+import { useTranslation } from '@/contexts/LanguageContext';
 
 const Hero: React.FC = () => {
+    const { t } = useTranslation();
     const { mainColor } = useColorContext();
     const gradient = COLOR_GRADIENT_MAP[mainColor] || COLOR_GRADIENT_MAP.red;
 
@@ -26,7 +28,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 1 }} // Use a custom cubic-bezier easing for smoother animation
             className="px-6 lg:px-0">
                 <p className="text-center lg:text-start text-sm md:text-base text-gray-500 dark:text-gray-400 mb-2 font-medium tracking-wide">
-                    Building Impactful Digital Experiences.
+                    {t('home.hero.tagline')}
                 </p>
                 <h1
                 className={`text-center lg:text-start text-4xl lg:text-6xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text leading-[1.1] lg:leading-[1.1] xl:leading-[1.1] transition-colors duration-300 anti-zapateo`}
@@ -37,13 +39,13 @@ const Hero: React.FC = () => {
                   willChange: 'opacity, transform',
                 }}
                 >
-                UX/UI Lead & Frontend Developer
+                {t('home.hero.title')}
                 </h1>
                 <p
                 className="text-center lg:text-start mt-4 text-lg ps-1 md:text-xl text-gray-600 dark:text-gray-400 green:text-green-400"
                 
                 >
-                I&apos;m a UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.
+                {t('home.hero.description')}
                 </p>
                 <div
                 className="mt-6"                
@@ -52,7 +54,7 @@ const Hero: React.FC = () => {
                     <Button
                     to="/projects"
                     >
-                    My Work
+                    {t('home.hero.myWork')}
                     <span className="ml-1">
                         <RiArrowRightLine className="w-5 h-5" />
                     </span>
@@ -62,7 +64,7 @@ const Hero: React.FC = () => {
                     variant="outlined"
                     target="_blank"
                     >
-                    Resume
+                    {t('home.hero.resume')}
                     <span className="ml-1">
                         <RiDownloadLine className="w-5 h-5" />
                     </span>
@@ -105,7 +107,7 @@ const Hero: React.FC = () => {
                     delay: 1, // Delay before animation starts
                     }}
                 >
-                    Hello Human,
+                    {t('home.hero.helloHuman')}
                 </motion.span>
 
                 <ThreeHero />
@@ -123,7 +125,7 @@ const Hero: React.FC = () => {
                     delay: 1, // Delay before animation starts
                     }}
                 >
-                    Just pet the dog! ✨
+                    {t('home.hero.petDog')}
                 </motion.span>
                 </motion.div>
             </div>

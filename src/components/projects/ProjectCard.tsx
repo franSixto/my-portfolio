@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useColorContext, COLOR_TEXT_CLASS_MAP } from '@/components/theme/ColorContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type ProjectCardProps = {
   title: string;
@@ -25,6 +26,7 @@ export default function ProjectCard({
   slug,
 }: ProjectCardProps) {
   const { mainColor } = useColorContext();
+  const { t } = useLanguage();
   const textColor = COLOR_TEXT_CLASS_MAP[mainColor] || 'text-red-500';
 
   return (
@@ -77,7 +79,7 @@ export default function ProjectCard({
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                    <span className="text-gray-400 dark:text-gray-500">Sin imagen</span>
+                    <span className="text-gray-400 dark:text-gray-500">{t('projects.noImage')}</span>
                   </div>
                 )}
               </div>

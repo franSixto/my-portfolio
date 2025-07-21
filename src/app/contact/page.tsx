@@ -1,9 +1,14 @@
+"use client";
+
 import ContactForm from "@/components/contact/ContactForm";
 import { TitleH1 } from "@/components/common/TitleH1";
 import LinkedinButton from "@/components/contact/LinkedinButton";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
+import { useTranslation } from '@/contexts/LanguageContext';
 
 const Contact = () => {
+  const { t } = useTranslation();
+  
   return (
     <div className="relative overflow-hidden flex flex-col items-center justify-center dark:bg-gray-950">
         
@@ -11,8 +16,8 @@ const Contact = () => {
       <Breadcrumbs />
       
         <TitleH1
-          title="Let's Connect"
-          description="If you have any questions or just want to say hi, feel free to reach out!"
+          title={t('pages.contact.title')}
+          description={t('pages.contact.description')}
         />
         <LinkedinButton />
         <ContactForm />

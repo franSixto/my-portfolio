@@ -1,11 +1,31 @@
 // app/projects/page.tsx
+"use client";
+
 import ProjectList from "@/components/projects/ProjectList";
 import { TitleH1 } from "@/components/common/TitleH1";
-import { fetchProjects } from "@/app/api/projects/projectsService";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
+import { useTranslation } from '@/contexts/LanguageContext';
+import { useProjects } from '@/hooks/useProjects';
 
-async function Projects() {
-  const { projects } = await fetchProjects();
+function Projects() {
+  const { t } = useTranslation();
+  const { projects, loading, error } = useProjects();
+
+  if (loading) {
+    return (
+      <div className="dark:bg-gray-950 pt-15 px-6 min-h-screen flex items-center justify-center">
+        <div className="text-xl">{t('common.loading')}</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="dark:bg-gray-950 pt-15 px-6 min-h-screen flex items-center justify-center">
+        <div className="text-xl text-red-500">{t('common.error')}: {error}</div>
+      </div>
+    );
+  }
   return (
     
     
@@ -24,8 +44,8 @@ async function Projects() {
           <Breadcrumbs />
         </div>
         <TitleH1
-          title="Projects"
-          description="Here you can find some of the projects I have worked on."
+          title={t('pages.projects.title')}
+          description={t('pages.projects.description')}
         />
         <ProjectList projects={projects} />
       </div>
