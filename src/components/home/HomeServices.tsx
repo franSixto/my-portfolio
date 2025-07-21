@@ -5,36 +5,34 @@ import ThreeSpaceship from "@/components/three/ThreeSpaceship";
 import { FiPenTool, FiCode, FiUsers, FiTrendingUp } from "react-icons/fi";
 import { TitleH2 } from "@/components/common/TitleH2";
 import { useColorContext } from '@/components/theme/ColorContext';
-
-const services = [
-    {
-        title: "UX/UI Design",
-        description:
-            "From early-stage wireframes to polished prototypes, I design user interfaces that are both intuitive and scalable. I combine design thinking with user research, accessibility standards, and usability testing to ensure every experience delivers real impact.",
-        icon: <FiPenTool />,
-    },
-    {
-        title: "Frontend Development",
-        description:
-            "I build high-performing, responsive, and accessible web apps using React, Next.js, Tailwind CSS, and TypeScript. My toolkit also includes WordPress, Bootstrap, and .NET Core for cases where flexibility or backend integration is key.",
-        icon: <FiCode />,
-    },
-    {
-        title: "Team Leadership",
-        description:
-            "I lead design and dev teams through planning, code reviews, mentoring, and task coordination. I bridge gaps between designers, developers, and stakeholders to align vision, timelines, and deliverables. Clear communication and a user-first mindset are always my priority.",
-        icon: <FiUsers />,
-    },
-    {
-        title: "Optimization & Deploy",
-        description:
-            "I handle SEO optimization, site performance enhancements, version control with Git, and streamlined CI/CD workflows. From semantic HTML to asset optimization and production deploys, I ensure that every project is fast, discoverable, and future-proof.",
-        icon: <FiTrendingUp />,
-    },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Services() {
     const { mainColor } = useColorContext();
+    const { t } = useLanguage();
+
+    const services = [
+        {
+            title: t('home.services.uxui.title'),
+            description: t('home.services.uxui.description'),
+            icon: <FiPenTool />,
+        },
+        {
+            title: t('home.services.frontend.title'),
+            description: t('home.services.frontend.description'),
+            icon: <FiCode />,
+        },
+        {
+            title: t('home.services.teamLeadership.title'),
+            description: t('home.services.teamLeadership.description'),
+            icon: <FiUsers />,
+        },
+        {
+            title: t('home.services.optimization.title'),
+            description: t('home.services.optimization.description'),
+            icon: <FiTrendingUp />,
+        },
+    ];
 
     return (
         <section id="services" className="container mx-auto px-6 grid items-center justify-center">
@@ -48,7 +46,7 @@ export default function Services() {
                     className="relative flex flex-col items-center justify-center mb-8"
                 >
                     <TitleH2
-                        title="What I Do"
+                        title={t('home.services.title')}
                         description="A combination of design thinking, solid development, and team experience."
                     />
                     <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8">

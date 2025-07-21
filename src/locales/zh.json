@@ -1,0 +1,223 @@
+{
+  "home": {
+    "hero": {
+      "tagline": "构建有影响力的数字体验。",
+      "title": "UX/UI主管和前端开发者",
+      "description": "我是一名专注于制作直观、易用且视觉引人入胜的数字产品的UX/UI专家和前端开发者。",
+      "myWork": "我的作品",
+      "resume": "简历",
+      "helloHuman": "你好，人类，",
+      "petDog": "快来撸狗狗吧！✨"
+    },
+    "aboutTeaser": {
+      "title": "关于我",
+      "description": "了解像素背后的人。",
+      "readMore": "了解更多",
+      "altText": "这是我",
+      "birthPlace": "出生在阿根廷科尔多瓦省南部的一个小镇",
+      "birthDescription": "我一直怀着远大的梦想和对优秀设计与技术的深深热爱。",
+      "sportsText": "当我不在创造数字体验时，你会发现我在运动中保持活跃——或者为",
+      "riverPlate": "河床队全心全意地加油。"
+    },
+    "highlights": {
+      "toolsAndTechnologies": "工具与技术"
+    },
+    "services": {
+      "title": "我的工作",
+      "uxui": {
+        "title": "UX/UI设计",
+        "description": "从早期线框图到精美原型，我设计既直观又可扩展的用户界面。我结合设计思维与用户研究、可访问性标准和可用性测试，确保每次体验都能产生真正的影响。"
+      },
+      "frontend": {
+        "title": "前端开发",
+        "description": "使用React、Next.js、Tailwind CSS和TypeScript构建高性能、响应式和可访问的Web应用。我的工具包还包括WordPress、Bootstrap和.NET Core，适用于需要灵活性或后端集成的情况。"
+      },
+      "teamLeadership": {
+        "title": "团队领导",
+        "description": "通过规划、代码审查、指导和任务协调来领导设计和开发团队。我在设计师、开发人员和利益相关者之间架起桥梁，以对齐愿景、时间表和交付成果。清晰的沟通和以用户为先的思维始终是我的优先考虑。"
+      },
+      "optimization": {
+        "title": "优化与部署",
+        "description": "我处理SEO优化、网站性能增强、Git版本控制和简化的CI/CD工作流程。从语义HTML到资源优化和生产部署，我确保每个项目都快速、可发现且面向未来。"
+      }
+    }
+  },
+  "navigation": {
+    "home": "首页",
+    "about": "关于",
+    "projects": "项目",
+    "blog": "博客",
+    "contact": "联系"
+  },
+  "pages": {
+    "about": {
+      "title": "关于我",
+      "description": "我是一名充满激情的UX/UI设计师和前端开发者。",
+      "paragraph1": "我是Francisco Sixto——一名具有扎实技术背景的UX/UI设计师。我在设计和前端开发的交汇点工作，创造清晰、高效、以用户为中心的数字体验。我相信良好的系统、智能的迭代和实用的工具，这些能帮助我们在不过度复杂化的情况下交付高质量的产品。",
+      "paragraph2": "多年来，我领导过设计和开发团队，协调优先级，审查代码和原型，并在网站、CRM和门户网站中构建可扩展的解决方案。我喜欢指导他人，改进团队工作流程，并在过程的每个步骤中平衡创造力和清晰度。",
+      "paragraph3": "驱动我的是对直观体验的追求——那种结构、交互和美学自然对齐的体验。无论我是在Figma、VS Code中工作，还是在团队通话中，我总是在思考如何让事情运行得更好、感觉更流畅，并有目的地为用户服务。",
+      "paragraph4": "工作之外，我喜欢运动，与家人和朋友共度时光，享受简单的离线时刻。我从日常生活中获得很多灵感——对话、共享的餐食，或者只是与我关心的人在一起。",
+      "niceToMeet": "很高兴见到你！😎",
+      "thankYou": "感谢您访问我的作品集！我期待有机会合作并创造出令人惊叹的作品。",
+      "jobTitle": "UX/UI设计师和前端开发者",
+      "location": "地点：阿根廷科尔多瓦",
+      "myWork": "我的作品",
+      "downloadResume": "简历"
+    },
+    "projects": {
+      "title": "项目",
+      "description": "这里您可以找到我参与过的一些项目。",
+      "noImage": "无图片",
+      "viewProject": "查看项目",
+      "liveProject": "在线项目",
+      "technologies": "技术栈",
+      "role": "我的角色",
+      "backToProjects": "← 返回项目",
+      "relatedProjects": "相关项目"
+    },
+    "contact": {
+      "title": "让我们联系",
+      "description": "如果您有任何问题或只是想打个招呼，请随时联系我！"
+    }
+  },
+  "projects": {
+    "officina-artis": {
+      "title": "Officina Artis：探索空间、互动和策展的虚拟3D艺术画廊",
+      "description": "我设计和开发了一个3D沉浸式体验，在虚拟画廊中探索艺术作品，结合了创意编程、空间叙事和艺术指导。"
+    },
+    "experience-at-startu": {
+      "title": "在线教育转型：20多个大学网站的UX策略和可扩展设计",
+      "description": "我领导了跨多个市场的数字体验设计和开发，结合策略、技术和团队合作，改造了20多个教育网站，提升了可用性和转化率。"
+    },
+    "experience-at-autocity": {
+      "title": "从引擎到优雅：汽车、酒店和生活方式品牌的数字生态系统",
+      "description": "我为多个行业设计和开发了沉浸式、高转化率的网站——从具有高级功能的汽车平台到高端酒店和高尔夫俱乐部的数字体验。"
+    },
+    "experience-at-sixto-van-garret": {
+      "title": "打造定制数字身份：独特品牌的定制网络解决方案",
+      "description": "我为独特品牌创造了量身定制的数字体验，从奢华服务到创新初创企业，专注于定制设计和战略用户体验。"
+    },
+    "experience-at-deep-creek": {
+      "title": "战略数字化转型：企业解决方案的全周期开发",
+      "description": "我领导了从构思到部署的综合数字项目，交付了专注于用户体验和业务目标的可扩展企业解决方案。"
+    },
+    "experience-at-red-sanitaria": {
+      "title": "医疗创新：为医疗网络设计无障碍数字解决方案",
+      "description": "我为医疗保健提供商开发了以用户为中心的数字平台，优先考虑无障碍性、信任和无缝的患者-提供商沟通。"
+    },
+    "experience-at-apex": {
+      "title": "性能驱动的数字解决方案：专注增长的公司的高影响项目",
+      "description": "我为转化和增长优化交付了前沿的数字体验，结合战略思维和技术卓越。"
+    }
+  },
+  "contact": {
+    "form": {
+      "title": "与我交谈",
+      "name": "姓名",
+      "email": "邮箱",
+      "message": "消息",
+      "send": "发送消息",
+      "sending": "发送中...",
+      "successTitle": "消息已发送！",
+      "successMessage": "感谢您的消息。我会尽快回复您！",
+      "recaptchaError": "请完成reCAPTCHA验证。",
+      "nameRequired": "姓名为必填项",
+      "emailRequired": "邮箱为必填项",
+      "emailInvalid": "请输入有效的邮箱地址",
+      "messageRequired": "消息为必填项"
+    }
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "错误",
+    "backHome": "返回首页",
+    "readMore": "阅读更多",
+    "viewProject": "查看项目",
+    "liveProject": "在线项目",
+    "funMode": {
+      "play": "播放派对模式",
+      "stop": "停止派对模式",
+      "playButton": "播放趣味模式",
+      "stopButton": "停止！",
+      "warning": {
+        "title": "注意！",
+        "message": "此模式包含音乐、闪烁颜色和动画，但也很有趣。如果您觉得没问题，请尝试一下。",
+        "play": "播放",
+        "cancel": "取消"
+      }
+    }
+  },
+  "projectsData": [
+    {
+      "id": "officina-artis",
+      "slug": "officina-artis",
+      "title": "Officina Artis：探索空间、互动和策展的虚拟3D艺术画廊",
+      "description": "我设计和开发了一个3D沉浸式体验，在虚拟画廊中探索艺术作品，结合了创意编程、空间叙事和艺术指导。",
+      "imageUrl": "/projects/officina-artis.webp",
+      "imageAlt": "Officina Artis虚拟画廊的3D视图",
+      "logoUrl": "/projects/logo-officina-artis.webp",
+      "logoAlt": "Officina Artis标志",
+      "liveUrl": "https://galery-psi.vercel.app"
+    },
+    {
+      "id": "experience-at-startu",
+      "slug": "experience-at-startu", 
+      "title": "在线教育转型：20多个大学网站的UX策略和可扩展设计",
+      "description": "我领导了跨多个市场的数字体验设计和开发，结合策略、技术和团队合作，改造了20多个教育网站，提升了可用性和转化率。",
+      "imageUrl": "/projects/websites-startu-small.webp",
+      "imageAlt": "在Start University创建的网站和应用程序",
+      "logoUrl": "/projects/logo-startu.png",
+      "logoAlt": "Start University标志"
+    },
+    {
+      "id": "experience-at-autocity",
+      "slug": "experience-at-autocity",
+      "title": "从引擎到优雅：汽车、酒店和生活方式品牌的数字生态系统",
+      "description": "我为多个行业设计和开发了沉浸式、高转化率的网站——从具有高级功能的汽车平台到高端酒店和高尔夫俱乐部的数字体验。",
+      "imageUrl": "/projects/autocity-grupo-tagle.webp",
+      "imageAlt": "Autocity Grupo Tagle项目视图",
+      "logoUrl": "/projects/logo-autocity.svg",
+      "logoAlt": "Autocity标志"
+    },
+    {
+      "id": "experience-at-sixto-van-garret",
+      "slug": "experience-at-sixto-van-garret",
+      "title": "打造定制数字身份：独特品牌的定制网络解决方案",
+      "description": "我为独特品牌创造了量身定制的数字体验，从奢华服务到创新初创企业，专注于定制设计和战略用户体验。",
+      "imageUrl": "/projects/sixto-van-garret.webp",
+      "imageAlt": "Sixto Van Garret项目展示",
+      "logoUrl": "/projects/logo-sixto-van-garret.png",
+      "logoAlt": "Sixto Van Garret标志"
+    },
+    {
+      "id": "experience-at-deep-creek",
+      "slug": "experience-at-deep-creek",
+      "title": "战略数字化转型：企业解决方案的全周期开发",
+      "description": "我领导了从构思到部署的综合数字项目，交付了专注于用户体验和业务目标的可扩展企业解决方案。",
+      "imageUrl": "/projects/deep-creek-solutions.webp",
+      "imageAlt": "Deep Creek Solutions项目视图",
+      "logoUrl": "/projects/logo-deep-creek.png",
+      "logoAlt": "Deep Creek Solutions标志"
+    },
+    {
+      "id": "experience-at-red-sanitaria",
+      "slug": "experience-at-red-sanitaria",
+      "title": "医疗创新：为医疗网络设计无障碍数字解决方案",
+      "description": "我为医疗保健提供商开发了以用户为中心的数字平台，优先考虑无障碍性、信任和无缝的患者-提供商沟通。",
+      "imageUrl": "/projects/apex-projects.webp",
+      "imageAlt": "Red Sanitaria项目界面",
+      "logoUrl": "/projects/logo-red-sanitaria.png",
+      "logoAlt": "Red Sanitaria标志"
+    },
+    {
+      "id": "experience-at-apex",
+      "slug": "experience-at-apex",
+      "title": "性能驱动的数字解决方案：专注增长的公司的高影响项目",
+      "description": "我为转化和增长优化交付了前沿的数字体验，结合战略思维和技术卓越。",
+      "imageUrl": "/projects/apex-projects.webp",
+      "imageAlt": "Apex项目概览",
+      "logoUrl": "/projects/logo-apex.png",
+      "logoAlt": "Apex标志"
+    }
+  ]
+}

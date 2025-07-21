@@ -6,18 +6,23 @@ import { useState } from 'react';
 import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
 
 export default function LanguageSelector() {
-  const { locale, setLocale } = useLanguage();
+  const { locale, setLocale, isRTL } = useLanguage();
   const { mainColor } = useColorContext();
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'es', name: 'Español', flag: '🇪🇸' },
+    { code: 'zh', name: '中文', flag: '🇨🇳' },
+    { code: 'ja', name: '日本語', flag: '🇯🇵' },
+    { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
+    { code: 'pt', name: 'Português', flag: '🇵🇹' },
+    { code: 'ar', name: 'العربية', flag: '🇸🇦' },
   ];
 
   const currentLanguage = languages.find(lang => lang.code === locale);
 
-  const toggleLanguage = (langCode: 'en' | 'es') => {
+  const toggleLanguage = (langCode: 'en' | 'es' | 'zh' | 'ja' | 'hi' | 'pt' | 'ar') => {
     setLocale(langCode);
     setIsOpen(false);
   };
@@ -41,14 +46,14 @@ export default function LanguageSelector() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.95 }}
           transition={{ duration: 0.2 }}
-          className="absolute top-full mt-2 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 min-w-[140px] z-50"
+          className={`absolute top-full mt-2 ${isRTL ? 'left-0' : 'right-0'} bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-2 min-w-[140px] z-50`}
         >
           {languages.map((language) => (
             <motion.button
               key={language.code}
               whileHover={{ backgroundColor: 'rgba(156, 163, 175, 0.1)' }}
-              onClick={() => toggleLanguage(language.code as 'en' | 'es')}
-              className={`w-full px-4 py-2 text-left flex items-center gap-3 transition-colors duration-200 ${
+              onClick={() => toggleLanguage(language.code as 'en' | 'es' | 'zh' | 'ja' | 'hi' | 'pt' | 'ar')}
+              className={`w-full px-4 py-2 ${isRTL ? 'text-right' : 'text-left'} flex items-center gap-3 transition-colors duration-200 ${
                 locale === language.code
                   ? `text-${mainColor}-500 font-medium`
                   : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'

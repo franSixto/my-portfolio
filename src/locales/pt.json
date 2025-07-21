@@ -1,0 +1,166 @@
+{
+  "home": {
+    "hero": {
+      "tagline": "Construindo Experiências Digitais Impactantes.",
+      "title": "Líder UX/UI e Desenvolvedor Frontend",
+      "description": "Sou especialista em UX/UI e desenvolvedor frontend criando produtos digitais intuitivos, acessíveis e visualmente envolventes.",
+      "myWork": "Meu Trabalho",
+      "resume": "Currículo",
+      "helloHuman": "Olá Humano,",
+      "petDog": "Apenas faça carinho no cachorro! ✨"
+    },
+    "aboutTeaser": {
+      "title": "Um Pouco Sobre Mim",
+      "description": "Aqui está uma pequena perspectiva sobre a pessoa por trás dos pixels.",
+      "readMore": "Leia mais sobre mim",
+      "altText": "Este sou eu",
+      "birthPlace": "Nascido em uma pequena cidade no sul de Córdoba, Argentina",
+      "birthDescription": "Sempre carreguei grandes sonhos e uma paixão profunda por ótimo design e tecnologia.",
+      "sportsText": "Quando não estou criando experiências digitais, você me encontrará me mantendo ativo com esportes—ou torcendo pelo",
+      "riverPlate": "River Plate de coração e alma."
+    },
+    "highlights": {
+      "toolsAndTechnologies": "Ferramentas e Tecnologias"
+    },
+    "services": {
+      "title": "O Que Eu Faço",
+      "frontend": {
+        "title": "Desenvolvimento Frontend",
+        "description": "Criando interfaces modernas e responsivas com React, Next.js e as mais recentes tecnologias web."
+      },
+      "uxui": {
+        "title": "Design UX/UI",
+        "description": "Projetando experiências de usuário intuitivas e interfaces visualmente atrativas que encantam os usuários."
+      },
+      "consulting": {
+        "title": "Consultoria Técnica",
+        "description": "Fornecendo orientação especializada sobre arquitetura, melhores práticas e otimização de performance."
+      }
+    }
+  },
+  "navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "blog": "Blog",
+    "contact": "Contato"
+  },
+  "pages": {
+    "about": {
+      "title": "Sobre Mim",
+      "description": "Sou um designer UX/UI apaixonado e desenvolvedor frontend.",
+      "paragraph1": "Sou Francisco Sixto — um designer UX/UI com uma sólida formação técnica. Trabalho na interseção do design e desenvolvimento frontend, criando experiências digitais que são claras, eficientes e focadas no usuário. Acredito em bons sistemas, iteração inteligente e ferramentas práticas que ajudam a entregar qualidade sem complicar demasiadamente as coisas.",
+      "paragraph2": "Ao longo dos anos, liderei equipes de design e desenvolvimento, coordenei prioridades, revisei código e mockups, e construí soluções escaláveis em sites, CRMs e portais. Gosto de mentorar outros, melhorar fluxos de trabalho da equipe e equilibrar criatividade com clareza em cada etapa do processo.",
+      "paragraph3": "O que me motiva é a busca por experiências intuitivas — do tipo onde estrutura, interação e estética se alinham naturalmente. Seja trabalhando no Figma, VS Code, ou em uma chamada de equipe, sempre estou pensando em como fazer as coisas funcionarem melhor, se sentirem mais suaves e servirem aos usuários com propósito.",
+      "paragraph4": "Fora do trabalho, gosto de esportes, passar tempo com minha família e amigos, e aproveitar momentos simples offline. Encontro muita inspiração na vida cotidiana — conversas, refeições compartilhadas, ou apenas estar presente com as pessoas de quem gosto.",
+      "niceToMeet": "Prazer em conhecê-lo! 😎",
+      "thankYou": "Obrigado por visitar meu portfólio! Espero ansiosamente pela oportunidade de colaborar e criar algo incrível.",
+      "jobTitle": "Designer UX/UI e Desenvolvedor Frontend",
+      "location": "Localização: Córdoba, Argentina",
+      "myWork": "Meu Trabalho",
+      "downloadResume": "Currículo"
+    },
+    "projects": {
+      "title": "Projetos",
+      "description": "Aqui você pode encontrar alguns dos projetos em que trabalhei.",
+      "noImage": "Sem imagem",
+      "viewProject": "Ver Projeto",
+      "liveProject": "Projeto Ativo",
+      "techStack": "Stack Tecnológico",
+      "category": "Categoria",
+      "projectDetails": "Detalhes do Projeto",
+      "challenge": "O Desafio",
+      "solution": "A Solução",
+      "results": "Resultados",
+      "projectsLoading": "Carregando projetos...",
+      "projectsError": "Erro ao carregar projetos",
+      "noProjects": "Nenhum projeto encontrado"
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Pensamentos, tutoriais e perspectivas sobre design e desenvolvimento.",
+      "comingSoon": "Em Breve!",
+      "comingSoonDescription": "Estou trabalhando em alguns artigos interessantes. Fique ligado!"
+    },
+    "contact": {
+      "title": "Entre em Contato",
+      "description": "Tem um projeto em mente? Vamos conversar!",
+      "letsConnect": "Vamos Nos Conectar",
+      "getInTouch": "Entre em Contato",
+      "getInTouchDescription": "Tem uma pergunta ou quer trabalhar juntos?",
+      "form": {
+        "name": "Nome",
+        "email": "Email",
+        "subject": "Assunto",
+        "message": "Mensagem",
+        "send": "Enviar Mensagem",
+        "sending": "Enviando...",
+        "success": "Mensagem enviada com sucesso!",
+        "error": "Erro ao enviar mensagem. Tente novamente.",
+        "required": "Este campo é obrigatório",
+        "invalidEmail": "Por favor, insira um email válido"
+      },
+      "directContact": {
+        "title": "Contato Direto",
+        "description": "Prefere contato direto? Você pode me encontrar aqui:",
+        "email": "Enviar Email",
+        "linkedin": "Conectar no LinkedIn",
+        "github": "Ver GitHub"
+      },
+      "cta": {
+        "title": "Pronto para Criar Algo Incrível?",
+        "description": "Vamos conversar sobre seu próximo projeto e como podemos torná-lo realidade juntos.",
+        "button": "Vamos Começar"
+      },
+      "subscribe": {
+        "title": "Mantenha-se Atualizado",
+        "description": "Inscreva-se na minha newsletter para receber as últimas atualizações sobre projetos e perspectivas da indústria.",
+        "placeholder": "Digite seu email",
+        "button": "Inscrever-se",
+        "success": "Inscrição realizada com sucesso!",
+        "error": "Erro na inscrição. Tente novamente."
+      }
+    }
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "tryAgain": "Tentar Novamente",
+    "backToHome": "Voltar ao Início",
+    "readMore": "Ler Mais",
+    "showLess": "Mostrar Menos",
+    "previous": "Anterior",
+    "next": "Próximo",
+    "close": "Fechar",
+    "open": "Abrir",
+    "menu": "Menu",
+    "skipToContent": "Pular para o conteúdo",
+    "footer": {
+      "copyright": "© 2024 Francisco Sixto. Todos os direitos reservados.",
+      "builtWith": "Construído com",
+      "madeWithLove": "Feito com ❤️ em Córdoba, Argentina"
+    }
+  },
+  "metadata": {
+    "home": {
+      "title": "Francisco Sixto - Designer UX/UI e Desenvolvedor Frontend",
+      "description": "Sou Francisco Sixto, especialista em UX/UI e desenvolvedor frontend criando experiências digitais impactantes. Explore meu portfólio e projetos."
+    },
+    "about": {
+      "title": "Sobre - Francisco Sixto",
+      "description": "Conheça mais sobre Francisco Sixto, designer UX/UI e desenvolvedor frontend com paixão por criar experiências digitais excepcionais."
+    },
+    "projects": {
+      "title": "Projetos - Francisco Sixto",
+      "description": "Explore os projetos de Francisco Sixto, showcasing design UX/UI e desenvolvimento frontend em diversas indústrias."
+    },
+    "blog": {
+      "title": "Blog - Francisco Sixto",
+      "description": "Leia perspectivas, tutoriais e pensamentos de Francisco Sixto sobre design UX/UI, desenvolvimento frontend e tendências da indústria."
+    },
+    "contact": {
+      "title": "Contato - Francisco Sixto",
+      "description": "Entre em contato com Francisco Sixto para projetos de design UX/UI e desenvolvimento frontend. Vamos conversar sobre seu próximo projeto!"
+    }
+  }
+}

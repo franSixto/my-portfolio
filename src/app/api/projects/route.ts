@@ -2,6 +2,11 @@
 import { NextResponse } from 'next/server';
 import enTranslations from '@/locales/en.json';
 import esTranslations from '@/locales/es.json';
+import zhTranslations from '@/locales/zh.json';
+import jaTranslations from '@/locales/ja.json';
+import hiTranslations from '@/locales/hi.json';
+import ptTranslations from '@/locales/pt.json';
+import arTranslations from '@/locales/ar.json';
 
 export interface Child {
   bold?: boolean;
@@ -34,9 +39,30 @@ export async function GET(request: Request) {
     const locale = searchParams.get('locale') || 'es';
     
     // Obtener proyectos desde los archivos de traducción principales
-    const projects: Project[] = locale === 'en' 
-      ? (enTranslations as { projectsData?: Project[] }).projectsData || []
-      : (esTranslations as { projectsData?: Project[] }).projectsData || [];
+    let projects: Project[] = [];
+    
+    switch (locale) {
+      case 'en':
+        projects = (enTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      case 'zh':
+        projects = (zhTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      case 'ja':
+        projects = (jaTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      case 'hi':
+        projects = (hiTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      case 'pt':
+        projects = (ptTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      case 'ar':
+        projects = (arTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      default:
+        projects = (esTranslations as { projectsData?: Project[] }).projectsData || [];
+    }
     
     return NextResponse.json({ projects });
   } catch (error) {

@@ -13,9 +13,11 @@ import FloatingColorSelector from "@/components/theme/FloatingColorSelector";
 import PartyModeButton from "@/components/common/PartyModeButton";
 import LanguageSelector from "@/components/common/LanguageSelector";
 import { useTranslation } from '@/contexts/LanguageContext';
+import { useRTL } from '@/hooks/useRTL';
 
 export default function Header() {
     const { t } = useTranslation();
+    const { rtlClass } = useRTL();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
     const { mainColor } = useColorContext();
@@ -40,7 +42,7 @@ export default function Header() {
                             priority
                         />
                     </Link>
-                    <ul className="hidden lg:flex space-x-6">
+                    <ul className={rtlClass("hidden lg:flex space-x-6")}>
                         <li className="menu-item">
                             <motion.div
                                 whileHover={{ scale: 1.1 }}
@@ -98,7 +100,7 @@ export default function Header() {
                             </motion.div>
                         </li>
                     </ul>
-                    <div className="flex items-center justify-end space-x-4 w-[180px]">
+                    <div className={rtlClass("flex items-center justify-end space-x-4 w-[180px]")}>
                         <LanguageSelector />
                         <FloatingColorSelector />
                         {/* Party Mode Button extraído a componente */}

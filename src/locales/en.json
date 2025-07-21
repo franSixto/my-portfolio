@@ -18,6 +18,28 @@
       "birthDescription": "I've always carried big dreams and a deep passion for great design and technology.",
       "sportsText": "When I'm not creating digital experiences, you'll find me staying active with sports—or cheering for",
       "riverPlate": "River Plate with heart and soul."
+    },
+    "highlights": {
+      "toolsAndTechnologies": "Tools & Technologies"
+    },
+    "services": {
+      "title": "What I Do",
+      "uxui": {
+        "title": "UX/UI Design",
+        "description": "From early-stage wireframes to polished prototypes, I design user interfaces that are both intuitive and scalable. I combine design thinking with user research, accessibility standards, and usability testing to ensure every experience delivers real impact."
+      },
+      "frontend": {
+        "title": "Frontend Development",
+        "description": "I build high-performing, responsive, and accessible web apps using React, Next.js, Tailwind CSS, and TypeScript. My toolkit also includes WordPress, Bootstrap, and .NET Core for cases where flexibility or backend integration is key."
+      },
+      "teamLeadership": {
+        "title": "Team Leadership",
+        "description": "I lead design and dev teams through planning, code reviews, mentoring, and task coordination. I bridge gaps between designers, developers, and stakeholders to align vision, timelines, and deliverables. Clear communication and a user-first mindset are always my priority."
+      },
+      "optimization": {
+        "title": "Optimization & Deploy",
+        "description": "I handle SEO optimization, site performance enhancements, version control with Git, and streamlined CI/CD workflows. From semantic HTML to asset optimization and production deploys, I ensure that every project is fast, discoverable, and future-proof."
+      }
     }
   },
   "navigation": {
@@ -112,6 +134,30 @@
     "readMore": "Read More",
     "viewProject": "View Project",
     "liveProject": "Live Project",
+    "toolsAndTechnologies": {
+      "title": "Tools & Technologies",
+      "description": "A curated collection of the tools I use to bring ideas to life."
+    },
+    "services": {
+      "title": "What I Do",
+      "description": "A combination of design thinking, solid development, and team experience.",
+      "uxUiDesign": {
+        "title": "UX/UI Design",
+        "description": "From early-stage wireframes to polished prototypes, I design user interfaces that are both intuitive and scalable. I combine design thinking with user research, accessibility standards, and usability testing to ensure every experience delivers real impact."
+      },
+      "frontendDevelopment": {
+        "title": "Frontend Development",
+        "description": "I build high-performing, responsive, and accessible web apps using React, Next.js, Tailwind CSS, and TypeScript. My toolkit also includes WordPress, Bootstrap, and .NET Core for cases where flexibility or backend integration is key."
+      },
+      "teamLeadership": {
+        "title": "Team Leadership",
+        "description": "I lead design and dev teams through planning, code reviews, mentoring, and task coordination. I bridge gaps between designers, developers, and stakeholders to align vision, timelines, and deliverables. Clear communication and a user-first mindset are always my priority."
+      },
+      "optimizationDeploy": {
+        "title": "Optimization & Deploy",
+        "description": "I handle SEO optimization, site performance enhancements, version control with Git, and streamlined CI/CD workflows. From semantic HTML to asset optimization and production deploys, I ensure that every project is fast, discoverable, and future-proof."
+      }
+    },
     "funMode": {
       "play": "Play Party Mode",
       "stop": "Stop Party Mode",

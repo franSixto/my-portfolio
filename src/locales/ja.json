@@ -1,0 +1,219 @@
+{
+  "home": {
+    "hero": {
+      "tagline": "インパクトのあるデジタル体験を構築しています。",
+      "title": "UX/UIリーダー & フロントエンド開発者",
+      "description": "私は直感的で、アクセシブルで、視覚的に魅力的なデジタル製品を作り上げるUX/UIスペシャリスト兼フロントエンド開発者です。",
+      "myWork": "私の作品",
+      "resume": "履歴書",
+      "helloHuman": "こんにちは、人間さん、",
+      "petDog": "犬を撫でてください！✨"
+    },
+    "aboutTeaser": {
+      "title": "私について",
+      "description": "ピクセルの背後にいる人を少し知ってください。",
+      "readMore": "もっと読む",
+      "altText": "これが私です",
+      "birthPlace": "アルゼンチン、コルドバ州南部の小さな町で生まれました",
+      "birthDescription": "私は常に大きな夢と優れたデザインと技術への深い情熱を持ち続けています。",
+      "sportsText": "デジタル体験を作成していないときは、スポーツでアクティブに過ごしているか、",
+      "riverPlate": "リバープレートを心と魂で応援しています。"
+    },
+    "highlights": {
+      "toolsAndTechnologies": "ツールと技術"
+    },
+    "services": {
+      "title": "私の仕事",
+      "frontend": {
+        "title": "フロントエンド開発",
+        "description": "React、Next.js、最新のWeb技術を使用してモダンでレスポンシブなインターフェースを作成。"
+      },
+      "uxui": {
+        "title": "UX/UIデザイン",
+        "description": "ユーザーを魅了する直感的なユーザーエクスペリエンスと視覚的に魅力的なインターフェースをデザイン。"
+      },
+      "consulting": {
+        "title": "技術コンサルティング",
+        "description": "アーキテクチャ、ベストプラクティス、パフォーマンス最適化に関する専門的なガイダンスを提供。"
+      }
+    }
+  },
+  "navigation": {
+    "home": "ホーム",
+    "about": "私について",
+    "projects": "プロジェクト",
+    "blog": "ブログ",
+    "contact": "コンタクト"
+  },
+  "pages": {
+    "about": {
+      "title": "私について",
+      "description": "私は情熱的なUX/UIデザイナー兼フロントエンド開発者です。",
+      "paragraph1": "私はFrancisco Sixto — 堅実な技術的背景を持つUX/UIデザイナーです。デザインとフロントエンド開発の交差点で働き、明確で効率的、そしてユーザー中心のデジタル体験を創造しています。良いシステム、スマートな反復、そして物事を複雑にすることなく品質を出荷するのに役立つ実用的なツールを信じています。",
+      "paragraph2": "長年にわたって、デザインと開発チームを率い、優先順位を調整し、コードとモックアップをレビューし、ウェブサイト、CRM、ポータル全体でスケーラブルなソリューションを構築してきました。他の人をメンタリングし、チームワークフローを改善し、プロセスのあらゆるステップで創造性と明確性のバランスを取ることを楽しんでいます。",
+      "paragraph3": "私を駆り立てるのは直感的な体験の追求です — 構造、インタラクション、美学が自然に調和する種類の体験です。Figma、VS Code、またはチームコールで作業しているかどうかに関わらず、物事をより良く機能させ、よりスムーズに感じ、目的を持ってユーザーにサービスを提供する方法について常に考えています。",
+      "paragraph4": "仕事以外では、スポーツ、家族や友人との時間を過ごすこと、そしてオフラインでのシンプルな瞬間を楽しむことに興味があります。日常生活から多くのインスピレーションを得ています — 会話、共有される食事、または私が大切に思う人々と一緒にいることです。",
+      "niceToMeet": "お会いできて嬉しいです！😎",
+      "thankYou": "私のポートフォリオをご覧いただき、ありがとうございます！協力して素晴らしいものを創造する機会を楽しみにしています。",
+      "jobTitle": "UX/UIデザイナー & フロントエンド開発者",
+      "location": "場所：アルゼンチン、コルドバ",
+      "myWork": "私の作品",
+      "downloadResume": "履歴書"
+    },
+    "projects": {
+      "title": "プロジェクト",
+      "description": "ここで私が取り組んだいくつかのプロジェクトを見つけることができます。",
+      "noImage": "画像なし",
+      "viewProject": "プロジェクトを見る",
+      "liveProject": "ライブプロジェクト",
+      "technologies": "技術",
+      "role": "私の役割",
+      "backToProjects": "← プロジェクトに戻る",
+      "relatedProjects": "関連プロジェクト"
+    },
+    "contact": {
+      "title": "つながりましょう",
+      "description": "ご質問がある場合や単に挨拶したい場合は、お気軽にご連絡ください！"
+    }
+  },
+  "projects": {
+    "officina-artis": {
+      "title": "Officina Artis：空間、インタラクション、キュレーションを探求するバーチャル3Dアートギャラリー",
+      "description": "バーチャルギャラリーでアートワークを探索する3D没入体験をデザイン・開発し、クリエイティブコーディング、空間ストーリーテリング、アート・ディレクションを組み合わせました。"
+    },
+    "experience-at-startu": {
+      "title": "オンライン教育の変革：20以上の大学サイトのためのUX戦略とスケーラブルデザイン",
+      "description": "複数の市場にわたってデジタル体験のデザインと開発をリードし、戦略、技術、チームワークを組み合わせて20以上の教育ウェブサイトを変革し、ユーザビリティとコンバージョンを向上させました。"
+    },
+    "experience-at-autocity": {
+      "title": "エンジンからエレガンスまで：自動車、ホスピタリティ、ライフスタイルブランドのデジタルエコシステム",
+      "description": "複数の業界で没入的で高コンバージョンのウェブサイトをデザイン・開発しました — 高度な機能を持つ自動車プラットフォームから高級ホテルやゴルフクラブのデジタル体験まで。"
+    },
+    "experience-at-sixto-van-garret": {
+      "title": "オーダーメイドのデジタルアイデンティティの作成：ユニークなブランドのためのカスタムウェブソリューション",
+      "description": "ラグジュアリーサービスから革新的なスタートアップまで、独特なブランドのためにテーラーメイドのデジタル体験を創造し、カスタムデザインと戦略的ユーザー体験に焦点を当てました。"
+    },
+    "experience-at-deep-creek": {
+      "title": "戦略的デジタル変革：エンタープライズソリューションのフルサイクル開発",
+      "description": "構想から展開まで包括的なデジタルプロジェクトをリードし、ユーザー体験とビジネス目標に焦点を当てたスケーラブルなエンタープライズソリューションを提供しました。"
+    },
+    "experience-at-red-sanitaria": {
+      "title": "ヘルスケアイノベーション：医療ネットワークのためのアクセシブルデジタルソリューションの設計",
+      "description": "ヘルスケアプロバイダーのためにユーザー中心のデジタルプラットフォームを開発し、アクセシビリティ、信頼、そしてシームレスな患者-プロバイダーコミュニケーションを優先しました。"
+    },
+    "experience-at-apex": {
+      "title": "パフォーマンス駆動のデジタルソリューション：成長志向企業のための高インパクトプロジェクト",
+      "description": "コンバージョンと成長のために最適化された最先端のデジタル体験を提供し、戦略的思考と技術的卓越性を組み合わせました。"
+    }
+  },
+  "contact": {
+    "form": {
+      "title": "お話ししましょう",
+      "name": "お名前",
+      "email": "メールアドレス",
+      "message": "メッセージ",
+      "send": "メッセージを送信",
+      "sending": "送信中...",
+      "successTitle": "メッセージが送信されました！",
+      "successMessage": "メッセージをありがとうございます。すぐにお返事いたします！",
+      "recaptchaError": "reCAPTCHAを完了してください。",
+      "nameRequired": "お名前は必須です",
+      "emailRequired": "メールアドレスは必須です",
+      "emailInvalid": "有効なメールアドレスを入力してください",
+      "messageRequired": "メッセージは必須です"
+    }
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "backHome": "ホームに戻る",
+    "readMore": "続きを読む",
+    "viewProject": "プロジェクトを見る",
+    "liveProject": "ライブプロジェクト",
+    "funMode": {
+      "play": "パーティーモードを再生",
+      "stop": "パーティーモードを停止",
+      "playButton": "ファンモードを再生",
+      "stopButton": "停止！",
+      "warning": {
+        "title": "注意！",
+        "message": "このモードには音楽、点滅する色、アニメーションが含まれていますが、とても楽しいです。大丈夫でしたら試してみてください。",
+        "play": "再生",
+        "cancel": "キャンセル"
+      }
+    }
+  },
+  "projectsData": [
+    {
+      "id": "officina-artis",
+      "slug": "officina-artis",
+      "title": "Officina Artis：空間、インタラクション、キュレーションを探求するバーチャル3Dアートギャラリー",
+      "description": "バーチャルギャラリーでアートワークを探索する3D没入体験をデザイン・開発し、クリエイティブコーディング、空間ストーリーテリング、アート・ディレクションを組み合わせました。",
+      "imageUrl": "/projects/officina-artis.webp",
+      "imageAlt": "Officina Artisバーチャルギャラリーの3Dビュー",
+      "logoUrl": "/projects/logo-officina-artis.webp",
+      "logoAlt": "Officina Artisのロゴ",
+      "liveUrl": "https://galery-psi.vercel.app"
+    },
+    {
+      "id": "experience-at-startu",
+      "slug": "experience-at-startu", 
+      "title": "オンライン教育の変革：20以上の大学サイトのためのUX戦略とスケーラブルデザイン",
+      "description": "複数の市場にわたってデジタル体験のデザインと開発をリードし、戦略、技術、チームワークを組み合わせて20以上の教育ウェブサイトを変革し、ユーザビリティとコンバージョンを向上させました。",
+      "imageUrl": "/projects/websites-startu-small.webp",
+      "imageAlt": "Start Universityで作成されたサイトとアプリケーション",
+      "logoUrl": "/projects/logo-startu.png",
+      "logoAlt": "Start Universityロゴ"
+    },
+    {
+      "id": "experience-at-autocity",
+      "slug": "experience-at-autocity",
+      "title": "エンジンからエレガンスまで：自動車、ホスピタリティ、ライフスタイルブランドのデジタルエコシステム",
+      "description": "複数の業界で没入的で高コンバージョンのウェブサイトをデザイン・開発しました — 高度な機能を持つ自動車プラットフォームから高級ホテルやゴルフクラブのデジタル体験まで。",
+      "imageUrl": "/projects/autocity-grupo-tagle.webp",
+      "imageAlt": "Autocity Grupo Tagleプロジェクトビュー",
+      "logoUrl": "/projects/logo-autocity.svg",
+      "logoAlt": "Autocityロゴ"
+    },
+    {
+      "id": "experience-at-sixto-van-garret",
+      "slug": "experience-at-sixto-van-garret",
+      "title": "オーダーメイドのデジタルアイデンティティの作成：ユニークなブランドのためのカスタムウェブソリューション",
+      "description": "ラグジュアリーサービスから革新的なスタートアップまで、独特なブランドのためにテーラーメイドのデジタル体験を創造し、カスタムデザインと戦略的ユーザー体験に焦点を当てました。",
+      "imageUrl": "/projects/sixto-van-garret.webp",
+      "imageAlt": "Sixto Van Garretプロジェクト紹介",
+      "logoUrl": "/projects/logo-sixto-van-garret.png",
+      "logoAlt": "Sixto Van Garretロゴ"
+    },
+    {
+      "id": "experience-at-deep-creek",
+      "slug": "experience-at-deep-creek",
+      "title": "戦略的デジタル変革：エンタープライズソリューションのフルサイクル開発",
+      "description": "構想から展開まで包括的なデジタルプロジェクトをリードし、ユーザー体験とビジネス目標に焦点を当てたスケーラブルなエンタープライズソリューションを提供しました。",
+      "imageUrl": "/projects/deep-creek-solutions.webp",
+      "imageAlt": "Deep Creek Solutionsプロジェクトビュー",
+      "logoUrl": "/projects/logo-deep-creek.png",
+      "logoAlt": "Deep Creek Solutionsロゴ"
+    },
+    {
+      "id": "experience-at-red-sanitaria",
+      "slug": "experience-at-red-sanitaria",
+      "title": "ヘルスケアイノベーション：医療ネットワークのためのアクセシブルデジタルソリューションの設計",
+      "description": "ヘルスケアプロバイダーのためにユーザー中心のデジタルプラットフォームを開発し、アクセシビリティ、信頼、そしてシームレスな患者-プロバイダーコミュニケーションを優先しました。",
+      "imageUrl": "/projects/apex-projects.webp",
+      "imageAlt": "Red Sanitariaプロジェクトインターフェース",
+      "logoUrl": "/projects/logo-red-sanitaria.png",
+      "logoAlt": "Red Sanitariaロゴ"
+    },
+    {
+      "id": "experience-at-apex",
+      "slug": "experience-at-apex",
+      "title": "パフォーマンス駆動のデジタルソリューション：成長志向企業のための高インパクトプロジェクト",
+      "description": "コンバージョンと成長のために最適化された最先端のデジタル体験を提供し、戦略的思考と技術的卓越性を組み合わせました。",
+      "imageUrl": "/projects/apex-projects.webp",
+      "imageAlt": "Apexプロジェクト概要",
+      "logoUrl": "/projects/logo-apex.png",
+      "logoAlt": "Apexロゴ"
+    }
+  ]
+}

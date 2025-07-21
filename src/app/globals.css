@@ -33,3 +33,299 @@ body {
   animation: scroll 40s linear infinite;
 }
 
+/* Estilos RTL (Right-to-Left) */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+/* Alineación de texto RTL */
+[dir="rtl"] .text-left {
+  text-align: right !important;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left !important;
+}
+
+[dir="rtl"] .text-start {
+  text-align: right !important;
+}
+
+[dir="rtl"] .text-end {
+  text-align: left !important;
+}
+
+/* text-center se mantiene centrado */
+[dir="rtl"] .text-center {
+  text-align: center !important;
+}
+
+/* Márgenes RTL */
+[dir="rtl"] .ml-1 { margin-left: 0; margin-right: 0.25rem; }
+[dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+[dir="rtl"] .ml-3 { margin-left: 0; margin-right: 0.75rem; }
+[dir="rtl"] .ml-4 { margin-left: 0; margin-right: 1rem; }
+[dir="rtl"] .ml-6 { margin-left: 0; margin-right: 1.5rem; }
+[dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
+
+[dir="rtl"] .mr-1 { margin-right: 0; margin-left: 0.25rem; }
+[dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+[dir="rtl"] .mr-3 { margin-right: 0; margin-left: 0.75rem; }
+[dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
+[dir="rtl"] .mr-6 { margin-right: 0; margin-left: 1.5rem; }
+[dir="rtl"] .mr-auto { margin-right: 0; margin-left: auto; }
+
+/* Padding RTL */
+[dir="rtl"] .pl-1 { padding-left: 0; padding-right: 0.25rem; }
+[dir="rtl"] .pl-2 { padding-left: 0; padding-right: 0.5rem; }
+[dir="rtl"] .pl-3 { padding-left: 0; padding-right: 0.75rem; }
+[dir="rtl"] .pl-4 { padding-left: 0; padding-right: 1rem; }
+[dir="rtl"] .pl-6 { padding-left: 0; padding-right: 1.5rem; }
+
+[dir="rtl"] .pr-1 { padding-right: 0; padding-left: 0.25rem; }
+[dir="rtl"] .pr-2 { padding-right: 0; padding-left: 0.5rem; }
+[dir="rtl"] .pr-3 { padding-right: 0; padding-left: 0.75rem; }
+[dir="rtl"] .pr-4 { padding-right: 0; padding-left: 1rem; }
+[dir="rtl"] .pr-6 { padding-right: 0; padding-left: 1.5rem; }
+
+/* Flexbox RTL */
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] .space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+  margin-right: 0.25rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+  margin-right: 0.75rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+  margin-right: 1rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+  margin-right: 1.5rem;
+  margin-left: 0;
+}
+
+/* Posicionamiento RTL */
+[dir="rtl"] .right-0 {
+  right: auto !important;
+  left: 0 !important;
+}
+
+[dir="rtl"] .left-0 {
+  left: auto !important;
+  right: 0 !important;
+}
+
+[dir="rtl"] .right-4 {
+  right: auto !important;
+  left: 1rem !important;
+}
+
+[dir="rtl"] .left-4 {
+  left: auto !important;
+  right: 1rem !important;
+}
+
+/* Justify content RTL */
+[dir="rtl"] .justify-start {
+  justify-content: flex-end !important;
+}
+
+[dir="rtl"] .justify-end {
+  justify-content: flex-start !important;
+}
+
+/* justify-center se mantiene centrado */
+[dir="rtl"] .justify-center {
+  justify-content: center !important;
+}
+
+/* Items alignment RTL */
+[dir="rtl"] .items-start {
+  align-items: flex-end !important;
+}
+
+[dir="rtl"] .items-end {
+  align-items: flex-start !important;
+}
+
+/* items-center se mantiene centrado */
+[dir="rtl"] .items-center {
+  align-items: center !important;
+}
+
+/* Bordes RTL */
+[dir="rtl"] .border-l {
+  border-left: none !important;
+  border-right: 1px solid !important;
+}
+
+[dir="rtl"] .border-r {
+  border-right: none !important;
+  border-left: 1px solid !important;
+}
+
+[dir="rtl"] .border-l-2 {
+  border-left: none !important;
+  border-right: 2px solid !important;
+}
+
+[dir="rtl"] .border-r-2 {
+  border-right: none !important;
+  border-left: 2px solid !important;
+}
+
+/* Rounded corners RTL */
+[dir="rtl"] .rounded-l {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 0.25rem !important;
+  border-bottom-right-radius: 0.25rem !important;
+}
+
+[dir="rtl"] .rounded-r {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
+}
+
+/* Transforms RTL */
+[dir="rtl"] .rotate-0 {
+  transform: scaleX(-1) !important;
+}
+
+/* Tipografía árabe mejorada */
+[dir="rtl"] {
+  font-family: 'Segoe UI', 'Amiri', 'Noto Sans Arabic', 'Arial Unicode MS', Arial, Helvetica, sans-serif !important;
+  line-height: 1.7 !important;
+}
+
+/* Espaciado mejorado para texto árabe */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+  letter-spacing: 0.02em !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] p {
+  text-align: right !important;
+  line-height: 1.8 !important;
+}
+
+/* Mejorar la navegación RTL */
+[dir="rtl"] nav ul {
+  flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] nav li {
+  text-align: right !important;
+}
+
+/* Grid RTL */
+[dir="rtl"] .grid {
+  direction: rtl;
+}
+
+/* Iconos RTL - invertir iconos direccionales */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Animaciones RTL */
+[dir="rtl"] .animate-scroll {
+  animation: scroll-rtl 40s linear infinite;
+}
+
+@keyframes scroll-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+/* Botones RTL */
+[dir="rtl"] .btn-group .btn:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+[dir="rtl"] .btn-group .btn:last-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
+/* Formularios RTL */
+[dir="rtl"] input, [dir="rtl"] textarea, [dir="rtl"] select {
+  text-align: right !important;
+}
+
+[dir="rtl"] input::placeholder, [dir="rtl"] textarea::placeholder {
+  text-align: right !important;
+}
+
+/* Dropdown menus RTL */
+[dir="rtl"] .dropdown-menu {
+  left: auto !important;
+  right: 0 !important;
+  text-align: right !important;
+}
+
+/* Cards RTL */
+[dir="rtl"] .card {
+  text-align: right !important;
+}
+
+[dir="rtl"] .card-header {
+  text-align: right !important;
+}
+
+[dir="rtl"] .card-body {
+  text-align: right !important;
+}
+
+/* Breadcrumbs RTL */
+[dir="rtl"] .breadcrumb {
+  flex-direction: row-reverse !important;
+}
+
+/* Shadows direction */
+[dir="rtl"] .shadow-sm {
+  box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, 0.1), -1px 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+[dir="rtl"] .shadow {
+  box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, 0.1), -1px 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+[dir="rtl"] .shadow-md {
+  box-shadow: -4px 6px 8px -1px rgba(0, 0, 0, 0.1), -2px 4px 6px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+[dir="rtl"] .shadow-lg {
+  box-shadow: -10px 15px 25px -3px rgba(0, 0, 0, 0.1), -4px 6px 10px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
