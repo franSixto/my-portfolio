@@ -25,7 +25,7 @@ export const TitleH1: React.FC<TitleH1PagesProps> = ({ title, description }) => 
       ref={ref}
     >
       <motion.h1
-        className={`text-6xl font-extrabold bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text uppercase mb-2 leading-8 lg:leading-11 xl:leading-20 transition-colors duration-300`}
+        className={`text-4xl lg:text-6xl font-extrabold bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text uppercase mb-2 leading-8 lg:leading-11 xl:leading-20 transition-colors duration-300`}
         initial={{ scale: 0.8 }}
         whileInView={inView ? { scale: 1 } : {}}
         transition={{ duration: 0.5 }}

@@ -29,11 +29,11 @@ export default function Header() {
                 <nav className="container mx-auto flex justify-between items-center px-6 z-50">
                     <Link href="/">
                         <Image
-                            className="dark:invert rotate-350"
-                            src="/logo.svg"
+                            className="dark:invert"
+                            src="/logo2.svg"
                             alt="Fran Sixto"
-                            width={170}
-                            height={89}
+                            width={60}
+                            height={60}
                             priority
                         />
                     </Link>

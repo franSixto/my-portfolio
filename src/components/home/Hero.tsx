@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
                     Building Impactful Digital Experiences.
                 </p>
                 <h1
-                className={`text-center lg:text-start text-6xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text leading-[1.1] lg:leading-[1.1] xl:leading-[1.1] transition-colors duration-300 anti-zapateo`}
+                className={`text-center lg:text-start text-4xl lg:text-6xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text leading-[1.1] lg:leading-[1.1] xl:leading-[1.1] transition-colors duration-300 anti-zapateo`}
                 style={{
                   WebkitFontSmoothing: 'antialiased',
                   WebkitBackfaceVisibility: 'hidden',
