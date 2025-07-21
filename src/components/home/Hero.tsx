@@ -25,8 +25,11 @@ const Hero: React.FC = () => {
             whileInView={ { scale: 1, y: 0, opacity:1 } }
             transition={{ duration: 1 }} // Use a custom cubic-bezier easing for smoother animation
             className="px-6 lg:px-0">
+                <p className="text-center lg:text-start text-sm md:text-base text-gray-500 dark:text-gray-400 mb-2 font-medium tracking-wide">
+                    Building Impactful Digital Experiences.
+                </p>
                 <h1
-                className={`text-center lg:text-start text-4xl lg:text-6xl xl:text-8xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text leading-[1.1] lg:leading-[1.1] xl:leading-[1.1] transition-colors duration-300 anti-zapateo`}
+                className={`text-center lg:text-start text-6xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text leading-[1.1] lg:leading-[1.1] xl:leading-[1.1] transition-colors duration-300 anti-zapateo`}
                 style={{
                   WebkitFontSmoothing: 'antialiased',
                   WebkitBackfaceVisibility: 'hidden',
@@ -34,7 +37,7 @@ const Hero: React.FC = () => {
                   willChange: 'opacity, transform',
                 }}
                 >
-                Building Impactful Digital Experiences
+                UX/UI Lead & Frontend Developer
                 </h1>
                 <p
                 className="text-center lg:text-start mt-4 text-lg ps-1 md:text-xl text-gray-600 dark:text-gray-400 green:text-green-400"

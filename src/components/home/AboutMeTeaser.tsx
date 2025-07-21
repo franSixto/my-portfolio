@@ -39,17 +39,6 @@ export default function AboutMeTeaser() {
               <strong>Born in a small town in southern Córdoba, Argentina</strong>, I’ve always carried big dreams and a deep passion for great design and technology.
             </p>
           </div>
-          <div className={`relative flex justify-center items-center h-full w-full bg-${mainColor}-500 rounded-xl overflow-hidden`}
-            style={{ boxShadow: `0 4px 24px 0 var(--tw-shadow-color, ${COLOR_CLASS_MAP[mainColor].split(' ')[0].replace('bg-', '').replace('-100', '')})` }}>
-            <Image
-              src="/me.svg"
-              alt="This is also me"
-              width={100}
-              height={211}
-              className={`hidden lg:flex z-1 w-[200%] lg:w-[100%] h-50 object-cover object-bottom rounded-xl shadow-2xl`}
-            />
-            <b className="absolute text-[6rem] lg:text-[14rem] left-1/2 -translate-x-1/2 text-white opacity-30 top-50% lg:-top-18">SIXTO</b>
-          </div>
         </div>
         <p className="text-lg md:text-xl leading-relaxed mb-5 text-gray-600 dark:text-gray-400">
               When I’m not creating digital experiences, you’ll find me staying active with sports—or cheering for
