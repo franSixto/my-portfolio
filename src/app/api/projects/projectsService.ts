@@ -1,7 +1,12 @@
 // src/app/api/projects/projectsService.ts
-// Ahora lee los proyectos desde un archivo local JSON en vez de Strapi
-import fs from 'fs/promises';
-import path from 'path';
+// Ahora lee los proyectos desde los archivos de localización
+import enTranslations from '@/locales/en.json';
+import esTranslations from '@/locales/es.json';
+import zhTranslations from '@/locales/zh.json';
+import jaTranslations from '@/locales/ja.json';
+import hiTranslations from '@/locales/hi.json';
+import ptTranslations from '@/locales/pt.json';
+import arTranslations from '@/locales/ar.json';
 
 export interface Child {
   bold?: boolean;
@@ -28,19 +33,42 @@ export type Project = {
   longDescription?: Array<{ type: string; children: Child[]; level?: number; format?: string }> | string;
 };
 
-// Lee el archivo local de proyectos
-const getProjectsData = async (): Promise<Project[]> => {
-  const filePath = path.join(process.cwd(), 'public', 'data', 'projects.json');
-  const file = await fs.readFile(filePath, 'utf-8');
-  return JSON.parse(file);
+// Lee los proyectos desde los archivos de localización
+const getProjectsData = async (locale: string = 'es'): Promise<Project[]> => {
+  let projects: Project[] = [];
+  
+  switch (locale) {
+    case 'en':
+      projects = (enTranslations as { projectsData?: Project[] }).projectsData || [];
+      break;
+    case 'zh':
+      projects = (zhTranslations as { projectsData?: Project[] }).projectsData || [];
+      break;
+    case 'ja':
+      projects = (jaTranslations as { projectsData?: Project[] }).projectsData || [];
+      break;
+    case 'hi':
+      projects = (hiTranslations as { projectsData?: Project[] }).projectsData || [];
+      break;
+    case 'pt':
+      projects = (ptTranslations as { projectsData?: Project[] }).projectsData || [];
+      break;
+    case 'ar':
+      projects = (arTranslations as { projectsData?: Project[] }).projectsData || [];
+      break;
+    default:
+      projects = (esTranslations as { projectsData?: Project[] }).projectsData || [];
+  }
+  
+  return projects;
 };
 
-export const fetchProjects = async (): Promise<{ projects: Project[] }> => {
-  const projects = await getProjectsData();
+export const fetchProjects = async (locale: string = 'es'): Promise<{ projects: Project[] }> => {
+  const projects = await getProjectsData(locale);
   return { projects };
 };
 
-export const fetchProjectBySlug = async (slug: string): Promise<Project | null> => {
-  const projects = await getProjectsData();
+export const fetchProjectBySlug = async (slug: string, locale: string = 'es'): Promise<Project | null> => {
+  const projects = await getProjectsData(locale);
   return projects.find((p) => p.slug === slug || p.id === slug) || null;
 };

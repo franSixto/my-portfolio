@@ -213,73 +213,69 @@
     {
       "id": "officina-artis",
       "slug": "officina-artis",
-      "title": "Officina Artis：探索空间、交互与策展的虚拟 3D 艺术画廊",
-      "description": "我设计并开发了一个 3D 沉浸式体验，在虚拟画廊中探索艺术作品，结合创意编程、空间叙事和艺术指导。",
+      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
+      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction.",
       "imageUrl": "/projects/officina-artis.webp",
-      "imageAlt": "Officina Artis 虚拟画廊的 3D 视图",
+      "imageAlt": "3D view of the Officina Artis virtual gallery",
       "logoUrl": "/projects/logo-officina-artis.webp",
-      "logoAlt": "Officina Artis 标志",
-      "liveUrl": "https://galery-psi.vercel.app"
+      "logoAlt": "Logo of Officina Artis",
+      "liveUrl": "https://galery-psi.vercel.app",
+      "longDescription": "👉 **Role**: Creative Director & 3D Developer\n📍 **Format**: Self-initiated project\n\n---\n\n🎨 **What I did**\n\n- Designed the concept and structure of a virtual art gallery where users explore curated exhibitions in a 3D space\n- Developed interactive navigation with smooth camera transitions, lighting systems, and environmental audio\n- Created a modular architecture to host rotating exhibits, integrating both personal and invited works\n\n💡 **Creative goals**\n\n- Simulate the contemplative experience of physical art galleries using real-time 3D\n- Explore curation as a spatial narrative: how position, lighting, and transitions affect perception\n- Combine minimal UI with spatial UX to let the environment communicate meaning\n\n🛠️ **Tools & tech**\n\nThree.js, WebGL, Blender, GLSL, HTML, CSS, JavaScript\n→ Fully web-based experience, optimized for desktop browsers\n\n🧠 **Design philosophy**\n\nOfficina Artis is both an artwork and a space for art. It challenges the idea of a gallery as static architecture, instead treating it as a living interface between creator and audience. Each exhibition is a narrative told through layout, rhythm, and silence.\n\n---\n\nI created Officina Artis as a way to merge my passions for visual design, code, and contemporary art. It’s a self-directed experiment that pushes the boundaries of interaction and curatorial storytelling in virtual environments.\n\nAs Creative Director and Developer, I handled every aspect—from the spatial design and lighting to the code that powers movement and ambiance. The result is an elegant, contemplative digital space that reimagines how we engage with artworks online.\n\nOfficina Artis represents my personal design philosophy: minimal, poetic, experimental, and deeply human-centered. It’s not just a tech demo—it’s a statement about how form, space, and code can evoke emotion and presence in the digital age."
     },
     {
       "id": "experience-at-startu",
       "slug": "experience-at-startu", 
-      "title": "在线教育转型：20+ 大学网站的 UX 策略和可扩展设计",
-      "description": "我领导了跨多个市场的数字体验设计和开发，结合策略、技术和团队合作，改造了20多个教育网站，提升可用性和转化率。",
+      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
+      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion.",
       "imageUrl": "/projects/websites-startu-small.webp",
-      "imageAlt": "在 Start University 创建的网站和应用程序",
+      "imageAlt": "Sites and Applications created at Start University",
       "logoUrl": "/projects/logo-startu.png",
-      "logoAlt": "Start University 标志"
+      "logoAlt": "Start University Logo",
+      "longDescription": "👉 **Role**: UX/UI and Frontend Development Lead\n📍 **Markets**: Latam and India\n\n---\n\n🔧 **What I did**\n\n- Designed and developed digital experiences for 20+ websites (universities, aggregators, blogs)\n- Led a team of designers and frontend developers\n- Delivered visual design, HTML/CSS builds, code reviews, and fast marketing solutions\n\n📈 **Key results**\n\n- Migrated and redesigned 5 legacy websites to .NET Core\n- Built 7 new sites from a shared base system\n- Increased conversions through optimized landings, forms, and campaigns\n\n💡 **Major innovations**\n\n- Standardized the **Student Portal**: unified UX/UI across all institutions with minimal CSS overrides\n- Redesigned aggregators: consistent UI across different databases, adapted per region with localized assets\n\n🛠️ **Tools & tech**\n\nFigma, Bootstrap, HTML, CSS, JavaScript, .NET Core, Jira, SourceTree\n→ Accessibility and SEO best practices included in every delivery\n\n🤝 **Soft skills**\n\nLeadership, decision-making, collaboration with content, marketing, and sales teams\n\n---\n\nAt Start University, I held the role of UX/UI and Frontend Development Lead, driving the creation of high-impact digital experiences across key markets like Latin America and India. My work combined strategy, design, and technology to build websites that connected users with educational opportunities.\n\nI led the visual and frontend development of over 20 active websites, including university sites, content aggregators, and blogs. Together with my team—designers and HTML/CSS developers—we handled everything from wireframes and visual design to frontend implementation and code reviews. We also supported the marketing team with quick-turnaround solutions like landing pages, campaign assets, and form optimizations that improved conversion rates.\n\nA significant part of my work involved migrating and redesigning outdated websites to .NET Core. This process included aligning the brand identity of each educational institution and enhancing user experience across platforms. We successfully migrated five client university websites and established a reusable base system that allowed us to launch seven new sites for incoming partners faster and more efficiently.\n\nOne of my biggest achievements was the standardization of the student portal. Previously, each site had its own version, requiring individual updates. I designed a modular, unified portal interface that adapted to different institutions with minimal CSS changes. This greatly streamlined development, reduced maintenance time, and delivered a consistent experience to all users.\n\nI also led the redesign of content aggregators to ensure visual consistency across platforms, even though they pulled data from different sources. We achieved a cohesive look and feel using dynamic visual adjustments like color schemes, imagery, and localized branding.\n\nThroughout this role, I used tools such as Figma, Bootstrap, HTML, CSS, JavaScript, .NET Core, Jira, and SourceTree. Accessibility and SEO were integrated into every deliverable by default.\n\nBeyond the technical skills, this experience sharpened my leadership, decision-making, and communication with cross-functional teams like content, marketing, and sales. Start University wasn’t just a job—it was a professional platform where I **founded and led the UX/UI design area**, drove transformation, built scalable solutions, and helped bridge people to education through thoughtful digital design."
     },
     {
       "id": "experience-at-autocity",
       "slug": "experience-at-autocity",
-      "title": "从引擎到优雅：汽车、酒店和生活方式品牌的数字生态系统",
-      "description": "我设计并开发了跨多个行业的沉浸式、高转化率网站——从具有高级功能的汽车平台到高端酒店和高尔夫俱乐部的数字体验。",
+      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
+      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences.",
       "imageUrl": "/projects/autocity-grupo-tagle.webp",
-      "imageAlt": "Autocity Grupo Tagle 项目视图",
+      "imageAlt": "Autocity Grupo Tagle project view",
       "logoUrl": "/projects/logo-autocity.svg",
-      "logoAlt": "Autocity 标志"
+      "logoAlt": "Autocity Logo",
+      "longDescription": "👉 **Role**: UX/UI Designer & Frontend Developer\n📅 **Dates**: Feb 2019 – Aug 2020\n📍 **Location**: Córdoba, Argentina\n\n---\n\n🔧 **What I did**\n\n- Led the redesign of Autocity’s automotive catalog with new interactive features: vehicle comparison, pricing estimator, and dynamic filtering\n- Created new websites for premium lifestyle and hospitality brands under Grupo Tagle:\n  - **Scratch House** (luxury hotel)\n  - **El Terrón Golf Club** (exclusive golf resort)\n  - **Grupo Tagle corporate website**\n  - **Motoplex Córdoba** and **Royal Enfield Córdoba** (motorcycle brands)\n\n📈 **Key results**\n\n- Enhanced user experience across all digital platforms with responsive design and improved navigation\n- Delivered on-brand interfaces for each business vertical, adapting tone and visual identity accordingly\n- Increased lead generation with improved UX in quotation and inquiry flows\n\n💡 **Major innovations**\n\n- Developed a vehicle comparison tool that simplified decision-making for users\n- Streamlined internal CMS workflows for updating catalogs and brand content\n- Applied tailored design systems to balance premium aesthetics and usability\n\n🛠️ **Tools & tech**\n\nAdobe XD, Illustrator, Photoshop, HTML, CSS, JavaScript, Bootstrap\n→ Focus on responsive design, performance optimization, and brand storytelling\n\n🤝 **Soft skills**\n\nClient communication, adaptability across industries, attention to detail, iterative design, team collaboration\n\n---\n\nDuring my time at Autocity and Grupo Tagle, I worked on digital platforms that spanned diverse industries—from the fast-paced world of automotive sales to the refined experiences of luxury hospitality and golf.\n\nOne of the core achievements was the revamp of Autocity’s car catalog. We introduced powerful tools for users to compare models, estimate prices, and filter options with ease, resulting in a far more engaging and practical browsing experience.\n\nIn parallel, I collaborated on building new digital presences for Scratch House and El Terrón Golf Club—two high-end lifestyle brands. These websites focused on elegance, exclusivity, and ease of access to information and booking processes. For Grupo Tagle’s corporate site and motorcycle divisions (Motoplex and Royal Enfield), the goal was a clean, brand-aligned presence that inspired trust and action.\n\nAt Autocity and Grupo Tagle, I also had the opportunity to **establish the UX/UI design discipline from the ground up**, bringing structure and a user-centered mindset to a context that had previously relied on more traditional approaches.\n\nThis experience helped me apply my UX/UI design expertise to very different audiences and expectations, maintaining quality and performance across the board."
     },
     {
       "id": "experience-at-sixto-van-garret",
       "slug": "experience-at-sixto-van-garret",
-      "title": "打造定制数字身份：为独特品牌提供定制网络解决方案",
-      "description": "我为独特品牌创造定制的数字体验，从奢侈服务到创新初创公司，专注于定制设计和战略用户体验。",
+      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
+      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience.",
       "imageUrl": "/projects/sixto-van-garret.webp",
-      "imageAlt": "Sixto Van Garret 项目展示",
+      "imageAlt": "Sixto Van Garret project showcase",
       "logoUrl": "/projects/logo-sixto-van-garret.png",
-      "logoAlt": "Sixto Van Garret 标志"
+      "logoAlt": "Sixto Van Garret Logo",
+      "longDescription": "I designed and launched a sleek online store for **Sixto Van Garret**, a premium lifestyle brand. The goal was to reflect elegance and exclusivity through a simple and effective e-commerce experience.\n\n### 🎯 Goal\nLaunch a simple, functional e-commerce site for a high-end lifestyle brand, with a strong focus on visual aesthetics and user experience.\n\n### 🛠️ How i did it\nBuilt using **Tienda Nube** for quick deployment. The design was customized with a dominant **gold color palette** to reflect the brand’s premium identity. Clear navigation and content hierarchy let the product visuals take center stage.\n\n### ✨ What stands out\nMinimalist layout with a luxurious feel. Gold accents elevate the brand image without overwhelming the interface.\n\n### 📦 Result\nA clean, stylish store — easy to navigate, visually striking, and ready to grow."
     },
     {
       "id": "experience-at-deep-creek",
       "slug": "experience-at-deep-creek",
-      "title": "战略数字化转型：企业解决方案的全周期开发",
-      "description": "我领导从概念到部署的综合数字项目，提供可扩展的企业解决方案，专注于用户体验和业务目标。",
+      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
+      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives.",
       "imageUrl": "/projects/deep-creek-solutions.webp",
-      "imageAlt": "Deep Creek Solutions 项目视图",
+      "imageAlt": "Deep Creek Solutions project view",
       "logoUrl": "/projects/logo-deep-creek.png",
-      "logoAlt": "Deep Creek Solutions 标志"
-    },
-    {
-      "id": "experience-at-red-sanitaria",
-      "slug": "experience-at-red-sanitaria",
-      "title": "医疗创新：为医疗网络设计无障碍数字解决方案",
-      "description": "我为医疗保健提供商开发以用户为中心的数字平台，优先考虑无障碍性、信任度和患者-提供者之间的无缝沟通。",
-      "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "Red Sanitaria 项目界面",
-      "logoUrl": "/projects/logo-red-sanitaria.png",
-      "logoAlt": "Red Sanitaria 标志"
+      "logoAlt": "Deep Creek Solutions Logo",
+      "longDescription": "👉 **Role**: UX/UI Designer & Product Collaborator\n📍 **Focus areas**: Beauty tech, healthcare systems, internal incubator, communication design\n\n---\n\n🔧 **What I did**\n\n- Designed user flows and interfaces for an esthetic equipment rental system and a companion app for estheticians to manage their business\n- Improved UX/UI and developed new tools within **Red Sanitaria** and **Retia Health** platforms (for hospitals, clinics, and dental practices)\n- Created a fully interactive **odontogram tool** for dental record-keeping\n- Contributed to automation features like billing flows and clinical data inputs\n- Designed graphic pieces for internal and external communication materials\n\n📈 **Innovation & Strategy**\n\n- Collaborated with the internal incubator to design commercial presentations and craft budgets for early-stage ventures\n- Participated in the design of MVPs for new business ideas, including automotive sales tools\n\n🛠️ **Tools & tech**\n\nFigma, HTML/CSS, JavaScript, Adobe Suite, internal APIs, Notion\n→ Applied UX writing, accessibility guidelines, and agile iteration cycles\n\n🤝 **Cross-team collaboration**\n\nWorked alongside product owners, healthcare specialists, and commercial leads to align design and business value.\n\n---\n\nAt Deep Creek Solutions, I worked across product design, UX/UI enhancements, and commercial innovation. **I initiated the UX/UI practice within the company**, designing digital products for the beauty tech sector, including an equipment rental platform and a mobile-first app for estheticians to manage bookings, clients, and payments.\n\nParallel to this, I was involved in healthtech products like **Red Sanitaria** and **Retia Health**, where I improved interfaces for hospitals, clinics, and dental offices. A key highlight was designing an interactive odontogram for dentists and helping automate billing processes in clinical environments.\n\nBeyond product work, I also supported the company’s internal incubator: crafting sales decks, budgeting proposals, and early MVPs for new business ideas. Additionally, I created visual assets and communication pieces to support marketing and project presentations.\n\nMy role combined creative UX thinking, visual design, and business-oriented solutions to turn ideas into impactful products and materials."
     },
     {
       "id": "experience-at-apex",
       "slug": "experience-at-apex",
-      "title": "性能驱动的数字解决方案：为专注增长的公司提供高影响力项目",
-      "description": "我提供针对转化和增长优化的尖端数字体验，结合战略思维和技术卓越。",
+      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
+      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence.",
       "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "Apex 项目概览",
+      "imageAlt": "Apex projects overview",
       "logoUrl": "/projects/logo-apex.png",
-      "logoAlt": "Apex 标志"
+      "logoAlt": "Apex Logo",
+      "longDescription": "👉 **Role**: Internal Communication Specialist & Designer\n📅 **Dates**: May 2015 – Feb 2019\n📍 **Location**: Córdoba, Argentina\n\n---\n\n🔧 **What I did**\n\n- Developed and executed **internal communication campaigns** across Apex sites in Latin America\n- Created **signage systems** (arquigrafía) for multiple office locations, ensuring consistent brand expression\n- Designed **branded content** for internal channels, newsletters, and events\n- Provided occasional support for digital experiences like intranets and corporate websites\n- Collaborated with the **Innovation team** on company-wide sprints using **Design Sprint methodology**\n\n📈 **Key contributions**\n\n- Enhanced employee engagement through clear, visually cohesive messaging\n- Helped shape Apex’s internal brand across Argentina, Chile, Colombia, Paraguay, and Honduras\n- Contributed to ideation and prototyping phases of innovation projects across departments\n\n💡 **Highlights**\n\n- Participated in multidisciplinary innovation programs using iterative, design-led processes\n- Created signage adapted to the identity and architecture of each office location\n- Supported HR, innovation, sustainability, and sales communication initiatives\n\n🛠️ **Tools & tech**\n\nIllustrator, Photoshop, InDesign, PowerPoint, internal CMS platforms, Design Sprint methodology\n→ Focus on print and spatial design, internal culture, and collaborative innovation support\n\n🤝 **Soft skills**\n\nCross-functional teamwork, communication design, cultural sensitivity, attention to detail\n\n---\n\nAt Apex America, I served as an **Internal Communication Specialist & Designer**, supporting communication strategies for employees across the region. My role focused on reinforcing the company's identity through clear messaging, engaging content, and visual consistency in physical and digital environments.\n\nOne of my most impactful contributions was the development of **signage systems** and visual branding for Apex’s offices throughout Latin America. I also worked closely with the **Innovation team**, participating in sprints that used collaborative methodologies to solve internal challenges and spark new ideas.\n\nWhile my core focus was internal communication, I also contributed to digital content, branding for corporate events, and the alignment of materials across departments like HR and Sustainability. This experience strengthened my ability to deliver meaningful, context-aware design in diverse professional settings."
     }
   ]
 }

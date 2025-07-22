@@ -1,16 +1,49 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import { fetchProjectBySlug } from "@/app/api/projects/projectsService";
-import type { Child } from "@/app/api/projects/projectsService";
+import type { Child } from "@/app/api/projects/route";
 import ReactMarkdown from "react-markdown";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import { TitleH1Project } from "@/components/common/TitleH1Project";
 import ProjectLogoBanner from "@/components/projects/ProjectLogoBanner";
 import LiveProjectButton from "@/components/projects/LiveProjectButton";
 
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  logoUrl?: string;
+  logoAlt?: string;
+  projectUrl?: string;
+  liveUrl?: string;
+  slug?: string;
+  longDescription?: Array<{ type: string; children: Child[]; level?: number; format?: string }> | string;
+};
+
+// Función helper para obtener un proyecto por slug
+const fetchProjectBySlug = async (slug: string, locale: string = 'es'): Promise<Project | null> => {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const response = await fetch(`${baseUrl}/api/projects/${slug}?locale=${locale}`, {
+      cache: 'no-store' // Para asegurar que siempre obtenga datos frescos
+    });
+    
+    if (!response.ok) {
+      return null;
+    }
+    
+    const data = await response.json();
+    return data.project;
+  } catch (error) {
+    console.error('Error fetching project:', error);
+    return null;
+  }
+};
+
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await props.params;
-  const project = await fetchProjectBySlug(slug);
+  const project = await fetchProjectBySlug(slug, 'es'); // Por defecto en español
   if (!project) {
     return {
       title: "Project not found",
@@ -63,7 +96,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 
 export default async function ProjectPage(props: { params: Promise<{ slug: string }> }) {
   const { slug } = await props.params;
-  const project = await fetchProjectBySlug(slug);
+  const project = await fetchProjectBySlug(slug, 'es'); // Por defecto en español
   if (!project) {
     return (
       <div className="container mx-auto px-6 py-12 text-center dark:bg-gray-950">
