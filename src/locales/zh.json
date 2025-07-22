@@ -1,211 +1,217 @@
 {
   "home": {
     "hero": {
-      "tagline": "Building Impactful Digital Experiences.",
-      "title": "UX/UI Lead & Frontend Developer",
-      "description": "I'm a UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.",
-      "myWork": "My Work",
-      "resume": "Resume",
-      "helloHuman": "Hello Human,",
-      "petDog": "Just pet the dog! ✨"
+      "tagline": "构建有影响力的数字体验。",
+      "title": "UX/UI 负责人 & 前端开发者",
+      "description": "我是一名专门制作直观、无障碍且视觉吸引力强的数字产品的 UX/UI 专家和前端开发者。",
+      "myWork": "我的作品",
+      "resume": "简历",
+      "helloHuman": "你好，朋友，",
+      "petDog": "快来摸摸这只狗！✨"
     },
     "aboutTeaser": {
-      "title": "A Bit About Me",
-      "description": "Here's a little insight into the person behind the pixels.",
-      "readMore": "Read more about me",
-      "altText": "This is me",
-      "birthPlace": "Born in a small town in southern Córdoba, Argentina",
-      "birthDescription": "I've always carried big dreams and a deep passion for great design and technology.",
-      "sportsText": "When I'm not creating digital experiences, you'll find me staying active with sports—or cheering for",
-      "riverPlate": "River Plate with heart and soul."
+      "title": "关于我",
+      "description": "让我简单介绍一下像素背后的这个人。",
+      "readMore": "了解更多关于我",
+      "altText": "这就是我",
+      "birthPlace": "出生在阿根廷科尔多瓦南部的一个小镇",
+      "birthDescription": "我一直怀着远大的梦想，对优秀设计和技术有着深深的热情。",
+      "sportsText": "当我不在创造数字体验时，你会发现我在积极参与体育运动——或者全心全意地为",
+      "riverPlate": "河床队加油。"
     },
     "highlights": {
-      "title": "Tools & Technologies",
-      "description": "A curated collection of the tools I use to bring ideas to life.",
+      "title": "工具与技术",
+      "description": "我用来实现创意的精选工具集合。",
       "categories": {
         "design": {
-          "title": "Design",
-          "description": "Creating beautiful and functional user interfaces"
+          "title": "设计",
+          "description": "创建美观且功能性的用户界面"
         },
         "frontend": {
-          "title": "Frontend",
-          "description": "Building responsive and performant web applications"
+          "title": "前端",
+          "description": "构建响应式和高性能的 Web 应用程序"
         },
         "backend": {
-          "title": "Backend",
-          "description": "Developing robust server-side solutions"
+          "title": "后端",
+          "description": "开发强大的服务器端解决方案"
         },
         "tools": {
-          "title": "Tools",
-          "description": "Essential tools for development and design workflow"
+          "title": "工具",
+          "description": "开发和设计工作流程的必备工具"
         }
       }
     },
     "services": {
-      "title": "What I Do",
-      "description": "A combination of design thinking, solid development, and team experience.",
+      "title": "我的专长",
+      "description": "设计思维、扎实开发和团队经验的完美结合。",
       "uxui": {
-        "title": "UX/UI Design",
-        "description": "From early-stage wireframes to polished prototypes, I design user interfaces that are both intuitive and scalable. I combine design thinking with user research, accessibility standards, and usability testing to ensure every experience delivers real impact."
+        "title": "UX/UI 设计",
+        "description": "从早期线框图到精美原型，我设计既直观又可扩展的用户界面。我将设计思维与用户研究、无障碍标准和可用性测试相结合，确保每个体验都能带来真正的影响。"
       },
       "frontend": {
-        "title": "Frontend Development",
-        "description": "I build high-performing, responsive, and accessible web apps using React, Next.js, Tailwind CSS, and TypeScript. My toolkit also includes WordPress, Bootstrap, and .NET Core for cases where flexibility or backend integration is key."
+        "title": "前端开发",
+        "description": "我使用 React、Next.js、Tailwind CSS 和 TypeScript 构建高性能、响应式和无障碍的 Web 应用程序。我的工具包还包括 WordPress、Bootstrap 和 .NET Core，适用于需要灵活性或后端集成的情况。"
       },
       "teamLeadership": {
-        "title": "Team Leadership",
-        "description": "I lead design and dev teams through planning, code reviews, mentoring, and task coordination. I bridge gaps between designers, developers, and stakeholders to align vision, timelines, and deliverables. Clear communication and a user-first mindset are always my priority."
+        "title": "团队领导",
+        "description": "我通过规划、代码审查、指导和任务协调来领导设计和开发团队。我在设计师、开发者和利益相关者之间架起桥梁，协调愿景、时间表和交付成果。清晰的沟通和用户至上的思维始终是我的优先考虑。"
       },
       "optimization": {
-        "title": "Optimization & Deploy",
-        "description": "I handle SEO optimization, site performance enhancements, version control with Git, and streamlined CI/CD workflows. From semantic HTML to asset optimization and production deploys, I ensure that every project is fast, discoverable, and future-proof."
+        "title": "优化与部署",
+        "description": "我处理 SEO 优化、网站性能增强、Git 版本控制和简化的 CI/CD 工作流程。从语义化 HTML 到资源优化和生产部署，我确保每个项目都快速、可发现且面向未来。"
       }
     }
   },
   "navigation": {
-    "home": "Home",
-    "about": "About",
-    "projects": "Projects",
-    "blog": "Blog",
-    "contact": "Contact"
+    "home": "首页",
+    "about": "关于",
+    "projects": "项目",
+    "blog": "博客",
+    "contact": "联系"
   },
   "pages": {
     "about": {
-      "title": "About Me",
-      "description": "I am a passionate UX/UI designer and frontend developer.",
-      "paragraph1": "I'm Francisco Sixto — a UX/UI designer with a solid technical background. I work at the intersection of design and front-end development, creating digital experiences that are clear, efficient, and user-focused. I believe in good systems, smart iteration, and practical tools that help ship quality without overcomplicating things.",
-      "paragraph2": "Over the years, I've led design and development teams, coordinated priorities, reviewed code and mockups, and built scalable solutions across websites, CRMs, and portals. I enjoy mentoring others, improving team workflows, and balancing creativity with clarity in every step of the process.",
-      "paragraph3": "What drives me is the pursuit of intuitive experiences — the kind where structure, interaction, and aesthetics align naturally. Whether I'm working in Figma, VS Code, or in a team call, I'm always thinking about how to make things work better, feel smoother, and serve users with purpose.",
-      "paragraph4": "Outside of work, I'm into sports, spending time with my family and friends, and enjoying simple moments offline. I find a lot of inspiration in everyday life — conversations, shared meals, or just being present with the people I care about.",
-      "niceToMeet": "Nice to meet you! 😎",
-      "thankYou": "Thank you for visiting my portfolio! I look forward to the opportunity to collaborate and create something amazing.",
-      "jobTitle": "UX/UI Designer & Frontend Developer",
-      "location": "Location: Córdoba, Argentina",
-      "myWork": "My Work",
-      "downloadResume": "Resume"
+      "title": "关于我",
+      "description": "我是一位充满热情的 UX/UI 设计师和前端开发者。",
+      "paragraph1": "我是 Francisco Sixto——一位具有扎实技术背景的 UX/UI 设计师。我在设计和前端开发的交汇处工作，创造清晰、高效且以用户为中心的数字体验。我相信好的系统、智能迭代，以及帮助在不过度复杂化的情况下交付高质量产品的实用工具。",
+      "paragraph2": "多年来，我领导过设计和开发团队，协调优先级，审查代码和模型，并在网站、CRM 和门户网站上构建可扩展的解决方案。我喜欢指导他人、改进团队工作流程，并在流程的每一步中平衡创造力和清晰度。",
+      "paragraph3": "驱动我的是对直观体验的追求——那种结构、交互和美学自然对齐的体验。无论我是在 Figma、VS Code 中工作，还是在团队会议中，我总是在思考如何让事情运行得更好、感觉更流畅，并有目的地为用户服务。",
+      "paragraph4": "在工作之外，我喜欢运动，与家人朋友共度时光，享受离线的简单时刻。我从日常生活中找到很多灵感——对话、共享的用餐，或者只是与我关心的人在一起。",
+      "niceToMeet": "很高兴认识你！😎",
+      "thankYou": "感谢您访问我的作品集！我期待有机会合作并创造出令人惊叹的作品。",
+      "jobTitle": "UX/UI 设计师 & 前端开发者",
+      "location": "位置：阿根廷科尔多瓦",
+      "myWork": "我的作品",
+      "downloadResume": "简历"
     },
     "projects": {
-      "title": "Projects",
-      "description": "Here you can find some of the projects I have worked on.",
-      "noImage": "No image",
-      "viewProject": "View Project",
-      "liveProject": "Live Project",
-      "technologies": "Technologies",
-      "role": "My Role",
-      "backToProjects": "← Back to Projects",
-      "relatedProjects": "Related Projects"
+      "title": "项目",
+      "description": "在这里您可以找到我参与过的一些项目。",
+      "noImage": "无图片",
+      "viewProject": "查看项目",
+      "liveProject": "在线项目",
+      "technologies": "技术",
+      "role": "我的角色",
+      "backToProjects": "← 返回项目",
+      "relatedProjects": "相关项目"
     },
     "contact": {
-      "title": "Contact Me",
-      "description": "Have a project in mind? Let's talk!",
-      "letsConnect": "Let's Connect",
-      "getInTouch": "Get In Touch",
-      "getInTouchDescription": "Have a question or want to work together?",
+      "title": "联系我",
+      "description": "有项目想法？让我们聊聊！",
+      "letsConnect": "让我们连接",
+      "getInTouch": "取得联系",
+      "getInTouchDescription": "有问题或想要合作？",
       "cta": {
-        "title": "Let's build something great together",
-        "description": "Whether you're looking for a UX/UI designer, a frontend developer, or a team leader to bring your ideas to life — I'm ready to jump in. Feel free to reach out, I'd be happy to connect.",
-        "button": "Contact Me"
+        "title": "让我们一起构建伟大的东西",
+        "description": "无论您是在寻找 UX/UI 设计师、前端开发者，还是团队领导来实现您的想法——我都准备好投入其中。随时联系我，我很高兴与您连接。",
+        "button": "联系我"
       },
       "subscribe": {
-        "title": "Stay Updated",
-        "description": "Subscribe to my newsletter for the latest updates on projects and industry insights.",
-        "placeholder": "Your email address",
-        "button": "Subscribe",
-        "success": "Thank you for subscribing!",
-        "error": "Subscription error. Please try again.",
-        "emailRequired": "Email is required",
-        "invalidEmail": "Invalid email address"
+        "title": "保持更新",
+        "description": "订阅我的新闻通讯，获取项目和行业见解的最新动态。",
+        "placeholder": "您的邮箱地址",
+        "button": "订阅",
+        "success": "感谢您的订阅！",
+        "error": "订阅错误。请重试。",
+        "emailRequired": "邮箱是必需的",
+        "invalidEmail": "无效的邮箱地址"
       }
     }
   },
+  "subscribe": {
+    "homeTitle": "我喜欢分享",
+    "homeDescription": "我偶尔发送关于设计、开发和我觉得很棒的东西的更新。加入我们吧！",
+    "homeDisclaimer": "无垃圾邮件。随时取消订阅。",
+    "homeWelcome": "很高兴你在这里！😊"
+  },
   "projects": {
     "officina-artis": {
-      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
-      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction."
+      "title": "Officina Artis：探索空间、交互和策展的虚拟 3D 艺术画廊",
+      "description": "我设计并开发了一个 3D 沉浸式体验，在虚拟画廊中探索艺术作品，结合了创意编程、空间叙事和艺术指导。"
     },
     "experience-at-startu": {
-      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
-      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion."
+      "title": "变革在线教育：20+ 大学网站的 UX 策略和可扩展设计",
+      "description": "我领导了跨多个市场的数字体验设计和开发，结合策略、技术和团队合作，改造了 20 多个教育网站，提升了可用性和转化率。"
     },
     "experience-at-autocity": {
-      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
-      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences."
+      "title": "从引擎到优雅：汽车、酒店和生活方式品牌的数字生态系统",
+      "description": "我设计并开发了跨多个行业的沉浸式、高转化率网站——从具有高级功能的汽车平台到高端酒店和高尔夫俱乐部的数字体验。"
     },
     "experience-at-sixto-van-garret": {
-      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
-      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience."
+      "title": "打造定制数字身份：为独特品牌提供定制 Web 解决方案",
+      "description": "我为独特品牌创造了定制的数字体验，从奢侈服务到创新初创公司，专注于定制设计和战略用户体验。"
     },
     "experience-at-deep-creek": {
-      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
-      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives."
+      "title": "战略数字化转型：企业解决方案的全周期开发",
+      "description": "我领导了从概念到部署的综合数字项目，交付了专注于用户体验和业务目标的可扩展企业解决方案。"
     },
     "experience-at-red-sanitaria": {
-      "title": "Healthcare Innovation: Designing Accessible Digital Solutions for Medical Networks",
-      "description": "I developed user-centered digital platforms for healthcare providers, prioritizing accessibility, trust, and seamless patient-provider communication."
+      "title": "医疗创新：为医疗网络设计无障碍数字解决方案",
+      "description": "我为医疗保健提供商开发了以用户为中心的数字平台，优先考虑无障碍性、信任和患者与提供商之间的无缝沟通。"
     },
     "experience-at-apex": {
-      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
-      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence."
+      "title": "性能驱动的数字解决方案：为专注增长的公司提供高影响力项目",
+      "description": "我交付了针对转化和增长优化的前沿数字体验，结合了战略思维和技术卓越。"
     }
   },
   "contact": {
     "form": {
-      "title": "Talk with me",
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "send": "Send Message",
-      "sending": "Sending...",
-      "successTitle": "Message Sent!",
-      "successMessage": "Thank you for your message. I'll get back to you soon!",
-      "recaptchaError": "Please complete the reCAPTCHA.",
-      "nameRequired": "Name is required",
-      "emailRequired": "Email is required",
-      "emailInvalid": "Please enter a valid email",
-      "messageRequired": "Message is required"
+      "title": "与我交谈",
+      "name": "姓名",
+      "email": "邮箱",
+      "message": "消息",
+      "send": "发送消息",
+      "sending": "发送中...",
+      "successTitle": "消息已发送！",
+      "successMessage": "谢谢您的消息。我会尽快回复您！",
+      "recaptchaError": "请完成 reCAPTCHA。",
+      "nameRequired": "姓名是必需的",
+      "emailRequired": "邮箱是必需的",
+      "emailInvalid": "请输入有效的邮箱",
+      "messageRequired": "消息是必需的"
     }
   },
   "common": {
-    "loading": "Loading...",
-    "error": "Error",
-    "backHome": "Back to Home",
-    "readMore": "Read More",
-    "viewProject": "View Project",
-    "liveProject": "Live Project",
+    "loading": "加载中...",
+    "error": "错误",
+    "backHome": "返回首页",
+    "readMore": "阅读更多",
+    "viewProject": "查看项目",
+    "liveProject": "在线项目",
     "toolsAndTechnologies": {
-      "title": "Tools & Technologies",
-      "description": "A curated collection of the tools I use to bring ideas to life."
+      "title": "工具与技术",
+      "description": "我用来实现创意的精选工具集合。"
     },
     "services": {
-      "title": "What I Do",
-      "description": "A combination of design thinking, solid development, and team experience.",
+      "title": "我的专长",
+      "description": "设计思维、扎实开发和团队经验的完美结合。",
       "uxUiDesign": {
-        "title": "UX/UI Design",
-        "description": "From early-stage wireframes to polished prototypes, I design user interfaces that are both intuitive and scalable. I combine design thinking with user research, accessibility standards, and usability testing to ensure every experience delivers real impact."
+        "title": "UX/UI 设计",
+        "description": "从早期线框图到精美原型，我设计既直观又可扩展的用户界面。我将设计思维与用户研究、无障碍标准和可用性测试相结合，确保每个体验都能带来真正的影响。"
       },
       "frontendDevelopment": {
-        "title": "Frontend Development",
-        "description": "I build high-performing, responsive, and accessible web apps using React, Next.js, Tailwind CSS, and TypeScript. My toolkit also includes WordPress, Bootstrap, and .NET Core for cases where flexibility or backend integration is key."
+        "title": "前端开发",
+        "description": "我使用 React、Next.js、Tailwind CSS 和 TypeScript 构建高性能、响应式和无障碍的 Web 应用程序。我的工具包还包括 WordPress、Bootstrap 和 .NET Core，适用于需要灵活性或后端集成的情况。"
       },
       "teamLeadership": {
-        "title": "Team Leadership",
-        "description": "I lead design and dev teams through planning, code reviews, mentoring, and task coordination. I bridge gaps between designers, developers, and stakeholders to align vision, timelines, and deliverables. Clear communication and a user-first mindset are always my priority."
+        "title": "团队领导",
+        "description": "我通过规划、代码审查、指导和任务协调来领导设计和开发团队。我在设计师、开发者和利益相关者之间架起桥梁，协调愿景、时间表和交付成果。清晰的沟通和用户至上的思维始终是我的优先考虑。"
       },
       "optimizationDeploy": {
-        "title": "Optimization & Deploy",
-        "description": "I handle SEO optimization, site performance enhancements, version control with Git, and streamlined CI/CD workflows. From semantic HTML to asset optimization and production deploys, I ensure that every project is fast, discoverable, and future-proof."
+        "title": "优化与部署",
+        "description": "我处理 SEO 优化、网站性能增强、Git 版本控制和简化的 CI/CD 工作流程。从语义化 HTML 到资源优化和生产部署，我确保每个项目都快速、可发现且面向未来。"
       }
     },
     "funMode": {
-      "play": "Play Party Mode",
-      "stop": "Stop Party Mode",
-      "playButton": "Play fun mode",
-      "stopButton": "Stop this!",
+      "play": "开启派对模式",
+      "stop": "停止派对模式",
+      "playButton": "开启趣味模式",
+      "stopButton": "停止这个！",
       "warning": {
-        "title": "Heads up!",
-        "message": "This mode has music, flashing colors and animations, but it's also a lot of fun. Give it a try if you're okay.",
-        "play": "Play",
-        "cancel": "Cancel"
+        "title": "注意！",
+        "message": "这个模式有音乐、闪烁的颜色和动画，但也很有趣。如果您同意的话，试试看吧。",
+        "play": "开启",
+        "cancel": "取消"
       }
     }
   },
@@ -213,73 +219,73 @@
     {
       "id": "officina-artis",
       "slug": "officina-artis",
-      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
-      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction.",
+      "title": "Officina Artis：探索空间、交互和策展的虚拟 3D 艺术画廊",
+      "description": "我设计并开发了一个 3D 沉浸式体验，在虚拟画廊中探索艺术作品，结合了创意编程、空间叙事和艺术指导。",
       "imageUrl": "/projects/officina-artis.webp",
-      "imageAlt": "3D view of the Officina Artis virtual gallery",
+      "imageAlt": "Officina Artis 虚拟画廊的 3D 视图",
       "logoUrl": "/projects/logo-officina-artis.webp",
-      "logoAlt": "Logo of Officina Artis",
+      "logoAlt": "Officina Artis 标志",
       "liveUrl": "https://galery-psi.vercel.app"
     },
     {
       "id": "experience-at-startu",
       "slug": "experience-at-startu", 
-      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
-      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion.",
+      "title": "变革在线教育：20+ 大学网站的 UX 策略和可扩展设计",
+      "description": "我领导了跨多个市场的数字体验设计和开发，结合策略、技术和团队合作，改造了 20 多个教育网站，提升了可用性和转化率。",
       "imageUrl": "/projects/websites-startu-small.webp",
-      "imageAlt": "Sites and Applications created at Start University",
+      "imageAlt": "在 Start University 创建的网站和应用程序",
       "logoUrl": "/projects/logo-startu.png",
-      "logoAlt": "Start University Logo"
+      "logoAlt": "Start University 标志"
     },
     {
       "id": "experience-at-autocity",
       "slug": "experience-at-autocity",
-      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
-      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences.",
+      "title": "从引擎到优雅：汽车、酒店和生活方式品牌的数字生态系统",
+      "description": "我设计并开发了跨多个行业的沉浸式、高转化率网站——从具有高级功能的汽车平台到高端酒店和高尔夫俱乐部的数字体验。",
       "imageUrl": "/projects/autocity-grupo-tagle.webp",
-      "imageAlt": "Autocity Grupo Tagle project view",
+      "imageAlt": "Autocity Grupo Tagle 项目视图",
       "logoUrl": "/projects/logo-autocity.svg",
-      "logoAlt": "Autocity Logo"
+      "logoAlt": "Autocity 标志"
     },
     {
       "id": "experience-at-sixto-van-garret",
       "slug": "experience-at-sixto-van-garret",
-      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
-      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience.",
+      "title": "打造定制数字身份：为独特品牌提供定制 Web 解决方案",
+      "description": "我为独特品牌创造了定制的数字体验，从奢侈服务到创新初创公司，专注于定制设计和战略用户体验。",
       "imageUrl": "/projects/sixto-van-garret.webp",
-      "imageAlt": "Sixto Van Garret project showcase",
+      "imageAlt": "Sixto Van Garret 项目展示",
       "logoUrl": "/projects/logo-sixto-van-garret.png",
-      "logoAlt": "Sixto Van Garret Logo"
+      "logoAlt": "Sixto Van Garret 标志"
     },
     {
       "id": "experience-at-deep-creek",
       "slug": "experience-at-deep-creek",
-      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
-      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives.",
+      "title": "战略数字化转型：企业解决方案的全周期开发",
+      "description": "我领导了从概念到部署的综合数字项目，交付了专注于用户体验和业务目标的可扩展企业解决方案。",
       "imageUrl": "/projects/deep-creek-solutions.webp",
-      "imageAlt": "Deep Creek Solutions project view",
+      "imageAlt": "Deep Creek Solutions 项目视图",
       "logoUrl": "/projects/logo-deep-creek.png",
-      "logoAlt": "Deep Creek Solutions Logo"
+      "logoAlt": "Deep Creek Solutions 标志"
     },
     {
       "id": "experience-at-red-sanitaria",
       "slug": "experience-at-red-sanitaria",
-      "title": "Healthcare Innovation: Designing Accessible Digital Solutions for Medical Networks",
-      "description": "I developed user-centered digital platforms for healthcare providers, prioritizing accessibility, trust, and seamless patient-provider communication.",
+      "title": "医疗创新：为医疗网络设计无障碍数字解决方案",
+      "description": "我为医疗保健提供商开发了以用户为中心的数字平台，优先考虑无障碍性、信任和患者与提供商之间的无缝沟通。",
       "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "Red Sanitaria project interface",
+      "imageAlt": "Red Sanitaria 项目界面",
       "logoUrl": "/projects/logo-red-sanitaria.png",
-      "logoAlt": "Red Sanitaria Logo"
+      "logoAlt": "Red Sanitaria 标志"
     },
     {
       "id": "experience-at-apex",
       "slug": "experience-at-apex",
-      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
-      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence.",
+      "title": "性能驱动的数字解决方案：为专注增长的公司提供高影响力项目",
+      "description": "我交付了针对转化和增长优化的前沿数字体验，结合了战略思维和技术卓越。",
       "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "Apex projects overview",
+      "imageAlt": "Apex 项目概览",
       "logoUrl": "/projects/logo-apex.png",
-      "logoAlt": "Apex Logo"
+      "logoAlt": "Apex 标志"
     }
   ]
 }
