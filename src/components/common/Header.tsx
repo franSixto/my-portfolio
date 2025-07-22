@@ -43,8 +43,8 @@ export default function Header() {
                                 className="dark:invert"
                                 src="/logo2.svg"
                                 alt="Fran Sixto"
-                                width={50}
-                                height={50}
+                                width={45}
+                                height={45}
                                 priority
                             />
                             <span className="hidden lg:inline-block">
@@ -118,7 +118,7 @@ export default function Header() {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                             >
-                                <div className="w-[50px] h-[50px] block">
+                                <div className="block">
                                     <ThemeSelect />
                                 </div>
                             </motion.div>
@@ -127,7 +127,7 @@ export default function Header() {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     onClick={toggleMenu}
-                                    className={`p-2 w-[50px] h-[50px] flex justify-center items-center backdrop-blur-sm rounded-full ${COLOR_CLASS_MAP[mainColor]}`}
+                                    className={`p-2 w-[45px] h-[45px] flex justify-center items-center backdrop-blur-sm rounded-full ${COLOR_CLASS_MAP[mainColor]}`}
                                 >
                                     <RiMenuLine />
                                 </motion.button>
