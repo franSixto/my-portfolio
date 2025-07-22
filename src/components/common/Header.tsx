@@ -38,7 +38,7 @@ export default function Header() {
                     <div className="liquidGlass-shine rounded-full"></div>
                     
                     <nav className="w-full mx-auto flex justify-between items-center px-4 lg:px-2 z-50 relative">
-                        <Link className="flex flex-row items-center rounded-full backdrop-blur-sm p-2 lg:px-6" href="/">
+                        <Link className="flex flex-row items-center rounded-full lg:backdrop-blur-sm p-2 lg:px-6" href="/">
                             <Image
                                 className="dark:invert"
                                 src="/logo2.svg"

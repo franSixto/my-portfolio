@@ -36,7 +36,7 @@ const HomeSubscribe: React.FC = () => {
 
                 {/* Contenido */}
                 <h2 className="text-4xl lg:text-6xl xl:text-8xl font-bold text-gray-100 uppercase">
-                    {t('subscribe.homeTitle')} <span className={`text-${mainColor}-500 transition-colors duration-300`}>share</span>
+                    {t('subscribe.homeTitle')}
                 </h2>
                 
                 <motion.p

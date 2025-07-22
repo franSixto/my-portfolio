@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
             className="flex justify-center items-center w-full"
             style={{
             height: "100%",
-            minHeight: "calc(100vh - 93px)",
+            minHeight: "calc(100vh - 120px)",
             }}
         >
             <div className="container mx-auto px-0 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
