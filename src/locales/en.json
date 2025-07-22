@@ -145,10 +145,6 @@
       "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
       "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives."
     },
-    "experience-at-red-sanitaria": {
-      "title": "Healthcare Innovation: Designing Accessible Digital Solutions for Medical Networks",
-      "description": "I developed user-centered digital platforms for healthcare providers, prioritizing accessibility, trust, and seamless patient-provider communication."
-    },
     "experience-at-apex": {
       "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
       "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence."
@@ -266,16 +262,6 @@
       "imageAlt": "Deep Creek Solutions project view",
       "logoUrl": "/projects/logo-deep-creek.png",
       "logoAlt": "Deep Creek Solutions Logo"
-    },
-    {
-      "id": "experience-at-red-sanitaria",
-      "slug": "experience-at-red-sanitaria",
-      "title": "Healthcare Innovation: Designing Accessible Digital Solutions for Medical Networks",
-      "description": "I developed user-centered digital platforms for healthcare providers, prioritizing accessibility, trust, and seamless patient-provider communication.",
-      "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "Red Sanitaria project interface",
-      "logoUrl": "/projects/logo-red-sanitaria.png",
-      "logoAlt": "Red Sanitaria Logo"
     },
     {
       "id": "experience-at-apex",

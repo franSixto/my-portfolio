@@ -145,10 +145,6 @@
       "title": "Transformación Digital Estratégica: Desarrollo de Ciclo Completo para Soluciones Empresariales",
       "description": "Lideré proyectos digitales integrales desde la concepción hasta el despliegue, entregando soluciones empresariales escalables con enfoque en experiencia de usuario y objetivos de negocio."
     },
-    "experience-at-red-sanitaria": {
-      "title": "Innovación en Salud: Diseñando Soluciones Digitales Accesibles para Redes Médicas",
-      "description": "Desarrollé plataformas digitales centradas en el usuario para proveedores de salud, priorizando accesibilidad, confianza y comunicación fluida entre paciente y proveedor."
-    },
     "experience-at-apex": {
       "title": "Soluciones Digitales Orientadas al Rendimiento: Proyectos de Alto Impacto para Empresas Enfocadas en Crecimiento",
       "description": "Entregué experiencias digitales de vanguardia optimizadas para conversión y crecimiento, combinando pensamiento estratégico con excelencia técnica."
@@ -266,16 +262,6 @@
       "imageAlt": "Vista del proyecto Deep Creek Solutions",
       "logoUrl": "/projects/logo-deep-creek.png",
       "logoAlt": "Logo de Deep Creek Solutions"
-    },
-    {
-      "id": "experience-at-red-sanitaria",
-      "slug": "experience-at-red-sanitaria",
-      "title": "Innovación en Salud: Diseñando Soluciones Digitales Accesibles para Redes Médicas",
-      "description": "Desarrollé plataformas digitales centradas en el usuario para proveedores de salud, priorizando accesibilidad, confianza y comunicación fluida entre paciente y proveedor.",
-      "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "Interfaz del proyecto Red Sanitaria",
-      "logoUrl": "/projects/logo-red-sanitaria.png",
-      "logoAlt": "Logo de Red Sanitaria"
     },
     {
       "id": "experience-at-apex",

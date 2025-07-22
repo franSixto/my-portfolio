@@ -145,10 +145,6 @@
       "title": "التحول الرقمي الاستراتيجي: تطوير دورة كاملة لحلول المؤسسات",
       "description": "قدت مشاريع رقمية شاملة من التصور إلى النشر، مسلماً حلول مؤسسات قابلة للتوسع مع التركيز على تجربة المستخدم وأهداف العمل."
     },
-    "experience-at-red-sanitaria": {
-      "title": "ابتكار الرعاية الصحية: تصميم حلول رقمية متاحة لشبكات طبية",
-      "description": "طورت منصات رقمية متمحورة حول المستخدم لمقدمي الرعاية الصحية، مركزاً على الوصول والثقة والتواصل السلس بين المريض ومقدم الخدمة."
-    },
     "experience-at-apex": {
       "title": "حلول رقمية تعتمد على الأداء: مشاريع عالية التأثير للشركات المركزة على النمو",
       "description": "سلمت تجارب رقمية متطورة محسنة للتحويل والنمو، مدمجاً التفكير الاستراتيجي مع التميز التقني."
@@ -266,16 +262,6 @@
       "imageAlt": "منظر مشروع Deep Creek Solutions",
       "logoUrl": "/projects/logo-deep-creek.png",
       "logoAlt": "شعار Deep Creek Solutions"
-    },
-    {
-      "id": "experience-at-red-sanitaria",
-      "slug": "experience-at-red-sanitaria",
-      "title": "ابتكار الرعاية الصحية: تصميم حلول رقمية متاحة لشبكات طبية",
-      "description": "طورت منصات رقمية متمحورة حول المستخدم لمقدمي الرعاية الصحية، مركزاً على الوصول والثقة والتواصل السلس بين المريض ومقدم الخدمة.",
-      "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "واجهة مشروع Red Sanitaria",
-      "logoUrl": "/projects/logo-red-sanitaria.png",
-      "logoAlt": "شعار Red Sanitaria"
     },
     {
       "id": "experience-at-apex",

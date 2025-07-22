@@ -139,10 +139,6 @@
       "title": "戦略的デジタル変革：エンタープライズソリューションのためのフルサイクル開発",
       "description": "コンセプトから展開まで包括的なデジタルプロジェクトをリードし、ユーザー体験とビジネス目標に焦点を当てたスケーラブルなエンタープライズソリューションを提供しました。"
     },
-    "experience-at-red-sanitaria": {
-      "title": "ヘルスケアイノベーション：医療ネットワークのためのアクセシブルなデジタルソリューションの設計",
-      "description": "アクセシビリティ、信頼性、患者と医療提供者間のシームレスなコミュニケーションを優先して、ヘルスケアプロバイダーのためのユーザー中心のデジタルプラットフォームを開発しました。"
-    },
     "experience-at-apex": {
       "title": "パフォーマンス重視のデジタルソリューション：成長志向企業のための高インパクトプロジェクト",
       "description": "戦略的思考と技術的卓越性を組み合わせて、コンバージョンと成長のために最適化された最先端のデジタル体験を提供しました。"
@@ -266,16 +262,6 @@
       "imageAlt": "Deep Creek Solutionsプロジェクトビュー",
       "logoUrl": "/projects/logo-deep-creek.png",
       "logoAlt": "Deep Creek Solutionsロゴ"
-    },
-    {
-      "id": "experience-at-red-sanitaria",
-      "slug": "experience-at-red-sanitaria",
-      "title": "ヘルスケアイノベーション：医療ネットワークのためのアクセシブルなデジタルソリューションの設計",
-      "description": "アクセシビリティ、信頼性、患者と医療提供者間のシームレスなコミュニケーションを優先して、ヘルスケアプロバイダーのためのユーザー中心のデジタルプラットフォームを開発しました。",
-      "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "Red Sanitariaプロジェクトインターフェース",
-      "logoUrl": "/projects/logo-red-sanitaria.png",
-      "logoAlt": "Red Sanitariaロゴ"
     },
     {
       "id": "experience-at-apex",
