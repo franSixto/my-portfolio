@@ -31,8 +31,13 @@ export default function Header() {
     return (
         <>
             <div className="flex justify-center bg-gray-50 dark:bg-gray-950 px-10 mx-10">
-                <header className="z-50 mt-4 fixed container bg-white/50 text-black dark:bg-gray-950/50 backdrop-blur-sm dark:text-white transition-colors duration-300 py-4 rounded-full">
-                    <nav className="container mx-auto flex justify-between items-center px-2 z-50">
+                <header className="z-50 mt-4 fixed container text-black dark:text-white transition-colors duration-300 py-4 rounded-full">
+                    {/* Liquid Glass Effect Layers */}
+                    <div className="liquidGlass-effect rounded-full"></div>
+                    <div className="liquidGlass-tint rounded-full"></div>
+                    <div className="liquidGlass-shine rounded-full"></div>
+                    
+                    <nav className="container mx-auto flex justify-between items-center px-2 z-50 relative">
                         <Link href="/">
                             <Image
                                 className="dark:invert"
