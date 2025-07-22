@@ -109,7 +109,7 @@ export default function Header() {
                                 </motion.div>
                             </li>
                         </ul>
-                        <div className={rtlClass("flex items-center justify-end space-x-4 w-[180px]")}>
+                        <div className={rtlClass("flex items-center justify-end space-x-2")}>
                             <LanguageSelector />
                             <FloatingColorSelector />
                             {/* Party Mode Button extraído a componente */}
