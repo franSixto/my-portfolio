@@ -31,13 +31,13 @@ export default function Header() {
     return (
         <>
             <div className="flex justify-center bg-gray-50 dark:bg-gray-950 px-10 mx-10">
-                <header className="z-50 mt-4 fixed container text-black dark:text-white transition-colors duration-300 py-4 rounded-full">
+                <header className="max-header z-50 mt-4 fixed w-full text-black dark:text-white transition-colors duration-300 py-4 rounded-full">
                     {/* Liquid Glass Effect Layers */}
                     <div className="liquidGlass-effect rounded-full"></div>
                     <div className="liquidGlass-tint rounded-full"></div>
                     <div className="liquidGlass-shine rounded-full"></div>
                     
-                    <nav className="container mx-auto flex justify-between items-center px-2 z-50 relative">
+                    <nav className="w-full mx-auto flex justify-between items-center px-4 lg:px-2 z-50 relative">
                         <Link href="/">
                             <Image
                                 className="dark:invert"
