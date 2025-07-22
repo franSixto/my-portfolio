@@ -33,12 +33,12 @@ export default function Header() {
             <div className="flex justify-center bg-gray-50 dark:bg-gray-950 px-10 mx-10">
                 <header className="max-header z-50 mt-4 fixed w-full text-black dark:text-white transition-colors duration-300 py-1 rounded-full">
                     {/* Liquid Glass Effect Layers */}
-                    <div className="liquidGlass-effect rounded-full"></div>
-                    <div className="liquidGlass-tint rounded-full"></div>
-                    <div className="liquidGlass-shine rounded-full"></div>
+                    <div className="liquidGlass-effect rounded-2xl"></div>
+                    <div className="liquidGlass-tint rounded-2xl"></div>
+                    <div className="liquidGlass-shine rounded-2xl"></div>
                     
                     <nav className="w-full mx-auto flex justify-between items-center px-4 lg:px-2 z-50 relative">
-                        <Link className="flex flex-row items-center rounded-full lg:backdrop-blur-sm p-2 lg:px-6" href="/">
+                        <Link className="flex flex-row items-center rounded-xl lg:backdrop-blur-sm p-2 lg:px-6" href="/">
                             <Image
                                 className="dark:invert"
                                 src="/logo2.svg"
@@ -51,7 +51,7 @@ export default function Header() {
                             Francisco Sixto
                             </span>
                         </Link>
-                        <ul className={rtlClass("hidden backdrop-blur-sm p-6 py-2 rounded-full lg:flex space-x-6")}>
+                        <ul className={rtlClass("hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6")}>
                             <li className="menu-item">
                                 <motion.div
                                     whileHover={{ scale: 1.1 }}
