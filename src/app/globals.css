@@ -20,6 +20,11 @@ body {
   font-optical-sizing: auto;
 }
 
+/* Espacio para el header fijo */
+#main-content {
+  padding-top: 120px;
+}
+
 /*Animacion de scroll de logos*/
 @keyframes scroll {
   0% {
@@ -347,6 +352,11 @@ body {
   background: rgba(255, 255, 255, 0.25);
 }
 
+/* Dark mode variant para liquidGlass-tint */
+[data-theme="dark"] .liquidGlass-tint {
+  background: rgba(0, 0, 0, 0.3);
+}
+
 .liquidGlass-shine {
   position: absolute;
   inset: 0;
@@ -354,4 +364,10 @@ body {
   overflow: hidden;
   box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
     inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Dark mode variant para liquidGlass-shine */
+[data-theme="dark"] .liquidGlass-shine {
+  box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.2),
+    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.1);
 }
