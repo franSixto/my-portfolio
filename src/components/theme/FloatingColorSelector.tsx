@@ -102,14 +102,20 @@ export default function FloatingColorSelector() {
                 />
             </motion.button>
             <div className="absolute left-1/2 transform -translate-x-1/2 top-27 z-50 d-flex flex-col items-center justify-center">
+                
                 <div
-                    className={`p-4 border bg-white dark:bg-gray-950 ${COLOR_BORDER_CLASS_MAP[mainColor]} rounded transition-all duration-500 overflow-hidden w-full ${open ? 'max-h-[200px] opacity-100 scale-100' : 'max-h-0 opacity-0 scale-95'}`}
+                    className={`relative p-4 border bg-white/20 dark:bg-gray-950/10 ${COLOR_BORDER_CLASS_MAP[mainColor]} rounded-2xl transition-all duration-500 overflow-hidden w-full ${open ? 'max-h-[200px] opacity-100 scale-100' : 'max-h-0 opacity-0 scale-95'}`}
                 >
+                    {/* Efectos liquid glass como elementos de fondo */}
+                    <div className="liquidGlass-effect rounded-2xl"></div>
+                    <div className="liquidGlass-tint rounded-2xl"></div>
+                    <div className="liquidGlass-shine rounded-2xl"></div>
+                    
                     {showContent && (
                         <>
-                            {/* Botón de cierre (cruz) */}
+                            {/* Botón de cierre (cruz) - con z-index alto para estar encima del liquid glass */}
                             <button
-                                className="absolute right-1 top-1 z-50 p-1 cursor-pointer rounded-full bg-white/80 hover:bg-white dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 transition"
+                                className="absolute right-1 top-1 z-10 p-1 cursor-pointer rounded-full bg-white/80 hover:bg-white dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 transition"
                                 aria-label="Cerrar selector de color"
                                 onClick={handleToggle}
                                 type="button"
@@ -119,10 +125,10 @@ export default function FloatingColorSelector() {
                                 </svg>
                             </button>
                             
-                            <span className="text-xs text-neutral-500 mt-1">Drag the circle to select a color</span>
+                            <span className="relative z-10 text-xs text-neutral-500 mt-1">Drag the circle to select a color</span>
                             <div
                                 ref={containerRef}
-                                className="relative w-[320px] h-5 bg-white dark:bg-neutral-900 shadow-lg rounded-full flex items-center border border-neutral-200 dark:border-neutral-700 cursor-pointer mt-2"
+                                className="relative z-10 w-[320px] h-5 bg-white dark:bg-neutral-900 shadow-lg rounded-full flex items-center border border-neutral-200 dark:border-neutral-700 cursor-pointer mt-2"
                                 onMouseDown={handleMouseDown}
                                 onMouseMove={handleMouseMove}
                                 onMouseUp={handleMouseUp}
@@ -133,13 +139,13 @@ export default function FloatingColorSelector() {
                             >
                                 {/* Indicador dragueable */}
                                 <div
-                                    className={`absolute top-1/2 -translate-y-1/2 h-6 w-6 rounded-full border-4 border-black bg-gray-950 dark:border-white dark:bg-gray-100 pointer-events-none transition-transform duration-200`}
+                                    className={`absolute top-1/2 -translate-y-1/2 h-6 w-6 rounded-full border-4 border-black bg-gray-950 dark:border-white dark:bg-gray-100 pointer-events-none transition-transform duration-200 z-20`}
                                     style={{
                                         left: `calc(${(TAILWIND_COLORS.indexOf(mainColor) / (TAILWIND_COLORS.length - 1)) * 100}% - 12px )`,
                                     }}
                                 />
                             </div>
-                            <div className="relative gap-1 w-[320px] h-10 flex items-center justify-between my-1">
+                            <div className="relative z-10 gap-1 w-[320px] h-10 flex items-center justify-between my-1">
                                 {TAILWIND_COLORS.map((color) => (
                                     <div
                                         key={color}
@@ -147,10 +153,11 @@ export default function FloatingColorSelector() {
                                     />
                                 ))}
                             </div>
-                            <span className={`p-2 rounded bg-${mainColor}-100 text-xs text-${mainColor}-500 mt-1`}>Current color: <b>{mainColor}</b></span>
+                            <span className={`relative z-10 p-2 rounded bg-${mainColor}-100 text-xs text-${mainColor}-500 mt-1`}>Current color: <b>{mainColor}</b></span>
                         </>
                     )}
                 </div>
+                
             </div>
         </div>
     );
