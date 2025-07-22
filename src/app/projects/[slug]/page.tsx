@@ -6,6 +6,13 @@ import Breadcrumbs from "@/components/common/Breadcrumbs";
 import { TitleH1Project } from "@/components/common/TitleH1Project";
 import ProjectLogoBanner from "@/components/projects/ProjectLogoBanner";
 import LiveProjectButton from "@/components/projects/LiveProjectButton";
+import enTranslations from '@/locales/en.json';
+import esTranslations from '@/locales/es.json';
+import zhTranslations from '@/locales/zh.json';
+import jaTranslations from '@/locales/ja.json';
+import hiTranslations from '@/locales/hi.json';
+import ptTranslations from '@/locales/pt.json';
+import arTranslations from '@/locales/ar.json';
 
 type Project = {
   id: string;
@@ -21,29 +28,45 @@ type Project = {
   longDescription?: Array<{ type: string; children: Child[]; level?: number; format?: string }> | string;
 };
 
-// Función helper para obtener un proyecto por slug
-const fetchProjectBySlug = async (slug: string, locale: string = 'es'): Promise<Project | null> => {
+// Función helper para obtener un proyecto por slug directamente desde los archivos de traducción
+const getProjectBySlug = (slug: string, locale: string = 'es'): Project | null => {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const response = await fetch(`${baseUrl}/api/projects/${slug}?locale=${locale}`, {
-      cache: 'no-store' // Para asegurar que siempre obtenga datos frescos
-    });
+    let projects: Project[] = [];
     
-    if (!response.ok) {
-      return null;
+    switch (locale) {
+      case 'en':
+        projects = (enTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      case 'zh':
+        projects = (zhTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      case 'ja':
+        projects = (jaTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      case 'hi':
+        projects = (hiTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      case 'pt':
+        projects = (ptTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      case 'ar':
+        projects = (arTranslations as { projectsData?: Project[] }).projectsData || [];
+        break;
+      default:
+        projects = (esTranslations as { projectsData?: Project[] }).projectsData || [];
     }
     
-    const data = await response.json();
-    return data.project;
+    const project = projects.find((p) => p.slug === slug || p.id === slug);
+    return project || null;
   } catch (error) {
-    console.error('Error fetching project:', error);
+    console.error('Error loading project:', error);
     return null;
   }
 };
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await props.params;
-  const project = await fetchProjectBySlug(slug, 'es'); // Por defecto en español
+  const project = getProjectBySlug(slug, 'es'); // Por defecto en español
   if (!project) {
     return {
       title: "Project not found",
@@ -94,9 +117,18 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   };
 }
 
+// Generar rutas estáticas para todos los proyectos
+export async function generateStaticParams() {
+  const projects = (esTranslations as { projectsData?: Project[] }).projectsData || [];
+  
+  return projects.map((project) => ({
+    slug: project.slug || project.id,
+  }));
+}
+
 export default async function ProjectPage(props: { params: Promise<{ slug: string }> }) {
   const { slug } = await props.params;
-  const project = await fetchProjectBySlug(slug, 'es'); // Por defecto en español
+  const project = getProjectBySlug(slug, 'es'); // Por defecto en español
   if (!project) {
     return (
       <div className="container mx-auto px-6 py-12 text-center dark:bg-gray-950">
