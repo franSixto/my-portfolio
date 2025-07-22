@@ -1,283 +1,283 @@
 {
-  "home": {
-    "hero": {
-      "tagline": "インパクトのあるデジタル体験を構築する。",
-      "title": "UX/UI リード & フロントエンド開発者",
-      "description": "私は直感的でアクセシブル、そして視覚的に魅力的なデジタル製品を作るUX/UIスペシャリスト兼フロントエンド開発者です。",
-      "myWork": "私の仕事",
-      "resume": "履歴書",
-      "helloHuman": "こんにちは、人間よ、",
-      "petDog": "犬を撫でるだけ！ ✨"
-    },
-    "aboutTeaser": {
-      "title": "私について少し",
-      "description": "ピクセルの背後にいる人物への小さな洞察です。",
-      "readMore": "私についてもっと読む",
-      "altText": "これが私です",
-      "birthPlace": "アルゼンチン、コルドバ南部の小さな町で生まれました",
-      "birthDescription": "私は常に大きな夢と優れたデザインと技術への深い情熱を抱いてきました。",
-      "sportsText": "デジタル体験を作っていない時は、スポーツでアクティブに過ごしているか、応援している",
-      "riverPlate": "リバープレートを心と魂で。"
-    },
-    "highlights": {
-      "title": "ツールと技術",
-      "description": "アイデアを実現するために使用するツールの厳選されたコレクション。",
-      "categories": {
-        "design": {
-          "title": "デザイン",
-          "description": "美しく機能的なユーザーインターフェースの作成"
+    "home": {
+        "hero": {
+            "tagline": "インパクトのあるデジタル体験を構築する。",
+            "title": "UX/UI リード & フロントエンド開発者",
+            "description": "私は直感的でアクセシブル、そして視覚的に魅力的なデジタル製品を作るUX/UIスペシャリスト兼フロントエンド開発者です。",
+            "myWork": "私の仕事",
+            "resume": "履歴書",
+            "helloHuman": "こんにちは、人間よ、",
+            "petDog": "犬を撫でるだけ！ ✨"
         },
-        "frontend": {
-          "title": "フロントエンド",
-          "description": "レスポンシブで高性能なWebアプリケーションの構築"
+        "aboutTeaser": {
+            "title": "私について少し",
+            "description": "ピクセルの背後にいる人物への小さな洞察です。",
+            "readMore": "私についてもっと読む",
+            "altText": "これが私です",
+            "birthPlace": "アルゼンチン、コルドバ南部の小さな町で生まれました",
+            "birthDescription": "私は常に大きな夢と優れたデザインと技術への深い情熱を抱いてきました。",
+            "sportsText": "デジタル体験を作っていない時は、スポーツでアクティブに過ごしているか、応援している",
+            "riverPlate": "リバープレートを心と魂で。"
         },
-        "backend": {
-          "title": "バックエンド",
-          "description": "堅牢なサーバーサイドソリューションの開発"
+        "highlights": {
+            "title": "ツールと技術",
+            "description": "アイデアを実現するために使用するツールの厳選されたコレクション。",
+            "categories": {
+                "design": {
+                    "title": "デザイン",
+                    "description": "美しく機能的なユーザーインターフェースの作成"
+                },
+                "frontend": {
+                    "title": "フロントエンド",
+                    "description": "レスポンシブで高性能なWebアプリケーションの構築"
+                },
+                "backend": {
+                    "title": "バックエンド",
+                    "description": "堅牢なサーバーサイドソリューションの開発"
+                },
+                "tools": {
+                    "title": "ツール",
+                    "description": "開発とデザインワークフローに必要不可欠なツール"
+                }
+            }
         },
-        "tools": {
-          "title": "ツール",
-          "description": "開発とデザインワークフローに必要不可欠なツール"
+        "services": {
+            "title": "私がすること",
+            "description": "デザイン思考、堅実な開発、そしてチーム経験の組み合わせ。",
+            "uxui": {
+                "title": "UX/UIデザイン",
+                "description": "初期段階のワイヤーフレームから洗練されたプロトタイプまで、直感的でスケーラブルなユーザーインターフェースをデザインします。デザイン思考をユーザーリサーチ、アクセシビリティ基準、ユーザビリティテストと組み合わせて、すべての体験が真のインパクトを提供することを保証します。"
+            },
+            "frontend": {
+                "title": "フロントエンド開発",
+                "description": "React、Next.js、Tailwind CSS、TypeScriptを使用して高性能でレスポンシブ、アクセシブルなWebアプリを構築します。私のツールキットには、柔軟性やバックエンド統合が重要な場合に備えて、WordPress、Bootstrap、.NET Coreも含まれています。"
+            },
+            "teamLeadership": {
+                "title": "チームリーダーシップ",
+                "description": "計画、コードレビュー、メンタリング、タスク調整を通じてデザインと開発チームをリードします。ビジョン、タイムライン、成果物を一致させるために、デザイナー、開発者、ステークホルダー間のギャップを埋めます。明確なコミュニケーションとユーザーファーストの考え方が常に私の優先事項です。"
+            },
+            "optimization": {
+                "title": "最適化とデプロイ",
+                "description": "SEO最適化、サイトパフォーマンス向上、Gitでのバージョン管理、合理化されたCI/CDワークフローを担当します。セマンティックHTMLからアセット最適化、本番デプロイまで、すべてのプロジェクトが高速で発見可能、そして将来に対応できることを保証します。"
+            }
         }
-      }
     },
-    "services": {
-      "title": "私がすること",
-      "description": "デザイン思考、堅実な開発、そしてチーム経験の組み合わせ。",
-      "uxui": {
-        "title": "UX/UIデザイン",
-        "description": "初期段階のワイヤーフレームから洗練されたプロトタイプまで、直感的でスケーラブルなユーザーインターフェースをデザインします。デザイン思考をユーザーリサーチ、アクセシビリティ基準、ユーザビリティテストと組み合わせて、すべての体験が真のインパクトを提供することを保証します。"
-      },
-      "frontend": {
-        "title": "フロントエンド開発",
-        "description": "React、Next.js、Tailwind CSS、TypeScriptを使用して高性能でレスポンシブ、アクセシブルなWebアプリを構築します。私のツールキットには、柔軟性やバックエンド統合が重要な場合に備えて、WordPress、Bootstrap、.NET Coreも含まれています。"
-      },
-      "teamLeadership": {
-        "title": "チームリーダーシップ",
-        "description": "計画、コードレビュー、メンタリング、タスク調整を通じてデザインと開発チームをリードします。ビジョン、タイムライン、成果物を一致させるために、デザイナー、開発者、ステークホルダー間のギャップを埋めます。明確なコミュニケーションとユーザーファーストの考え方が常に私の優先事項です。"
-      },
-      "optimization": {
-        "title": "最適化とデプロイ",
-        "description": "SEO最適化、サイトパフォーマンス向上、Gitでのバージョン管理、合理化されたCI/CDワークフローを担当します。セマンティックHTMLからアセット最適化、本番デプロイまで、すべてのプロジェクトが高速で発見可能、そして将来に対応できることを保証します。"
-      }
-    }
-  },
-  "navigation": {
-    "home": "ホーム",
-    "about": "概要",
-    "projects": "プロジェクト",
-    "blog": "ブログ",
-    "contact": "お問い合わせ"
-  },
-  "pages": {
-    "about": {
-      "title": "私について",
-      "description": "私は情熱的なUX/UIデザイナー兼フロントエンド開発者です。",
-      "paragraph1": "私はフランシスコ・シクスト — 堅実な技術的背景を持つUX/UIデザイナーです。デザインとフロントエンド開発の交差点で働き、明確で効率的、ユーザー中心のデジタル体験を作成しています。物事を複雑にすることなく品質を提供するのに役立つ良いシステム、スマートな反復、実用的なツールを信じています。",
-      "paragraph2": "長年にわたって、私はデザインと開発チームをリードし、優先事項を調整し、コードとモックアップをレビューし、ウェブサイト、CRM、ポータル全体でスケーラブルなソリューションを構築してきました。他の人をメンタリングし、チームのワークフローを改善し、プロセスのあらゆるステップで創造性と明確さのバランスを取ることを楽しんでいます。",
-      "paragraph3": "私を駆り立てるのは直感的な体験の追求です — 構造、インタラクション、美学が自然に一致する種類のものです。Figma、VS Code、またはチームコールで作業しているかどうかに関係なく、物事をより良く機能させ、よりスムーズに感じさせ、目的を持ってユーザーにサービスを提供する方法について常に考えています。",
-      "paragraph4": "仕事以外では、スポーツ、家族や友人との時間、オフラインでのシンプルな瞬間を楽しんでいます。日常生活 — 会話、共有された食事、または私が大切に思う人々と一緒にいることから多くのインスピレーションを得ています。",
-      "niceToMeet": "お会いできて嬉しいです！ 😎",
-      "thankYou": "私のポートフォリオをご覧いただきありがとうございます！コラボレーションして何か素晴らしいものを作る機会を楽しみにしています。",
-      "jobTitle": "UX/UIデザイナー & フロントエンド開発者",
-      "location": "所在地：アルゼンチン、コルドバ",
-      "myWork": "私の仕事",
-      "downloadResume": "履歴書"
+    "navigation": {
+        "home": "ホーム",
+        "about": "概要",
+        "projects": "プロジェクト",
+        "blog": "ブログ",
+        "contact": "お問い合わせ"
+    },
+    "pages": {
+        "about": {
+            "title": "私について",
+            "description": "私は情熱的なUX/UIデザイナー兼フロントエンド開発者です。",
+            "paragraph1": "私はフランシスコ・シクスト — 堅実な技術的背景を持つUX/UIデザイナーです。デザインとフロントエンド開発の交差点で働き、明確で効率的、ユーザー中心のデジタル体験を作成しています。物事を複雑にすることなく品質を提供するのに役立つ良いシステム、スマートな反復、実用的なツールを信じています。",
+            "paragraph2": "長年にわたって、私はデザインと開発チームをリードし、優先事項を調整し、コードとモックアップをレビューし、ウェブサイト、CRM、ポータル全体でスケーラブルなソリューションを構築してきました。他の人をメンタリングし、チームのワークフローを改善し、プロセスのあらゆるステップで創造性と明確さのバランスを取ることを楽しんでいます。",
+            "paragraph3": "私を駆り立てるのは直感的な体験の追求です — 構造、インタラクション、美学が自然に一致する種類のものです。Figma、VS Code、またはチームコールで作業しているかどうかに関係なく、物事をより良く機能させ、よりスムーズに感じさせ、目的を持ってユーザーにサービスを提供する方法について常に考えています。",
+            "paragraph4": "仕事以外では、スポーツ、家族や友人との時間、オフラインでのシンプルな瞬間を楽しんでいます。日常生活 — 会話、共有された食事、または私が大切に思う人々と一緒にいることから多くのインスピレーションを得ています。",
+            "niceToMeet": "お会いできて嬉しいです！ 😎",
+            "thankYou": "私のポートフォリオをご覧いただきありがとうございます！コラボレーションして何か素晴らしいものを作る機会を楽しみにしています。",
+            "jobTitle": "UX/UIデザイナー & フロントエンド開発者",
+            "location": "所在地：アルゼンチン、コルドバ",
+            "myWork": "私の仕事",
+            "downloadResume": "履歴書"
+        },
+        "projects": {
+            "title": "プロジェクト",
+            "description": "ここでは私が取り組んだプロジェクトの一部をご覧いただけます。",
+            "noImage": "画像なし",
+            "viewProject": "プロジェクトを見る",
+            "liveProject": "ライブプロジェクト",
+            "technologies": "技術",
+            "role": "私の役割",
+            "backToProjects": "← プロジェクトに戻る",
+            "relatedProjects": "関連プロジェクト"
+        },
+        "contact": {
+            "title": "お問い合わせ",
+            "description": "プロジェクトのアイデアはありますか？お話ししましょう！",
+            "letsConnect": "つながりましょう",
+            "getInTouch": "連絡を取る",
+            "getInTouchDescription": "質問がありますか、または一緒に働きたいですか？",
+            "cta": {
+                "title": "一緒に素晴らしいものを作りましょう",
+                "description": "UX/UIデザイナー、フロントエンド開発者、またはあなたのアイデアを実現するチームリーダーをお探しの場合 — 私は準備ができています。お気軽にご連絡ください。喜んでつながらせていただきます。",
+                "button": "お問い合わせ"
+            },
+            "subscribe": {
+                "title": "最新情報を受け取る",
+                "description": "プロジェクトや業界の洞察に関する最新の更新情報を受け取るために、私のニュースレターに登録してください。",
+                "placeholder": "あなたのメールアドレス",
+                "button": "登録",
+                "success": "登録ありがとうございます！",
+                "error": "登録エラー。もう一度お試しください。",
+                "emailRequired": "メールは必須です",
+                "invalidEmail": "無効なメールアドレス"
+            }
+        }
     },
     "projects": {
-      "title": "プロジェクト",
-      "description": "ここでは私が取り組んだプロジェクトの一部をご覧いただけます。",
-      "noImage": "画像なし",
-      "viewProject": "プロジェクトを見る",
-      "liveProject": "ライブプロジェクト",
-      "technologies": "技術",
-      "role": "私の役割",
-      "backToProjects": "← プロジェクトに戻る",
-      "relatedProjects": "関連プロジェクト"
+        "officina-artis": {
+            "title": "Officina Artis：空間、インタラクション、キュレーションを探求するバーチャル3Dアートギャラリー",
+            "description": "クリエイティブコーディング、空間ストーリーテリング、アーティスティックディレクションを組み合わせて、バーチャルギャラリーでアートワークを探索する3Dイマーシブ体験をデザイン・開発しました。"
+        },
+        "experience-at-startu": {
+            "title": "オンライン教育の変革：20以上の大学サイトのためのUX戦略とスケーラブルデザイン",
+            "description": "複数の市場でデジタル体験のデザインと開発をリードし、戦略、技術、チームワークを組み合わせて20以上の教育ウェブサイトを変革し、ユーザビリティとコンバージョンを向上させました。"
+        },
+        "experience-at-autocity": {
+            "title": "エンジンからエレガンスへ：自動車、ホスピタリティ、ライフスタイルブランドのためのデジタルエコシステム",
+            "description": "高度な機能を持つ自動車プラットフォームから高級ホスピタリティやゴルフクラブのデジタル体験まで、複数の業界にわたってイマーシブで高コンバージョンのウェブサイトをデザイン・開発しました。"
+        },
+        "experience-at-sixto-van-garret": {
+            "title": "ビスポークデジタルアイデンティティの創造：ユニークなブランドのためのカスタムウェブソリューション",
+            "description": "ラグジュアリーサービスから革新的なスタートアップまで、特徴的なブランドのためにカスタムデザインと戦略的ユーザー体験に焦点を当てたテーラーメイドのデジタル体験を作成しました。"
+        },
+        "experience-at-deep-creek": {
+            "title": "戦略的デジタル変革：エンタープライズソリューションのためのフルサイクル開発",
+            "description": "コンセプトから展開まで包括的なデジタルプロジェクトをリードし、ユーザー体験とビジネス目標に焦点を当てたスケーラブルなエンタープライズソリューションを提供しました。"
+        },
+        "experience-at-apex": {
+            "title": "パフォーマンス重視のデジタルソリューション：成長志向企業のための高インパクトプロジェクト",
+            "description": "戦略的思考と技術的卓越性を組み合わせて、コンバージョンと成長のために最適化された最先端のデジタル体験を提供しました。"
+        }
     },
     "contact": {
-      "title": "お問い合わせ",
-      "description": "プロジェクトのアイデアはありますか？お話ししましょう！",
-      "letsConnect": "つながりましょう",
-      "getInTouch": "連絡を取る",
-      "getInTouchDescription": "質問がありますか、または一緒に働きたいですか？",
-      "cta": {
-        "title": "一緒に素晴らしいものを作りましょう",
-        "description": "UX/UIデザイナー、フロントエンド開発者、またはあなたのアイデアを実現するチームリーダーをお探しの場合 — 私は準備ができています。お気軽にご連絡ください。喜んでつながらせていただきます。",
-        "button": "お問い合わせ"
-      },
-      "subscribe": {
-        "title": "最新情報を受け取る",
-        "description": "プロジェクトや業界の洞察に関する最新の更新情報を受け取るために、私のニュースレターに登録してください。",
-        "placeholder": "あなたのメールアドレス",
-        "button": "登録",
-        "success": "登録ありがとうございます！",
-        "error": "登録エラー。もう一度お試しください。",
-        "emailRequired": "メールは必須です",
-        "invalidEmail": "無効なメールアドレス"
-      }
-    }
-  },
-  "projects": {
-    "officina-artis": {
-      "title": "Officina Artis：空間、インタラクション、キュレーションを探求するバーチャル3Dアートギャラリー",
-      "description": "クリエイティブコーディング、空間ストーリーテリング、アーティスティックディレクションを組み合わせて、バーチャルギャラリーでアートワークを探索する3Dイマーシブ体験をデザイン・開発しました。"
+        "form": {
+            "title": "私と話す",
+            "name": "名前",
+            "email": "メール",
+            "message": "メッセージ",
+            "send": "メッセージを送信",
+            "sending": "送信中...",
+            "successTitle": "メッセージが送信されました！",
+            "successMessage": "メッセージをありがとうございます。すぐにご連絡いたします！",
+            "recaptchaError": "reCAPTCHAを完了してください。",
+            "nameRequired": "名前は必須です",
+            "emailRequired": "メールは必須です",
+            "emailInvalid": "有効なメールを入力してください",
+            "messageRequired": "メッセージは必須です"
+        }
     },
-    "experience-at-startu": {
-      "title": "オンライン教育の変革：20以上の大学サイトのためのUX戦略とスケーラブルデザイン",
-      "description": "複数の市場でデジタル体験のデザインと開発をリードし、戦略、技術、チームワークを組み合わせて20以上の教育ウェブサイトを変革し、ユーザビリティとコンバージョンを向上させました。"
+    "common": {
+        "loading": "読み込み中...",
+        "error": "エラー",
+        "backHome": "ホームに戻る",
+        "readMore": "もっと読む",
+        "viewProject": "プロジェクトを見る",
+        "liveProject": "ライブプロジェクト",
+        "toolsAndTechnologies": {
+            "title": "ツールと技術",
+            "description": "アイデアを実現するために使用するツールの厳選されたコレクション。"
+        },
+        "services": {
+            "title": "私がすること",
+            "description": "デザイン思考、堅実な開発、そしてチーム経験の組み合わせ。",
+            "uxUiDesign": {
+                "title": "UX/UIデザイン",
+                "description": "初期段階のワイヤーフレームから洗練されたプロトタイプまで、直感的でスケーラブルなユーザーインターフェースをデザインします。デザイン思考をユーザーリサーチ、アクセシビリティ基準、ユーザビリティテストと組み合わせて、すべての体験が真のインパクトを提供することを保証します。"
+            },
+            "frontendDevelopment": {
+                "title": "フロントエンド開発",
+                "description": "React、Next.js、Tailwind CSS、TypeScriptを使用して高性能でレスポンシブ、アクセシブルなWebアプリを構築します。私のツールキットには、柔軟性やバックエンド統合が重要な場合に備えて、WordPress、Bootstrap、.NET Coreも含まれています。"
+            },
+            "teamLeadership": {
+                "title": "チームリーダーシップ",
+                "description": "計画、コードレビュー、メンタリング、タスク調整を通じてデザインと開発チームをリードします。ビジョン、タイムライン、成果物を一致させるために、デザイナー、開発者、ステークホルダー間のギャップを埋めます。明確なコミュニケーションとユーザーファーストの考え方が常に私の優先事項です。"
+            },
+            "optimizationDeploy": {
+                "title": "最適化とデプロイ",
+                "description": "SEO最適化、サイトパフォーマンス向上、Gitでのバージョン管理、合理化されたCI/CDワークフローを担当します。セマンティックHTMLからアセット最適化、本番デプロイまで、すべてのプロジェクトが高速で発見可能、そして将来に対応できることを保証します。"
+            }
+        },
+        "funMode": {
+            "play": "パーティーモードを再生",
+            "stop": "パーティーモードを停止",
+            "playButton": "楽しいモードを再生",
+            "stopButton": "これを止めて！",
+            "warning": {
+                "title": "注意！",
+                "message": "このモードには音楽、点滅する色、アニメーションがありますが、とても楽しいです。大丈夫でしたら試してみてください。",
+                "play": "再生",
+                "cancel": "キャンセル"
+            }
+        }
     },
-    "experience-at-autocity": {
-      "title": "エンジンからエレガンスへ：自動車、ホスピタリティ、ライフスタイルブランドのためのデジタルエコシステム",
-      "description": "高度な機能を持つ自動車プラットフォームから高級ホスピタリティやゴルフクラブのデジタル体験まで、複数の業界にわたってイマーシブで高コンバージョンのウェブサイトをデザイン・開発しました。"
+    "subscribe": {
+        "homeTitle": "共有したい",
+        "homeDescription": "デザイン、開発、そして私が面白いと思うことについて時々更新をお送りします。参加してください！",
+        "homeDisclaimer": "スパムはありません。いつでも登録解除できます。",
+        "homeWelcome": "ここにいてくれて嬉しいです！ 😊"
     },
-    "experience-at-sixto-van-garret": {
-      "title": "ビスポークデジタルアイデンティティの創造：ユニークなブランドのためのカスタムウェブソリューション",
-      "description": "ラグジュアリーサービスから革新的なスタートアップまで、特徴的なブランドのためにカスタムデザインと戦略的ユーザー体験に焦点を当てたテーラーメイドのデジタル体験を作成しました。"
-    },
-    "experience-at-deep-creek": {
-      "title": "戦略的デジタル変革：エンタープライズソリューションのためのフルサイクル開発",
-      "description": "コンセプトから展開まで包括的なデジタルプロジェクトをリードし、ユーザー体験とビジネス目標に焦点を当てたスケーラブルなエンタープライズソリューションを提供しました。"
-    },
-    "experience-at-apex": {
-      "title": "パフォーマンス重視のデジタルソリューション：成長志向企業のための高インパクトプロジェクト",
-      "description": "戦略的思考と技術的卓越性を組み合わせて、コンバージョンと成長のために最適化された最先端のデジタル体験を提供しました。"
-    }
-  },
-  "contact": {
-    "form": {
-      "title": "私と話す",
-      "name": "名前",
-      "email": "メール",
-      "message": "メッセージ",
-      "send": "メッセージを送信",
-      "sending": "送信中...",
-      "successTitle": "メッセージが送信されました！",
-      "successMessage": "メッセージをありがとうございます。すぐにご連絡いたします！",
-      "recaptchaError": "reCAPTCHAを完了してください。",
-      "nameRequired": "名前は必須です",
-      "emailRequired": "メールは必須です",
-      "emailInvalid": "有効なメールを入力してください",
-      "messageRequired": "メッセージは必須です"
-    }
-  },
-  "common": {
-    "loading": "読み込み中...",
-    "error": "エラー",
-    "backHome": "ホームに戻る",
-    "readMore": "もっと読む",
-    "viewProject": "プロジェクトを見る",
-    "liveProject": "ライブプロジェクト",
-    "toolsAndTechnologies": {
-      "title": "ツールと技術",
-      "description": "アイデアを実現するために使用するツールの厳選されたコレクション。"
-    },
-    "services": {
-      "title": "私がすること",
-      "description": "デザイン思考、堅実な開発、そしてチーム経験の組み合わせ。",
-      "uxUiDesign": {
-        "title": "UX/UIデザイン",
-        "description": "初期段階のワイヤーフレームから洗練されたプロトタイプまで、直感的でスケーラブルなユーザーインターフェースをデザインします。デザイン思考をユーザーリサーチ、アクセシビリティ基準、ユーザビリティテストと組み合わせて、すべての体験が真のインパクトを提供することを保証します。"
-      },
-      "frontendDevelopment": {
-        "title": "フロントエンド開発",
-        "description": "React、Next.js、Tailwind CSS、TypeScriptを使用して高性能でレスポンシブ、アクセシブルなWebアプリを構築します。私のツールキットには、柔軟性やバックエンド統合が重要な場合に備えて、WordPress、Bootstrap、.NET Coreも含まれています。"
-      },
-      "teamLeadership": {
-        "title": "チームリーダーシップ",
-        "description": "計画、コードレビュー、メンタリング、タスク調整を通じてデザインと開発チームをリードします。ビジョン、タイムライン、成果物を一致させるために、デザイナー、開発者、ステークホルダー間のギャップを埋めます。明確なコミュニケーションとユーザーファーストの考え方が常に私の優先事項です。"
-      },
-      "optimizationDeploy": {
-        "title": "最適化とデプロイ",
-        "description": "SEO最適化、サイトパフォーマンス向上、Gitでのバージョン管理、合理化されたCI/CDワークフローを担当します。セマンティックHTMLからアセット最適化、本番デプロイまで、すべてのプロジェクトが高速で発見可能、そして将来に対応できることを保証します。"
-      }
-    },
-    "funMode": {
-      "play": "パーティーモードを再生",
-      "stop": "パーティーモードを停止",
-      "playButton": "楽しいモードを再生",
-      "stopButton": "これを止めて！",
-      "warning": {
-        "title": "注意！",
-        "message": "このモードには音楽、点滅する色、アニメーションがありますが、とても楽しいです。大丈夫でしたら試してみてください。",
-        "play": "再生",
-        "cancel": "キャンセル"
-      }
-    }
-  },
-  "subscribe": {
-    "homeTitle": "共有したい",
-    "homeDescription": "デザイン、開発、そして私が面白いと思うことについて時々更新をお送りします。参加してください！",
-    "homeDisclaimer": "スパムはありません。いつでも登録解除できます。",
-    "homeWelcome": "ここにいてくれて嬉しいです！ 😊"
-  },
-  "projectsData": [
-    {
-      "id": "officina-artis",
-      "slug": "officina-artis",
-      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
-      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction.",
-      "imageUrl": "/projects/officina-artis.webp",
-      "imageAlt": "3D view of the Officina Artis virtual gallery",
-      "logoUrl": "/projects/logo-officina-artis.webp",
-      "logoAlt": "Logo of Officina Artis",
-      "liveUrl": "https://galery-psi.vercel.app",
-      "longDescription": "👉 **Role**: Creative Director & 3D Developer\n📍 **Format**: Self-initiated project\n\n---\n\n🎨 **What I did**\n\n- Designed the concept and structure of a virtual art gallery where users explore curated exhibitions in a 3D space\n- Developed interactive navigation with smooth camera transitions, lighting systems, and environmental audio\n- Created a modular architecture to host rotating exhibits, integrating both personal and invited works\n\n💡 **Creative goals**\n\n- Simulate the contemplative experience of physical art galleries using real-time 3D\n- Explore curation as a spatial narrative: how position, lighting, and transitions affect perception\n- Combine minimal UI with spatial UX to let the environment communicate meaning\n\n🛠️ **Tools & tech**\n\nThree.js, WebGL, Blender, GLSL, HTML, CSS, JavaScript\n→ Fully web-based experience, optimized for desktop browsers\n\n🧠 **Design philosophy**\n\nOfficina Artis is both an artwork and a space for art. It challenges the idea of a gallery as static architecture, instead treating it as a living interface between creator and audience. Each exhibition is a narrative told through layout, rhythm, and silence.\n\n---\n\nI created Officina Artis as a way to merge my passions for visual design, code, and contemporary art. It’s a self-directed experiment that pushes the boundaries of interaction and curatorial storytelling in virtual environments.\n\nAs Creative Director and Developer, I handled every aspect—from the spatial design and lighting to the code that powers movement and ambiance. The result is an elegant, contemplative digital space that reimagines how we engage with artworks online.\n\nOfficina Artis represents my personal design philosophy: minimal, poetic, experimental, and deeply human-centered. It’s not just a tech demo—it’s a statement about how form, space, and code can evoke emotion and presence in the digital age."
-    },
-    {
-      "id": "experience-at-startu",
-      "slug": "experience-at-startu", 
-      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
-      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion.",
-      "imageUrl": "/projects/websites-startu-small.webp",
-      "imageAlt": "Sites and Applications created at Start University",
-      "logoUrl": "/projects/logo-startu.png",
-      "logoAlt": "Start University Logo",
-      "longDescription": "👉 **Role**: UX/UI and Frontend Development Lead\n📍 **Markets**: Latam and India\n\n---\n\n🔧 **What I did**\n\n- Designed and developed digital experiences for 20+ websites (universities, aggregators, blogs)\n- Led a team of designers and frontend developers\n- Delivered visual design, HTML/CSS builds, code reviews, and fast marketing solutions\n\n📈 **Key results**\n\n- Migrated and redesigned 5 legacy websites to .NET Core\n- Built 7 new sites from a shared base system\n- Increased conversions through optimized landings, forms, and campaigns\n\n💡 **Major innovations**\n\n- Standardized the **Student Portal**: unified UX/UI across all institutions with minimal CSS overrides\n- Redesigned aggregators: consistent UI across different databases, adapted per region with localized assets\n\n🛠️ **Tools & tech**\n\nFigma, Bootstrap, HTML, CSS, JavaScript, .NET Core, Jira, SourceTree\n→ Accessibility and SEO best practices included in every delivery\n\n🤝 **Soft skills**\n\nLeadership, decision-making, collaboration with content, marketing, and sales teams\n\n---\n\nAt Start University, I held the role of UX/UI and Frontend Development Lead, driving the creation of high-impact digital experiences across key markets like Latin America and India. My work combined strategy, design, and technology to build websites that connected users with educational opportunities.\n\nI led the visual and frontend development of over 20 active websites, including university sites, content aggregators, and blogs. Together with my team—designers and HTML/CSS developers—we handled everything from wireframes and visual design to frontend implementation and code reviews. We also supported the marketing team with quick-turnaround solutions like landing pages, campaign assets, and form optimizations that improved conversion rates.\n\nA significant part of my work involved migrating and redesigning outdated websites to .NET Core. This process included aligning the brand identity of each educational institution and enhancing user experience across platforms. We successfully migrated five client university websites and established a reusable base system that allowed us to launch seven new sites for incoming partners faster and more efficiently.\n\nOne of my biggest achievements was the standardization of the student portal. Previously, each site had its own version, requiring individual updates. I designed a modular, unified portal interface that adapted to different institutions with minimal CSS changes. This greatly streamlined development, reduced maintenance time, and delivered a consistent experience to all users.\n\nI also led the redesign of content aggregators to ensure visual consistency across platforms, even though they pulled data from different sources. We achieved a cohesive look and feel using dynamic visual adjustments like color schemes, imagery, and localized branding.\n\nThroughout this role, I used tools such as Figma, Bootstrap, HTML, CSS, JavaScript, .NET Core, Jira, and SourceTree. Accessibility and SEO were integrated into every deliverable by default.\n\nBeyond the technical skills, this experience sharpened my leadership, decision-making, and communication with cross-functional teams like content, marketing, and sales. Start University wasn’t just a job—it was a professional platform where I **founded and led the UX/UI design area**, drove transformation, built scalable solutions, and helped bridge people to education through thoughtful digital design."
-    },
-    {
-      "id": "experience-at-autocity",
-      "slug": "experience-at-autocity",
-      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
-      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences.",
-      "imageUrl": "/projects/autocity-grupo-tagle.webp",
-      "imageAlt": "Autocity Grupo Tagle project view",
-      "logoUrl": "/projects/logo-autocity.svg",
-      "logoAlt": "Autocity Logo",
-      "longDescription": "👉 **Role**: UX/UI Designer & Frontend Developer\n📅 **Dates**: Feb 2019 – Aug 2020\n📍 **Location**: Córdoba, Argentina\n\n---\n\n🔧 **What I did**\n\n- Led the redesign of Autocity’s automotive catalog with new interactive features: vehicle comparison, pricing estimator, and dynamic filtering\n- Created new websites for premium lifestyle and hospitality brands under Grupo Tagle:\n  - **Scratch House** (luxury hotel)\n  - **El Terrón Golf Club** (exclusive golf resort)\n  - **Grupo Tagle corporate website**\n  - **Motoplex Córdoba** and **Royal Enfield Córdoba** (motorcycle brands)\n\n📈 **Key results**\n\n- Enhanced user experience across all digital platforms with responsive design and improved navigation\n- Delivered on-brand interfaces for each business vertical, adapting tone and visual identity accordingly\n- Increased lead generation with improved UX in quotation and inquiry flows\n\n💡 **Major innovations**\n\n- Developed a vehicle comparison tool that simplified decision-making for users\n- Streamlined internal CMS workflows for updating catalogs and brand content\n- Applied tailored design systems to balance premium aesthetics and usability\n\n🛠️ **Tools & tech**\n\nAdobe XD, Illustrator, Photoshop, HTML, CSS, JavaScript, Bootstrap\n→ Focus on responsive design, performance optimization, and brand storytelling\n\n🤝 **Soft skills**\n\nClient communication, adaptability across industries, attention to detail, iterative design, team collaboration\n\n---\n\nDuring my time at Autocity and Grupo Tagle, I worked on digital platforms that spanned diverse industries—from the fast-paced world of automotive sales to the refined experiences of luxury hospitality and golf.\n\nOne of the core achievements was the revamp of Autocity’s car catalog. We introduced powerful tools for users to compare models, estimate prices, and filter options with ease, resulting in a far more engaging and practical browsing experience.\n\nIn parallel, I collaborated on building new digital presences for Scratch House and El Terrón Golf Club—two high-end lifestyle brands. These websites focused on elegance, exclusivity, and ease of access to information and booking processes. For Grupo Tagle’s corporate site and motorcycle divisions (Motoplex and Royal Enfield), the goal was a clean, brand-aligned presence that inspired trust and action.\n\nAt Autocity and Grupo Tagle, I also had the opportunity to **establish the UX/UI design discipline from the ground up**, bringing structure and a user-centered mindset to a context that had previously relied on more traditional approaches.\n\nThis experience helped me apply my UX/UI design expertise to very different audiences and expectations, maintaining quality and performance across the board."
-    },
-    {
-      "id": "experience-at-sixto-van-garret",
-      "slug": "experience-at-sixto-van-garret",
-      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
-      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience.",
-      "imageUrl": "/projects/sixto-van-garret.webp",
-      "imageAlt": "Sixto Van Garret project showcase",
-      "logoUrl": "/projects/logo-sixto-van-garret.png",
-      "logoAlt": "Sixto Van Garret Logo",
-      "longDescription": "I designed and launched a sleek online store for **Sixto Van Garret**, a premium lifestyle brand. The goal was to reflect elegance and exclusivity through a simple and effective e-commerce experience.\n\n### 🎯 Goal\nLaunch a simple, functional e-commerce site for a high-end lifestyle brand, with a strong focus on visual aesthetics and user experience.\n\n### 🛠️ How i did it\nBuilt using **Tienda Nube** for quick deployment. The design was customized with a dominant **gold color palette** to reflect the brand’s premium identity. Clear navigation and content hierarchy let the product visuals take center stage.\n\n### ✨ What stands out\nMinimalist layout with a luxurious feel. Gold accents elevate the brand image without overwhelming the interface.\n\n### 📦 Result\nA clean, stylish store — easy to navigate, visually striking, and ready to grow."
-    },
-    {
-      "id": "experience-at-deep-creek",
-      "slug": "experience-at-deep-creek",
-      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
-      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives.",
-      "imageUrl": "/projects/deep-creek-solutions.webp",
-      "imageAlt": "Deep Creek Solutions project view",
-      "logoUrl": "/projects/logo-deep-creek.png",
-      "logoAlt": "Deep Creek Solutions Logo",
-      "longDescription": "👉 **Role**: UX/UI Designer & Product Collaborator\n📍 **Focus areas**: Beauty tech, healthcare systems, internal incubator, communication design\n\n---\n\n🔧 **What I did**\n\n- Designed user flows and interfaces for an esthetic equipment rental system and a companion app for estheticians to manage their business\n- Improved UX/UI and developed new tools within **Red Sanitaria** and **Retia Health** platforms (for hospitals, clinics, and dental practices)\n- Created a fully interactive **odontogram tool** for dental record-keeping\n- Contributed to automation features like billing flows and clinical data inputs\n- Designed graphic pieces for internal and external communication materials\n\n📈 **Innovation & Strategy**\n\n- Collaborated with the internal incubator to design commercial presentations and craft budgets for early-stage ventures\n- Participated in the design of MVPs for new business ideas, including automotive sales tools\n\n🛠️ **Tools & tech**\n\nFigma, HTML/CSS, JavaScript, Adobe Suite, internal APIs, Notion\n→ Applied UX writing, accessibility guidelines, and agile iteration cycles\n\n🤝 **Cross-team collaboration**\n\nWorked alongside product owners, healthcare specialists, and commercial leads to align design and business value.\n\n---\n\nAt Deep Creek Solutions, I worked across product design, UX/UI enhancements, and commercial innovation. **I initiated the UX/UI practice within the company**, designing digital products for the beauty tech sector, including an equipment rental platform and a mobile-first app for estheticians to manage bookings, clients, and payments.\n\nParallel to this, I was involved in healthtech products like **Red Sanitaria** and **Retia Health**, where I improved interfaces for hospitals, clinics, and dental offices. A key highlight was designing an interactive odontogram for dentists and helping automate billing processes in clinical environments.\n\nBeyond product work, I also supported the company’s internal incubator: crafting sales decks, budgeting proposals, and early MVPs for new business ideas. Additionally, I created visual assets and communication pieces to support marketing and project presentations.\n\nMy role combined creative UX thinking, visual design, and business-oriented solutions to turn ideas into impactful products and materials."
-    },
-    {
-      "id": "experience-at-apex",
-      "slug": "experience-at-apex",
-      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
-      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence.",
-      "imageUrl": "/projects/apex-projects.webp",
-      "imageAlt": "Apex projects overview",
-      "logoUrl": "/projects/logo-apex.png",
-      "logoAlt": "Apex Logo",
-      "longDescription": "👉 **Role**: Internal Communication Specialist & Designer\n📅 **Dates**: May 2015 – Feb 2019\n📍 **Location**: Córdoba, Argentina\n\n---\n\n🔧 **What I did**\n\n- Developed and executed **internal communication campaigns** across Apex sites in Latin America\n- Created **signage systems** (arquigrafía) for multiple office locations, ensuring consistent brand expression\n- Designed **branded content** for internal channels, newsletters, and events\n- Provided occasional support for digital experiences like intranets and corporate websites\n- Collaborated with the **Innovation team** on company-wide sprints using **Design Sprint methodology**\n\n📈 **Key contributions**\n\n- Enhanced employee engagement through clear, visually cohesive messaging\n- Helped shape Apex’s internal brand across Argentina, Chile, Colombia, Paraguay, and Honduras\n- Contributed to ideation and prototyping phases of innovation projects across departments\n\n💡 **Highlights**\n\n- Participated in multidisciplinary innovation programs using iterative, design-led processes\n- Created signage adapted to the identity and architecture of each office location\n- Supported HR, innovation, sustainability, and sales communication initiatives\n\n🛠️ **Tools & tech**\n\nIllustrator, Photoshop, InDesign, PowerPoint, internal CMS platforms, Design Sprint methodology\n→ Focus on print and spatial design, internal culture, and collaborative innovation support\n\n🤝 **Soft skills**\n\nCross-functional teamwork, communication design, cultural sensitivity, attention to detail\n\n---\n\nAt Apex America, I served as an **Internal Communication Specialist & Designer**, supporting communication strategies for employees across the region. My role focused on reinforcing the company's identity through clear messaging, engaging content, and visual consistency in physical and digital environments.\n\nOne of my most impactful contributions was the development of **signage systems** and visual branding for Apex’s offices throughout Latin America. I also worked closely with the **Innovation team**, participating in sprints that used collaborative methodologies to solve internal challenges and spark new ideas.\n\nWhile my core focus was internal communication, I also contributed to digital content, branding for corporate events, and the alignment of materials across departments like HR and Sustainability. This experience strengthened my ability to deliver meaningful, context-aware design in diverse professional settings."
-    }
-  ]
+    "projectsData": [
+        {
+            "id": "officina-artis",
+            "slug": "officina-artis",
+            "title": "Officina Artis：空間・インタラクション・キュレーションを探求する仮想3Dアートギャラリー",
+            "description": "クリエイティブコーディング、空間ストーリーテリング、アートディレクションを組み合わせ、仮想ギャラリーで作品を探索する没入型3D体験を設計・開発しました。",
+            "imageUrl": "/projects/officina-artis.webp",
+            "imageAlt": "Officina Artis仮想ギャラリーの3Dビュー",
+            "logoUrl": "/projects/logo-officina-artis.webp",
+            "logoAlt": "Officina Artisのロゴ",
+            "liveUrl": "https://galery-psi.vercel.app",
+            "longDescription": "👉 **役割**: クリエイティブディレクター & 3D開発者\n📍 **形式**: 自主プロジェクト\n\n---\n\n🎨 **実施内容**\n\n- 3D空間でキュレーション展示を探索できる仮想アートギャラリーのコンセプト設計\n- スムーズなカメラ遷移、照明システム、環境音を備えたインタラクティブナビゲーションの開発\n- 個人作品と招待作品を統合する回転展示用モジュール構造の作成\n\n💡 **創造的目標**\n\n- リアルタイム3Dで物理的な美術館の鑑賞体験を再現\n- 空間ナラティブとしてのキュレーション：配置・照明・遷移が知覚に与える影響を探求\n- 最小限のUIと空間的UXを融合させ、環境自体が意味を伝達する設計\n\n🛠️ **使用技術**\n\nThree.js, WebGL, Blender, GLSL, HTML, CSS, JavaScript\n→ デスクトップブラウザ向けに最適化された完全Webベース体験\n\n🧠 **デザイン哲学**\n\nOfficina Artisは芸術作品であると同時に芸術のための空間です。静的な建築としてのギャラリー概念に挑戦し、創造者と観客の間の「生きているインターフェース」として扱います。各展示はレイアウト・リズム・沈黙を通して語られる物語です。\n\n---\n\nこのプロジェクトは、ビジュアルデザイン・コーディング・現代美術への情熱を融合させたものです。仮想環境におけるインタラクションとキュレーションストーリーテリングの境界を押し広げる自主的な実験でした。\n\nクリエイティブディレクター兼開発者として、空間設計・照明から動きと雰囲気を制御するコードまで全てを担当。オンラインで芸術作品と関わる方法を再定義する、エレガントで思索的なデジタル空間を実現しました。\n\nOfficina Artisは私のデザイン哲学を体現しています：ミニマルで詩的、実験的、そして人間中心。単なる技術デモではなく、デジタル時代において形・空間・コードが感情と存在感を喚起する可能性を示す声明なのです。"
+        },
+        {
+            "id": "experience-at-startu",
+            "slug": "experience-at-startu",
+            "title": "教育のオンライン変革：20以上の大学サイト向けUX戦略と拡張可能なデザイン",
+            "description": "戦略・技術・チームワークを組み合わせ、20以上の教育ウェブサイトを変革し、使いやすさとコンバージョンを向上させるデジタル体験を主導しました。",
+            "imageUrl": "/projects/websites-startu-small.webp",
+            "imageAlt": "Start Universityが作成したサイトとアプリケーション",
+            "logoUrl": "/projects/logo-startu.png",
+            "logoAlt": "Start Universityのロゴ",
+            "longDescription": "👉 **役割**: UX/UI・フロントエンド開発リーダー\n📍 **市場**: ラテンアメリカとインド\n\n---\n\n🔧 **実施内容**\n\n- 20以上のウェブサイト（大学・情報集約サイト・ブログ）向けデジタル体験の設計開発\n- デザイナーとフロントエンド開発者チームの統率\n- ビジュアルデザイン、HTML/CSS構築、コードレビュー、迅速なマーケティングソリューションの提供\n\n📈 **主要成果**\n\n- 5つのレガシーサイトを.NET Coreへ移行・リデザイン\n- 共有ベースシステムから7つの新規サイトを構築\n- 最適化されたランディングページ・フォーム・キャンペーンによるコンバージョン率向上\n\n💡 **主な革新点**\n\n- **学生ポータル**の標準化：最小限のCSS上書きで全機関統一のUX/UIを実現\n- 情報集約サイトの再設計：異なるデータベース間でも一貫性のあるUIを維持し、地域ごとにローカライズ\n\n🛠️ **使用技術**\n\nFigma, Bootstrap, HTML, CSS, JavaScript, .NET Core, Jira, SourceTree\n→ 全ての成果物にアクセシビリティとSEOベストプラクティスを適用\n\n🤝 **ソフトスキル**\n\nリーダーシップ、意思決定、コンテンツ/マーケティング/セールスチームとの協働\n\n---\n\nStart Universityでは、ラテンアメリカやインドなどの主要市場で教育機会とユーザーを結ぶ高影響力のデジタル体験を構築しました。\n\n20以上のアクティブサイト（大学公式サイト・コンテンツアグリゲーター・ブログ等）のビジュアルとフロントエンド開発を主導。チームと共にワイヤーフレームからフロントエンド実装までを担当し、コンバージョン率向上のためのランディングページ最適化などマーケティング支援も実施。\n\n特筆すべきは学生ポータルの標準化で、個別更新が必要だった各サイトを、最小CSS変更で異なる機関に適応可能なモジュラー型統一インターフェースに再設計。開発効率化とメンテナンス時間削減を実現しました。\n\nこの経験を通じ、技術スキルに加え、コンテンツ/マーケティング/セールスチームとの協働におけるリーダーシップと意思決定能力を研鑽。Start Universityでは**UX/UI設計領域を創設・主導**し、教育と人々をつなぐスケーラブルなソリューションを構築しました。"
+        },
+        {
+            "id": "experience-at-autocity",
+            "slug": "experience-at-autocity",
+            "title": "エンジンから優雅へ：自動車・ホスピタリティ・ライフスタイルブランド向けデジタルエコシステム",
+            "description": "高度な機能を備えた自動車プラットフォームから高級ホスピタリティ・ゴルフクラブのデジタル体験まで、複数業界にまたがる没入型高コンバージョンウェブサイトを設計開発。",
+            "imageUrl": "/projects/autocity-grupo-tagle.webp",
+            "imageAlt": "Autocity Grupo Tagleプロジェクトビュー",
+            "logoUrl": "/projects/logo-autocity.svg",
+            "logoAlt": "Autocityのロゴ",
+            "longDescription": "👉 **役割**: UX/UIデザイナー & フロントエンド開発者\n📅 **期間**: 2019年2月～2020年8月\n📍 **場所**: アルゼンチン・コルドバ\n\n---\n\n🔧 **実施内容**\n\n- Autocity自動車カタログの再設計（車両比較・価格見積もり・動的フィルタリング機能追加）\n- Grupo Tagle傘下プレミアムブランド向け新規サイト制作:\n  - **Scratch House**（高級ホテル）\n  - **El Terrónゴルフクラブ**（会員制リゾート）\n  - **Grupo Tagleコーポレートサイト**\n  - **Motoplex Córdoba**と**Royal Enfield Córdoba**（オートバイブランド）\n\n📈 **主要成果**\n\n- レスポンシブデザインと改善されたナビゲーションによる全プラットフォームのUX向上\n- 各事業分野に合わせたブランド準拠のインターフェース提供\n- 見積もりフローのUX改善によるリード生成増加\n\n💡 **主な革新点**\n\n- ユーザー意思決定を簡素化する車両比較ツール開発\n- カタログ・ブランドコンテンツ更新のための内部CMSワークフロー効率化\n- 高級感と使いやすさを両立するカスタムデザインシステム適用\n\n🛠️ **使用技術**\n\nAdobe XD, Illustrator, Photoshop, HTML, CSS, JavaScript, Bootstrap\n→ レスポンシブデザイン・パフォーマンス最適化・ブランドストーリーテリングに重点\n\n🤝 **ソフトスキル**\n\nクライアントコミュニケーション、業界横断的適応力、細部への注意力、反復設計、チーム協働\n\n---\n\nAutocityとGrupo Tagleでは、自動車販売の高速な世界から高級ホスピタリティ・ゴルフの洗練された体験まで、多様な業界のデジタルプラットフォームを手掛けました。\n\n中核的成果はAutocityの車カタログ刷新で、モデル比較・価格見積もり・オプションフィルタリングツールを導入し、従来より実用的で魅力的な閲覧体験を実現。並行してScratch HouseとEl Terrónゴルフクラブのデジタルプレゼンス構築に協力し、情報アクセスと予約プロセスの容易さを追求しました。\n\nこの経験を通じ、従来の伝統的アプローチに依存していた環境に**UX/UI設計分野をゼロから確立**し、異なる期待を持つ多様なオーディエンスに対応するデザイン専門知識を適用しました。"
+        },
+        {
+            "id": "experience-at-sixto-van-garret",
+            "slug": "experience-at-sixto-van-garret",
+            "title": "特注のデジタルアイデンティティ構築：独自ブランド向けカスタムWebソリューション",
+            "description": "高級サービスから革新的スタートアップまで、独自性のあるブランド向けにカスタムデザインと戦略的ユーザー体験に焦点を当てたテーラーメイドのデジタル体験を創出。",
+            "imageUrl": "/projects/sixto-van-garret.webp",
+            "imageAlt": "Sixto Van Garretプロジェクト展示",
+            "logoUrl": "/projects/logo-sixto-van-garret.png",
+            "logoAlt": "Sixto Van Garretのロゴ",
+            "longDescription": "プレミアムライフスタイルブランド**Sixto Van Garret**向けに、シンプルで効果的なEC体験を通じて優雅さと独占性を反映した洗練されたオンラインストアを設計・公開しました。\n\n### 🎯 目標\n視覚的美観とユーザー体験に重点を置いた高級ライフスタイルブランド向け簡潔なECサイトの立ち上げ\n\n### 🛠️ 実現方法\n迅速な展開のために**Tienda Nube**を使用。ブランドの高級アイデンティティを反映する**ゴールドカラーパレット**でカスタマイズし、明確なナビゲーションとコンテンツ階層で商品ビジュアルを主役に\n\n### ✨ 特徴\n豪華な感触のミニマリストレイアウト。インターフェースを圧倒せずにブランドイメージを高めるゴールドアクセント\n\n### 📦 結果\nナビゲート容易で視覚的に印象的な清潔でスタイリッシュなストア―成長準備完了"
+        },
+        {
+            "id": "experience-at-deep-creek",
+            "slug": "experience-at-deep-creek",
+            "title": "戦略的デジタルトランスフォーメーション：企業ソリューションのフルサイクル開発",
+            "description": "ユーザー体験とビジネス目標に焦点を当て、構想から展開まで包括的なデジタルプロジェクトを主導し、スケーラブルな企業ソリューションを提供。",
+            "imageUrl": "/projects/deep-creek-solutions.webp",
+            "imageAlt": "Deep Creek Solutionsプロジェクトビュー",
+            "logoUrl": "/projects/logo-deep-creek.png",
+            "logoAlt": "Deep Creek Solutionsのロゴ",
+            "longDescription": "👉 **役割**: UX/UIデザイナー & 製品協力者\n📍 **重点領域**: ビューティテック、医療システム、社内インキュベーター、コミュニケーションデザイン\n\n---\n\n🔧 **実施内容**\n\n- 美容機器レンタルシステムと美容師向け業務管理アプリのユーザーフロー・インターフェース設計\n- **Red Sanitaria**と**Retia Health**プラットフォーム（病院・クリニック・歯科医院向け）のUX/UI改善と新ツール開発\n- 歯科記録管理のための完全インタラクティブ**歯科図表ツール**作成\n- 請求フローや臨床データ入力などの自動化機能への貢献\n- 社内外コミュニケーション素材のグラフィックデザイン\n\n📈 **革新と戦略**\n\n- 社内インキュベーターと協力し、新規事業の商業プレゼンテーション設計と予算策定\n- 自動車販売ツールを含む新規事業アイデアのMVP設計に参加\n\n🛠️ **使用技術**\n\nFigma, HTML/CSS, JavaScript, Adobe Suite, 内部API, Notion\n→ UXライティング、アクセシビリティガイドライン、アジャイル反復サイクルを適用\n\n🤝 **チーム間協働**\n\nプロダクトオーナー、医療専門家、商業リーダーと連携しデザインとビジネス価値を調整\n\n---\n\nDeep Creek Solutionsでは、製品設計、UX/UI改善、商業革新に跨って活動。**社内でUX/UI実践を創始**し、美容機器レンタルプラットフォームや美容師向け予約管理モバイルアプリなどビューティテック分野のデジタル製品を設計。\n\n同時に**Red Sanitaria**や**Retia Health**などのヘルステック製品にも関与。歯科医向けインタラクティブ歯科図表の設計や臨床環境での請求プロセス自動化を推進。\n\n製品作業以外では、社内インキュベーターを支援し、新規事業アイデアの営業資料・予算案・初期MVPの作成に貢献。マーケティングやプロジェクトプレゼンテーションを支える視覚資材も制作。\n\n創造的UX思考、ビジュアルデザイン、ビジネス志向ソリューションを組み合わせ、アイデアを影響力ある製品へ転換する役割を担いました。"
+        },
+        {
+            "id": "experience-at-apex",
+            "slug": "experience-at-apex",
+            "title": "パフォーマンス主導型デジタルソリューション：成長志向企業向け高影響力プロジェクト",
+            "description": "戦略的思考と技術的卓越性を組み合わせ、コンバージョンと成長に最適化された最先端のデジタル体験を提供。",
+            "imageUrl": "/projects/apex-projects.webp",
+            "imageAlt": "Apexプロジェクト概要",
+            "logoUrl": "/projects/logo-apex.png",
+            "logoAlt": "Apexのロゴ",
+            "longDescription": "👉 **役割**: 社内コミュニケーションスペシャリスト & デザイナー\n📅 **期間**: 2015年5月～2019年2月\n📍 **場所**: アルゼンチン・コルドバ\n\n---\n\n🔧 **実施内容**\n\n- ラテンアメリカのApex拠点全体で**社内コミュニケーションキャンペーン**の策定・実行\n- 複数オフィス場所向け**サインシステム**（arquigrafía）作成によるブランド表現の一貫性確保\n- 社内チャネル・ニュースレター・イベント向け**ブランド化コンテンツ**のデザイン\n- イントラネットやコーポレートサイトなどのデジタル体験をサポート\n- **デザインスプリント手法**を用いた**イノベーションチーム**との全社的スプリント協働\n\n📈 **主要貢献**\n\n- 明確で視覚的一貫性のあるメッセージングによる従業員エンゲージメント向上\n- アルゼンチン・チリ・コロンビアなどにおけるApexの社内ブランド形成支援\n- 部門横断的なイノベーションプロジェクトの構想・プロトタイピング段階への貢献\n\n💡 **ハイライト**\n\n- 反復的デザイン主導プロセスを用いた多分野イノベーションプログラムへの参加\n- 各オフィス場所のアイデンティティと建築様式に適応したサインシステム作成\n- HR・イノベーション・サステナビリティ・セールスコミュニケーションイニシアチブの支援\n\n🛠️ **使用技術**\n\nIllustrator, Photoshop, InDesign, PowerPoint, 社内CMSプラットフォーム, デザインスプリント手法\n→ 印刷・空間デザイン、社内文化、協調的イノベーション支援に焦点\n\n🤝 **ソフトスキル**\n\n部門横断的チームワーク、コミュニケーションデザイン、文化的感受性、細部への注意力\n\n---\n\nApex Americaでは、明確なメッセージングと視覚的一貫性により、物理的・デジタル環境で会社のアイデンティティを強化する**社内コミュニケーションスペシャリスト兼デザイナー**として活動。\n\n最も影響力のある貢献は、ラテンアメリカ全域のApexオフィス向け**サインシステム**とビジュアルブランディングの開発。また**イノベーションチーム**と緊密に連携し、社内課題解決のための協働方法論を活用。\n\nコア業務に加え、デジタルコンテンツ、コーポレートイベントのブランディング、HRやサステナビリティ部門の素材調整にも貢献。多様な専門環境で文脈を意識した意味あるデザインを提供する能力を強化した経験でした。"
+        }
+    ]
 }
