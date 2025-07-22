@@ -89,7 +89,7 @@ export default function FloatingColorSelector() {
                 transition={{ duration: 0.5 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className={`relative p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]} cursor-pointer`}
+                className={`relative p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full backdrop-blur-sm ${COLOR_CLASS_MAP[mainColor]} cursor-pointer`}
                 onClick={handleToggle}
                 aria-expanded={open}
             >

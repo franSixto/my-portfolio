@@ -38,17 +38,20 @@ export default function Header() {
                     <div className="liquidGlass-shine rounded-full"></div>
                     
                     <nav className="w-full mx-auto flex justify-between items-center px-4 lg:px-2 z-50 relative">
-                        <Link href="/">
+                        <Link className="flex flex-row items-center rounded-full backdrop-blur-sm p-4" href="/">
                             <Image
                                 className="dark:invert"
                                 src="/logo2.svg"
                                 alt="Fran Sixto"
-                                width={60}
-                                height={60}
+                                width={50}
+                                height={50}
                                 priority
                             />
+                            <span className="hidden lg:inline-block">
+                            Francisco Sixto
+                            </span>
                         </Link>
-                        <ul className={rtlClass("hidden lg:flex space-x-6")}>
+                        <ul className={rtlClass("hidden backdrop-blur-sm p-6 rounded-full lg:flex space-x-6")}>
                             <li className="menu-item">
                                 <motion.div
                                     whileHover={{ scale: 1.1 }}
@@ -124,7 +127,7 @@ export default function Header() {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     onClick={toggleMenu}
-                                    className={`p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]}`}
+                                    className={`p-2 w-[50px] h-[50px] flex justify-center items-center backdrop-blur-sm rounded-full ${COLOR_CLASS_MAP[mainColor]}`}
                                 >
                                     <RiMenuLine />
                                 </motion.button>

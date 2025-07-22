@@ -28,7 +28,7 @@ export default function ThemeSelect() {
           setTheme(newTheme);
           localStorage.setItem('theme', newTheme); // Guardar el tema seleccionado
         }}
-        className={`p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]} cursor-pointer`}
+        className={`p-2 w-[50px] h-[50px] flex justify-center items-center rounded-full backdrop-blur-sm ${COLOR_CLASS_MAP[mainColor]} cursor-pointer`}
         title="theme switcher"
       >
         {resolvedTheme === "light" ? (
