@@ -7,7 +7,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import Analytics, { AnalyticsInit } from '@/components/Analytics';
 import { ColorProvider } from '@/components/theme/ColorContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
-import HotjarScript from '@/components/HotjarScript';
 import SplashScreen from '@/components/SplashScreen';
 
 const fontPrincipal = Work_Sans({
@@ -28,7 +27,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <>
       <html lang="en" data-theme="dark" style={{ colorScheme: "dark", fontFamily: fontPrincipal.style.fontFamily }} >
         <head>
-          <HotjarScript />
           <Analytics />
           <AnalyticsInit />
         </head>
