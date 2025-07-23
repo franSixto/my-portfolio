@@ -1,5 +1,5 @@
 import ProjectCard from "@/components/projects/ProjectCard";
-import type { Project } from "@/app/api/projects/projectsService";
+import { Project } from "@/types/project";
 
 export default function ProjectsPageWithComponents({ projects }: { projects: Project[] }) {
   const safeProjects = projects || [];

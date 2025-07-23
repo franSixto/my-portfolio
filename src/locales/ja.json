@@ -93,7 +93,10 @@
             "technologies": "技術",
             "role": "私の役割",
             "backToProjects": "← プロジェクトに戻る",
-            "relatedProjects": "関連プロジェクト"
+            "relatedProjects": "関連プロジェクト",
+            "projectNotFound": "プロジェクトが見つかりません",
+            "projectNotFoundDescription": "お探しのプロジェクトは存在しないか、削除されました。",
+            "noDetailedContent": "詳細なコンテンツはありません。"
         },
         "contact": {
             "title": "お問い合わせ",
@@ -271,8 +274,8 @@
         {
             "id": "experience-at-apex",
             "slug": "experience-at-apex",
-            "title": "パフォーマンス主導型デジタルソリューション：成長志向企業向け高影響力プロジェクト",
-            "description": "戦略的思考と技術的卓越性を組み合わせ、コンバージョンと成長に最適化された最先端のデジタル体験を提供。",
+            "title": "地域に影響を与える社内コミュニケーション：文化とブランドを強化する戦略的デザイン",
+            "description": "ラテンアメリカ全体でキャンペーン、サイネージ、ビジュアルコンテンツを通じて企業のアイデンティティを強化し、デザイン、コミュニケーション、部門横断の協力を統合しました。",
             "imageUrl": "/projects/apex-projects.webp",
             "imageAlt": "Apexプロジェクト概要",
             "logoUrl": "/projects/logo-apex.png",

@@ -93,7 +93,10 @@
             "technologies": "Technologies",
             "role": "My Role",
             "backToProjects": "← Back to Projects",
-            "relatedProjects": "Related Projects"
+            "relatedProjects": "Related Projects",
+            "projectNotFound": "Project not found",
+            "projectNotFoundDescription": "The project you are looking for does not exist or has been removed.",
+            "noDetailedContent": "No detailed content available."
         },
         "contact": {
             "title": "Contact Me",
@@ -271,8 +274,8 @@
         {
             "id": "experience-at-apex",
             "slug": "experience-at-apex",
-            "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
-            "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence.",
+            "title": "Internal Communication with Regional Impact: Strategic Design to Strengthen Culture and Brand",
+            "description": "Enhanced corporate identity across Latin America through campaigns, signage, and visual content, integrating design, communication, and cross-functional collaboration.",
             "imageUrl": "/projects/apex-projects.webp",
             "imageAlt": "Apex projects overview",
             "logoUrl": "/projects/logo-apex.png",

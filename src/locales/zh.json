@@ -93,7 +93,10 @@
             "technologies": "技术栈",
             "role": "我的角色",
             "backToProjects": "← 返回项目",
-            "relatedProjects": "相关项目"
+            "relatedProjects": "相关项目",
+            "projectNotFound": "项目未找到",
+            "projectNotFoundDescription": "您查找的项目不存在或已被删除。",
+            "noDetailedContent": "无详细内容可用。"
         },
         "contact": {
             "title": "联系我",
@@ -269,9 +272,8 @@
         {
             "id": "experience-at-apex",
             "slug": "experience-at-apex",
-            "title": "以绩效为导向的数字解决方案：为增长型企业打造高影响力项目",
-            "description": "我交付了针对转化与增长优化的尖端数字体验，结合战略思维与技术卓越性。",
-            "imageUrl": "/projects/apex-projects.webp",
+"title": "具有区域影响力的内部沟通：通过战略设计强化文化和品牌",
+    "description": "通过整合设计、沟通与跨职能协作，在拉丁美洲推动企业形象建设，包括活动、标识系统和视觉内容。",            "imageUrl": "/projects/apex-projects.webp",
             "imageAlt": "Apex项目概览",
             "logoUrl": "/projects/logo-apex.png",
             "logoAlt": "Apex标志",

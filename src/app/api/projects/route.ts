@@ -1,67 +1,35 @@
 // src/app/api/projects/route.ts
 import { NextResponse } from 'next/server';
-import enTranslations from '@/locales/en.json';
-import esTranslations from '@/locales/es.json';
-import zhTranslations from '@/locales/zh.json';
-import jaTranslations from '@/locales/ja.json';
-import hiTranslations from '@/locales/hi.json';
-import ptTranslations from '@/locales/pt.json';
-import arTranslations from '@/locales/ar.json';
-
-export interface Child {
-  bold?: boolean;
-  italic?: boolean;
-  strikethrough?: boolean;
-  code?: boolean;
-  type?: string;
-  text: string;
-  url?: string;
-  children?: Child[];
-}
-
-export type Project = {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl?: string;
-  imageAlt?: string;
-  logoUrl?: string;
-  logoAlt?: string;
-  projectUrl?: string;
-  liveUrl?: string;
-  slug?: string;
-  longDescription?: Array<{ type: string; children: Child[]; level?: number; format?: string }> | string;
-};
+import fs from 'fs';
+import path from 'path';
+import { Project } from '@/types/project';
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const locale = searchParams.get('locale') || 'es';
     
-    // Obtener proyectos desde los archivos de traducción principales
+    // Obtener proyectos desde los nuevos archivos modulares
     let projects: Project[] = [];
     
-    switch (locale) {
-      case 'en':
-        projects = (enTranslations as { projectsData?: Project[] }).projectsData || [];
-        break;
-      case 'zh':
-        projects = (zhTranslations as { projectsData?: Project[] }).projectsData || [];
-        break;
-      case 'ja':
-        projects = (jaTranslations as { projectsData?: Project[] }).projectsData || [];
-        break;
-      case 'hi':
-        projects = (hiTranslations as { projectsData?: Project[] }).projectsData || [];
-        break;
-      case 'pt':
-        projects = (ptTranslations as { projectsData?: Project[] }).projectsData || [];
-        break;
-      case 'ar':
-        projects = (arTranslations as { projectsData?: Project[] }).projectsData || [];
-        break;
-      default:
-        projects = (esTranslations as { projectsData?: Project[] }).projectsData || [];
+    try {
+      const filePath = path.join(process.cwd(), 'public', 'locales', locale, 'projects.json');
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      const data = JSON.parse(fileContents);
+      // Los archivos JSON contienen directamente el array, no necesitan .projectsData
+      projects = Array.isArray(data) ? data : data.projectsData || [];
+    } catch (fileError) {
+      console.error(`Error loading projects for locale ${locale}:`, fileError);
+      // Fallback a español si el archivo no existe
+      try {
+        const fallbackPath = path.join(process.cwd(), 'public', 'locales', 'es', 'projects.json');
+        const fallbackContents = fs.readFileSync(fallbackPath, 'utf8');
+        const fallbackData = JSON.parse(fallbackContents);
+        projects = Array.isArray(fallbackData) ? fallbackData : fallbackData.projectsData || [];
+      } catch (fallbackError) {
+        console.error('Error loading fallback projects:', fallbackError);
+        projects = [];
+      }
     }
     
     return NextResponse.json({ projects });

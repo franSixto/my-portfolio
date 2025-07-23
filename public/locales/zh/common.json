@@ -1,0 +1,215 @@
+{
+  "home": {
+    "hero": {
+      "tagline": "构建有影响力的数字体验。",
+      "title": "UX/UI 主管 & 前端开发者",
+      "description": "我是一名 UX/UI 专家和前端开发者，致力于打造直观、易用且视觉吸引人的数字产品。",
+      "myWork": "我的作品",
+      "resume": "简历",
+      "helloHuman": "你好，人类，",
+      "petDog": "快来撸狗吧！✨"
+    },
+    "aboutTeaser": {
+      "title": "关于我",
+      "description": "让我为您介绍一下像素背后的设计师。",
+      "readMore": "了解更多关于我",
+      "altText": "这就是我",
+      "birthPlace": "出生于阿根廷科尔多瓦南部的一个小镇",
+      "birthDescription": "我一直怀着远大的梦想，对优秀的设计和技术充满深深的热情。",
+      "sportsText": "当我不在创造数字体验时，您会发现我在运动中保持活力——或者全心全意地为",
+      "riverPlate": "河床队加油助威。"
+    },
+    "highlights": {
+      "title": "工具与技术",
+      "description": "我用来将想法变为现实的精心挑选的工具集合。",
+      "categories": {
+        "design": {
+          "title": "设计",
+          "description": "创造美观且功能强大的用户界面"
+        },
+        "frontend": {
+          "title": "前端",
+          "description": "构建响应式和高性能的 Web 应用程序"
+        },
+        "backend": {
+          "title": "后端",
+          "description": "开发健壮的服务器端解决方案"
+        },
+        "tools": {
+          "title": "工具",
+          "description": "开发和设计工作流程的必备工具"
+        }
+      }
+    },
+    "services": {
+      "title": "我的专长",
+      "description": "结合设计思维、扎实开发和团队经验。",
+      "uxui": {
+        "title": "UX/UI 设计",
+        "description": "从早期线框图到精美原型，我设计既直观又可扩展的用户界面。我将设计思维与用户研究、无障碍标准和可用性测试相结合，确保每个体验都能产生真正的影响。"
+      },
+      "frontend": {
+        "title": "前端开发",
+        "description": "我使用 React、Next.js、Tailwind CSS 和 TypeScript 构建高性能、响应式且易访问的 Web 应用程序。我的工具包还包括 WordPress、Bootstrap 和 .NET Core，以满足灵活性或后端集成的需求。"
+      },
+      "teamLeadership": {
+        "title": "团队领导",
+        "description": "我通过规划、代码审查、指导和任务协调来领导设计和开发团队。我在设计师、开发者和利益相关者之间架起桥梁，协调愿景、时间表和交付成果。清晰的沟通和以用户为先的思维始终是我的优先考虑。"
+      },
+      "optimization": {
+        "title": "优化与部署",
+        "description": "我处理 SEO 优化、网站性能增强、Git 版本控制和简化的 CI/CD 工作流程。从语义化 HTML 到资源优化和生产部署，我确保每个项目都快速、易发现且面向未来。"
+      }
+    }
+  },
+  "navigation": {
+    "home": "首页",
+    "about": "关于",
+    "projects": "项目",
+    "blog": "博客",
+    "contact": "联系"
+  },
+  "pages": {
+    "about": {
+      "title": "关于我",
+      "description": "我是一名充满激情的 UX/UI 设计师和前端开发者。",
+      "paragraph1": "我是 Francisco Sixto——一名具有扎实技术背景的 UX/UI 设计师。我在设计和前端开发的交汇点工作，创造清晰、高效且以用户为中心的数字体验。我相信好的系统、智能迭代和实用工具，帮助交付高质量的产品而不过度复杂化。",
+      "paragraph2": "多年来，我领导设计和开发团队，协调优先级，审查代码和原型，并在网站、CRM 和门户网站中构建可扩展的解决方案。我喜欢指导他人，改进团队工作流程，并在过程的每一步中平衡创造力与清晰度。",
+      "paragraph3": "驱动我的是对直观体验的追求——那种结构、交互和美学自然融合的体验。无论我是在 Figma、VS Code 中工作，还是在团队会议中，我总是在思考如何让事情运作得更好，感觉更流畅，并有目的地为用户服务。",
+      "paragraph4": "工作之外，我喜欢运动，与家人朋友共度时光，享受线下的简单时刻。我从日常生活中找到很多灵感——对话、共享的餐食，或者只是与我关心的人在一起。",
+      "niceToMeet": "很高兴认识您！😎",
+      "thankYou": "感谢您访问我的作品集！我期待有机会合作并创造出令人惊叹的作品。",
+      "jobTitle": "UX/UI 设计师 & 前端开发者",
+      "location": "位置：阿根廷科尔多瓦",
+      "myWork": "我的作品",
+      "downloadResume": "简历"
+    },
+    "projects": {
+      "title": "项目",
+      "description": "这里您可以找到我参与过的一些项目。",
+      "noImage": "无图片",
+      "viewProject": "查看项目",
+      "liveProject": "在线项目",
+      "technologies": "技术栈",
+      "role": "我的角色",
+      "backToProjects": "← 返回项目",
+      "relatedProjects": "相关项目",
+      "projectNotFound": "项目未找到",
+      "projectNotFoundDescription": "您查找的项目不存在或已被删除。",
+      "noDetailedContent": "无详细内容可用。"
+    },
+    "contact": {
+      "title": "联系我",
+      "description": "有项目想法？让我们聊聊！",
+      "letsConnect": "让我们联系",
+      "getInTouch": "取得联系",
+      "getInTouchDescription": "有疑问或想要合作？",
+      "cta": {
+        "title": "让我们一起构建伟大的作品",
+        "description": "无论您是在寻找 UX/UI 设计师、前端开发者，还是团队领导来实现您的想法——我已经准备好参与。请随时联系，我很乐意与您连接。",
+        "button": "联系我"
+      },
+      "subscribe": {
+        "title": "保持更新",
+        "description": "订阅我的通讯，获取项目和行业见解的最新更新。",
+        "placeholder": "您的邮箱地址",
+        "button": "订阅",
+        "success": "感谢订阅！",
+        "error": "订阅错误，请重试。",
+        "emailRequired": "邮箱是必需的",
+        "invalidEmail": "无效的邮箱地址"
+      }
+    }
+  },
+  "projects": {
+    "officina-artis": {
+      "title": "Officina Artis：探索空间、交互与策展的虚拟 3D 艺术画廊",
+      "description": "我设计并开发了一个 3D 沉浸式体验，在虚拟画廊中探索艺术作品，结合创意编程、空间叙事和艺术指导。"
+    },
+    "experience-at-startu": {
+      "title": "在线教育转型：20+ 大学网站的 UX 策略和可扩展设计",
+      "description": "我领导了跨多个市场的数字体验设计和开发，结合策略、技术和团队合作，改造了20多个教育网站，提升可用性和转化率。"
+    },
+    "experience-at-autocity": {
+      "title": "从引擎到优雅：汽车、酒店和生活方式品牌的数字生态系统",
+      "description": "我设计并开发了跨多个行业的沉浸式、高转化率网站——从具有高级功能的汽车平台到高端酒店和高尔夫俱乐部的数字体验。"
+    },
+    "experience-at-sixto-van-garret": {
+      "title": "打造定制数字身份：为独特品牌提供定制网络解决方案",
+      "description": "我为独特品牌创造定制的数字体验，从奢侈服务到创新初创公司，专注于定制设计和战略用户体验。"
+    },
+    "experience-at-deep-creek": {
+      "title": "战略数字化转型：企业解决方案的全周期开发",
+      "description": "我领导从概念到部署的综合数字项目，提供可扩展的企业解决方案，专注于用户体验和业务目标。"
+    },
+    "experience-at-red-sanitaria": {
+      "title": "医疗创新：为医疗网络设计无障碍数字解决方案",
+      "description": "我为医疗保健提供商开发以用户为中心的数字平台，优先考虑无障碍性、信任度和患者-提供者之间的无缝沟通。"
+    },
+    "experience-at-apex": {
+      "title": "性能驱动的数字解决方案：为专注增长的公司提供高影响力项目",
+      "description": "我提供针对转化和增长优化的尖端数字体验，结合战略思维和技术卓越。"
+    }
+  },
+  "contact": {
+    "form": {
+      "title": "与我交流",
+      "name": "姓名",
+      "email": "邮箱",
+      "message": "留言",
+      "send": "发送消息",
+      "sending": "发送中...",
+      "successTitle": "消息已发送！",
+      "successMessage": "感谢您的消息。我会尽快回复您！",
+      "recaptchaError": "请完成验证码验证。",
+      "nameRequired": "姓名是必需的",
+      "emailRequired": "邮箱是必需的",
+      "emailInvalid": "请输入有效的邮箱",
+      "messageRequired": "留言是必需的"
+    }
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "错误",
+    "backHome": "返回首页",
+    "readMore": "阅读更多",
+    "viewProject": "查看项目",
+    "liveProject": "在线项目",
+    "toolsAndTechnologies": {
+      "title": "工具与技术",
+      "description": "我用来将想法变为现实的精心挑选的工具集合。"
+    },
+    "services": {
+      "title": "我的专长",
+      "description": "结合设计思维、扎实开发和团队经验。",
+      "uxUiDesign": {
+        "title": "UX/UI 设计",
+        "description": "从早期线框图到精美原型，我设计既直观又可扩展的用户界面。我将设计思维与用户研究、无障碍标准和可用性测试相结合，确保每个体验都能产生真正的影响。"
+      },
+      "frontendDevelopment": {
+        "title": "前端开发",
+        "description": "我使用 React、Next.js、Tailwind CSS 和 TypeScript 构建高性能、响应式且易访问的 Web 应用程序。我的工具包还包括 WordPress、Bootstrap 和 .NET Core，以满足灵活性或后端集成的需求。"
+      },
+      "teamLeadership": {
+        "title": "团队领导",
+        "description": "我通过规划、代码审查、指导和任务协调来领导设计和开发团队。我在设计师、开发者和利益相关者之间架起桥梁，协调愿景、时间表和交付成果。清晰的沟通和以用户为先的思维始终是我的优先考虑。"
+      },
+      "optimizationDeploy": {
+        "title": "优化与部署",
+        "description": "我处理 SEO 优化、网站性能增强、Git 版本控制和简化的 CI/CD 工作流程。从语义化 HTML 到资源优化和生产部署，我确保每个项目都快速、易发现且面向未来。"
+      }
+    },
+    "funMode": {
+      "play": "开启派对模式",
+      "stop": "停止派对模式",
+      "playButton": "开启趣味模式",
+      "stopButton": "停止这个！",
+      "warning": {
+        "title": "注意！",
+        "message": "此模式包含音乐、闪烁色彩和动画，但也很有趣。如果您觉得没问题，请尝试一下。",
+        "play": "开始",
+        "cancel": "取消"
+      }
+    }
+  }
+}

@@ -93,7 +93,10 @@
             "technologies": "Tecnologías",
             "role": "Mi Rol",
             "backToProjects": "← Volver a Proyectos",
-            "relatedProjects": "Proyectos Relacionados"
+            "relatedProjects": "Proyectos Relacionados",
+            "projectNotFound": "Proyecto no encontrado",
+            "projectNotFoundDescription": "El proyecto que buscas no existe o ha sido eliminado.",
+            "noDetailedContent": "No hay contenido detallado disponible."
         },
         "contact": {
             "title": "Contáctame",

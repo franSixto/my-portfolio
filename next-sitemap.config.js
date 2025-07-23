@@ -8,13 +8,15 @@ const config = {
   exclude: ['/admin', '/404'],
   additionalPaths: async () => {
     try {
-      // Leer proyectos desde el archivo de localización español
-      const localesPath = path.join(process.cwd(), 'src', 'locales', 'es.json');
-      const localesRaw = await fs.readFile(localesPath, 'utf8');
-      const locales = JSON.parse(localesRaw);
-      const projects = locales.projectsData || [];
+      // Leer proyectos desde la nueva estructura modular
+      const projectsPath = path.join(process.cwd(), 'public', 'locales', 'es', 'projects.json');
+      const projectsRaw = await fs.readFile(projectsPath, 'utf8');
+      const projects = JSON.parse(projectsRaw);
       
-      return projects.map((project) => ({
+      // Los archivos JSON contienen directamente el array de proyectos
+      const projectsArray = Array.isArray(projects) ? projects : projects.projectsData || [];
+      
+      return projectsArray.map((project) => ({
         loc: `/projects/${project.slug}`,
         lastmod: new Date().toISOString(),
       }));

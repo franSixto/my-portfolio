@@ -1,19 +1,27 @@
 import { Metadata } from "next";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import ProjectContent from "@/components/projects/ProjectContent";
-import fs from 'fs';
-import path from 'path';
-import { Project } from '@/types/project';
+import esTranslations from '@/locales/es.json';
+
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  logoUrl?: string;
+  logoAlt?: string;
+  projectUrl?: string;
+  liveUrl?: string;
+  slug?: string;
+  longDescription?: string;
+};
 
 // Función helper para obtener un proyecto por slug para metadata
-const getProjectBySlug = async (slug: string): Promise<Project | null> => {
+const getProjectBySlug = (slug: string): Project | null => {
   try {
-    const filePath = path.join(process.cwd(), 'public', 'locales', 'es', 'projects.json');
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(fileContents);
-    // Los archivos JSON contienen directamente el array de proyectos
-    const projects = Array.isArray(data) ? data : data.projectsData || [];
-    const project = projects.find((p: Project) => p.slug === slug || p.id === slug);
+    const projects = (esTranslations as { projectsData?: Project[] }).projectsData || [];
+    const project = projects.find((p) => p.slug === slug || p.id === slug);
     return project || null;
   } catch (error) {
     console.error('Error loading project:', error);
@@ -23,7 +31,7 @@ const getProjectBySlug = async (slug: string): Promise<Project | null> => {
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await props.params;
-  const project = await getProjectBySlug(slug);
+  const project = getProjectBySlug(slug);
   if (!project) {
     return {
       title: "Project not found",
@@ -76,20 +84,11 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 
 // Generar rutas estáticas para todos los proyectos
 export async function generateStaticParams() {
-  try {
-    const filePath = path.join(process.cwd(), 'public', 'locales', 'es', 'projects.json');
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(fileContents);
-    // Los archivos JSON contienen directamente el array de proyectos
-    const projects = Array.isArray(data) ? data : data.projectsData || [];
-    
-    return projects.map((project: Project) => ({
-      slug: project.slug || project.id,
-    }));
-  } catch (error) {
-    console.error('Error loading projects for static params:', error);
-    return [];
-  }
+  const projects = (esTranslations as { projectsData?: Project[] }).projectsData || [];
+  
+  return projects.map((project) => ({
+    slug: project.slug || project.id,
+  }));
 }
 
 export default async function ProjectPage(props: { params: Promise<{ slug: string }> }) {

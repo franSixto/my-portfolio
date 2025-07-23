@@ -93,7 +93,10 @@
             "technologies": "Tecnologias",
             "role": "Meu Papel",
             "backToProjects": "← Voltar aos Projetos",
-            "relatedProjects": "Projetos Relacionados"
+            "relatedProjects": "Projetos Relacionados",
+            "projectNotFound": "Projeto não encontrado",
+            "projectNotFoundDescription": "O projeto que você procura não existe ou foi removido.",
+            "noDetailedContent": "Nenhum conteúdo detalhado disponível."
         },
         "contact": {
             "title": "Entre em Contato",
@@ -271,8 +274,8 @@
         {
             "id": "experience-at-apex",
             "slug": "experience-at-apex",
-            "title": "Soluções Digitais Orientadas por Performance: Projetos de Alto Impacto para Empresas em Crescimento",
-            "description": "Entreguei experiências digitais avançadas otimizadas para conversão e crescimento, combinando pensamento estratégico com excelência técnica.",
+            "title": "Comunicação interna com impacto regional: design estratégico para fortalecer cultura e marca",
+            "description": "Impulsionei a identidade corporativa na América Latina por meio de campanhas, sinalização e conteúdo visual, integrando design, comunicação e colaboração multidisciplinar.",
             "imageUrl": "/projects/apex-projects.webp",
             "imageAlt": "Visão geral de projetos da Apex",
             "logoUrl": "/projects/logo-apex.png",

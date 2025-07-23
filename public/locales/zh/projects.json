@@ -1,0 +1,69 @@
+[
+  {
+    "id": "officina-artis",
+    "slug": "officina-artis",
+    "title": "Officina Artis：探索空间、交互与策展的虚拟3D艺术画廊",
+    "description": "我设计并开发了一个沉浸式3D体验项目，通过创意编程、空间叙事与艺术指导的结合，在虚拟画廊中探索艺术作品。",
+    "imageUrl": "/projects/officina-artis.webp",
+    "imageAlt": "Officina Artis虚拟画廊的3D视图",
+    "logoUrl": "/projects/logo-officina-artis.webp",
+    "logoAlt": "Officina Artis标志",
+    "liveUrl": "https://galery-psi.vercel.app",
+    "longDescription": "👉 **角色**：创意总监 & 3D开发\n📍 **类型**：自主发起项目\n\n---\n\n🎨 **工作内容**\n\n- 设计虚拟艺术画廊的概念架构，用户可在3D空间中探索策展展览\n- 开发具有平滑镜头切换、灯光系统与环境音效的交互式导航\n- 创建模块化架构以轮换展出内容，整合个人与受邀作品\n\n💡 **创意目标**\n\n- 通过实时3D技术模拟实体艺术画廊的沉思体验\n- 探索作为空间叙事的策展：位置、光线与过渡如何影响感知\n- 将极简UI与空间化UX结合，让环境本身传递意义\n\n🛠️ **技术工具**\n\nThree.js, WebGL, Blender, GLSL, HTML, CSS, JavaScript\n→ 基于网页的完整体验，针对桌面浏览器优化\n\n🧠 **设计哲学**\n\nOfficina Artis既是艺术品又是艺术容器。它挑战画廊作为静态建筑的传统概念，将其视为创作者与观众之间的活态界面。每个展览都是通过布局、节奏与留白讲述的叙事。\n\n---\n\n这个项目融合了我对视觉设计、编程与当代艺术的热爱。作为自主实验，它突破了虚拟环境中交互与策展叙事的边界。\n\n作为创意总监与开发者，我负责从空间设计、灯光到运动与氛围代码的所有环节。最终打造出一个优雅而引人深思的数字空间，重新构想我们在线欣赏艺术的方式。\n\nOfficina Artis体现我的个人设计哲学：极简、诗意、实验性且以人为本。这不仅是技术演示，更是关于形式、空间与代码如何在数字时代唤起情感与存在感的宣言。"
+  },
+  {
+    "id": "experience-at-startu",
+    "slug": "experience-at-startu",
+    "title": "在线教育转型：为20+所大学网站打造UX策略与可扩展设计",
+    "description": "我主导了跨多市场的数字体验设计与开发，通过策略、技术与团队协作，改造了20多个教育类网站，提升可用性与转化率。",
+    "imageUrl": "/projects/websites-startu-small.webp",
+    "imageAlt": "Start University创建的网站与应用",
+    "logoUrl": "/projects/logo-startu.png",
+    "logoAlt": "Start University标志",
+    "longDescription": "👉 **角色**：UX/UI与前端开发负责人\n📍 **市场**：拉丁美洲与印度\n\n---\n\n🔧 **工作内容**\n\n- 为20+网站（大学、聚合平台、博客）设计开发数字体验\n- 领导设计师与前端开发团队\n- 交付视觉设计、HTML/CSS构建、代码审查及快速营销解决方案\n\n📈 **关键成果**\n\n- 将5个旧版网站迁移并重构至.NET Core\n- 基于共享系统新建7个站点\n- 通过优化着陆页、表单及营销活动提升转化率\n\n💡 **主要创新**\n\n- 标准化**学生门户**：用最少CSS覆盖实现跨机构统一UX/UI\n- 重构聚合平台：在不同数据库上保持一致性UI，按地区适配本地化资源\n\n🛠️ **技术工具**\n\nFigma, Bootstrap, HTML, CSS, JavaScript, .NET Core, Jira, SourceTree\n→ 所有交付均符合无障碍与SEO最佳实践\n\n🤝 **软技能**\n\n领导力、决策能力、与内容/营销/销售团队协作\n\n---\n\n在Start University，我作为UX/UI与前端开发负责人，推动拉美与印度等关键市场的高影响力数字体验创建。我的工作涵盖策略、设计与技术，构建连接用户与教育机会的网站。\n\n我领导了20多个活跃网站的视觉与前端开发，包括大学官网、内容聚合平台及博客。与设计师和HTML/CSS开发团队协作，我们从线框图、视觉设计到前端实现与代码审查全程参与，并为营销团队提供快速解决方案（如提升转化率的着陆页与表单优化）。\n\n重要成果包括将5所合作大学旧版网站迁移至.NET Core，并建立可复用基础系统，使新合作机构的7个站点能快速上线。\n\n我主导的学生门户标准化项目尤为突出——原本各站点需单独维护，经我设计后变为可通过最少CSS调整适配不同院校的模块化统一界面，大幅提升开发效率并确保用户体验一致性。\n\n此外，我领导的内容聚合平台重设计确保了跨平台视觉统一性，通过动态配色、图像与本地化品牌元素实现协调观感。\n\n此经历不仅提升了我的技术能力（Figma/Bootstrap/.NET Core等），更锻炼了与跨职能团队的领导协作能力。在Start University，我**创立并领导了UX/UI设计领域**，推动数字化转型，构建可扩展解决方案，通过精心设计的数字界面搭建教育与人群的桥梁。"
+  },
+  {
+    "id": "experience-at-autocity",
+    "slug": "experience-at-autocity",
+    "title": "从引擎到优雅：为汽车、酒店与生活方式品牌打造数字生态系统",
+    "description": "我为多行业设计开发沉浸式高转化网站——从具备高级功能的汽车平台到高端酒店与高尔夫俱乐部的数字体验。",
+    "imageUrl": "/projects/autocity-grupo-tagle.webp",
+    "imageAlt": "Autocity Grupo Tagle项目视图",
+    "logoUrl": "/projects/logo-autocity.svg",
+    "logoAlt": "Autocity标志",
+    "longDescription": "👉 **角色**：UX/UI设计师 & 前端开发\n📅 **时间**：2019年2月–2020年8月\n📍 **地点**：阿根廷科尔多瓦\n\n---\n\n🔧 **工作内容**\n\n- 领导Autocity汽车目录重设计，新增车辆对比、价格估算与动态筛选等交互功能\n- 为Grupo Tagle旗下高端生活方式品牌创建新网站：\n  - **Scratch House**（豪华酒店）\n  - **El Terrón高尔夫俱乐部**（专属度假村）\n  - **Grupo Tagle企业官网**\n  - **Motoplex Córdoba**与**Royal Enfield Córdoba**（摩托车品牌）\n\n📈 **关键成果**\n\n- 通过响应式设计与改进导航提升所有数字平台用户体验\n- 为各业务线打造符合品牌调性的界面，适配不同视觉标识\n- 优化询价流程UX以提高潜在客户转化\n\n💡 **主要创新**\n\n- 开发简化用户决策的车辆对比工具\n- 优化内部CMS工作流以便更新目录与品牌内容\n- 应用定制设计系统平衡高端美学与可用性\n\n🛠️ **技术工具**\n\nAdobe XD, Illustrator, Photoshop, HTML, CSS, JavaScript, Bootstrap\n→ 专注响应式设计、性能优化与品牌叙事\n\n🤝 **软技能**\n\n客户沟通、跨行业适应力、细节把控、迭代设计、团队协作\n\n---\n\n在Autocity与Grupo Tagle期间，我的工作横跨汽车销售与高端酒店/高尔夫等多元领域。\n\n核心成果包括Autocity汽车目录革新——引入车型对比、价格估算与智能筛选工具，显著提升浏览体验。同时为Scratch House与El Terrón Golf Club打造聚焦优雅感与预订便捷性的数字形象，并为摩托车品牌建立清晰可信的在线门户。\n\n在此过程中，我**从零建立了UX/UI设计体系**，将用户中心思维引入传统业务场景，展现了适应不同受众需求的设计能力。"
+  },
+  {
+    "id": "experience-at-sixto-van-garret",
+    "slug": "experience-at-sixto-van-garret",
+    "title": "打造定制数字身份：为独特品牌创造专属网页解决方案",
+    "description": "我为从豪华服务到创新初创的各类品牌创建定制化数字体验，聚焦个性化设计与策略性用户体验。",
+    "imageUrl": "/projects/sixto-van-garret.webp",
+    "imageAlt": "Sixto Van Garret项目展示",
+    "logoUrl": "/projects/logo-sixto-van-garret.png",
+    "logoAlt": "Sixto Van Garret标志",
+    "longDescription": "我为高端生活方式品牌**Sixto Van Garret**设计开发了简约电商网站，通过精致有效的购物体验体现优雅与专属感。\n\n### 🎯 目标\n为奢侈生活方式品牌打造视觉突出、用户体验流畅的电商平台。\n\n### 🛠️ 实现方式\n基于**Tienda Nube**快速部署，采用**金色主色调**彰显品牌调性。清晰的导航与内容层级让产品视觉成为焦点。\n\n### ✨ 亮点\n极简布局融合奢华质感，金色点缀提升品牌形象而不喧宾夺主。\n\n### 📦 成果\n风格鲜明、易于浏览的在线商店，兼具视觉吸引力与扩展潜力。"
+  },
+  {
+    "id": "experience-at-deep-creek",
+    "slug": "experience-at-deep-creek",
+    "title": "战略性数字化转型：为企业解决方案提供全周期开发",
+    "description": "我主导从概念到部署的完整数字项目，交付聚焦用户体验与业务目标的可扩展企业解决方案。",
+    "imageUrl": "/projects/deep-creek-solutions.webp",
+    "imageAlt": "Deep Creek Solutions项目视图",
+    "logoUrl": "/projects/logo-deep-creek.png",
+    "logoAlt": "Deep Creek Solutions标志",
+    "longDescription": "👉 **角色**：UX/UI设计师 & 产品协作者\n📍 **重点领域**：美容科技、医疗系统、内部孵化器、传播设计\n\n---\n\n🔧 **工作内容**\n\n- 为美容设备租赁系统及美容师业务管理配套APP设计用户流程与界面\n- 优化**Red Sanitaria**与**Retia Health**平台（医院/诊所/牙科诊所系统）UX/UI并开发新工具\n- 创建全交互式**牙科记录工具**\n- 参与自动化功能开发（如账单流程与临床数据输入）\n- 设计内外部传播物料\n\n📈 **创新与策略**\n\n- 与内部孵化器协作设计商业提案与早期项目预算\n- 参与包括汽车销售工具在内的新业务MVP设计\n\n🛠️ **技术工具**\n\nFigma, HTML/CSS, JavaScript, Adobe Suite, 内部API, Notion\n→ 应用UX文案、无障碍指南与敏捷迭代\n\n🤝 **跨团队协作**\n\n与产品负责人、医疗专家及商业团队协同确保设计与商业价值对齐\n\n---\n\n在Deep Creek Solutions，我横跨产品设计、UX/UI优化与商业创新领域。**我在公司内部首创UX/UI实践**，为美容科技部门设计数字产品，包括设备租赁平台与面向美容师的移动端业务管理APP。\n\n同时参与健康科技产品如**Red Sanitaria**与**Retia Health**的界面优化，其中为牙科设计的交互式记录工具与临床账单自动化流程尤为突出。\n\n此外还支持内部孵化器制作商业提案、预算规划与新业务MVP原型，并通过视觉资产强化营销传播效果。我的角色融合创意UX思维、视觉设计与商业导向的解决方案。"
+  },
+  {
+    "id": "experience-at-apex",
+    "slug": "experience-at-apex",
+    "title": "以绩效为导向的数字解决方案：为增长型企业打造高影响力项目",
+    "description": "我交付了针对转化与增长优化的尖端数字体验，结合战略思维与技术卓越性。",
+    "imageUrl": "/projects/apex-projects.webp",
+    "imageAlt": "Apex项目概览",
+    "logoUrl": "/projects/logo-apex.png",
+    "logoAlt": "Apex标志",
+    "longDescription": "👉 **角色**：内部传播专员 & 设计师\n📅 **时间**：2015年5月–2019年2月\n📍 **地点**：阿根廷科尔多瓦\n\n---\n\n🔧 **工作内容**\n\n- 在拉美各Apex站点策划执行**内部传播活动**\n- 为多地办公室创建**标识系统**（arquigrafía），确保品牌表达一致性\n- 设计内部渠道、通讯与活动的**品牌化内容**\n- 偶尔支持内网与企业网站等数字体验\n- 运用**设计冲刺方法论**与**创新团队**协作开展全公司范围冲刺\n\n📈 **关键贡献**\n\n- 通过清晰、视觉统一的讯息提升员工参与度\n- 助力塑造Apex在阿根廷、智利、哥伦比亚等地的内部品牌\n- 参与跨部门创新项目的构思与原型阶段\n\n💡 **亮点**\n\n- 采用迭代式设计主导流程参与多学科创新计划\n- 为各办公地点定制符合其建筑特性的标识系统\n- 支持HR、创新、可持续发展与销售部门的传播需求\n\n🛠️ **技术工具**\n\nIllustrator, Photoshop, InDesign, PowerPoint, 内部CMS平台, 设计冲刺方法论\n→ 专注印刷与空间设计、内部文化建设及创新支持\n\n🤝 **软技能**\n\n跨职能协作、传播设计、文化敏感性、细节关注\n\n---\n\n在Apex America担任**内部传播专员与设计师**期间，我通过清晰的视觉传达强化公司品牌认同。重要贡献包括为拉美办公室开发**标识系统**，以及运用设计冲刺方法参与创新项目。\n\n除核心传播工作外，我还参与企业活动品牌设计，协调HR、可持续发展等多部门物料。这段经历增强了我在多元专业环境中提供情境化设计解决方案的能力。"
+  }
+]
