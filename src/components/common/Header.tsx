@@ -36,7 +36,7 @@ export default function Header() {
                     <div className="liquidGlass-effect rounded-2xl"></div>
                     <div className="liquidGlass-tint rounded-2xl"></div>
                     <div className="liquidGlass-shine rounded-2xl"></div>
-                    
+
                     <nav className="w-full mx-auto flex justify-between items-center px-4 lg:px-2 z-50 relative">
                         <Link className="flex flex-row items-center rounded-xl lg:backdrop-blur-sm p-2 lg:px-6" href="/">
                             <Image
@@ -48,7 +48,7 @@ export default function Header() {
                                 priority
                             />
                             <span className="hidden lg:inline-block">
-                            Francisco Sixto
+                                Francisco Sixto
                             </span>
                         </Link>
                         <ul className={rtlClass("hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6")}>
@@ -114,14 +114,9 @@ export default function Header() {
                             <FloatingColorSelector />
                             {/* Party Mode Button extraído a componente */}
                             {/* <PartyModeButton /> */}
-                            <motion.div
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                            >
-                                <div className="block">
-                                    <ThemeSelect />
-                                </div>
-                            </motion.div>
+                            <div className="block">
+                                <ThemeSelect />
+                            </div>
                             <div className="lg:hidden">
                                 <motion.button
                                     whileHover={{ scale: 1.1 }}

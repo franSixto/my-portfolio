@@ -23,7 +23,7 @@ export const useColorContext = () => {
 };
 
 export const ColorProvider = ({ children }: { children: ReactNode }) => {
-  const [mainColor, setMainColor] = useState<MainColor>('red');
+  const [mainColor, setMainColor] = useState<MainColor>('slate');
   return (
     <ColorContext.Provider value={{ mainColor, setMainColor }}>
       {children}

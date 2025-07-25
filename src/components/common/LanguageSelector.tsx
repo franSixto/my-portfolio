@@ -30,10 +30,14 @@ export default function LanguageSelector() {
   return (
     <div className="relative">
       <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.5 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-[45px] h-[45px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]} backdrop-blur-sm transition-colors duration-300`}
+        className={`w-[45px] h-[45px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]} backdrop-blur-sm transition-colors duration-300 cursor-pointer`}
         aria-label="Select language"
         title="Select language"
       >
@@ -53,11 +57,10 @@ export default function LanguageSelector() {
               key={language.code}
               whileHover={{ backgroundColor: 'rgba(156, 163, 175, 0.1)' }}
               onClick={() => toggleLanguage(language.code as 'en' | 'es' | 'zh' | 'ja' | 'hi' | 'pt' | 'ar')}
-              className={`w-full px-4 py-2 ${isRTL ? 'text-right' : 'text-left'} flex items-center gap-3 transition-colors duration-200 ${
-                locale === language.code
+              className={`w-full px-4 py-2 ${isRTL ? 'text-right' : 'text-left'} flex items-center gap-3 transition-colors duration-200 cursor-pointer ${locale === language.code
                   ? `text-${mainColor}-500 font-medium`
                   : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
-              }`}
+                }`}
             >
               <span className="text-lg">{language.flag}</span>
               <span className="text-sm">{language.name}</span>
