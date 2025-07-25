@@ -14,14 +14,17 @@ export default function ThemeSelect() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // Evitar problemas de hidratación
+  if (!mounted) {
+    // Reservar espacio mientras se monta para evitar Layout Shift
+    return (
+      <div className={`p-2 w-[45px] h-[45px] flex justify-center items-center rounded-full backdrop-blur-sm ${COLOR_CLASS_MAP[mainColor]}`}>
+        <div className="w-6 h-6 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+      </div>
+    );
+  }
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}>
       <button

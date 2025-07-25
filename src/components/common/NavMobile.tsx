@@ -5,6 +5,123 @@ import { RiCloseLine } from "react-icons/ri";
 import { useColorContext } from '@/components/theme/ColorContext';
 import { useTranslation } from '@/contexts/LanguageContext';
 
+// Componente para los enlaces de navegación móvil
+function MobileNavigationLinks({ 
+    isActive, 
+    toggleMenu, 
+    mainColor 
+}: { 
+    isActive: (path: string) => boolean;
+    toggleMenu: () => void;
+    mainColor: string;
+}) {
+    const { t, loading } = useTranslation();
+
+    // Si está cargando, mostrar placeholders con texto invisible
+    if (loading) {
+        const placeholders = [
+            { href: "/", text: "Home" },
+            { href: "/about", text: "About" },
+            { href: "/blog", text: "Blog" },
+            { href: "/projects", text: "Projects" },
+            { href: "/contact", text: "Contact" },
+        ];
+
+        return (
+            <ul className="relative w-full h-full">
+                {placeholders.map((item, index) => {
+                    const angle = (360 / placeholders.length) * index;
+                    const x = 50 + 40 * Math.cos((angle * Math.PI) / 180);
+                    const y = 50 + 40 * Math.sin((angle * Math.PI) / 180);
+
+                    return (
+                        <li
+                            key={item.href}
+                            style={{
+                                position: "absolute",
+                                top: `${y}%`,
+                                left: `${x}%`,
+                                transform: "translate(-50%, -50%)",
+                            }}
+                        >
+                            <motion.div
+                                initial={{ y: 0, rotate: 0 }}
+                                animate={{
+                                    y: [0, Math.random() * -20 + 10, 0],
+                                    rotate: [0, Math.random() * 30 - 20, 0],
+                                }}
+                                transition={{
+                                    duration: Math.random() * 3 + 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                            >
+                                <div className="relative">
+                                    <span className="invisible">{item.text}</span>
+                                    <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+                                </div>
+                            </motion.div>
+                        </li>
+                    );
+                })}
+            </ul>
+        );
+    }
+
+    return (
+        <ul className="relative w-full h-full">
+            {[
+                { href: "/", label: t('navigation.home') },
+                { href: "/about", label: t('navigation.about') },
+                { href: "/blog", label: t('navigation.blog') },
+                { href: "/projects", label: t('navigation.projects') },
+                { href: "/contact", label: t('navigation.contact') },
+            ].map((item, index, arr) => {
+                const angle = (360 / arr.length) * index;
+                const x = 50 + 40 * Math.cos((angle * Math.PI) / 180);
+                const y = 50 + 40 * Math.sin((angle * Math.PI) / 180);
+
+                return (
+                    <li
+                        key={item.href}
+                        style={{
+                            position: "absolute",
+                            top: `${y}%`,
+                            left: `${x}%`,
+                            transform: "translate(-50%, -50%)",
+                        }}
+                    >
+                        <motion.div
+                            initial={{ y: 0, rotate: 0 }}
+                            animate={{
+                                y: [0, Math.random() * -20 + 10, 0],
+                                rotate: [0, Math.random() * 30 - 20, 0],
+                            }}
+                            transition={{
+                                duration: Math.random() * 3 + 2,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            <Link
+                                href={item.href}
+                                className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive(item.href) ? `font-bold text-${mainColor}-600 transition-colors duration-300` : ""}`}
+                                onClick={toggleMenu}
+                            >
+                                {item.label}
+                            </Link>
+                        </motion.div>
+                    </li>
+                );
+            })}
+        </ul>
+    );
+}
+
 interface NavMobileProps {
     isMenuOpen: boolean;
     toggleMenu: () => void;
@@ -12,7 +129,6 @@ interface NavMobileProps {
 }
 
 const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive }) => {
-    const { t } = useTranslation();
     const { mainColor } = useColorContext();
 
     // Añadir o eliminar la clase "overflow-hidden" al <body>
@@ -52,54 +168,7 @@ const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive 
                 <RiCloseLine className={`text-2xl text-${mainColor}-500 transition-colors duration-300`} />
                 </div>
             </button>
-            <ul className="relative w-full h-full">
-                {[
-                { href: "/", label: t('navigation.home') },
-                { href: "/about", label: t('navigation.about') },
-                { href: "/blog", label: t('navigation.blog') },
-                { href: "/projects", label: t('navigation.projects') },
-                { href: "/contact", label: t('navigation.contact') },
-                ].map((item, index, arr) => {
-                const angle = (360 / arr.length) * index; // Calcula el ángulo para cada elemento
-                const x = 50 + 40 * Math.cos((angle * Math.PI) / 180); // Coordenada X
-                const y = 50 + 40 * Math.sin((angle * Math.PI) / 180); // Coordenada Y
-
-                return (
-                    <li
-                    key={item.href}
-                    style={{
-                        position: "absolute",
-                        top: `${y}%`,
-                        left: `${x}%`,
-                        transform: "translate(-50%, -50%)", // Centra el elemento
-                    }}
-                    >
-                    <motion.div
-                        initial={{ y: 0, rotate: 0 }}
-                        animate={{
-                            y: [0, Math.random() * -20 + 10, 0], // Movimiento vertical aleatorio
-                            rotate: [0, Math.random() * 30 - 20, 0], // Rotación aleatoria
-                        }}
-                        transition={{
-                            duration: Math.random() * 3 + 2, // Duración aleatoria entre 1 y 3 segundos
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        }}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <Link
-                            href={item.href}
-                            className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive(item.href) ? `font-bold text-${mainColor}-600 transition-colors duration-300` : ""}`}
-                            onClick={toggleMenu}
-                        >
-                            {item.label}
-                        </Link>
-                    </motion.div>
-                    </li>
-                );
-                })}
-            </ul>
+            <MobileNavigationLinks isActive={isActive} toggleMenu={toggleMenu} mainColor={mainColor} />
             </motion.div>
         </div>
     );

@@ -2,13 +2,18 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
 
 export default function LanguageSelector() {
   const { locale, setLocale, isRTL } = useLanguage();
   const { mainColor } = useColorContext();
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const languages = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
@@ -27,13 +32,20 @@ export default function LanguageSelector() {
     setIsOpen(false);
   };
 
+  if (!mounted) {
+    // Reservar espacio mientras se monta para evitar Layout Shift
+    return (
+      <div className="relative">
+        <div className={`w-[45px] h-[45px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]} backdrop-blur-sm transition-colors duration-300`}>
+          <div className="w-6 h-6 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="relative">
       <motion.button
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ duration: 0.5 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}

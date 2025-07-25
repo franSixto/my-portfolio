@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { FaPalette } from 'react-icons/fa';
 import { useColorContext, TAILWIND_COLORS, COLOR_BORDER_CLASS_MAP, MainColor } from './ColorContext';
 import { motion } from 'framer-motion';
@@ -19,6 +19,11 @@ export default function FloatingColorSelector() {
     const isDragging = useRef(false);
     const [open, setOpen] = useState(false);
     const [showContent, setShowContent] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     // Persistencia del color en localStorage
     React.useEffect(() => {
@@ -80,13 +85,20 @@ export default function FloatingColorSelector() {
         }
     };
 
+    if (!mounted) {
+        // Reservar espacio mientras se monta para evitar Layout Shift
+        return (
+            <div className="flex flex-col items-center gap-2 select-none">
+                <div className={`p-2 w-[45px] h-[45px] flex justify-center items-center rounded-full backdrop-blur-sm ${COLOR_CLASS_MAP[mainColor]}`}>
+                    <div className="w-6 h-6 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="flex flex-col items-center gap-2 select-none">
             <motion.button
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className={`relative p-2 w-[45px] h-[45px] flex justify-center items-center rounded-full backdrop-blur-sm ${COLOR_CLASS_MAP[mainColor]} cursor-pointer`}

@@ -15,8 +15,126 @@ import LanguageSelector from "@/components/common/LanguageSelector";
 import { useTranslation } from '@/contexts/LanguageContext';
 import { useRTL } from '@/hooks/useRTL';
 
+// Componente para la navegación que maneja las traducciones
+function NavigationLinks({ isActive }: { isActive: (path: string) => boolean }) {
+    const { t, loading } = useTranslation();
+    const { rtlClass } = useRTL();
+
+    // Si está cargando, mostrar placeholders con texto invisible
+    if (loading) {
+        return (
+            <ul className={rtlClass("hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6")}>
+                <li className="menu-item">
+                    <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        <div className="relative">
+                            <span className="invisible">Home</span>
+                            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+                        </div>
+                    </motion.div>
+                </li>
+                <li className="menu-item">
+                    <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        <div className="relative">
+                            <span className="invisible">About</span>
+                            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+                        </div>
+                    </motion.div>
+                </li>
+                <li className="menu-item">
+                    <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        <div className="relative">
+                            <span className="invisible">Projects</span>
+                            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+                        </div>
+                    </motion.div>
+                </li>
+                <li>
+                    <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                    >
+                        <div className="relative">
+                            <span className="invisible">Contact</span>
+                            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+                        </div>
+                    </motion.div>
+                </li>
+            </ul>
+        );
+    }
+
+    return (
+        <ul className={rtlClass("hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6")}>
+            <li className="menu-item">
+                <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                >
+                    <Link
+                        href="/"
+                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/") ? "font-bold" : ""
+                            }`}
+                    >
+                        {t('navigation.home')}
+                    </Link>
+                </motion.div>
+            </li>
+            <li className="menu-item">
+                <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                >
+                    <Link
+                        href="/about"
+                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/about") ? "font-bold" : ""
+                            }`}
+                    >
+                        {t('navigation.about')}
+                    </Link>
+                </motion.div>
+            </li>
+            <li className="menu-item">
+                <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                >
+                    <Link
+                        href="/projects"
+                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/projects") ? "font-bold" : ""
+                            }`}
+                    >
+                        {t('navigation.projects')}
+                    </Link>
+                </motion.div>
+            </li>
+            <li>
+                <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                >
+                    <Link
+                        href="/contact"
+                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/contact") ? "font-bold" : ""
+                            }`}
+                    >
+                        {t('navigation.contact')}
+                    </Link>
+                </motion.div>
+            </li>
+        </ul>
+    );
+}
+
 export default function Header() {
-    const { t } = useTranslation();
     const { rtlClass } = useRTL();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
@@ -51,64 +169,9 @@ export default function Header() {
                                 Francisco Sixto
                             </span>
                         </Link>
-                        <ul className={rtlClass("hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6")}>
-                            <li className="menu-item">
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                >
-                                    <Link
-                                        href="/"
-                                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/") ? "font-bold" : ""
-                                            }`}
-                                    >
-                                        {t('navigation.home')}
-                                    </Link>
-                                </motion.div>
-                            </li>
-                            <li className="menu-item">
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                >
-                                    <Link
-                                        href="/about"
-                                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/about") ? "font-bold" : ""
-                                            }`}
-                                    >
-                                        {t('navigation.about')}
-                                    </Link>
-                                </motion.div>
-                            </li>
-                            <li className="menu-item">
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                >
-                                    <Link
-                                        href="/projects"
-                                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/projects") ? "font-bold" : ""
-                                            }`}
-                                    >
-                                        {t('navigation.projects')}
-                                    </Link>
-                                </motion.div>
-                            </li>
-                            <li>
-                                <motion.div
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                >
-                                    <Link
-                                        href="/contact"
-                                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/contact") ? "font-bold" : ""
-                                            }`}
-                                    >
-                                        {t('navigation.contact')}
-                                    </Link>
-                                </motion.div>
-                            </li>
-                        </ul>
+                        
+                        <NavigationLinks isActive={isActive} />
+                        
                         <div className={rtlClass("flex items-center justify-end space-x-2")}>
                             <LanguageSelector />
                             <FloatingColorSelector />
@@ -127,7 +190,6 @@ export default function Header() {
                                     <RiMenuLine />
                                 </motion.button>
                             </div>
-
                         </div>
                     </nav>
 
