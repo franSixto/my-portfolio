@@ -17,118 +17,121 @@ const Hero: React.FC = () => {
         <section
             className="flex justify-center items-center w-full"
             style={{
-            height: "100%",
-            minHeight: "calc(100vh - 120px)",
+                height: "100%",
+                minHeight: "calc(100vh - 120px)",
             }}
         >
             <div className="container mx-auto px-0 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
-            <motion.div
-            initial={{ scale: 0.8, y: -30, opacity: 0 }} // Start with a scale and opacity for smoother animation
-            whileInView={ { scale: 1, y: 0, opacity:1 } }
-            transition={{ duration: 1 }} // Use a custom cubic-bezier easing for smoother animation
-            className="px-6 lg:px-0">
-                <p className="text-center lg:text-start text-sm md:text-base text-gray-500 dark:text-gray-400 mb-2 font-medium tracking-wide">
-                    {t('home.hero.tagline')}
-                </p>
-                <h1
-                className={`text-center lg:text-start text-4xl lg:text-6xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text leading-[1.1] lg:leading-[1.1] xl:leading-[1.1] transition-colors duration-300 anti-zapateo`}
-                style={{
-                  WebkitFontSmoothing: 'antialiased',
-                  WebkitBackfaceVisibility: 'hidden',
-                  backfaceVisibility: 'hidden',
-                  willChange: 'opacity, transform',
-                }}
-                >
-                {t('home.hero.title')}
-                </h1>
-                <p
-                className="text-center lg:text-start mt-4 text-lg ps-1 md:text-xl text-gray-600 dark:text-gray-400 green:text-green-400"
-                
-                >
-                {t('home.hero.description')}
-                </p>
-                <div
-                className="mt-6"                
-                >
-                <div className="flex flex-row lg:justify-start justify-center items-center gap-4">
-                    <Button
-                    to="/projects"
-                    >
-                    {t('home.hero.myWork')}
-                    <span className="ml-1">
-                        <RiArrowRightLine className="w-5 h-5" />
-                    </span>
-                    </Button>
-                    <Button
-                    to="/cv-fran-sixto.pdf"
-                    variant="outlined"
-                    target="_blank"
-                    >
-                    {t('home.hero.resume')}
-                    <span className="ml-1">
-                        <RiDownloadLine className="w-5 h-5" />
-                    </span>
-                    </Button>
-                </div>
-                </div>
-            </motion.div>
-            <div className="w-[100%] relative flex items-center justify-center lg:justify-end">
-                <Suspense>
                 <motion.div
-                    className="absolute h-100 w-[85%] shadow-2xl shadow-red-100 dark:shadow-gray-950 flex items-center justify-center rounded-4xl border-2 border-gray-950"
-                    style={{
-                    backgroundImage: "url('/xenomorphBackground.webp')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    willChange: "transform, opacity", // Hint to the browser for smoother animations
-                    }}
-                    initial={{ scale: 0.8, y: -20, opacity: 0 }} // Start with a scale and opacity for smoother animation
-                    whileInView={ { scale: 1, y: 0, opacity:1 } }
-                    transition={{ duration: 1 }}
-                >
+                    initial={{ scale: 0.8, y: -30, opacity: 0 }} // Start with a scale and opacity for smoother animation
+                    whileInView={{ scale: 1, y: 0, opacity: 1 }}
+                    transition={{ duration: 1 }} // Use a custom cubic-bezier easing for smoother animation
+                    className="px-6 lg:px-0">
+                    <p className="text-center lg:text-start text-sm md:text-base text-gray-500 dark:text-gray-400 mb-2 font-medium tracking-wide">
+                        {t('home.hero.tagline')}
+                    </p>
+                    <h1
+                        className={`text-center lg:text-start text-4xl lg:text-6xl font-extrabold uppercase bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text leading-[1.1] lg:leading-[1.1] xl:leading-[1.1] transition-colors duration-300 anti-zapateo`}
+                        style={{
+                            WebkitFontSmoothing: 'antialiased',
+                            WebkitBackfaceVisibility: 'hidden',
+                            backfaceVisibility: 'hidden',
+                            willChange: 'opacity, transform',
+                        }}
+                    >
+                        {t('home.hero.title')}
+                    </h1>
+                    <p
+                        className="text-center lg:text-start mt-4 text-lg ps-1 md:text-xl text-gray-600 dark:text-gray-400 green:text-green-400"
+
+                    >
+                        {t('home.hero.description')}
+                    </p>
+                    <div
+                        className="mt-6"
+                    >
+                        <div className="flex flex-row lg:justify-start justify-center items-center gap-4">
+                            <Button
+                                to="/projects"
+                            >
+                                {t('home.hero.myWork')}
+                                <span className="ml-1">
+                                    <RiArrowRightLine className="w-5 h-5" />
+                                </span>
+                            </Button>
+                            <Button
+                                to="/cv-fran-sixto.pdf"
+                                variant="outlined"
+                                target="_blank"
+                            >
+                                {t('home.hero.resume')}
+                                <span className="ml-1">
+                                    <RiDownloadLine className="w-5 h-5" />
+                                </span>
+                            </Button>
+                        </div>
+                    </div>
                 </motion.div>
-                </Suspense>
-                <motion.div className="w-[100%] h-100 flex justify-center items-center"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 0.5 }}
+                <div className="w-[100%] relative flex items-center justify-center">
+                    <Suspense>
+                        <motion.div
+                            className="absolute h-100 w-[100%] shadow-2xl shadow-red-100 dark:shadow-gray-950 flex items-center justify-center rounded-4xl border-2 border-gray-950"
+                            style={{
+                                backgroundColor: "black",
+                                width: "400px",
+                                height: "400px",
+                                borderRadius: "100%",
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                willChange: "transform, opacity", // Hint to the browser for smoother animations
+                            }}
+                            initial={{ scale: 0.8, y: -20, opacity: 0 }} // Start with a scale and opacity for smoother animation
+                            whileInView={{ scale: 1, y: 0, opacity: 1 }}
+                            transition={{ duration: 1 }}
+                        >
+                        </motion.div>
+                    </Suspense>
+                    <motion.div className="w-[100%] h-100 flex justify-center items-center"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: 1.5, duration: 0.5 }}
 
-                >
-                <motion.span
-                    className={`absolute top-10 left-15 lg:left-50 bg-${mainColor}-100 text-${mainColor}-500 p-2 text-xl font-semibold shadow-lg transform rotate-3 rounded-md transition-colors duration-300`}
-                    animate={{
-                    y: [10, -10, 10], // Subtle float up and down
-                    rotate: [0, 2, -1, 0], // Subtle rotation
-                    }}
-                    transition={{
-                    duration: 4, // Duration of one float cycle
-                    repeat: Infinity, // Repeat indefinitely
-                    ease: "easeInOut", // Smooth easing
-                    delay: 1, // Delay before animation starts
-                    }}
-                >
-                    {t('home.hero.helloHuman')}
-                </motion.span>
+                    >
+                        <motion.span
+                            className={`absolute top-10 left-15 lg:left-50 bg-${mainColor}-100 text-${mainColor}-500 p-2 text-xl font-semibold shadow-lg transform rotate-3 rounded-md transition-colors duration-300`}
+                            animate={{
+                                y: [10, -10, 10], // Subtle float up and down
+                                rotate: [0, 2, -1, 0], // Subtle rotation
+                            }}
+                            transition={{
+                                duration: 4, // Duration of one float cycle
+                                repeat: Infinity, // Repeat indefinitely
+                                ease: "easeInOut", // Smooth easing
+                                delay: 1, // Delay before animation starts
+                            }}
+                        >
+                            {t('home.hero.helloHuman')}
+                        </motion.span>
 
-                <ThreeHero />
+                        <ThreeHero />
 
-                <motion.span
-                    className={`absolute right-15 bg-${mainColor}-100 text-${mainColor}-500 p-2 bottom-25 text-xl font-bold shadow-lg transform -rotate-6 rounded-md transition-colors duration-300`}
-                    animate={{
-                    y: [0, -20, 0], // Float up and down
-                    rotate: [0, 5, -5, 0], // Slight rotation
-                    }}
-                    transition={{
-                    duration: 4, // Duration of one float cycle
-                    repeat: Infinity, // Repeat indefinitely
-                    ease: "easeInOut", // Smooth easing
-                    delay: 1, // Delay before animation starts
-                    }}
-                >
-                    {t('home.hero.petDog')}
-                </motion.span>
-                </motion.div>
-            </div>
+                        <motion.span
+                            className={`absolute right-15 bg-${mainColor}-100 text-${mainColor}-500 p-2 bottom-25 text-xl font-bold shadow-lg transform -rotate-6 rounded-md transition-colors duration-300`}
+                            animate={{
+                                y: [0, -20, 0], // Float up and down
+                                rotate: [0, 5, -5, 0], // Slight rotation
+                            }}
+                            transition={{
+                                duration: 4, // Duration of one float cycle
+                                repeat: Infinity, // Repeat indefinitely
+                                ease: "easeInOut", // Smooth easing
+                                delay: 1, // Delay before animation starts
+                            }}
+                        >
+                            {t('home.hero.petDog')}
+                        </motion.span>
+                    </motion.div>
+                </div>
             </div>
         </section>
     );
