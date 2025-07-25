@@ -83,7 +83,7 @@ export default function FloatingColorSelector() {
     return (
         <div className="flex flex-col items-center gap-2 select-none">
             <motion.button
-               initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.5 }}
