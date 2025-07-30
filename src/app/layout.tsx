@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import Analytics, { AnalyticsInit } from '@/components/Analytics';
 import { ColorProvider } from '@/components/theme/ColorContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import { PartyModeProvider } from '@/contexts/PartyModeContext';
 
 const fontPrincipal = Work_Sans({
   subsets: ['latin'],
@@ -88,12 +89,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <ThemeProvider attribute="data-theme" >
             <ColorProvider>
               <LanguageProvider>
-                <Header />
-                <main id="main-content">
-                  {children}
-                </main>
-                <SpeedInsights />
-                <Footer />
+                <PartyModeProvider>
+                  <Header />
+                  <main id="main-content">
+                    {children}
+                  </main>
+                  <SpeedInsights />
+                  <Footer />
+                </PartyModeProvider>
               </LanguageProvider>
             </ColorProvider>
           </ThemeProvider>

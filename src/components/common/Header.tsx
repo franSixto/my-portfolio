@@ -10,7 +10,7 @@ import NavMobile from "@/components/common/NavMobile";
 import { RiMenuLine } from "react-icons/ri";
 import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
 import FloatingColorSelector from "@/components/theme/FloatingColorSelector";
-// import PartyModeButton from "@/components/common/PartyModeButton";
+import PartyModeManager from "@/components/common/PartyModeButton";
 import LanguageSelector from "@/components/common/LanguageSelector";
 import { useTranslation } from '@/contexts/LanguageContext';
 import { useRTL } from '@/hooks/useRTL';
@@ -175,8 +175,7 @@ export default function Header() {
                         <div className={rtlClass("flex items-center justify-end space-x-2")}>
                             <LanguageSelector />
                             <FloatingColorSelector />
-                            {/* Party Mode Button extraído a componente */}
-                            {/* <PartyModeButton /> */}
+                            <PartyModeManager />
                             <div className="block">
                                 <ThemeSelect />
                             </div>

@@ -3,7 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useColorContext } from "../theme/ColorContext";
 import { useGLTF } from "@react-three/drei";
-import Image from "next/image";
+import { usePartyMode } from "@/contexts/PartyModeContext";
 
 function Character() {
   const { scene } = useGLTF("/Xenomorph.glb");
@@ -23,6 +23,7 @@ function Character() {
 export default function Scene() {
 
   const { mainColor } = useColorContext();
+  const { setPartyMode } = usePartyMode();
     // Utilidad para mapear el color tailwind a un color de three.js
     const colorMap: Record<string, string> = {
       red: '#ef4444', blue: '#3b82f6', green: '#22c55e', yellow: '#eab308',
@@ -37,20 +38,14 @@ export default function Scene() {
     { id: number; x: number; y: number; rotation: number }[]
   >([]);
 
-  // Estado para el jumpscare
-  const [showJumpscare, setShowJumpscare] = useState(false);
-  // Contador de clicks con useRef para evitar warning de variable no usada
+  // Contador de clicks con useRef para activar party mode después de 4 clicks
   const xenoClicks = useRef(0);
 
   const handleCanvasClick = () => {
     xenoClicks.current += 1;
     if (xenoClicks.current === 4) {
-      setShowJumpscare(true);
-      // Sonido jumpscare
-      const jumpscareAudio = new Audio("/xenomorph3.mp3");
-      jumpscareAudio.volume = 1;
-      jumpscareAudio.play();
-      setTimeout(() => setShowJumpscare(false), 2000);
+      // Activar party mode directamente después de 4 clicks
+      setPartyMode(true);
       xenoClicks.current = 0; // Reiniciar contador
     }
 
@@ -78,62 +73,6 @@ export default function Scene() {
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
-      {/* Jumpscare overlay */}
-      {showJumpscare && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            background: "rgba(0,0,0,0.95)",
-            zIndex: 9999,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",            
-          }}
-        >
-          <div style={{
-            position: "relative",
-            display: "inline-block",
-            width: "fit-content",
-            height: "fit-content",
-            animation: "jumpscare-pop 1s ease",
-          }}>
-            <Image
-              src="/xeno.webp"
-              alt="Jumpscare"
-              width={1200}
-              height={900}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "contain",
-                filter: "drop-shadow(0 0 40px #000) brightness(1.2)",
-                zIndex: 2,
-                borderRadius: "25px"
-              }}
-              className="rounded"
-              priority
-              unoptimized
-            />
-            {/* Overlay de color SOLO sobre la imagen */}
-            <div style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              background: `${threeColor}CC`,
-              mixBlendMode: "multiply",
-              borderRadius: "12px",
-              pointerEvents: "none",
-              zIndex: 3
-            }} />
-          </div>
-        </div>
-      )}
       {bubbles.map((bubble) => (
         <span
           key={bubble.id}
@@ -201,11 +140,6 @@ export default function Scene() {
         100% {
         transform: translate(-50%, -50%) scale(1) rotate(0deg);
         }
-      }
-      @keyframes jumpscare-pop {
-        0% { transform: scale(0.7); opacity: 0; }
-        80% { transform: scale(2); opacity: 1; }
-        100% { transform: scale(1); opacity: 1; }
       }
       `}</style>
     </div>
