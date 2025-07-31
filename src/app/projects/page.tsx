@@ -2,6 +2,7 @@
 "use client";
 
 import ProjectList from "@/components/projects/ProjectList";
+import ProjectsPageSkeleton from "@/components/projects/ProjectsPageSkeleton";
 import { TitleH1 } from "@/components/common/TitleH1";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import { useTranslation } from '@/contexts/LanguageContext';
@@ -12,11 +13,7 @@ function Projects() {
   const { projects, loading, error } = useProjects();
 
   if (loading) {
-    return (
-      <div className="dark:bg-gray-950 pt-15 px-6 min-h-screen flex items-center justify-center">
-        <div className="text-xl">{t('common.loading')}</div>
-      </div>
-    );
+    return <ProjectsPageSkeleton projectCount={6} />;
   }
 
   if (error) {

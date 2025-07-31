@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import { TitleH1Project } from "@/components/common/TitleH1Project";
 import ProjectLogoBanner from "@/components/projects/ProjectLogoBanner";
 import LiveProjectButton from "@/components/projects/LiveProjectButton";
+import ProjectDetailSkeleton from "@/components/projects/ProjectDetailSkeleton";
 import { loadProject, type Project as ProjectType, type Locale } from '@/lib/translations';
 
 interface ProjectContentProps {
@@ -36,13 +37,7 @@ export default function ProjectContent({ slug }: ProjectContentProps) {
   }, [slug, locale]);
 
   if (loading) {
-    return (
-      <div className="container mx-auto px-6 py-12 text-center dark:bg-gray-950">
-        <p className="text-lg text-gray-600 dark:text-gray-400">
-          {t('common.loading') || 'Loading...'}
-        </p>
-      </div>
-    );
+    return <ProjectDetailSkeleton />;
   }
 
   if (!project) {
