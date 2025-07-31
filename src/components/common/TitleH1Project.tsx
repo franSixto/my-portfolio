@@ -17,14 +17,14 @@ export const TitleH1Project: React.FC<TitleH1PagesProps> = ({ title, description
 
   return (
     <motion.div
-      className="mb-12 text-start"
+      className="mb-12 text-center px-4"
       initial={{ opacity: 0, y: -10 }}
       whileInView={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
       ref={ref}
     >
       <motion.h1
-        className={`text-4xl max-w-2xl mx-auto lg:text-5xl xl:text-6xl font-extrabold bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text uppercase mb-2`}
+        className={`text-2xl max-w-6xl mx-auto lg:text-4xl font-extrabold bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text uppercase mb-2`}
         initial={{ y: -10 }}
         whileInView={inView ? { y: 0 } : {}}
         transition={{ duration: 0.5 }}
@@ -32,7 +32,7 @@ export const TitleH1Project: React.FC<TitleH1PagesProps> = ({ title, description
         {title}
       </motion.h1>
       <motion.p
-        className="text-xl max-w-2xl mx-auto leading-relaxed dark:text-gray-400"
+        className="text-md max-w-4xl mx-auto leading-relaxed dark:text-gray-400"
         initial={{ y: -10 }}
         whileInView={inView ? { y: 0 } : {}}
         transition={{ delay: 0.3, duration: 0.8 }}

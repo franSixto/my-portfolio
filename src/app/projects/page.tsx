@@ -18,7 +18,7 @@ function Projects() {
 
   if (error) {
     return (
-      <div className="dark:bg-gray-950 pt-15 px-6 min-h-screen flex items-center justify-center">
+      <div className="dark:bg-gray-950 pt-10 px-6 min-h-screen flex items-center justify-center">
         <div className="text-xl text-red-500">{t('common.error')}: {error}</div>
       </div>
     );
@@ -27,7 +27,7 @@ function Projects() {
     
     
     <div
-      className="dark:bg-gray-950 pt-15 px-6"
+      className="dark:bg-gray-950 pt-10 px-6"
       style={{
         backgroundImage: 'url("/fondo.webp")',
         backgroundSize: 'cover',

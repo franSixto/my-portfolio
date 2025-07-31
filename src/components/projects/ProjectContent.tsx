@@ -66,8 +66,10 @@ export default function ProjectContent({ slug }: ProjectContentProps) {
 
   return (
     <article className="dark:bg-gray-950">
-      <div className="container mx-auto px-6 py-12">
+      <div className="w-full bg-gray-100 dark:bg-gray-900 pt-10 pb-1">
         <TitleH1Project title={title} description={description} />
+      </div>
+      <div className="container mx-auto px-6">
         {logoUrl && logoUrl !== "/default-logo.png" && (
           <ProjectLogoBanner logoUrl={logoUrl} logoAlt={logoAlt} />
         )}

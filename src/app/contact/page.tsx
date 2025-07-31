@@ -12,7 +12,7 @@ const Contact = () => {
   return (
     <div className="relative overflow-hidden flex flex-col items-center justify-center dark:bg-gray-950">
         
-    <div className="container px-6 flex flex-col items-center justify-center pt-15">
+    <div className="container px-6 flex flex-col items-center justify-center pt-10">
       <Breadcrumbs />
       
         <TitleH1
