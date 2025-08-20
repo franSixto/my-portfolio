@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://fransixto.com.ar/contact</loc><lastmod>2025-07-25T13:28:03.169Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://fransixto.com.ar/about</loc><lastmod>2025-07-25T13:28:03.174Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://fransixto.com.ar/projects</loc><lastmod>2025-07-25T13:28:03.174Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://fransixto.com.ar/projects/experience-at-apex</loc><lastmod>2025-07-25T13:28:03.175Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://fransixto.com.ar/projects/experience-at-autocity</loc><lastmod>2025-07-25T13:28:03.175Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://fransixto.com.ar/projects/experience-at-deep-creek</loc><lastmod>2025-07-25T13:28:03.175Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://fransixto.com.ar/projects/experience-at-sixto-van-garret</loc><lastmod>2025-07-25T13:28:03.175Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://fransixto.com.ar/projects/experience-at-startu</loc><lastmod>2025-07-25T13:28:03.175Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://fransixto.com.ar/projects/officina-artis</loc><lastmod>2025-07-25T13:28:03.175Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://fransixto.com.ar/blog</loc><lastmod>2025-07-25T13:28:03.174Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://fransixto.com.ar</loc><lastmod>2025-07-25T13:28:03.174Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar/blog</loc><lastmod>2025-08-20T15:50:49.957Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar/projects</loc><lastmod>2025-08-20T15:50:49.960Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar/contact</loc><lastmod>2025-08-20T15:50:49.960Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar/about</loc><lastmod>2025-08-20T15:50:49.960Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar/projects/experience-at-apex</loc><lastmod>2025-08-20T15:50:49.961Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar/projects/experience-at-autocity</loc><lastmod>2025-08-20T15:50:49.961Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar/projects/experience-at-deep-creek</loc><lastmod>2025-08-20T15:50:49.961Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar/projects/experience-at-sixto-van-garret</loc><lastmod>2025-08-20T15:50:49.961Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar/projects/experience-at-startu</loc><lastmod>2025-08-20T15:50:49.961Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar/projects/officina-artis</loc><lastmod>2025-08-20T15:50:49.961Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://fransixto.com.ar</loc><lastmod>2025-08-20T15:50:49.960Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
