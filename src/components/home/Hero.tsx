@@ -7,14 +7,23 @@ import Button from "@/components/theme/Button"; // Adjust the import path as nec
 import { Suspense } from "react";
 import { useColorContext, COLOR_GRADIENT_MAP } from '@/components/theme/ColorContext';
 import { useTranslation } from '@/contexts/LanguageContext';
+import HeroSkeleton from "@/components/home/HeroSkeleton";
 
 const Hero: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, loading } = useTranslation();
     const { mainColor } = useColorContext();
     const gradient = COLOR_GRADIENT_MAP[mainColor] || COLOR_GRADIENT_MAP.red;
 
+    // Mostrar skeleton mientras cargan las traducciones
+    if (loading) {
+        return <HeroSkeleton />;
+    }
+
     return (
-        <section
+        <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
             className="flex justify-center items-center w-full"
             style={{
                 height: "100%",
@@ -133,7 +142,7 @@ const Hero: React.FC = () => {
                     </motion.div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 
