@@ -23,16 +23,24 @@
   max-width: calc(100% - 2rem);
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-work-sans), system-ui, sans-serif;
   font-optical-sizing: auto;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Espacio para el header fijo */
 #main-content {
   padding-top: 100px;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /*Animacion de scroll de logos*/

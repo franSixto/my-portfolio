@@ -31,7 +31,7 @@ export default function ThemeSelect() {
         onClick={() => {
           const newTheme = resolvedTheme === "light" ? "dark" : "light";
           setTheme(newTheme);
-          localStorage.setItem('theme', newTheme); // Guardar el tema seleccionado
+          // next-themes ya maneja localStorage automáticamente
         }}
         className={`p-2 w-[45px] h-[45px] flex justify-center items-center rounded-full backdrop-blur-sm ${COLOR_CLASS_MAP[mainColor]} cursor-pointer`}
         title="theme switcher"

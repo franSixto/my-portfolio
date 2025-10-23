@@ -30,11 +30,11 @@ const Hero: React.FC = () => {
                 minHeight: "calc(100vh - 120px)",
             }}
         >
-            <div className="container mx-auto px-0 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
+            <div className="container mx-auto px-0 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center overflow-hidden">
                 <motion.div
-                    initial={{ scale: 0.8, y: -30, opacity: 0 }} // Start with a scale and opacity for smoother animation
-                    whileInView={{ scale: 1, y: 0, opacity: 1 }}
-                    transition={{ duration: 1 }} // Use a custom cubic-bezier easing for smoother animation
+                    initial={{ scale: 0.95, opacity: 0 }} // Reducido para evitar overflow en mobile
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.6 }} // Más rápido para mejor UX
                     className="px-6 lg:px-0">
                     <p className="text-center lg:text-start text-sm md:text-base text-gray-500 dark:text-gray-400 mb-2 font-medium tracking-wide">
                         {t('home.hero.tagline')}
@@ -81,42 +81,41 @@ const Hero: React.FC = () => {
                         </div>
                     </div>
                 </motion.div>
-                <div className="w-[100%] relative flex items-center justify-center">
+                <div className="w-full relative flex items-center justify-center overflow-hidden">
                     <Suspense>
                         <motion.div
-                            className="absolute h-100 w-[100%] shadow-2xl shadow-red-100 dark:shadow-gray-950 flex items-center justify-center rounded-4xl border-2 border-gray-950"
+                            className="absolute shadow-2xl shadow-red-100 dark:shadow-gray-950 flex items-center justify-center border-2 border-gray-950"
                             style={{
                                 backgroundColor: "black",
-                                width: "400px",
-                                height: "400px",
+                                width: "min(400px, 90vw)", // Responsive: máximo 400px o 90% del viewport
+                                height: "min(400px, 90vw)",
                                 borderRadius: "100%",
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
-                                willChange: "transform, opacity", // Hint to the browser for smoother animations
+                                willChange: "transform, opacity",
                             }}
-                            initial={{ scale: 0.8, y: -20, opacity: 0 }} // Start with a scale and opacity for smoother animation
-                            whileInView={{ scale: 1, y: 0, opacity: 1 }}
-                            transition={{ duration: 1 }}
+                            initial={{ scale: 0.9, opacity: 0 }} // Reducido para evitar overflow
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.8 }}
                         >
                         </motion.div>
                     </Suspense>
-                    <motion.div className="w-[100%] h-100 flex justify-center items-center"
+                    <motion.div className="w-full h-100 flex justify-center items-center relative"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 1.5, duration: 0.5 }}
-
                     >
                         <motion.span
-                            className={`absolute top-10 left-15 lg:left-50 bg-${mainColor}-100 text-${mainColor}-500 p-2 text-xl font-semibold shadow-lg transform rotate-3 rounded-md transition-colors duration-300`}
+                            className={`absolute top-10 left-2 lg:left-50 bg-${mainColor}-100 text-${mainColor}-500 p-2 text-sm lg:text-xl font-semibold shadow-lg transform rotate-3 rounded-md transition-colors duration-300 max-w-[40%] lg:max-w-none text-center`}
                             animate={{
-                                y: [10, -10, 10], // Subtle float up and down
-                                rotate: [0, 2, -1, 0], // Subtle rotation
+                                y: [10, -10, 10],
+                                rotate: [0, 2, -1, 0],
                             }}
                             transition={{
-                                duration: 4, // Duration of one float cycle
-                                repeat: Infinity, // Repeat indefinitely
-                                ease: "easeInOut", // Smooth easing
-                                delay: 1, // Delay before animation starts
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: 1,
                             }}
                         >
                             {t('home.hero.helloHuman')}
@@ -125,16 +124,16 @@ const Hero: React.FC = () => {
                         <ThreeHero />
 
                         <motion.span
-                            className={`absolute right-15 bg-${mainColor}-100 text-${mainColor}-500 p-2 bottom-25 text-xl font-bold shadow-lg transform -rotate-6 rounded-md transition-colors duration-300`}
+                            className={`absolute right-2 lg:right-15 bg-${mainColor}-100 text-${mainColor}-500 p-2 bottom-25 text-sm lg:text-xl font-bold shadow-lg transform -rotate-6 rounded-md transition-colors duration-300 max-w-[40%] lg:max-w-none text-center`}
                             animate={{
-                                y: [0, -20, 0], // Float up and down
-                                rotate: [0, 5, -5, 0], // Slight rotation
+                                y: [0, -20, 0],
+                                rotate: [0, 5, -5, 0],
                             }}
                             transition={{
-                                duration: 4, // Duration of one float cycle
-                                repeat: Infinity, // Repeat indefinitely
-                                ease: "easeInOut", // Smooth easing
-                                delay: 1, // Delay before animation starts
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: 1,
                             }}
                         >
                             {t('home.hero.petDog')}

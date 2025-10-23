@@ -148,7 +148,7 @@ export default function Header() {
 
     return (
         <>
-            <div className="flex justify-center bg-gray-50 dark:bg-gray-950 px-10 mx-10">
+            <div className="flex justify-center bg-gray-50 dark:bg-gray-950 px-4 md:px-10 mx-4 md:mx-10 overflow-x-hidden">
                 <header className="max-header z-50 mt-4 fixed w-full text-black dark:text-white transition-colors duration-300 py-1 rounded-full">
                     {/* Liquid Glass Effect Layers */}
                     <div className="liquidGlass-effect rounded-2xl"></div>

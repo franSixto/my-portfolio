@@ -16,11 +16,11 @@ const HeroSkeleton: React.FC = () => {
                 minHeight: "calc(100vh - 120px)",
             }}
         >
-            <div className="container mx-auto px-0 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center">
+            <div className="container mx-auto px-0 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center overflow-hidden">
                 <motion.div
-                    initial={{ scale: 0.8, y: -30, opacity: 0 }}
-                    animate={{ scale: 1, y: 0, opacity: 1 }}
-                    transition={{ duration: 1 }}
+                    initial={{ scale: 0.95, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.6 }}
                     className="px-6 lg:px-0"
                 >
                     {/* Tagline skeleton */}
@@ -63,22 +63,22 @@ const HeroSkeleton: React.FC = () => {
                 </motion.div>
                 
                 {/* Right side - 3D area */}
-                <div className="w-[100%] relative flex items-center justify-center">
+                <div className="w-full relative flex items-center justify-center overflow-hidden">
                     <Suspense>
                         <motion.div
-                            className="absolute h-100 w-[100%] shadow-2xl shadow-red-100 dark:shadow-gray-950 flex items-center justify-center rounded-4xl border-2 border-gray-950"
+                            className="absolute shadow-2xl shadow-red-100 dark:shadow-gray-950 flex items-center justify-center border-2 border-gray-950"
                             style={{
                                 backgroundColor: "black",
-                                width: "400px",
-                                height: "400px",
+                                width: "min(400px, 90vw)",
+                                height: "min(400px, 90vw)",
                                 borderRadius: "100%",
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
                                 willChange: "transform, opacity",
                             }}
-                            initial={{ scale: 0.8, y: -20, opacity: 0 }}
-                            animate={{ scale: 1, y: 0, opacity: 1 }}
-                            transition={{ duration: 1 }}
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.8 }}
                         >
                             {/* 3D placeholder */}
                             <div className="w-24 h-24 bg-gray-600 dark:bg-gray-400 rounded-full animate-pulse" />
@@ -86,14 +86,14 @@ const HeroSkeleton: React.FC = () => {
                     </Suspense>
                     
                     <motion.div 
-                        className="w-[100%] h-100 flex justify-center items-center"
+                        className="w-full h-100 flex justify-center items-center relative"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.5, duration: 0.5 }}
                     >
                         {/* Hello Human skeleton */}
                         <motion.div
-                            className={`absolute top-10 left-15 lg:left-50 bg-${mainColor}-100 p-2 shadow-lg transform rotate-3 rounded-md h-10 w-32 animate-pulse opacity-60`}
+                            className={`absolute top-10 left-2 lg:left-50 bg-${mainColor}-100 p-2 shadow-lg transform rotate-3 rounded-md h-8 w-24 lg:h-10 lg:w-32 animate-pulse opacity-60`}
                             animate={{
                                 y: [10, -10, 10],
                                 rotate: [0, 2, -1, 0],
@@ -108,7 +108,7 @@ const HeroSkeleton: React.FC = () => {
 
                         {/* Pet Dog skeleton */}
                         <motion.div
-                            className={`absolute right-15 bg-${mainColor}-100 p-2 bottom-25 shadow-lg transform -rotate-6 rounded-md h-10 w-36 animate-pulse opacity-60`}
+                            className={`absolute right-2 lg:right-15 bg-${mainColor}-100 p-2 bottom-25 shadow-lg transform -rotate-6 rounded-md h-8 w-28 lg:h-10 lg:w-36 animate-pulse opacity-60`}
                             animate={{
                                 y: [0, -20, 0],
                                 rotate: [0, 5, -5, 0],

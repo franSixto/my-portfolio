@@ -8,6 +8,8 @@ import Analytics, { AnalyticsInit } from '@/components/Analytics';
 import { ColorProvider } from '@/components/theme/ColorContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { PartyModeProvider } from '@/contexts/PartyModeContext';
+import '@/lib/patchReactDevTools';
+import '@/lib/suppressConsoleErrors';
 
 const fontPrincipal = Work_Sans({
   subsets: ['latin'],
@@ -25,12 +27,29 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <html lang="en" data-theme="dark" style={{ colorScheme: "dark", fontFamily: fontPrincipal.style.fontFamily }} >
+      <html lang="en" suppressHydrationWarning>
         <head>
           <Analytics />
           <AnalyticsInit />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  try {
+                    // Prevenir FOUC - next-themes usa 'theme' como clave por defecto
+                    var theme = localStorage.getItem('theme');
+                    if (!theme) {
+                      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                    }
+                    document.documentElement.setAttribute('data-theme', theme);
+                    document.documentElement.style.colorScheme = theme;
+                  } catch (e) {}
+                })();
+              `,
+            }}
+          />
         </head>
-        <body className={`${fontPrincipal.variable} font-sans`}>
+        <body className={`${fontPrincipal.variable} font-sans`} suppressHydrationWarning>
           <svg style={{ display: "none" }}>
             <filter
               id="glass-distortion"
@@ -86,7 +105,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
               />
             </filter>
           </svg>
-          <ThemeProvider attribute="data-theme" >
+          <ThemeProvider 
+            attribute="data-theme"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             <ColorProvider>
               <LanguageProvider>
                 <PartyModeProvider>
