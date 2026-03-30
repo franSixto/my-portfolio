@@ -6,19 +6,17 @@ import { TitleH2 } from "@/components/common/TitleH2";
 import { RiMailSendLine } from "react-icons/ri";
 import { useColorContext, COLOR_BORDER_CLASS_MAP, COLOR_SHADOW_CLASS_MAP } from '@/components/theme/ColorContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useRTL } from '@/hooks/useRTL';
 
 export default function ContactCTA() {
     const { mainColor } = useColorContext();
     const { t } = useLanguage();
-    const { rtlClass } = useRTL();
 
     return (
         <motion.section
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeInOut' }}
-            className={`w-full px-6 flex flex-col items-center justify-center text-center h-[100vh] relative ${rtlClass('text-left')}`}>
+            className={`w-full px-6 flex flex-col items-center justify-center text-center h-[100vh] relative text-left`}>
             {/* Background blurred lights */}
 
             <motion.div

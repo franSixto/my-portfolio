@@ -5,7 +5,6 @@ import SubmitButton from "@/components/theme/SubmitButton";
 import ErrorMessage from "@/components/theme/ErrorMessage";
 import { RiCheckLine, RiCheckboxCircleLine} from "react-icons/ri";
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useRTL } from '@/hooks/useRTL';
 
 type FormData = {
     email: string;
@@ -17,7 +16,6 @@ const GOOGLE_FORM_EMAIL_ENTRY = process.env.NEXT_PUBLIC_GOOGLE_FORM_EMAIL_ENTRY!
 
 export default function Subscribe() {
     const { t } = useLanguage();
-    const { rtlClass } = useRTL();
     const {
         register,
         handleSubmit,
@@ -69,7 +67,7 @@ export default function Subscribe() {
     return (
         <div className="w-full flex justify-center">
             {submitted ? (
-                <div className={`absolute bottom-4 md:bottom-7 flex flex-row items-center p-1 pe-4 rounded-2xl bg-green-600/10 backdrop-blur-xl ${rtlClass('text-left')}`}>
+                <div className={`absolute bottom-4 md:bottom-7 flex flex-row items-center p-1 pe-4 rounded-2xl bg-green-600/10 backdrop-blur-xl text-left`}>
                     <RiCheckLine className="w-[50px] h-[50px] text-green-600 text-2xl m-2 bg-green-600/10 rounded-full p-2" />
                     <p className="text-green-600">{t('pages.contact.subscribe.success')}</p>
                 </div>

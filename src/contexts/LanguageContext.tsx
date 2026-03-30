@@ -7,15 +7,10 @@ interface LanguageContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
   t: (key: string) => string;
-  isRTL: boolean;
-  direction: 'ltr' | 'rtl';
   loading: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-// Idiomas que se leen de derecha a izquierda
-const RTL_LANGUAGES: Locale[] = ['ar'];
 
 interface LanguageProviderProps {
   children: ReactNode;
@@ -39,34 +34,44 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     }
   };
 
-  // Cargar idioma desde localStorage al iniciar
+  // Detectar idioma: localStorage > API (IP/Accept-Language) > 'en'
   useEffect(() => {
-    const savedLocale = localStorage.getItem('preferred-language') as Locale;
-    const initialLocale = (savedLocale && ['en', 'es', 'zh', 'ja', 'hi', 'pt', 'ar'].includes(savedLocale)) 
-      ? savedLocale 
-      : 'en';
-    
-    setLocaleState(initialLocale);
-    // Configurar dirección inicial
-    const isRTL = RTL_LANGUAGES.includes(initialLocale);
-    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
-    document.documentElement.lang = initialLocale;
-    
-    // Cargar traducciones
-    loadTranslations(initialLocale);
+    const detectLocale = async () => {
+      const saved = localStorage.getItem('preferred-language') as Locale | null;
+      if (saved && (saved === 'en' || saved === 'es')) {
+        setLocaleState(saved);
+        document.documentElement.lang = saved;
+        loadTranslations(saved);
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/locale');
+        if (res.ok) {
+          const { locale: detected } = await res.json();
+          const validLocale: Locale = detected === 'es' ? 'es' : 'en';
+          setLocaleState(validLocale);
+          localStorage.setItem('preferred-language', validLocale);
+          document.documentElement.lang = validLocale;
+          loadTranslations(validLocale);
+          return;
+        }
+      } catch {
+        // Si falla la detección, usamos inglés como fallback
+      }
+
+      setLocaleState('en');
+      document.documentElement.lang = 'en';
+      loadTranslations('en');
+    };
+
+    detectLocale();
   }, []);
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
     localStorage.setItem('preferred-language', newLocale);
-    
-    // Actualizar el atributo lang del html
     document.documentElement.lang = newLocale;
-    // Actualizar la dirección del texto
-    const isRTL = RTL_LANGUAGES.includes(newLocale);
-    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
-    
-    // Cargar nuevas traducciones
     loadTranslations(newLocale);
   };
 
@@ -74,11 +79,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     return getTranslation(translations, key);
   };
 
-  const isRTL = RTL_LANGUAGES.includes(locale);
-  const direction = isRTL ? 'rtl' : 'ltr';
-
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t, isRTL, direction, loading }}>
+    <LanguageContext.Provider value={{ locale, setLocale, t, loading }}>
       {children}
     </LanguageContext.Provider>
   );
@@ -94,7 +96,7 @@ export function useLanguage() {
 
 // Hook personalizado para traducir con interpolación
 export function useTranslation() {
-  const { t, locale, isRTL, direction, loading } = useLanguage();
+  const { t, locale, loading } = useLanguage();
   
   const translate = (key: string, variables?: Record<string, string | number>) => {
     let translation = t(key);
@@ -108,5 +110,5 @@ export function useTranslation() {
     return translation;
   };
 
-  return { t: translate, locale, isRTL, direction, loading };
+  return { t: translate, locale, loading };
 }

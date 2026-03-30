@@ -13,17 +13,15 @@ import FloatingColorSelector from "@/components/theme/FloatingColorSelector";
 import PartyModeManager from "@/components/common/PartyModeButton";
 import LanguageSelector from "@/components/common/LanguageSelector";
 import { useTranslation } from '@/contexts/LanguageContext';
-import { useRTL } from '@/hooks/useRTL';
 
 // Componente para la navegación que maneja las traducciones
 function NavigationLinks({ isActive }: { isActive: (path: string) => boolean }) {
     const { t, loading } = useTranslation();
-    const { rtlClass } = useRTL();
 
     // Si está cargando, mostrar placeholders con texto invisible
     if (loading) {
         return (
-            <ul className={rtlClass("hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6")}>
+            <ul className="hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6">
                 <li className="menu-item">
                     <motion.div
                         whileHover={{ scale: 1.1 }}
@@ -73,7 +71,7 @@ function NavigationLinks({ isActive }: { isActive: (path: string) => boolean }) 
     }
 
     return (
-        <ul className={rtlClass("hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6")}>
+        <ul className="hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6">
             <li className="menu-item">
                 <motion.div
                     whileHover={{ scale: 1.1 }}
@@ -135,7 +133,6 @@ function NavigationLinks({ isActive }: { isActive: (path: string) => boolean }) 
 }
 
 export default function Header() {
-    const { rtlClass } = useRTL();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
     const { mainColor } = useColorContext();
@@ -172,7 +169,7 @@ export default function Header() {
                         
                         <NavigationLinks isActive={isActive} />
                         
-                        <div className={rtlClass("flex items-center justify-end space-x-2")}>
+                        <div className="flex items-center justify-end space-x-2">
                             <LanguageSelector />
                             <FloatingColorSelector />
                             <PartyModeManager />

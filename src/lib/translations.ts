@@ -1,7 +1,7 @@
 // Utility functions for loading translations and projects from the new structure
 import { Project } from '@/types/project';
 
-export type Locale = 'en' | 'es' | 'zh' | 'ja' | 'hi' | 'pt' | 'ar';
+export type Locale = 'en' | 'es';
 export type { Project };
 
 type TranslationValue = string | number | boolean | Record<string, unknown> | unknown[];
