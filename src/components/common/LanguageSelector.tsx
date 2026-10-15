@@ -1,53 +1,37 @@
 "use client";
 
-import { useLanguage } from '@/contexts/LanguageContext';
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
-import type { Locale } from '@/lib/translations';
+import Link from "next/link";
+import cx from "classnames";
+import { usePathname } from "next/navigation";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { alternatePath, otherLocale, type Locale } from "@/i18n/routes";
 
-const languages: { code: Locale; name: string; flag: string }[] = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-];
+const languages: Record<Locale, { code: string; switchLabel: string }> = {
+  en: { code: "EN", switchLabel: "Ver esta página en inglés" },
+  es: { code: "ES", switchLabel: "View this page in Spanish" },
+};
 
-export default function LanguageSelector() {
-  const { locale, setLocale } = useLanguage();
-  const { mainColor } = useColorContext();
-  const [mounted, setMounted] = useState(false);
+// Text (not flags) in the target language code; the accessible name is written
+// in the language of the current page. A plain link to the equivalent URL in the other language (no client-side swap).
+export default function LanguageSelector({ className }: { className?: string }) {
+  const { locale } = useLanguage();
+  const pathname = usePathname();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const toggle = () => {
-    setLocale(locale === 'en' ? 'es' : 'en');
-  };
-
-  const currentLanguage = languages.find(lang => lang.code === locale);
-
-  if (!mounted) {
-    return (
-      <div className="relative">
-        <div className={`w-[45px] h-[45px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]} backdrop-blur-sm transition-colors duration-300`}>
-          <div className="w-6 h-6 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
-        </div>
-      </div>
-    );
-  }
+  const target = otherLocale(locale);
+  const href = alternatePath(pathname, target);
 
   return (
-    <div className="relative">
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={toggle}
-        className={`w-[45px] h-[45px] flex justify-center items-center rounded-full ${COLOR_CLASS_MAP[mainColor]} backdrop-blur-sm transition-colors duration-300 cursor-pointer`}
-        aria-label={locale === 'en' ? 'Cambiar a Español' : 'Switch to English'}
-        title={locale === 'en' ? 'Cambiar a Español' : 'Switch to English'}
-      >
-        <span className="text-xl">{currentLanguage?.flag}</span>
-      </motion.button>
-    </div>
+    <Link
+      href={href}
+      hrefLang={target}
+      className={cx(
+        "inline-flex h-10 min-w-10 items-center justify-center rounded-[var(--radius-control)] px-2 text-[0.9375rem] font-medium text-muted hover:bg-surface hover:text-ink",
+        className
+      )}
+      aria-label={languages[target].switchLabel}
+      title={languages[target].switchLabel}
+    >
+      {languages[target].code}
+    </Link>
   );
 }

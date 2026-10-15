@@ -1,51 +1,39 @@
-'use client'
-import { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
-import { RiSunLine, RiMoonLine } from "react-icons/ri";
-import { motion } from 'framer-motion';
-import { useColorContext, COLOR_CLASS_MAP } from './ColorContext';
+"use client";
 
-export default function ThemeSelect() {
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import cx from "classnames";
+import { Moon, Sun } from "@/components/ui/icons";
+
+export type ThemeLabels = { toDark: string; toLight: string };
+
+export default function ThemeSelect({ labels, className }: { labels: ThemeLabels; className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
-  const { mainColor } = useColorContext();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    // Reservar espacio mientras se monta para evitar Layout Shift
-    return (
-      <div className={`p-2 w-[45px] h-[45px] flex justify-center items-center rounded-full backdrop-blur-sm ${COLOR_CLASS_MAP[mainColor]}`}>
-        <div className="w-6 h-6 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
-      </div>
-    );
-  }
+  const classes = cx(
+    "inline-flex size-10 items-center justify-center rounded-[var(--radius-control)] text-muted hover:bg-surface hover:text-ink",
+    className
+  );
 
+  // Same box before mount, so there is no layout shift.
+  if (!mounted) return <span className={classes} aria-hidden="true" />;
+
+  const isDark = resolvedTheme === "dark";
+  const label = isDark ? labels.toLight : labels.toDark;
   return (
-    <motion.div
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}>
-      <button
-        onClick={() => {
-          const newTheme = resolvedTheme === "light" ? "dark" : "light";
-          setTheme(newTheme);
-          // next-themes ya maneja localStorage automáticamente
-        }}
-        className={`p-2 w-[45px] h-[45px] flex justify-center items-center rounded-full backdrop-blur-sm ${COLOR_CLASS_MAP[mainColor]} cursor-pointer`}
-        title="theme switcher"
-      >
-        {resolvedTheme === "light" ? (
-          <span className="text-gray-800">
-            <RiMoonLine className='text-2xl' />
-          </span>
-        ) : (
-          <span className="text-gray-200">
-            <RiSunLine className='text-2xl' />
-          </span>
-        )}
-      </button>
-    </motion.div>
+    <button
+      type="button"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className={cx(classes, "cursor-pointer")}
+      aria-label={label}
+      title={label}
+    >
+      {isDark ? <Sun /> : <Moon />}
+    </button>
   );
 }

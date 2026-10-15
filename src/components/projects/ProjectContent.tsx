@@ -1,127 +1,148 @@
-"use client";
-
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useEffect, useState } from 'react';
 import Image from "next/image";
-import ReactMarkdown from "react-markdown";
-import { TitleH1Project } from "@/components/common/TitleH1Project";
-import ProjectLogoBanner from "@/components/projects/ProjectLogoBanner";
-import LiveProjectButton from "@/components/projects/LiveProjectButton";
-import ProjectDetailSkeleton from "@/components/projects/ProjectDetailSkeleton";
-import { loadProject, type Project as ProjectType, type Locale } from '@/lib/translations';
+import type { ReactNode } from "react";
+import ButtonLink from "@/components/ui/ButtonLink";
+import Container from "@/components/ui/Container";
+import Heading from "@/components/ui/Heading";
+import { NumberedList, RuleList } from "@/components/ui/Lists";
+import PageHeader from "@/components/ui/PageHeader";
+import { ArrowRight, ArrowUpRight } from "@/components/ui/icons";
+import { Inline } from "@/components/ui/Text";
+import type { CaseBlock } from "@/content/projects/types";
 
-interface ProjectContentProps {
-  slug: string;
+export type ProjectContentProps = {
+  title: string;
+  lead: string;
+  crumbLabel: string;
+  hero: { src: string; width: number; height: number; alt: string };
+  logo?: { src: string; width: number; height: number; alt: string };
+  meta: { label: string; value: string }[];
+  links: { label: string; href: string; ariaLabel: string; note?: string }[];
+  sections: { id: string; heading: string; blocks: CaseBlock[] }[];
+  related: {
+    heading: string;
+    links: { href: string; label: string; variant: "secondary" | "text" }[];
+  };
+};
+
+function Blocks({ blocks }: { blocks: CaseBlock[] }): ReactNode {
+  return blocks.map((block, i) => {
+    switch (block.type) {
+      case "p":
+        return (
+          <p key={i} className="mt-5 first:mt-0">
+            <Inline text={block.text} />
+          </p>
+        );
+      case "ul":
+        return <RuleList key={i} items={block.items} className={i > 0 ? "mt-5" : undefined} />;
+      case "ol":
+        return <NumberedList key={i} items={block.items} className={i > 0 ? "mt-5" : undefined} />;
+    }
+  });
 }
 
-export default function ProjectContent({ slug }: ProjectContentProps) {
-  const { locale, t } = useLanguage();
-  const [project, setProject] = useState<ProjectType | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProject = async () => {
-      setLoading(true);
-      try {
-        const foundProject = await loadProject(slug, locale as Locale);
-        setProject(foundProject);
-      } catch (error) {
-        console.error('Error loading project:', error);
-        setProject(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProject();
-  }, [slug, locale]);
-
-  if (loading) {
-    return <ProjectDetailSkeleton />;
-  }
-
-  if (!project) {
-    return (
-      <div className="container mx-auto px-6 py-12 text-center dark:bg-gray-950">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-          {t('pages.projects.projectNotFound') || 'Project not found'}
-        </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400">
-          {t('pages.projects.projectNotFoundDescription') || 'The project you are looking for does not exist or has been removed.'}
-        </p>
-      </div>
-    );
-  }
-
-  const {
-    title = "Untitled Project",
-    description = "No description available.",
-    longDescription = "",
-    imageUrl = "/default-image.png",
-    imageAlt = "Project image",
-    logoUrl = "/default-logo.png",
-    logoAlt = "Project logo",
-    liveUrl,
-  } = project;
-
+/** Server component: the case study is rendered into the initial HTML. */
+export default function ProjectContent({
+  title,
+  lead,
+  crumbLabel,
+  hero,
+  logo,
+  meta,
+  links,
+  sections,
+  related,
+}: ProjectContentProps) {
   return (
-    <article className="dark:bg-gray-950">
-      <div className="w-full bg-gray-100 dark:bg-gray-900 pt-10 pb-1">
-        <TitleH1Project title={title} description={description} />
-      </div>
-      <div className="container mx-auto px-6">
-        {logoUrl && logoUrl !== "/default-logo.png" && (
-          <ProjectLogoBanner logoUrl={logoUrl} logoAlt={logoAlt} />
-        )}
-        {imageUrl && imageUrl !== "/default-image.png" && (
-          <div className="relative max-w-2xl mx-auto mb-16">
-            <Image
-              src={imageUrl}
-              alt={imageAlt}
-              width={1366}
-              height={792}
-              className="rounded-2xl object-cover bg-gray-100 dark:bg-gray-900"
-            />
-          </div>
-        )}
-        {liveUrl && (
-          <LiveProjectButton liveUrl={liveUrl} />
-        )}
-        <div className="prose dark:prose-invert text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          {longDescription && typeof longDescription === 'string' ? (
-            <ReactMarkdown
-              components={{
-                p: (props) => <p className="mb-5 leading-relaxed text-gray-700 dark:text-gray-200" {...props} />,
-                h1: (props) => <h1 className="text-3xl font-bold mt-8 mb-4 text-gray-900 dark:text-white" {...props} />,
-                h2: (props) => <h2 className="text-2xl font-semibold mt-6 mb-3 text-gray-900 dark:text-white" {...props} />,
-                h3: (props) => <h3 className="text-xl font-medium mt-5 mb-2 text-gray-900 dark:text-white" {...props} />,
-                ul: (props) => <ul className="list-disc pl-6 mb-5 space-y-2" {...props} />,
-                ol: (props) => <ol className="list-decimal pl-6 mb-5 space-y-2" {...props} />,
-                li: (props) => <li className="text-gray-700 dark:text-gray-200" {...props} />,
-                strong: (props) => <strong className="font-semibold text-gray-900 dark:text-white" {...props} />,
-                em: (props) => <em className="italic" {...props} />,
-                code: (props) => <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono" {...props} />,
-                pre: (props) => <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto mb-5" {...props} />,
-                blockquote: (props) => <blockquote className="border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic text-gray-600 dark:text-gray-400 mb-5" {...props} />,
-                a: (props) => <a className="text-blue-600 dark:text-blue-400 hover:underline" {...props} />,
-                hr: (props) => <hr className="border-gray-300 dark:border-gray-600 my-8" {...props} />,
-              }}
-            >
-              {longDescription}
-            </ReactMarkdown>
-          ) : longDescription && Array.isArray(longDescription) ? (
-            <div className="space-y-4">
-              <p className="text-gray-600 dark:text-gray-400">
-                Complex content structure not yet implemented.
-              </p>
-            </div>
-          ) : (
-            <p className="text-gray-600 dark:text-gray-400">
-              {t('pages.projects.noDetailedContent') || 'No detailed content available.'}
-            </p>
-          )}
+    <>
+      <PageHeader title={title} lead={lead} crumbLabel={crumbLabel} titleSize="h1-long" />
+
+      <Container>
+        <div className="overflow-hidden rounded-[var(--radius-media)] bg-surface">
+          <Image
+            src={hero.src}
+            alt={hero.alt}
+            width={hero.width}
+            height={hero.height}
+            priority
+            sizes="(min-width: 1360px) 1264px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2.5rem)"
+            className="h-auto w-full"
+          />
         </div>
-      </div>
-    </article>
+      </Container>
+
+      <Container className="pb-20 pt-14 md:pb-28 md:pt-20">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+          <aside className="lg:col-span-3">
+            <div className="space-y-8 lg:sticky lg:top-28">
+              {logo && (
+                <div className="flex h-14 w-44 items-center justify-center rounded-[var(--radius-control)] bg-white p-3 ring-1 ring-rule">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={logo.width}
+                    height={logo.height}
+                    sizes="160px"
+                    className="max-h-full w-auto max-w-full object-contain"
+                  />
+                </div>
+              )}
+              <dl className="space-y-5 border-t border-rule pt-5">
+                {meta.map((item) => (
+                  <div key={item.label}>
+                    <dt className="text-meta text-muted">{item.label}</dt>
+                    <dd className="mt-1 text-pretty text-ui font-medium text-ink">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              {links.length > 0 && (
+                <ul className="space-y-4">
+                  {links.map((link) => (
+                    <li key={link.href}>
+                      <ButtonLink href={link.href} external variant="secondary" ariaLabel={link.ariaLabel}>
+                        {link.label}
+                        <ArrowUpRight />
+                      </ButtonLink>
+                      {link.note && <p className="mt-2 text-meta text-muted">{link.note}</p>}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </aside>
+
+          <div className="max-w-[68ch] text-pretty font-serif text-body text-ink lg:col-span-7 lg:col-start-5">
+            {sections.map((section) => (
+              <section
+                key={section.id}
+                aria-labelledby={`case-${section.id}`}
+                className="mt-14 first:mt-0"
+              >
+                <Heading as="h2" size="h3" id={`case-${section.id}`}>
+                  {section.heading}
+                </Heading>
+                <div className="mt-5">
+                  <Blocks blocks={section.blocks} />
+                </div>
+              </section>
+            ))}
+
+            <section aria-labelledby="case-related-service" className="mt-14">
+              <Heading as="h2" size="h3" id="case-related-service">
+                {related.heading}
+              </Heading>
+              <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
+                {related.links.map((link) => (
+                  <ButtonLink key={link.href} href={link.href} variant={link.variant}>
+                    {link.label}
+                    {link.variant === "secondary" && <ArrowRight />}
+                  </ButtonLink>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
+      </Container>
+    </>
   );
 }

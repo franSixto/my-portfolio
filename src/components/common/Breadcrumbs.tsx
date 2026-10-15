@@ -2,66 +2,105 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useColorContext } from "../theme/ColorContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { motion } from "framer-motion";
+import { absoluteUrl, localizedPath, matchRoute, type RouteKey } from "@/i18n/routes";
+import { serializeJsonLd } from "@/i18n/jsonLd";
+import { SERVICE_NAV_LABELS, isServiceRoute } from "@/content/services/nav";
+import cx from "classnames";
 
-export default function Breadcrumbs() {
+type Crumb = { label: string; href: string };
+
+const LABEL_KEYS: Partial<Record<RouteKey, string>> = {
+    services: 'navigation.services',
+    about: 'navigation.about',
+    projects: 'navigation.projects',
+    contact: 'navigation.contact',
+};
+
+export default function Breadcrumbs({
+    currentLabel,
+    className,
+}: {
+    currentLabel?: string;
+    className?: string;
+}) {
     const pathname = usePathname();
-    const pathParts = pathname.split("/").filter(Boolean);
-    const { mainColor } = useColorContext();
-    const { t } = useLanguage();
+    const { t, locale } = useLanguage();
 
-    const getTranslatedPath = (path: string): string => {
-        const translations: { [key: string]: string } = {
-            'about': t('navigation.about'),
-            'projects': t('navigation.projects'),
-            'contact': t('navigation.contact'),
-            'blog': t('navigation.blog'),
-        };
-        return translations[path] || decodeURIComponent(path);
+    const match = matchRoute(pathname);
+
+    const crumbs: Crumb[] = [{ label: t('navigation.home'), href: localizedPath('home', locale) }];
+    if (match && match.key !== 'home') {
+        if (match.key === 'project') {
+            crumbs.push({ label: t('navigation.projects'), href: localizedPath('projects', locale) });
+            crumbs.push({
+                label: currentLabel || decodeURIComponent(match.params.slug),
+                href: pathname,
+            });
+        } else {
+            if (isServiceRoute(match.key)) {
+                crumbs.push({ label: t('navigation.services'), href: localizedPath('services', locale) });
+            }
+            const labelKey = LABEL_KEYS[match.key];
+            const label = isServiceRoute(match.key)
+                ? SERVICE_NAV_LABELS[locale][match.key]
+                : labelKey ? t(labelKey) : decodeURIComponent(match.key);
+            crumbs.push({
+                label,
+                href: localizedPath(match.key, locale, match.params),
+            });
+        }
+    }
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: crumbs.map((crumb, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: crumb.label,
+            item: absoluteUrl(crumb.href),
+        })),
     };
 
     return (
         <>
-            <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}>
-                <nav className="text-sm mb-6 bg-gray-300 dark:bg-gray-600 p-[1px] rounded-lg" aria-label="Breadcrumb">
-                    <ol className="list-none p-0 inline-flex bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded-lg">
-                        <li className="flex items-center">
-                            <Link href="/" className={`text-${mainColor}-500 hover:underline`}>{t('navigation.home')}</Link>
-                        </li>
-                        {pathParts.map((part, idx) => {
-                            const href = "/" + pathParts.slice(0, idx + 1).join("/");
-                            const isLast = idx === pathParts.length - 1;
-                            const translatedPart = getTranslatedPath(part);
-                            return (
-                                <li key={href} className="flex items-center max-w-[200px] truncate whitespace-nowrap overflow-hidden">
-                                    <span className="mx-2 text-gray-400">/</span>
-                                    {isLast ? (
-                                        <span
-                                            className={`text-${mainColor}-500 dark:text-${mainColor}-300 capitalize`}
-                                            title={translatedPart}
-                                        >
-                                            {translatedPart}
-                                        </span>
-                                    ) : (
-                                        <Link
-                                            href={href}
-                                            className={`text-${mainColor}-500 hover:underline capitalize`}
-                                            title={translatedPart}
-                                        >
-                                            {translatedPart}
-                                        </Link>
-                                    )}
-                                </li>
-                            );
-                        })}
-                    </ol>
-                </nav>
-            </motion.div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+            />
+            <nav aria-label={t('navigation.breadcrumb')} className={cx("text-meta text-muted", className)}>
+                <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                    {crumbs.map((crumb, idx) => {
+                        const isLast = idx === crumbs.length - 1 && idx !== 0;
+                        return (
+                            <li key={crumb.href} className="flex min-w-0 items-center gap-2">
+                                {idx > 0 && (
+                                    <span aria-hidden="true" className="text-rule-strong">
+                                        /
+                                    </span>
+                                )}
+                                {isLast ? (
+                                    <span
+                                        aria-current="page"
+                                        className="max-w-[28ch] truncate text-ink md:max-w-[48ch]"
+                                        title={crumb.label}
+                                    >
+                                        {crumb.label}
+                                    </span>
+                                ) : (
+                                    <Link
+                                        href={crumb.href}
+                                        className="underline-offset-[0.25em] decoration-accent hover:text-ink hover:underline"
+                                    >
+                                        {crumb.label}
+                                    </Link>
+                                )}
+                            </li>
+                        );
+                    })}
+                </ol>
+            </nav>
         </>
     );
 }

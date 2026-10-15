@@ -1,144 +1,291 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import Label from "@/components/theme/Label";
-import ErrorMessage from "@/components/theme/ErrorMessage";
-import SubmitButton from "@/components/theme/SubmitButton";
-import { RiCheckLine, RiMailSendLine } from "react-icons/ri";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { useForm, type FieldErrors, type Resolver } from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { RiCheckLine, RiMailSendLine } from "react-icons/ri";
+import ErrorMessage from "@/components/theme/ErrorMessage";
+import Label from "@/components/theme/Label";
+import SubmitButton from "@/components/theme/SubmitButton";
+import type { ContactFormCopy } from "@/content/pages/contact";
+import type { Locale } from "@/i18n/routes";
+import { trackEvent } from "@/lib/analytics";
+import {
+  PROJECT_TYPE_KEYS,
+  PROJECT_TYPE_PARAM,
+  projectTypeFromQuery,
+  type ProjectTypeKey,
+} from "@/lib/contact/projectTypes";
+import { RECAPTCHA_SITE_KEY } from "@/lib/contact/siteKey";
+import { validateContactFields, type FieldErrorCode } from "@/lib/contact/validate";
 
+const fieldClass =
+  "block w-full rounded-[var(--radius-control)] border border-rule-strong bg-paper px-4 py-3 text-ui text-ink transition-colors hover:border-ink focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent aria-[invalid=true]:border-danger";
+const helpClass = "mt-2 text-meta text-muted";
 
-type FormData = {
+type FormValues = {
   name: string;
   email: string;
+  projectType: ProjectTypeKey | "";
   message: string;
-  honeypot?: string; // Optional field for honeypot
+  honeypot: string;
+  recaptchaToken: string;
 };
 
-export default function ContactForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // Estado para manejar el envío
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const { t } = useLanguage();
+type Status = "idle" | "submitting" | "success" | "error";
 
-  const onSubmit = async (data: FormData) => {
-    if (!recaptchaToken) {
-      alert(t('contact.form.recaptchaError'));
-      return;
+// Same validator as the API route: the browser and the server cannot disagree.
+const resolver: Resolver<FormValues> = async (values) => {
+  const errors: FieldErrors<FormValues> = {};
+  const result = validateContactFields(values);
+  if (!result.ok) {
+    for (const [field, code] of Object.entries(result.errors)) {
+      errors[field as keyof FormValues] = { type: code };
     }
-    setIsSubmitting(true);
+  }
+  if (!values.recaptchaToken) errors.recaptchaToken = { type: "recaptcha_required" };
+  return Object.keys(errors).length > 0 ? { values: {}, errors } : { values, errors: {} };
+};
+
+function describedBy(...ids: (string | false | undefined)[]) {
+  const value = ids.filter(Boolean).join(" ");
+  return value || undefined;
+}
+
+export default function ContactForm({ copy, locale }: { copy: ContactFormCopy; locale: Locale }) {
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    setError,
+    setFocus,
+    getValues,
+    formState: { errors, isSubmitted },
+  } = useForm<FormValues>({
+    resolver,
+    defaultValues: { name: "", email: "", projectType: "", message: "", honeypot: "", recaptchaToken: "" },
+  });
+  const [status, setStatus] = useState<Status>("idle");
+  const [captchaUnavailable, setCaptchaUnavailable] = useState(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaBoxRef = useRef<HTMLDivElement>(null);
+  const statusRef = useRef<HTMLDivElement>(null);
+
+  // Preselect the project type when linked from a service page CTA.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const requested = projectTypeFromQuery(
+      params.get(PROJECT_TYPE_PARAM[locale]) ?? params.get(PROJECT_TYPE_PARAM[locale === "es" ? "en" : "es"])
+    );
+    if (requested && !getValues("projectType")) setValue("projectType", requested);
+  }, [getValues, locale, setValue]);
+
+  const fieldError = (name: keyof FormValues) => {
+    const type = errors[name]?.type as FieldErrorCode | "recaptcha_required" | undefined;
+    if (!type) return undefined;
+    return type === "recaptcha_required" ? copy.recaptchaError : copy.errors[type];
+  };
+
+  const resetRecaptcha = () => {
+    recaptchaRef.current?.reset();
+    setValue("recaptchaToken", "");
+  };
+
+  const onInvalid = (invalid: FieldErrors<FormValues>) => {
+    // RHF already focuses the first invalid input; the widget is not an input.
+    const onlyRecaptcha = Object.keys(invalid).every((key) => key === "recaptchaToken");
+    if (onlyRecaptcha) recaptchaBoxRef.current?.focus();
+  };
+
+  const onValid = async (values: FormValues) => {
+    setStatus("submitting");
+    setCaptchaUnavailable(false);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, recaptchaToken }),
+        body: JSON.stringify({ ...values, locale }),
       });
+      const data: { error?: string; fields?: Record<string, FieldErrorCode> } | null = await response
+        .json()
+        .catch(() => null);
 
       if (response.ok) {
-        setSubmitted(true);
+        trackEvent("contact_submit", { project_type: values.projectType, locale });
+        setStatus("success");
+        requestAnimationFrame(() => statusRef.current?.focus());
+        return;
       }
-    } catch (error) {
-      console.error("Error enviando el mensaje:", error);
-    } finally {
-      setIsSubmitting(false); // Cambia a "false" al finalizar el envío
+
+      // The token is single-use: always ask for a fresh check after a failed attempt.
+      resetRecaptcha();
+
+      if (data?.error === "validation_failed" && data.fields) {
+        const entries = Object.entries(data.fields) as [keyof FormValues, FieldErrorCode][];
+        for (const [field, code] of entries) setError(field, { type: code });
+        setStatus("idle");
+        if (entries[0]) setFocus(entries[0][0]);
+        return;
+      }
+      setCaptchaUnavailable(data?.error === "captcha_unavailable");
+      setStatus("error");
+    } catch {
+      resetRecaptcha();
+      setStatus("error");
     }
   };
 
+  const submitting = status === "submitting";
+  const done = status === "success";
+
   return (
-    <div className="w-[100%] flex items-center justify-items-center p-4 pb-20 gap-16 font-[family-name:var(--font-geist-sans)] z-2">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.02 }}
-        id="contact-form"
-        role="form"
-        aria-label="Contact Form"
-        aria-live="polite"
-        aria-busy={isSubmitting}
-        tabIndex={0}
-        // className="max-w-full sm:max-w-md lg:max-w-lg mx-auto w-300 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl shadow-md "
-       className="max-w-full sm:max-w-md lg:max-w-lg mx-auto w-300 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl shadow-md ">
-        <h2 className="text-2xl font-bold mb-4 dark:text-gray-100">{t('contact.form.title')}</h2>
-        {submitted ? (
-          <div className="flex flex-col items-center p-5 rounded-2xl bg-green-600/10">
-            <RiCheckLine className="w-[50px] h-[50px] text-green-600 text-2xl m-2 bg-green-600/10 rounded-full p-2" />
-            <h3 className="text-green-600 font-semibold text-lg">{t('contact.form.successTitle')}</h3>
-            <p className="text-green-600">{t('contact.form.successMessage')}</p>
-            <Link
-              href="/"
-              className="mt-4 px-4 py-2 bg-gray-500/20 text-gray-900 dark:text-white  rounded-lg hover:bg-gray-700/20 focus:outline-none focus:ring focus:ring-blue-300 dark:focus:ring-blue-500"
-            >
-              {t('common.backHome')}
-            </Link>
+    <section
+      id="contact-form"
+      aria-labelledby="contact-form-title"
+      className="rounded-[var(--radius-media)] border border-rule bg-raised p-6 md:p-10"
+    >
+      <h2 id="contact-form-title" className="mb-8 font-sans text-h3 font-semibold text-ink">
+        {copy.heading}
+      </h2>
+
+      <form
+        onSubmit={handleSubmit(onValid, onInvalid)}
+        noValidate
+        aria-label={copy.ariaLabel}
+        aria-busy={submitting}
+        className="space-y-6"
+      >
+        <div hidden={done} className="space-y-6">
+          {/* Honeypot: invisible to people, tempting to bots. */}
+          <div aria-hidden="true" style={{ display: "none" }}>
+            <input type="text" tabIndex={-1} autoComplete="off" {...register("honeypot")} />
           </div>
-        ) : (
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div>
-              <input
-                type="text"
-                style={{ display: "none" }}
-                {...register("honeypot")}
-              />
-            </div>
-            <div>
-              <Label htmlFor="name" text={t('contact.form.name')} />
-              <input
-                {...register("name", { required: t('contact.form.nameRequired') })}
-                className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300 dark:focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
-                placeholder={t('contact.form.name')}
-              />
-              {errors.name && <ErrorMessage message={errors.name.message || ""} />}
-            </div>
 
-            <div>
-              <Label htmlFor="email" text={t('contact.form.email')} />
-              <input
-                type="email"
-                {...register("email", { 
-                  required: t('contact.form.emailRequired'), 
-                  pattern: { 
-                    value: /^\S+@\S+$/, 
-                    message: t('contact.form.emailInvalid') 
-                  } 
-                })}
-                className="w-full p-2 border rounded-lg focus:ring focus:ring-red-300 dark:focus:ring-red-500/20 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
-                placeholder={t('contact.form.email')}
-              />
-              {errors.email && <ErrorMessage message={errors.email.message || ""} />}
-            </div>
-
-            <div>
-              <Label htmlFor="message" text={t('contact.form.message')} />
-              <textarea
-                {...register("message", { required: t('contact.form.messageRequired') })}
-                className="w-full p-2 border rounded-lg focus:ring focus:ring-red-300 dark:focus:ring-red-500/20 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
-                rows={4}
-                placeholder={t('contact.form.message')}
-              ></textarea>
-              {errors.message && <ErrorMessage message={errors.message.message || ""} />}
-            </div>
-            <div className="flex justify-center">
-              <ReCAPTCHA
-                sitekey="6LeC3lcrAAAAAGIC5fThStXnImx2Xn2Lv_ogQPUS"
-                onChange={(token: string | null) => setRecaptchaToken(token)}
-              />
-            </div>
-            <SubmitButton 
-              isSubmitting={isSubmitting} 
-              submittingText={t('contact.form.sending')} 
-              defaultText={t('contact.form.send')} 
-              Icon={RiMailSendLine} 
+          <div>
+            <Label htmlFor="name" text={copy.name.label} />
+            <input
+              id="name"
+              autoComplete="name"
+              placeholder={copy.name.placeholder}
+              aria-required="true"
+              aria-invalid={errors.name ? true : undefined}
+              aria-describedby={describedBy(errors.name && "name-error")}
+              className={fieldClass}
+              {...register("name")}
             />
-          </form>
+            {errors.name && <ErrorMessage id="name-error" message={fieldError("name") ?? ""} />}
+          </div>
+
+          <div>
+            <Label htmlFor="email" text={copy.email.label} />
+            <input
+              id="email"
+              type="email"
+              autoComplete="email"
+              placeholder={copy.email.placeholder}
+              aria-required="true"
+              aria-invalid={errors.email ? true : undefined}
+              aria-describedby={describedBy("email-help", errors.email && "email-error")}
+              className={fieldClass}
+              {...register("email")}
+            />
+            <p id="email-help" className={helpClass}>
+              {copy.email.help}
+            </p>
+            {errors.email && <ErrorMessage id="email-error" message={fieldError("email") ?? ""} />}
+          </div>
+
+          <div>
+            <Label htmlFor="projectType" text={copy.projectType.label} />
+            <select
+              id="projectType"
+              aria-required="true"
+              aria-invalid={errors.projectType ? true : undefined}
+              aria-describedby={describedBy(errors.projectType && "projectType-error")}
+              className={fieldClass}
+              {...register("projectType")}
+            >
+              <option value="">{copy.projectType.placeholder}</option>
+              {PROJECT_TYPE_KEYS.map((key) => (
+                <option key={key} value={key}>
+                  {copy.projectType.options[key]}
+                </option>
+              ))}
+            </select>
+            {errors.projectType && (
+              <ErrorMessage id="projectType-error" message={fieldError("projectType") ?? ""} />
+            )}
+          </div>
+
+          <div>
+            <Label htmlFor="message" text={copy.message.label} />
+            <textarea
+              id="message"
+              rows={6}
+              placeholder={copy.message.placeholder}
+              aria-required="true"
+              aria-invalid={errors.message ? true : undefined}
+              aria-describedby={describedBy("message-help", errors.message && "message-error")}
+              className={`${fieldClass} min-h-40 py-3 leading-relaxed`}
+              {...register("message")}
+            />
+            <p id="message-help" className={helpClass}>
+              {copy.message.help}
+            </p>
+            {errors.message && <ErrorMessage id="message-error" message={fieldError("message") ?? ""} />}
+          </div>
+
+          <div>
+            <div
+              ref={recaptchaBoxRef}
+              tabIndex={-1}
+              aria-describedby={describedBy("recaptcha-notice", errors.recaptchaToken && "recaptcha-error")}
+              className="overflow-x-auto outline-none focus-visible:outline-2 focus-visible:outline-accent"
+            >
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={RECAPTCHA_SITE_KEY}
+                hl={locale}
+                onChange={(token: string | null) =>
+                  setValue("recaptchaToken", token ?? "", { shouldValidate: isSubmitted })
+                }
+                onExpired={() => setValue("recaptchaToken", "")}
+              />
+            </div>
+            <p id="recaptcha-notice" className={helpClass}>
+              {copy.spamNotice}
+            </p>
+            {errors.recaptchaToken && (
+              <ErrorMessage id="recaptcha-error" message={fieldError("recaptchaToken") ?? ""} />
+            )}
+          </div>
+        </div>
+
+        {/* Always in the DOM so assistive tech announces what gets injected. */}
+        <div ref={statusRef} role="status" aria-live="polite" tabIndex={-1} className="outline-none">
+          {status === "success" && (
+            <div className="rounded-[var(--radius-control)] bg-accent-soft p-6">
+              <RiCheckLine aria-hidden="true" className="size-8 text-accent" />
+              <p className="mt-3 font-sans text-[1.1875rem] font-semibold text-ink">{copy.success.title}</p>
+              <p className="mt-1 text-ui text-muted">{copy.success.text}</p>
+            </div>
+          )}
+          {status === "error" && (
+            <p className="rounded-[var(--radius-control)] border border-danger p-4 text-ui font-medium text-danger text-pretty">
+              {captchaUnavailable ? copy.captchaUnavailable : copy.failure}
+            </p>
+          )}
+        </div>
+
+        {!done && (
+          <SubmitButton
+            isSubmitting={submitting}
+            submittingText={copy.submitting}
+            defaultText={copy.submit}
+            Icon={RiMailSendLine}
+          />
         )}
-      </motion.div>
-    </div>
+      </form>
+    </section>
   );
 }

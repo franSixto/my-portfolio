@@ -1,15 +1,19 @@
 import type { NextConfig } from "next";
+import { buildRedirects } from "./src/i18n/redirects";
 
 const nextConfig: NextConfig = {
   images: {
-    // Solo permitimos imágenes locales
+    // Only local images are allowed
     domains: [],
   },
-  // Suprimir errores de instrumentación en desarrollo
   reactStrictMode: true,
-  // Configuración experimental para mejorar Fast Refresh
+  // Suppress instrumentation errors in development
   experimental: {
     turbo: {},
+  },
+  // Legacy URLs and renamed case studies (rules live in src/i18n/redirects.ts)
+  async redirects() {
+    return buildRedirects();
   },
 };
 
