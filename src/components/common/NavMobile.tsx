@@ -1,123 +1,86 @@
-import { useEffect } from "react";
-import { motion } from "framer-motion";
+"use client";
+
+import { useEffect, useRef, type RefObject } from "react";
+import cx from "classnames";
 import Link from "next/link";
-import { RiCloseLine } from "react-icons/ri";
-import { useLanguage } from '@/contexts/LanguageContext';
-import type { RouteKey } from '@/i18n/routes';
-
-const MOBILE_ITEMS: ReadonlyArray<{ route: RouteKey; labelKey: string; hash?: string }> = [
-    { route: "home", labelKey: "navigation.home" },
-    { route: "home", labelKey: "navigation.services", hash: "#services" },
-    { route: "about", labelKey: "navigation.about" },
-    { route: "projects", labelKey: "navigation.projects" },
-    { route: "contact", labelKey: "navigation.contact" },
-];
-
-// Mobile navigation links (blog removed: no posts yet)
-function MobileNavigationLinks({
-    isActive,
-    toggleMenu,
-}: {
-    isActive: (route: RouteKey) => boolean;
-    toggleMenu: () => void;
-}) {
-    const { t, localePath } = useLanguage();
-
-    return (
-        <ul className="relative w-full h-full">
-            {MOBILE_ITEMS.map((item, index, arr) => {
-                const angle = (360 / arr.length) * index;
-                const x = 50 + 40 * Math.cos((angle * Math.PI) / 180);
-                const y = 50 + 40 * Math.sin((angle * Math.PI) / 180);
-
-                return (
-                    <li
-                        key={item.labelKey}
-                        style={{
-                            position: "absolute",
-                            top: `${y}%`,
-                            left: `${x}%`,
-                            transform: "translate(-50%, -50%)",
-                        }}
-                    >
-                        <motion.div
-                            initial={{ y: 0, rotate: 0 }}
-                            animate={{
-                                y: [0, Math.random() * -20 + 10, 0],
-                                rotate: [0, Math.random() * 30 - 20, 0],
-                            }}
-                            transition={{
-                                duration: Math.random() * 3 + 2,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                        >
-                            <Link
-                                href={`${localePath(item.route)}${item.hash ?? ""}`}
-                                className={`hover:text-gray-500 dark:hover:text-gray-300 ${!item.hash && isActive(item.route) ? `font-bold text-accent transition-colors duration-300` : ""}`}
-                                onClick={toggleMenu}
-                            >
-                                {t(item.labelKey)}
-                            </Link>
-                        </motion.div>
-                    </li>
-                );
-            })}
-        </ul>
-    );
-}
+import ThemeSelect from "@/components/theme/ThemeSelect";
+import LanguageSelector from "@/components/common/LanguageSelector";
+import { NAV_ITEMS, isNavItemActive } from "@/components/common/navItems";
+import { useLanguage } from "@/contexts/LanguageContext";
+import type { RouteKey } from "@/i18n/routes";
 
 interface NavMobileProps {
-    isMenuOpen: boolean;
-    toggleMenu: () => void;
-    isActive: (route: RouteKey) => boolean;
+  onClose: () => void;
+  returnFocusTo: RefObject<HTMLButtonElement | null>;
+  currentRoute: RouteKey | undefined;
+  themeLabel: string;
 }
 
-const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive }) => {
+/**
+ * Full-height sheet under the header. While open, the page behind is inert
+ * and does not scroll; Escape closes it and focus returns to the toggle.
+ */
+export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeLabel }: NavMobileProps) {
+  const { t, localePath } = useLanguage();
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
-    // Añadir o eliminar la clase "overflow-hidden" al <body>
-    useEffect(() => {
-        if (isMenuOpen) {
-            document.body.classList.add("overflow-hidden");
-        } else {
-            document.body.classList.remove("overflow-hidden");
-        }
+  useEffect(() => {
+    const background = ["main-content", "site-footer"]
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    background.forEach((el) => (el.inert = true));
+    document.body.style.overflow = "hidden";
+    firstLinkRef.current?.focus();
 
-        // Limpieza al desmontar el componente
-        return () => {
-            document.body.classList.remove("overflow-hidden");
-        };
-    }, [isMenuOpen]);
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    const toggle = returnFocusTo.current;
 
-    if (!isMenuOpen) return null;
+    return () => {
+      background.forEach((el) => (el.inert = false));
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+      toggle?.focus();
+    };
+  }, [onClose, returnFocusTo]);
 
-    return (
-        <div
-            className="fixed inset-0 flex items-center justify-center bg-black/80 bg-opacity-50 z-50 backdrop-blur-sm"
-            onClick={toggleMenu} // Cierra el menú al hacer clic en cualquier lugar del fondo
-        >
-            <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="relative p-8 w-85 h-85 rounded-full bg-gradient-to-br from-white via-white/80 to-white/90 dark:from-gray-800/80 dark:via-gray-900/50 dark:to-gray-950/50 flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()} // Evita que el clic dentro del menú cierre el menú
-            >
-            <button
-                onClick={toggleMenu}
-                className="absolute top-2 right-2 text-white focus:outline-none z-60"
-            >
-                <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white dark:bg-gray-900">
-                <RiCloseLine className={`text-2xl text-accent transition-colors duration-300`} />
-                </div>
-            </button>
-            <MobileNavigationLinks isActive={isActive} toggleMenu={toggleMenu} />
-            </motion.div>
+  return (
+    <div
+      id="mobile-nav"
+      className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-paper md:top-[4.5rem] lg:hidden"
+    >
+      <nav className="mx-auto flex min-h-full max-w-[1360px] flex-col px-5 pb-10 pt-6 md:px-8">
+        <ul className="border-b border-rule">
+          {[...NAV_ITEMS, { id: "contact", route: "contact" as const, labelKey: "navigation.contact" }].map(
+            (item, index) => {
+              const active =
+                item.id === "contact" ? currentRoute === "contact" : isNavItemActive(item, currentRoute);
+              return (
+                <li key={item.id} className="border-t border-rule">
+                  <Link
+                    ref={index === 0 ? firstLinkRef : undefined}
+                    href={`${localePath(item.route)}${"hash" in item && item.hash ? item.hash : ""}`}
+                    onClick={onClose}
+                    aria-current={active ? "page" : undefined}
+                    className={cx(
+                      "flex items-center justify-between py-4 font-sans text-h2 font-semibold",
+                      active ? "text-accent" : "text-ink"
+                    )}
+                  >
+                    {t(item.labelKey)}
+                  </Link>
+                </li>
+              );
+            }
+          )}
+        </ul>
+        <div className="mt-8 flex items-center gap-2">
+          <LanguageSelector className="border border-rule" />
+          <ThemeSelect label={themeLabel} className="border border-rule" />
         </div>
-    );
-};
-
-export default NavMobile;
+      </nav>
+    </div>
+  );
+}

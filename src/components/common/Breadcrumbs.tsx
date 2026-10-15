@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { absoluteUrl, localizedPath, matchRoute, type RouteKey } from "@/i18n/routes";
 import { serializeJsonLd } from "@/i18n/seo";
 import { SERVICE_NAV_LABELS, isServiceRoute } from "@/content/services/nav";
-import { motion } from "framer-motion";
+import cx from "classnames";
 
 type Crumb = { label: string; href: string };
 
@@ -16,7 +16,13 @@ const LABEL_KEYS: Partial<Record<RouteKey, string>> = {
     contact: 'navigation.contact',
 };
 
-export default function Breadcrumbs({ currentLabel }: { currentLabel?: string }) {
+export default function Breadcrumbs({
+    currentLabel,
+    className,
+}: {
+    currentLabel?: string;
+    className?: string;
+}) {
     const pathname = usePathname();
     const { t, locale } = useLanguage();
 
@@ -59,40 +65,38 @@ export default function Breadcrumbs({ currentLabel }: { currentLabel?: string })
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
             />
-            <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}>
-                <nav className="text-sm mb-6 bg-gray-300 dark:bg-gray-600 p-[1px] rounded-lg" aria-label="Breadcrumb">
-                    <ol className="list-none p-0 inline-flex bg-gray-100 dark:bg-gray-900 px-2 py-1 rounded-lg">
-                        {crumbs.map((crumb, idx) => {
-                            const isFirst = idx === 0;
-                            const isLast = idx === crumbs.length - 1 && !isFirst;
-                            return (
-                                <li key={crumb.href} className="flex items-center max-w-[200px] truncate whitespace-nowrap overflow-hidden">
-                                    {!isFirst && <span className="mx-2 text-gray-400">/</span>}
-                                    {isLast ? (
-                                        <span
-                                            className={`text-accent capitalize`}
-                                            title={crumb.label}
-                                        >
-                                            {crumb.label}
-                                        </span>
-                                    ) : (
-                                        <Link
-                                            href={crumb.href}
-                                            className={`text-accent hover:underline ${isFirst ? '' : 'capitalize'}`}
-                                            title={crumb.label}
-                                        >
-                                            {crumb.label}
-                                        </Link>
-                                    )}
-                                </li>
-                            );
-                        })}
-                    </ol>
-                </nav>
-            </motion.div>
+            <nav aria-label="Breadcrumb" className={cx("text-meta text-muted", className)}>
+                <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                    {crumbs.map((crumb, idx) => {
+                        const isLast = idx === crumbs.length - 1 && idx !== 0;
+                        return (
+                            <li key={crumb.href} className="flex min-w-0 items-center gap-2">
+                                {idx > 0 && (
+                                    <span aria-hidden="true" className="text-rule-strong">
+                                        /
+                                    </span>
+                                )}
+                                {isLast ? (
+                                    <span
+                                        aria-current="page"
+                                        className="max-w-[28ch] truncate text-ink md:max-w-[48ch]"
+                                        title={crumb.label}
+                                    >
+                                        {crumb.label}
+                                    </span>
+                                ) : (
+                                    <Link
+                                        href={crumb.href}
+                                        className="underline-offset-[0.25em] decoration-accent hover:text-ink hover:underline"
+                                    >
+                                        {crumb.label}
+                                    </Link>
+                                )}
+                            </li>
+                        );
+                    })}
+                </ol>
+            </nav>
         </>
     );
 }

@@ -16,7 +16,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/about", destination: "/sobre-mi", permanent: true },
       { source: "/projects", destination: "/proyectos", permanent: true },
-      { source: "/projects/:slug", destination: "/proyectos/:slug", permanent: true },
+      // Slugs never contain a dot: this keeps /projects/*.webp (public assets) out of the redirect.
+      { source: "/projects/:slug([^./]+)", destination: "/proyectos/:slug", permanent: true },
       { source: "/contact", destination: "/contacto", permanent: true },
       // Blog has no posts yet; temporary so it can come back
       { source: "/blog", destination: "/", permanent: false },

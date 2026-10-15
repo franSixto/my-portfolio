@@ -5,5 +5,5 @@ import { getStaticPageMetadata } from "@/i18n/seo";
 export const metadata: Metadata = getStaticPageMetadata("about", "es");
 
 export default function Page() {
-  return <AboutScreen />;
+  return <AboutScreen locale="es" />;
 }

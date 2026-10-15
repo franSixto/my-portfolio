@@ -1,97 +1,159 @@
 @import "tailwindcss";
 @variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-@theme{
-  --background: #f9f9f9;
-  --foreground: #333;
-  --primary: #0070f3;
-  --secondary: #f81ce5;
-  /* Single accent: blue-700 on light surfaces (6.4:1 on #f9f9f9) */
-  --color-accent: #1d4ed8;
-  --muted: #f9f9f9;
-  --error: #ff0000;
-  --success: #00ff00;
-  --warning: #ffcc00;
+/*
+ * Design tokens — "Annotated spec" direction.
+ * Contrast ratios (WCAG 2.x) are documented next to each pairing.
+ */
+@theme {
+  /* Light palette */
+  --color-paper: #fbfbfa;
+  --color-surface: #f0f2ef;
+  --color-raised: #ffffff;
+  --color-ink: #14201c; /* 16.18:1 on paper */
+  --color-muted: #4e5a55; /* 6.95:1 on paper, 6.39:1 on surface */
+  --color-rule: #d5dbd7; /* decorative separators only */
+  --color-rule-strong: #7a8781; /* 3.62:1 on paper: input borders */
+  --color-accent: #0b6b55; /* 6.24:1 on paper; white on it 6.46:1 */
+  --color-accent-strong: #08523f; /* white on it 9.17:1 */
+  --color-accent-soft: #e3f0eb; /* accent on it 5.52:1 */
+  --color-on-accent: #ffffff;
+  --color-band: #14201c;
+  --color-band-ink: #e9efec; /* 14.38:1 on band */
+  --color-band-muted: #a3b1ab; /* 7.53:1 on band */
+  --color-band-action: #8addc1; /* band text #14201c on it 10.53:1 */
+  --color-band-on-action: #14201c;
+  --color-danger: #b42318; /* 6.35:1 on paper */
+
+  /* Type scale */
+  --text-meta: 0.875rem;
+  --text-meta--line-height: 1.45;
+  --text-ui: 1rem;
+  --text-ui--line-height: 1.55;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.65;
+  --text-lead: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-lead--line-height: 1.45;
+  --text-h3: 1.375rem;
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.01em;
+  --text-h2: clamp(1.75rem, 1.3rem + 1.6vw, 2.75rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h1: clamp(2.25rem, 1.4rem + 3vw, 4.25rem);
+  --text-h1--line-height: 1.04;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h1-long: clamp(2rem, 1.3rem + 2.4vw, 3.5rem);
+  --text-h1-long--line-height: 1.08;
+  --text-h1-long--letter-spacing: -0.025em;
+  --text-display: clamp(2.75rem, 1rem + 7vw, 7.25rem);
+  --text-display--line-height: 0.96;
+  --text-display--letter-spacing: -0.04em;
+
+  --radius-control: 6px;
+  --radius-media: 10px;
+  --radius-band: 20px;
 }
 
-/* Variables para modo oscuro */
+/* Font families resolve where next/font sets its variables (on <html>). */
+@theme inline {
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+}
+
+/* Dark palette: green-tinted graphite, lighter mint accent, pine CTA field. */
 [data-theme="dark"] {
-  --background: #030712;
-  /* blue-400 on dark surfaces (7.9:1 on #030712) */
-  --color-accent: #60a5fa;
+  --color-paper: #0f1412;
+  --color-surface: #161d1a;
+  --color-raised: #1d2622;
+  --color-ink: #e9efec; /* 15.96:1 on paper */
+  --color-muted: #a3b1ab; /* 8.36:1 on paper, 7.70:1 on surface */
+  --color-rule: #2c3833;
+  --color-rule-strong: #667770; /* 3.62:1 on surface */
+  --color-accent: #5fcba8; /* 9.38:1 on paper */
+  --color-accent-strong: #8addc1;
+  --color-accent-soft: #15302a; /* accent on it 7.12:1 */
+  --color-on-accent: #06231b; /* 8.38:1 on accent */
+  --color-band: #12302a;
+  --color-band-ink: #e9efec; /* 12.16:1 */
+  --color-band-muted: #a9c2b8; /* 7.49:1 */
+  --color-band-action: #5fcba8;
+  --color-band-on-action: #06231b; /* 8.38:1 */
+  --color-danger: #ff9b8a; /* 8.42:1 on surface */
 }
 
-.max-header{
-  max-width: calc(100% - 2rem);
-}
-
+@layer base {
 html {
-  overflow-x: hidden;
+  /* clip (not hidden) keeps the sticky header working */
+  overflow-x: clip;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-work-sans), system-ui, sans-serif;
-  font-optical-sizing: auto;
-  overflow-x: hidden;
-  position: relative;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  line-height: var(--text-ui--line-height);
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Espacio para el header fijo */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+}
+
 #main-content {
-  padding-top: 100px;
-  overflow-x: hidden;
   width: 100%;
 }
 
-/*Animacion de scroll de logos*/
-@keyframes scroll {
-  0% {
-    transform: translateX(0%);
+/* Home hero: the single orchestrated motion moment. Transform only, so the
+   LCP text is painted on the first frame. */
+.hero-rule {
+  position: relative;
+}
+.hero-rule::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: var(--color-ink);
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rule::before {
+    animation: draw-rule 700ms cubic-bezier(0.2, 0.7, 0.1, 1) both;
   }
-  100% {
-    transform: translateX(-50%);
+  .hero-settle {
+    animation: settle 700ms cubic-bezier(0.2, 0.7, 0.1, 1) 120ms both;
   }
 }
-.animate-scroll {
-  animation: scroll 40s linear infinite;
+
+@keyframes draw-rule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
-/* Liquid Glass Effect */
-.liquidGlass-effect {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  backdrop-filter: blur(3px);
-  filter: url(#glass-distortion);
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.liquidGlass-tint {
-  z-index: 1;
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.25);
-}
-
-/* Dark mode variant para liquidGlass-tint */
-[data-theme="dark"] .liquidGlass-tint {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.liquidGlass-shine {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  overflow: hidden;
-  box-shadow: inset 2px 2px 4px 0 rgba(255, 255, 255, 0.5),
-    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
-}
-
-/* Dark mode variant para liquidGlass-shine */
-[data-theme="dark"] .liquidGlass-shine {
-  box-shadow: inset 2px 2px 4px 0 rgba(255, 255, 255, 0.2),
-    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.1);
+@keyframes settle {
+  from {
+    transform: translateY(8px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }

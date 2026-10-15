@@ -5,5 +5,5 @@ import { getStaticPageMetadata } from "@/i18n/seo";
 export const metadata: Metadata = getStaticPageMetadata("home", "en");
 
 export default function Page() {
-  return <HomeScreen />;
+  return <HomeScreen locale="en" />;
 }

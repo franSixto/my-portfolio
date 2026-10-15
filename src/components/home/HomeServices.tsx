@@ -1,89 +1,26 @@
-"use client";
+import IndexLinks from "@/components/ui/IndexLinks";
+import Section from "@/components/ui/Section";
 
-import { motion } from "framer-motion";
-import { FiPenTool, FiCode, FiUsers, FiTrendingUp } from "react-icons/fi";
-import { TitleH2 } from "@/components/common/TitleH2";
-import { useLanguage } from '@/contexts/LanguageContext';
-import Link from "next/link";
-import { SERVICE_NAV_LABELS, SERVICE_ROUTE_KEYS } from '@/content/services/nav';
+export type HomeServicesContent = {
+  heading: string;
+  intro: string;
+  capabilities: { title: string; description: string }[];
+  pages: { href: string; title: string }[];
+  pagesLabel: string;
+};
 
-export default function Services() {
-    const { t, locale, localePath } = useLanguage();
-
-    const services = [
-        {
-            title: t('home.services.uxui.title'),
-            description: t('home.services.uxui.description'),
-            icon: <FiPenTool />,
-        },
-        {
-            title: t('home.services.frontend.title'),
-            description: t('home.services.frontend.description'),
-            icon: <FiCode />,
-        },
-        {
-            title: t('home.services.teamLeadership.title'),
-            description: t('home.services.teamLeadership.description'),
-            icon: <FiUsers />,
-        },
-        {
-            title: t('home.services.optimization.title'),
-            description: t('home.services.optimization.description'),
-            icon: <FiTrendingUp />,
-        },
-    ];
-
-    return (
-        <section id="services" className="container mx-auto px-6 grid items-center justify-center">
-            <div className="mx-auto text-center">
-
-                <motion.div
-                    key="services"
-                    initial={{ opacity: 0, y: -30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: 'easeOut' }}
-                    className="relative flex flex-col items-center justify-center mb-8"
-                >
-                    <TitleH2
-                        title={t('home.services.title')}
-                        description={t('home.services.description')}
-                    />
-                    <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                        {services.map((service, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: -30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1, duration: 0.5 }}
-                                className="dark:bg-gray-900/30 bg-white/30 backdrop-blur-xl rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow z-2"
-                            >
-                                <div className={`text-4xl flex justify-center mb-4 text-accent transition-colors duration-300`}>
-                                    {service.icon}
-                                </div>
-                                <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">{service.title}</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-md">{service.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-
-                    <nav aria-label={t('navigation.servicesAriaLabel')} className="relative z-2 mt-10">
-                        <ul className="flex flex-wrap justify-center gap-3">
-                            {SERVICE_ROUTE_KEYS.map((key) => (
-                                <li key={key}>
-                                    <Link
-                                        href={localePath(key)}
-                                        className="inline-block rounded-full border border-gray-400 dark:border-gray-600 px-5 py-2 text-gray-800 dark:text-gray-100 bg-white/50 dark:bg-gray-900/40 hover:bg-white dark:hover:bg-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:focus-visible:outline-white transition-colors"
-                                    >
-                                        {SERVICE_NAV_LABELS[locale][key]}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
-
-                </motion.div>
-            </div>
-        </section>
-    );
+export default function HomeServices({ content }: { content: HomeServicesContent }) {
+  return (
+    <Section id="services" heading={content.heading} intro={content.intro}>
+      <IndexLinks items={content.pages} ariaLabel={content.pagesLabel} />
+      <div className="mt-16 grid gap-x-8 gap-y-10 md:grid-cols-2">
+        {content.capabilities.map((item) => (
+          <div key={item.title}>
+            <h3 className="font-sans text-[1.1875rem] font-semibold text-ink">{item.title}</h3>
+            <p className="mt-3 font-serif text-body text-muted text-pretty">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
 }

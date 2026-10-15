@@ -7,9 +7,12 @@ import ErrorMessage from "@/components/theme/ErrorMessage";
 import SubmitButton from "@/components/theme/SubmitButton";
 import { RiCheckLine, RiMailSendLine } from "react-icons/ri";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { buttonClasses } from "@/components/ui/ButtonLink";
+
+const fieldClass =
+  "block w-full rounded-[var(--radius-control)] border border-rule-strong bg-paper px-4 py-3 text-ui text-ink transition-colors hover:border-ink focus-visible:border-accent focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent aria-[invalid=true]:border-danger";
 
 
 type FormData = {
@@ -50,39 +53,33 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="w-[100%] flex items-center justify-items-center p-4 pb-20 gap-16 font-[family-name:var(--font-geist-sans)] z-2">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.02 }}
-        id="contact-form"
-        role="form"
-        aria-label="Contact Form"
-        aria-live="polite"
-        aria-busy={isSubmitting}
-        tabIndex={0}
-        // className="max-w-full sm:max-w-md lg:max-w-lg mx-auto w-300 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl shadow-md "
-       className="max-w-full sm:max-w-md lg:max-w-lg mx-auto w-300 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl shadow-md ">
-        <h2 className="text-2xl font-bold mb-4 dark:text-gray-100">{t('contact.form.title')}</h2>
+    <section
+      id="contact-form"
+      aria-labelledby="contact-form-title"
+      aria-live="polite"
+      aria-busy={isSubmitting}
+      className="rounded-[var(--radius-media)] border border-rule bg-raised p-6 md:p-10"
+    >
+        <h2 id="contact-form-title" className="mb-8 font-sans text-h3 font-semibold text-ink">
+          {t('contact.form.title')}
+        </h2>
         {submitted ? (
-          <div className="flex flex-col items-center p-5 rounded-2xl bg-green-600/10">
-            <RiCheckLine className="w-[50px] h-[50px] text-green-600 text-2xl m-2 bg-green-600/10 rounded-full p-2" />
-            <h3 className="text-green-600 font-semibold text-lg">{t('contact.form.successTitle')}</h3>
-            <p className="text-green-600">{t('contact.form.successMessage')}</p>
-            <Link
-              href={localePath('home')}
-              className="mt-4 px-4 py-2 bg-gray-500/20 text-gray-900 dark:text-white  rounded-lg hover:bg-gray-700/20 focus:outline-none focus:ring focus:ring-blue-300 dark:focus:ring-blue-500"
-            >
+          <div className="rounded-[var(--radius-control)] bg-accent-soft p-6">
+            <RiCheckLine aria-hidden="true" className="size-8 text-accent" />
+            <h3 className="mt-3 font-sans text-[1.1875rem] font-semibold text-ink">{t('contact.form.successTitle')}</h3>
+            <p className="mt-1 text-ui text-muted">{t('contact.form.successMessage')}</p>
+            <Link href={localePath('home')} className={buttonClasses({ variant: "secondary", className: "mt-6" })}>
               {t('common.backHome')}
             </Link>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
               <input
                 type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
                 style={{ display: "none" }}
                 {...register("honeypot")}
               />
@@ -90,17 +87,24 @@ export default function ContactForm() {
             <div>
               <Label htmlFor="name" text={t('contact.form.name')} />
               <input
+                id="name"
+                autoComplete="name"
+                aria-invalid={errors.name ? true : undefined}
+                aria-describedby={errors.name ? "name-error" : undefined}
                 {...register("name", { required: t('contact.form.nameRequired') })}
-                className="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300 dark:focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
-                placeholder={t('contact.form.name')}
+                className={fieldClass}
               />
-              {errors.name && <ErrorMessage message={errors.name.message || ""} />}
+              {errors.name && <ErrorMessage id="name-error" message={errors.name.message || ""} />}
             </div>
 
             <div>
               <Label htmlFor="email" text={t('contact.form.email')} />
               <input
+                id="email"
                 type="email"
+                autoComplete="email"
+                aria-invalid={errors.email ? true : undefined}
+                aria-describedby={errors.email ? "email-error" : undefined}
                 {...register("email", { 
                   required: t('contact.form.emailRequired'), 
                   pattern: { 
@@ -108,23 +112,24 @@ export default function ContactForm() {
                     message: t('contact.form.emailInvalid') 
                   } 
                 })}
-                className="w-full p-2 border rounded-lg focus:ring focus:ring-red-300 dark:focus:ring-red-500/20 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
-                placeholder={t('contact.form.email')}
+                className={fieldClass}
               />
-              {errors.email && <ErrorMessage message={errors.email.message || ""} />}
+              {errors.email && <ErrorMessage id="email-error" message={errors.email.message || ""} />}
             </div>
 
             <div>
               <Label htmlFor="message" text={t('contact.form.message')} />
               <textarea
+                id="message"
+                aria-invalid={errors.message ? true : undefined}
+                aria-describedby={errors.message ? "message-error" : undefined}
                 {...register("message", { required: t('contact.form.messageRequired') })}
-                className="w-full p-2 border rounded-lg focus:ring focus:ring-red-300 dark:focus:ring-red-500/20 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200"
-                rows={4}
-                placeholder={t('contact.form.message')}
+                className={`${fieldClass} min-h-40 py-3 leading-relaxed`}
+                rows={6}
               ></textarea>
-              {errors.message && <ErrorMessage message={errors.message.message || ""} />}
+              {errors.message && <ErrorMessage id="message-error" message={errors.message.message || ""} />}
             </div>
-            <div className="flex justify-center">
+            <div className="overflow-x-auto">
               <ReCAPTCHA
                 sitekey="6LeC3lcrAAAAAGIC5fThStXnImx2Xn2Lv_ogQPUS"
                 onChange={(token: string | null) => setRecaptchaToken(token)}
@@ -138,7 +143,6 @@ export default function ContactForm() {
             />
           </form>
         )}
-      </motion.div>
-    </div>
+    </section>
   );
 }

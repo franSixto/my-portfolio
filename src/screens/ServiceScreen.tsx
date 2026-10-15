@@ -1,12 +1,11 @@
-import Breadcrumbs from "@/components/common/Breadcrumbs";
-import ServiceHero from "@/components/services/ServiceHero";
-import {
-  ContentSection,
-  FaqList,
-  LinkCards,
-  PriceCallout,
-} from "@/components/services/ServiceSections";
-import ServiceCta from "@/components/services/ServiceCta";
+import PageHeader from "@/components/ui/PageHeader";
+import PriceNote from "@/components/ui/PriceNote";
+import Section from "@/components/ui/Section";
+import ProjectTile from "@/components/ui/ProjectTile";
+import CtaBand from "@/components/ui/CtaBand";
+import IndexLinks from "@/components/ui/IndexLinks";
+import { ContentSection, FaqList } from "@/components/services/ServiceSections";
+import { toProjectTile } from "@/components/projects/toProjectTile";
 import { getServiceContent } from "@/content/services";
 import { SERVICE_NAV_LABELS, type ServiceRouteKey } from "@/content/services/nav";
 import { buildServiceJsonLd } from "@/content/services/seo";
@@ -28,15 +27,7 @@ export default function ServiceScreen({
 
   const projects = content.relatedProjectSlugs.flatMap((slug) => {
     const project = getProject(slug, locale);
-    return project
-      ? [
-          {
-            href: localizedPath("project", locale, { slug }),
-            title: project.title,
-            text: project.description,
-          },
-        ]
-      : [];
+    return project ? [toProjectTile(project, locale)] : [];
   });
 
   const services = content.relatedServices.map((s) => ({
@@ -46,33 +37,51 @@ export default function ServiceScreen({
   }));
 
   return (
-    <div className="relative overflow-hidden dark:bg-gray-950">
+    <article>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: serializeJsonLd(buildServiceJsonLd(route, locale)),
         }}
       />
-      <div className="container px-6 mx-auto flex flex-col items-center pt-10">
-        <Breadcrumbs />
-        <ServiceHero title={content.h1} intro={content.intro} />
-        <div className="w-full max-w-3xl space-y-12 pb-20">
-          {content.price && <PriceCallout price={content.price} />}
-          {content.sections.map((section, i) => (
-            <ContentSection key={section.heading} section={section} id={`section-${i}`} />
-          ))}
-          <FaqList heading={ui.faq} faqs={content.faqs} />
-          {projects.length > 0 && (
-            <LinkCards heading={ui.relatedProjects} id="related-projects" items={projects} />
-          )}
-          <ServiceCta
-            heading={content.cta.heading}
-            button={content.cta.button}
-            href={localizedPath("contact", locale)}
-          />
-          <LinkCards heading={ui.relatedServices} id="related-services" items={services} />
-        </div>
-      </div>
-    </div>
+      <PageHeader
+        eyebrow={SERVICE_NAV_LABELS[locale][route]}
+        title={content.h1}
+        lead={content.intro}
+        aside={content.price && <PriceNote label={content.price.label} note={content.price.note} />}
+      />
+
+      {content.sections.map((section, i) => (
+        <ContentSection key={section.heading} section={section} id={`section-${i}`} />
+      ))}
+
+      <FaqList id="faq" heading={ui.faq} faqs={content.faqs} />
+
+      {projects.length > 0 && (
+        <Section id="related-projects" heading={ui.relatedProjects} layout="stacked" spacing="compact">
+          <ul className="grid gap-12 md:grid-cols-2 md:gap-8">
+            {projects.map((project) => (
+              <li key={project.href}>
+                <ProjectTile
+                  project={project}
+                  emphasis="sm"
+                  sizes="(min-width: 1360px) 616px, (min-width: 768px) 46vw, 100vw"
+                />
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+
+      <CtaBand
+        id="service-cta"
+        heading={content.cta.heading}
+        action={{ href: localizedPath("contact", locale), label: content.cta.button }}
+      />
+
+      <Section id="related-services" heading={ui.relatedServices} spacing="compact">
+        <IndexLinks items={services} />
+      </Section>
+    </article>
   );
 }

@@ -1,18 +1,18 @@
 "use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { alternatePath, otherLocale, type Locale } from '@/i18n/routes';
+import Link from "next/link";
+import cx from "classnames";
+import { usePathname } from "next/navigation";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { alternatePath, otherLocale, type Locale } from "@/i18n/routes";
 
-const languages: Record<Locale, { name: string; flag: string; switchLabel: string }> = {
-  en: { name: 'English', flag: '🇺🇸', switchLabel: 'Switch to English' },
-  es: { name: 'Español', flag: '🇪🇸', switchLabel: 'Cambiar a Español' },
+const languages: Record<Locale, { code: string; switchLabel: string }> = {
+  en: { code: "EN", switchLabel: "Switch to English" },
+  es: { code: "ES", switchLabel: "Cambiar a Español" },
 };
 
 // A plain link to the equivalent URL in the other language (no client-side swap).
-export default function LanguageSelector() {
+export default function LanguageSelector({ className }: { className?: string }) {
   const { locale } = useLanguage();
   const pathname = usePathname();
 
@@ -20,19 +20,18 @@ export default function LanguageSelector() {
   const href = alternatePath(pathname, target);
 
   return (
-    <div className="relative">
-      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-        <Link
-          href={href}
-          hrefLang={target}
-          lang={target}
-          className={`w-[45px] h-[45px] flex justify-center items-center rounded-full bg-accent/10 hover:bg-accent/20 backdrop-blur-sm transition-colors duration-300 cursor-pointer`}
-          aria-label={languages[target].switchLabel}
-          title={languages[target].switchLabel}
-        >
-          <span className="text-xl">{languages[locale].flag}</span>
-        </Link>
-      </motion.div>
-    </div>
+    <Link
+      href={href}
+      hrefLang={target}
+      lang={target}
+      className={cx(
+        "inline-flex h-10 min-w-10 items-center justify-center rounded-[var(--radius-control)] px-2 text-[0.9375rem] font-medium text-muted hover:bg-surface hover:text-ink",
+        className
+      )}
+      aria-label={languages[target].switchLabel}
+      title={languages[target].switchLabel}
+    >
+      {languages[target].code}
+    </Link>
   );
 }

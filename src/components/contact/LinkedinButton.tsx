@@ -1,25 +1,16 @@
-"use client";
-
-import Link from "next/link";
 import { SiLinkedin } from "react-icons/si";
-import { motion } from "framer-motion";
+import ButtonLink from "@/components/ui/ButtonLink";
 
-export default function LinkedinButton() {
+export default function LinkedinButton({ className }: { className?: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.2 }}
-      viewport={{ once: true }}
+    <ButtonLink
+      href="https://www.linkedin.com/in/sixtofrancisco/"
+      external
+      variant="secondary"
+      className={className}
     >
-      <Link
-        href="https://www.linkedin.com/in/sixtofrancisco/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 mb-4 px-4 py-2 rounded-2xl bg-neutral-100 dark:bg-gray-900 dark:text-gray-100 shadow-sm hover:shadow-md transition-shadow text-md z-2"
-      >
-        <SiLinkedin className="text-blue-500" /> Connect with me on LinkedIn
-      </Link>
-    </motion.div>
+      <SiLinkedin aria-hidden="true" className="size-4" />
+      Connect with me on LinkedIn
+    </ButtonLink>
   );
 }

@@ -1,7 +1,9 @@
 import ContactForm from "@/components/contact/ContactForm";
-import { TitleH1 } from "@/components/common/TitleH1";
 import LinkedinButton from "@/components/contact/LinkedinButton";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
+import Container from "@/components/ui/Container";
+import Heading from "@/components/ui/Heading";
+import { Lead } from "@/components/ui/Text";
 import { getTranslator } from "@/i18n/dictionary";
 import type { Locale } from "@/i18n/routes";
 
@@ -9,16 +11,20 @@ export default function ContactScreen({ locale }: { locale: Locale }) {
   const t = getTranslator(locale);
 
   return (
-    <div className="relative overflow-hidden flex flex-col items-center justify-center dark:bg-gray-950">
-      <div className="container px-6 flex flex-col items-center justify-center pt-10">
-        <Breadcrumbs />
-        <TitleH1
-          title={t("pages.contact.title")}
-          description={t("pages.contact.description")}
-        />
-        <LinkedinButton />
-        <ContactForm />
+    <Container className="pb-20 pt-8 md:pb-28 md:pt-12">
+      <Breadcrumbs className="mb-12 md:mb-20" />
+      <div className="grid gap-14 lg:grid-cols-12 lg:gap-8">
+        <div className="lg:col-span-5">
+          <Heading as="h1" size="h1">
+            {t("pages.contact.title")}
+          </Heading>
+          <Lead className="mt-6 md:mt-8">{t("pages.contact.description")}</Lead>
+          <LinkedinButton className="mt-10" />
+        </div>
+        <div className="lg:col-span-6 lg:col-start-7">
+          <ContactForm />
+        </div>
       </div>
-    </div>
+    </Container>
   );
 }

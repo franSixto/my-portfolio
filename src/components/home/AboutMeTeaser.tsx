@@ -1,61 +1,53 @@
-"use client";
-
-import { TitleH2 } from "@/components/common/TitleH2";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import Button from "@/components/theme/Button";
-import { RiVerifiedBadgeLine } from "react-icons/ri";
-import { useLanguage } from '@/contexts/LanguageContext';
+import ButtonLink from "@/components/ui/ButtonLink";
+import Section from "@/components/ui/Section";
 
-export default function AboutMeTeaser() {
-  const { t, localePath } = useLanguage();
+export type AboutTeaserContent = {
+  heading: string;
+  intro: string;
+  photoAlt: string;
+  birthPlace: string;
+  birthDescription: string;
+  sportsText: string;
+  riverPlate: string;
+  readMore: { href: string; label: string };
+};
 
+export default function AboutMeTeaser({ content }: { content: AboutTeaserContent }) {
   return (
-    <section className="container mx-auto px-6 md:py-20 pt-15">
-
-      <TitleH2
-        title={t('home.aboutTeaser.title')}
-        description={t('home.aboutTeaser.description')}
-      />
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-        className="dark:bg-gray-900/30 bg-gray-200/30 backdrop-blur-xl rounded-2xl p-8 max-w-2xl mx-auto text-start flex flex-col items-center justify-center">
-        <div className="relative flex flex-col gap-5 mb-0 lg:mb-6">
-          <div className="relative flex justify-center items-center h-full w-full bg-accent rounded-xl shadow-lg shadow-accent/40">
+    <Section id="about" heading={content.heading} intro={content.intro}>
+      <div className="grid gap-10 md:grid-cols-8 md:gap-8">
+        <div className="md:col-span-3">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-media)] bg-surface">
             <Image
-              src="/me.svg"
-              alt={t('home.aboutTeaser.altText')}
-              width={100}
-              height={211}
-              className={`z-1 w-[100%] h-50 object-cover object-top rounded-xl shadow-2xl`}
+              src="/me1.webp"
+              alt={content.photoAlt}
+              fill
+              sizes="(min-width: 1360px) 290px, (min-width: 768px) 30vw, 100vw"
+              className="object-cover"
             />
-            <b className="absolute text-[6rem] lg:text-[14rem] left-1/2 -translate-x-1/2 text-white opacity-30 top-50% lg:-top-18">FRAN</b>
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <p className="text-lg md:text-xl leading-relaxed mb-0 text-gray-600 dark:text-gray-400">
-              <strong>{t('home.aboutTeaser.birthPlace')}</strong>, {t('home.aboutTeaser.birthDescription')}
-            </p>
           </div>
         </div>
-        <p className="text-lg md:text-xl leading-relaxed mb-5 text-gray-600 dark:text-gray-400">
-          {t('home.aboutTeaser.sportsText')}
-          <span className="inline-flex items-center mx-1">
-            <Image src="/riverplate.webp" alt="icono" width={16} height={16} className="mx-1" />
-          </span>
-          {t('home.aboutTeaser.riverPlate')}
-        </p>
-        <Button
-          to={localePath('about')}
-          variant="outlined"
-          className="flex items-center gap-2"
-        >{t('home.aboutTeaser.readMore')}
-          <span className="ml-1">
-            <RiVerifiedBadgeLine className="w-5 h-5" />
-          </span>
-        </Button>
-      </motion.div>
-    </section>
+        <div className="md:col-span-5 font-serif text-body text-ink">
+          <p className="text-lead text-pretty">
+            <strong className="font-semibold">{content.birthPlace}</strong>, {content.birthDescription}
+          </p>
+          <p className="mt-6 text-muted text-pretty">
+            {content.sportsText}{" "}
+            <Image
+              src="/riverplate.webp"
+              alt=""
+              width={16}
+              height={16}
+              className="mx-0.5 inline-block align-[-0.1em]"
+            />{" "}
+            {content.riverPlate}
+          </p>
+          <ButtonLink href={content.readMore.href} variant="secondary" className="mt-10">
+            {content.readMore.label}
+          </ButtonLink>
+        </div>
+      </div>
+    </Section>
   );
 }
