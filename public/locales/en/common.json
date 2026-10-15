@@ -66,7 +66,8 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "blog": "Blog",
+    "services": "Services",
+    "servicesAriaLabel": "Service pages",
     "contact": "Contact"
   },
   "pages": {
@@ -128,6 +129,7 @@
     "homeWelcome": "Glad you're here! 😊"
   },
   "projects": {
+    "noImage": "No image",
     "officina-artis": {
       "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
       "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction."
@@ -169,6 +171,11 @@
       "emailInvalid": "Please enter a valid email",
       "messageRequired": "Message is required"
     }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to Home"
   },
   "common": {
     "loading": "Loading...",

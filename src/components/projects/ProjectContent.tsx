@@ -1,58 +1,17 @@
-"use client";
-
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useEffect, useState } from 'react';
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { TitleH1Project } from "@/components/common/TitleH1Project";
 import ProjectLogoBanner from "@/components/projects/ProjectLogoBanner";
 import LiveProjectButton from "@/components/projects/LiveProjectButton";
-import ProjectDetailSkeleton from "@/components/projects/ProjectDetailSkeleton";
-import { loadProject, type Project as ProjectType, type Locale } from '@/lib/translations';
+import type { Project } from "@/types/project";
 
 interface ProjectContentProps {
-  slug: string;
+  project: Project;
+  noDetailedContentLabel: string;
 }
 
-export default function ProjectContent({ slug }: ProjectContentProps) {
-  const { locale, t } = useLanguage();
-  const [project, setProject] = useState<ProjectType | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProject = async () => {
-      setLoading(true);
-      try {
-        const foundProject = await loadProject(slug, locale as Locale);
-        setProject(foundProject);
-      } catch (error) {
-        console.error('Error loading project:', error);
-        setProject(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProject();
-  }, [slug, locale]);
-
-  if (loading) {
-    return <ProjectDetailSkeleton />;
-  }
-
-  if (!project) {
-    return (
-      <div className="container mx-auto px-6 py-12 text-center dark:bg-gray-950">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-          {t('pages.projects.projectNotFound') || 'Project not found'}
-        </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400">
-          {t('pages.projects.projectNotFoundDescription') || 'The project you are looking for does not exist or has been removed.'}
-        </p>
-      </div>
-    );
-  }
-
+// Server component: the project body is rendered into the initial HTML.
+export default function ProjectContent({ project, noDetailedContentLabel }: ProjectContentProps) {
   const {
     title = "Untitled Project",
     description = "No description available.",
@@ -117,7 +76,7 @@ export default function ProjectContent({ slug }: ProjectContentProps) {
             </div>
           ) : (
             <p className="text-gray-600 dark:text-gray-400">
-              {t('pages.projects.noDetailedContent') || 'No detailed content available.'}
+              {noDetailedContentLabel}
             </p>
           )}
         </div>

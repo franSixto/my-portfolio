@@ -6,10 +6,12 @@ import { FiPenTool, FiCode, FiUsers, FiTrendingUp } from "react-icons/fi";
 import { TitleH2 } from "@/components/common/TitleH2";
 import { useColorContext } from '@/components/theme/ColorContext';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Link from "next/link";
+import { SERVICE_NAV_LABELS, SERVICE_ROUTE_KEYS } from '@/content/services/nav';
 
 export default function Services() {
     const { mainColor } = useColorContext();
-    const { t } = useLanguage();
+    const { t, locale, localePath } = useLanguage();
 
     const services = [
         {
@@ -84,6 +86,21 @@ export default function Services() {
                             </motion.div>
                         ))}
                     </div>
+
+                    <nav aria-label={t('navigation.servicesAriaLabel')} className="relative z-2 mt-10">
+                        <ul className="flex flex-wrap justify-center gap-3">
+                            {SERVICE_ROUTE_KEYS.map((key) => (
+                                <li key={key}>
+                                    <Link
+                                        href={localePath(key)}
+                                        className="inline-block rounded-full border border-gray-400 dark:border-gray-600 px-5 py-2 text-gray-800 dark:text-gray-100 bg-white/50 dark:bg-gray-900/40 hover:bg-white dark:hover:bg-gray-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:focus-visible:outline-white transition-colors"
+                                    >
+                                        {SERVICE_NAV_LABELS[locale][key]}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
 
                 </motion.div>
             </div>

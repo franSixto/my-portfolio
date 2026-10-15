@@ -7,10 +7,11 @@ import Button from "@/components/theme/Button"; // Adjust the import path as nec
 import { Suspense } from "react";
 import { useColorContext, COLOR_GRADIENT_MAP } from '@/components/theme/ColorContext';
 import { useTranslation } from '@/contexts/LanguageContext';
+import { localizedPath } from '@/i18n/routes';
 import HeroSkeleton from "@/components/home/HeroSkeleton";
 
 const Hero: React.FC = () => {
-    const { t, loading } = useTranslation();
+    const { t, loading, locale } = useTranslation();
     const { mainColor } = useColorContext();
     const gradient = COLOR_GRADIENT_MAP[mainColor] || COLOR_GRADIENT_MAP.red;
 
@@ -61,7 +62,7 @@ const Hero: React.FC = () => {
                     >
                         <div className="flex flex-row lg:justify-start justify-center items-center gap-4">
                             <Button
-                                to="/projects"
+                                to={localizedPath('projects', locale)}
                             >
                                 {t('home.hero.myWork')}
                                 <span className="ml-1">

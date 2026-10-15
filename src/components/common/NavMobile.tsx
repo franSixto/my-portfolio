@@ -3,89 +3,39 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { RiCloseLine } from "react-icons/ri";
 import { useColorContext } from '@/components/theme/ColorContext';
-import { useTranslation } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/contexts/LanguageContext';
+import type { RouteKey } from '@/i18n/routes';
 
-// Componente para los enlaces de navegación móvil
-function MobileNavigationLinks({ 
-    isActive, 
-    toggleMenu, 
-    mainColor 
-}: { 
-    isActive: (path: string) => boolean;
+const MOBILE_ITEMS: ReadonlyArray<{ route: RouteKey; labelKey: string; hash?: string }> = [
+    { route: "home", labelKey: "navigation.home" },
+    { route: "home", labelKey: "navigation.services", hash: "#services" },
+    { route: "about", labelKey: "navigation.about" },
+    { route: "projects", labelKey: "navigation.projects" },
+    { route: "contact", labelKey: "navigation.contact" },
+];
+
+// Mobile navigation links (blog removed: no posts yet)
+function MobileNavigationLinks({
+    isActive,
+    toggleMenu,
+    mainColor
+}: {
+    isActive: (route: RouteKey) => boolean;
     toggleMenu: () => void;
     mainColor: string;
 }) {
-    const { t, loading } = useTranslation();
-
-    // Si está cargando, mostrar placeholders con texto invisible
-    if (loading) {
-        const placeholders = [
-            { href: "/", text: "Home" },
-            { href: "/about", text: "About" },
-            { href: "/blog", text: "Blog" },
-            { href: "/projects", text: "Projects" },
-            { href: "/contact", text: "Contact" },
-        ];
-
-        return (
-            <ul className="relative w-full h-full">
-                {placeholders.map((item, index) => {
-                    const angle = (360 / placeholders.length) * index;
-                    const x = 50 + 40 * Math.cos((angle * Math.PI) / 180);
-                    const y = 50 + 40 * Math.sin((angle * Math.PI) / 180);
-
-                    return (
-                        <li
-                            key={item.href}
-                            style={{
-                                position: "absolute",
-                                top: `${y}%`,
-                                left: `${x}%`,
-                                transform: "translate(-50%, -50%)",
-                            }}
-                        >
-                            <motion.div
-                                initial={{ y: 0, rotate: 0 }}
-                                animate={{
-                                    y: [0, Math.random() * -20 + 10, 0],
-                                    rotate: [0, Math.random() * 30 - 20, 0],
-                                }}
-                                transition={{
-                                    duration: Math.random() * 3 + 2,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                            >
-                                <div className="relative">
-                                    <span className="invisible">{item.text}</span>
-                                    <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
-                                </div>
-                            </motion.div>
-                        </li>
-                    );
-                })}
-            </ul>
-        );
-    }
+    const { t, localePath } = useLanguage();
 
     return (
         <ul className="relative w-full h-full">
-            {[
-                { href: "/", label: t('navigation.home') },
-                { href: "/about", label: t('navigation.about') },
-                { href: "/blog", label: t('navigation.blog') },
-                { href: "/projects", label: t('navigation.projects') },
-                { href: "/contact", label: t('navigation.contact') },
-            ].map((item, index, arr) => {
+            {MOBILE_ITEMS.map((item, index, arr) => {
                 const angle = (360 / arr.length) * index;
                 const x = 50 + 40 * Math.cos((angle * Math.PI) / 180);
                 const y = 50 + 40 * Math.sin((angle * Math.PI) / 180);
 
                 return (
                     <li
-                        key={item.href}
+                        key={item.labelKey}
                         style={{
                             position: "absolute",
                             top: `${y}%`,
@@ -108,11 +58,11 @@ function MobileNavigationLinks({
                             whileTap={{ scale: 0.9 }}
                         >
                             <Link
-                                href={item.href}
-                                className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive(item.href) ? `font-bold text-${mainColor}-600 transition-colors duration-300` : ""}`}
+                                href={`${localePath(item.route)}${item.hash ?? ""}`}
+                                className={`hover:text-gray-500 dark:hover:text-gray-300 ${!item.hash && isActive(item.route) ? `font-bold text-${mainColor}-600 transition-colors duration-300` : ""}`}
                                 onClick={toggleMenu}
                             >
-                                {item.label}
+                                {t(item.labelKey)}
                             </Link>
                         </motion.div>
                     </li>
@@ -125,7 +75,7 @@ function MobileNavigationLinks({
 interface NavMobileProps {
     isMenuOpen: boolean;
     toggleMenu: () => void;
-    isActive: (path: string) => boolean;
+    isActive: (route: RouteKey) => boolean;
 }
 
 const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive }) => {

@@ -11,7 +11,7 @@
         },
         "aboutTeaser": {
             "title": "Un Poco Sobre Mí",
-            "description": "Aquí tienes una pequeña perspectiva de la persona detrás de los píxeles.",
+            "description": "Aquí tenés una pequeña perspectiva de la persona detrás de los píxeles.",
             "readMore": "Leer más sobre mí",
             "altText": "Este soy yo",
             "birthPlace": "Nacido en un pequeño pueblo del sur de Córdoba, Argentina",
@@ -66,7 +66,8 @@
         "home": "Inicio",
         "about": "Acerca de",
         "projects": "Proyectos",
-        "blog": "Blog",
+        "services": "Servicios",
+        "servicesAriaLabel": "Páginas de servicios",
         "contact": "Contacto"
     },
     "pages": {
@@ -86,7 +87,7 @@
         },
         "projects": {
             "title": "Proyectos",
-            "description": "Aquí puedes encontrar algunos de los proyectos en los que he trabajado.",
+            "description": "Aquí podés encontrar algunos de los proyectos en los que he trabajado.",
             "noImage": "Sin imagen",
             "viewProject": "Ver Proyecto",
             "liveProject": "Proyecto en Vivo",
@@ -95,19 +96,19 @@
             "backToProjects": "← Volver a Proyectos",
             "relatedProjects": "Proyectos Relacionados",
             "projectNotFound": "Proyecto no encontrado",
-            "projectNotFoundDescription": "El proyecto que buscas no existe o ha sido eliminado.",
+            "projectNotFoundDescription": "El proyecto que buscás no existe o ha sido eliminado.",
             "noDetailedContent": "No hay contenido detallado disponible."
         },
         "contact": {
-            "title": "Contáctame",
-            "description": "¿Tienes un proyecto en mente? ¡Hablemos!",
+            "title": "Contactame",
+            "description": "¿Tenés un proyecto en mente? ¡Hablemos!",
             "letsConnect": "Conectemos",
             "getInTouch": "Ponte en Contacto",
-            "getInTouchDescription": "¿Tienes una pregunta o quieres trabajar juntos?",
+            "getInTouchDescription": "¿Tenés una pregunta o querés trabajar juntos?",
             "cta": {
                 "title": "Construyamos algo grandioso juntos",
-                "description": "Ya sea que busques un diseñador UX/UI, un desarrollador frontend, o un líder de equipo para dar vida a tus ideas — estoy listo para saltar. Siéntete libre de contactarme, estaré feliz de conectar.",
-                "button": "Contáctame"
+                "description": "Ya sea que busques un diseñador UX/UI, un desarrollador frontend, o un líder de equipo para dar vida a tus ideas — estoy listo para saltar. Sentite libre de contactarme, estaré feliz de conectar.",
+                "button": "Contactame"
             },
             "subscribe": {
                 "title": "Mantente Actualizado",
@@ -123,11 +124,12 @@
     },
     "subscribe": {
         "homeTitle": "Me gusta compartir",
-        "homeDescription": "Envío actualizaciones ocasionales sobre diseño, desarrollo y cosas que encuentro geniales. ¡Únete!",
-        "homeDisclaimer": "Sin spam. Cancela suscripción cuando quieras.",
+        "homeDescription": "Envío actualizaciones ocasionales sobre diseño, desarrollo y cosas que encuentro geniales. ¡Unite!",
+        "homeDisclaimer": "Sin spam. Cancelá la suscripción cuando quieras.",
         "homeWelcome": "¡Me alegra que estés aquí! 😊"
     },
     "projects": {
+        "noImage": "Sin imagen",
         "officina-artis": {
             "title": "Officina Artis: Una Galería de Arte Virtual 3D Explorando Espacio, Interacción y Curaduría",
             "description": "Diseñé y desarrollé una experiencia inmersiva 3D para explorar obras de arte en una galería virtual, combinando programación creativa, narrativa espacial y dirección artística."
@@ -166,9 +168,14 @@
             "recaptchaError": "Por favor completa el reCAPTCHA.",
             "nameRequired": "El nombre es requerido",
             "emailRequired": "El email es requerido",
-            "emailInvalid": "Por favor ingresa un email válido",
+            "emailInvalid": "Por favor ingresá un email válido",
             "messageRequired": "El mensaje es requerido"
         }
+    },
+    "notFound": {
+        "title": "Página no encontrada",
+        "description": "La página que buscás no existe o fue movida.",
+        "backHome": "Volver al Inicio"
     },
     "common": {
         "loading": "Cargando...",

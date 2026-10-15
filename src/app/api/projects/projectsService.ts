@@ -1,15 +1,16 @@
-// Service for handling projects - now uses the new file structure
-import { loadProjects, loadProject, type Project, type Locale } from '@/lib/translations';
+// Service for handling projects (server-side JSON data)
+import { getProjects, getProject } from '@/i18n/dictionary';
+import { isLocale, defaultLocale } from '@/i18n/routes';
+import type { Project } from '@/types/project';
 
 export type { Project };
 
 // Fetch all projects for a given locale
-export const fetchProjects = async (locale: string = 'es'): Promise<{ projects: Project[] }> => {
-  const projects = await loadProjects(locale as Locale);
-  return { projects };
+export const fetchProjects = async (locale: string = defaultLocale): Promise<{ projects: Project[] }> => {
+  return { projects: getProjects(isLocale(locale) ? locale : defaultLocale) };
 };
 
 // Fetch a single project by slug for a given locale
-export const fetchProjectBySlug = async (slug: string, locale: string = 'es'): Promise<Project | null> => {
-  return await loadProject(slug, locale as Locale);
+export const fetchProjectBySlug = async (slug: string, locale: string = defaultLocale): Promise<Project | null> => {
+  return getProject(slug, isLocale(locale) ? locale : defaultLocale);
 };

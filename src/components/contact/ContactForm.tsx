@@ -24,7 +24,7 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false); // Estado para manejar el envío
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const { t } = useLanguage();
+  const { t, localePath } = useLanguage();
 
   const onSubmit = async (data: FormData) => {
     if (!recaptchaToken) {
@@ -72,7 +72,7 @@ export default function ContactForm() {
             <h3 className="text-green-600 font-semibold text-lg">{t('contact.form.successTitle')}</h3>
             <p className="text-green-600">{t('contact.form.successMessage')}</p>
             <Link
-              href="/"
+              href={localePath('home')}
               className="mt-4 px-4 py-2 bg-gray-500/20 text-gray-900 dark:text-white  rounded-lg hover:bg-gray-700/20 focus:outline-none focus:ring focus:ring-blue-300 dark:focus:ring-blue-500"
             >
               {t('common.backHome')}

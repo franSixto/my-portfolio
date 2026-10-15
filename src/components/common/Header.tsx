@@ -12,122 +12,40 @@ import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContex
 import FloatingColorSelector from "@/components/theme/FloatingColorSelector";
 import PartyModeManager from "@/components/common/PartyModeButton";
 import LanguageSelector from "@/components/common/LanguageSelector";
-import { useTranslation } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { matchRoute, type RouteKey } from '@/i18n/routes';
 
-// Componente para la navegación que maneja las traducciones
-function NavigationLinks({ isActive }: { isActive: (path: string) => boolean }) {
-    const { t, loading } = useTranslation();
+const NAV_ITEMS: ReadonlyArray<{ route: RouteKey; labelKey: string; hash?: string }> = [
+    { route: "home", labelKey: "navigation.home" },
+    // Anchor to the home services section, which links to the four service pages
+    { route: "home", labelKey: "navigation.services", hash: "#services" },
+    { route: "about", labelKey: "navigation.about" },
+    { route: "projects", labelKey: "navigation.projects" },
+    { route: "contact", labelKey: "navigation.contact" },
+] as const;
 
-    // Si está cargando, mostrar placeholders con texto invisible
-    if (loading) {
-        return (
-            <ul className="hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6">
-                <li className="menu-item">
-                    <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <div className="relative">
-                            <span className="invisible">Home</span>
-                            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
-                        </div>
-                    </motion.div>
-                </li>
-                <li className="menu-item">
-                    <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <div className="relative">
-                            <span className="invisible">About</span>
-                            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
-                        </div>
-                    </motion.div>
-                </li>
-                <li className="menu-item">
-                    <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <div className="relative">
-                            <span className="invisible">Projects</span>
-                            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
-                        </div>
-                    </motion.div>
-                </li>
-                <li>
-                    <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <div className="relative">
-                            <span className="invisible">Contact</span>
-                            <div className="absolute inset-0 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
-                        </div>
-                    </motion.div>
-                </li>
-            </ul>
-        );
-    }
+// Desktop navigation: hrefs come from the central route map
+function NavigationLinks({ isActive }: { isActive: (route: RouteKey) => boolean }) {
+    const { t, localePath } = useLanguage();
 
     return (
         <ul className="hidden backdrop-blur-sm p-6 py-2 rounded-xl lg:flex space-x-6">
-            <li className="menu-item">
-                <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                >
-                    <Link
-                        href="/"
-                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/") ? "font-bold" : ""
-                            }`}
+            {NAV_ITEMS.map(({ route, labelKey, hash }) => (
+                <li key={labelKey} className="menu-item">
+                    <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
                     >
-                        {t('navigation.home')}
-                    </Link>
-                </motion.div>
-            </li>
-            <li className="menu-item">
-                <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                >
-                    <Link
-                        href="/about"
-                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/about") ? "font-bold" : ""
-                            }`}
-                    >
-                        {t('navigation.about')}
-                    </Link>
-                </motion.div>
-            </li>
-            <li className="menu-item">
-                <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                >
-                    <Link
-                        href="/projects"
-                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/projects") ? "font-bold" : ""
-                            }`}
-                    >
-                        {t('navigation.projects')}
-                    </Link>
-                </motion.div>
-            </li>
-            <li>
-                <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                >
-                    <Link
-                        href="/contact"
-                        className={`hover:text-gray-500 dark:hover:text-gray-300 ${isActive("/contact") ? "font-bold" : ""
-                            }`}
-                    >
-                        {t('navigation.contact')}
-                    </Link>
-                </motion.div>
-            </li>
+                        <Link
+                            href={`${localePath(route)}${hash ?? ""}`}
+                            className={`hover:text-gray-500 dark:hover:text-gray-300 ${!hash && isActive(route) ? "font-bold" : ""
+                                }`}
+                        >
+                            {t(labelKey)}
+                        </Link>
+                    </motion.div>
+                </li>
+            ))}
         </ul>
     );
 }
@@ -136,12 +54,14 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
     const { mainColor } = useColorContext();
+    const { localePath } = useLanguage();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const isActive = (path: string) => pathname === path;
+    const currentRoute = matchRoute(pathname)?.key;
+    const isActive = (route: RouteKey) => currentRoute === route;
 
     return (
         <>
@@ -153,7 +73,7 @@ export default function Header() {
                     <div className="liquidGlass-shine rounded-2xl"></div>
 
                     <nav className="w-full mx-auto flex justify-between items-center px-4 lg:px-2 z-50 relative">
-                        <Link className="flex flex-row items-center rounded-xl lg:backdrop-blur-sm p-2 lg:px-6" href="/">
+                        <Link className="flex flex-row items-center rounded-xl lg:backdrop-blur-sm p-2 lg:px-6" href={localePath('home')}>
                             <Image
                                 className="dark:invert"
                                 src="/logo2.svg"

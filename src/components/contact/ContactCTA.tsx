@@ -9,7 +9,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ContactCTA() {
     const { mainColor } = useColorContext();
-    const { t } = useLanguage();
+    const { t, localePath } = useLanguage();
 
     return (
         <motion.section
@@ -41,7 +41,7 @@ export default function ContactCTA() {
                     />
                 </motion.div>
                 <Button
-                    to="/contact"
+                    to={localePath('contact')}
                 >
                     {t('pages.contact.cta.button')}
                     <span className="ml-3">

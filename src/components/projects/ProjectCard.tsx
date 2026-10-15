@@ -26,7 +26,7 @@ export default function ProjectCard({
   slug,
 }: ProjectCardProps) {
   const { mainColor } = useColorContext();
-  const { t } = useLanguage();
+  const { t, localePath } = useLanguage();
   const textColor = COLOR_TEXT_CLASS_MAP[mainColor] || 'text-red-500';
 
   return (
@@ -55,7 +55,7 @@ export default function ProjectCard({
         hover:dark:from-gray-900/50  hover:dark:via-gray-900 hover:dark:to-gray-950/90">
           <Link
             className="flex flex-col h-full"
-            href={`/projects/${slug}`}
+            href={localePath('project', { slug })}
           >
             {/* Imagen principal del proyecto */}
             <div className="relative w-full rounded-md overflow-hidden">

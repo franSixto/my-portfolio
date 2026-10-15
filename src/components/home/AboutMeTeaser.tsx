@@ -10,7 +10,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AboutMeTeaser() {
   const { mainColor } = useColorContext();
-  const { t } = useLanguage();
+  const { t, localePath } = useLanguage();
 
   return (
     <section className="container mx-auto px-6 md:py-20 pt-15">
@@ -50,7 +50,7 @@ export default function AboutMeTeaser() {
           {t('home.aboutTeaser.riverPlate')}
         </p>
         <Button
-          to="/about"
+          to={localePath('about')}
           variant="outlined"
           className="flex items-center gap-2"
         >{t('home.aboutTeaser.readMore')}
