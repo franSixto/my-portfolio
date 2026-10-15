@@ -16,7 +16,8 @@ describe("buildServiceJsonLd", () => {
     expect(service.offers).toMatchObject({
       "@type": "Offer",
       priceCurrency: "USD",
-      priceSpecification: { minPrice: 800 },
+      price: "800",
+      priceSpecification: { "@type": "PriceSpecification", minPrice: 800, priceCurrency: "USD" },
     });
     const faq = graph.find((n) => n["@type"] === "FAQPage")!;
     expect(faq.mainEntity).toHaveLength(

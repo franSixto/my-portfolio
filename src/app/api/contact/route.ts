@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { buildContactEmail } from "@/lib/contact/email";
 import { createRateLimiter, getClientIp } from "@/lib/contact/rateLimit";
-import { verifyRecaptcha } from "@/lib/contact/recaptcha";
+import { recaptchaFailure, verifyRecaptcha } from "@/lib/contact/recaptcha";
 import { validateContactPayload } from "@/lib/contact/validate";
 
 export const runtime = "nodejs";
@@ -17,6 +17,7 @@ type ErrorCode =
   | "spam_detected"
   | "recaptcha_missing"
   | "recaptcha_failed"
+  | "captcha_unavailable"
   | "validation_failed"
   | "rate_limited"
   | "send_failed"
@@ -56,8 +57,8 @@ export async function POST(req: Request) {
   }
 
   const verdict = await verifyRecaptcha(parsed.recaptchaToken, RECAPTCHA_SECRET_KEY, ip);
-  if (verdict === "failed") return fail(400, "recaptcha_failed");
-  if (verdict === "unavailable") return fail(502, "send_failed");
+  const captchaFailure = recaptchaFailure(verdict);
+  if (captchaFailure) return fail(captchaFailure.status, captchaFailure.error);
 
   try {
     const transporter = nodemailer.createTransport({

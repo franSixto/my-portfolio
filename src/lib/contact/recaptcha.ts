@@ -29,3 +29,12 @@ export async function verifyRecaptcha(
     return "unavailable";
   }
 }
+
+/** Maps a non-ok verdict to the API error response (null when verified). */
+export function recaptchaFailure(
+  verdict: RecaptchaVerdict
+): { status: 400 | 502; error: "recaptcha_failed" | "captcha_unavailable" } | null {
+  if (verdict === "failed") return { status: 400, error: "recaptcha_failed" };
+  if (verdict === "unavailable") return { status: 502, error: "captcha_unavailable" };
+  return null;
+}

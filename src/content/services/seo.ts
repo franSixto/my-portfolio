@@ -44,6 +44,7 @@ export function buildServiceJsonLd(key: ServiceRouteKey, locale: Locale) {
       "@type": "Offer",
       url,
       description: c.price.label,
+      price: String(c.price.amountUsd),
       priceCurrency: "USD",
       priceSpecification: {
         "@type": "PriceSpecification",

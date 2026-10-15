@@ -66,6 +66,7 @@ export default function ContactForm({ copy, locale }: { copy: ContactFormCopy; l
     defaultValues: { name: "", email: "", projectType: "", message: "", honeypot: "", recaptchaToken: "" },
   });
   const [status, setStatus] = useState<Status>("idle");
+  const [captchaUnavailable, setCaptchaUnavailable] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const recaptchaBoxRef = useRef<HTMLDivElement>(null);
   const statusRef = useRef<HTMLDivElement>(null);
@@ -98,6 +99,7 @@ export default function ContactForm({ copy, locale }: { copy: ContactFormCopy; l
 
   const onValid = async (values: FormValues) => {
     setStatus("submitting");
+    setCaptchaUnavailable(false);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -125,6 +127,7 @@ export default function ContactForm({ copy, locale }: { copy: ContactFormCopy; l
         if (entries[0]) setFocus(entries[0][0]);
         return;
       }
+      setCaptchaUnavailable(data?.error === "captcha_unavailable");
       setStatus("error");
     } catch {
       resetRecaptcha();
@@ -269,7 +272,7 @@ export default function ContactForm({ copy, locale }: { copy: ContactFormCopy; l
           )}
           {status === "error" && (
             <p className="rounded-[var(--radius-control)] border border-danger p-4 text-ui font-medium text-danger text-pretty">
-              {copy.failure}
+              {captchaUnavailable ? copy.captchaUnavailable : copy.failure}
             </p>
           )}
         </div>

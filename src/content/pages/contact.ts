@@ -13,6 +13,8 @@ export type ContactFormCopy = {
   /** Field errors by validation code (the same codes the API returns). */
   errors: Record<FieldErrorCode, string>;
   recaptchaError: string;
+  /** Shown when the server could not verify the captcha (502 captcha_unavailable). */
+  captchaUnavailable: string;
   spamNotice: string;
   submit: string;
   submitting: string;
@@ -101,6 +103,8 @@ export const contactContent: Record<Locale, ContactContent> = {
         message_too_long: `El mensaje es muy largo: el máximo es de ${CONTACT_LIMITS.message} caracteres.`,
       },
       recaptchaError: "Completá la verificación de reCAPTCHA.",
+      captchaUnavailable:
+        "No pudimos verificar el captcha. Probá de nuevo en unos minutos o escribime por email.",
       spamNotice: "Este formulario usa reCAPTCHA para evitar spam.",
       submit: "Enviar mensaje",
       submitting: "Enviando…",
@@ -188,6 +192,8 @@ export const contactContent: Record<Locale, ContactContent> = {
         message_too_long: `That message is too long: the limit is ${CONTACT_LIMITS.message} characters.`,
       },
       recaptchaError: "Please complete the reCAPTCHA check.",
+      captchaUnavailable:
+        "We couldn't verify the captcha. Please try again in a few minutes or email me.",
       spamNotice: "This form uses reCAPTCHA to prevent spam.",
       submit: "Send message",
       submitting: "Sending…",

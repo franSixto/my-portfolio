@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { SITE_URL } from "@/i18n/routes";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Página no encontrada",
   robots: { index: false },
 };
