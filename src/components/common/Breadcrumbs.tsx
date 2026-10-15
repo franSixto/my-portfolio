@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useColorContext } from "../theme/ColorContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { absoluteUrl, localizedPath, matchRoute, type RouteKey } from "@/i18n/routes";
 import { serializeJsonLd } from "@/i18n/seo";
@@ -19,7 +18,6 @@ const LABEL_KEYS: Partial<Record<RouteKey, string>> = {
 
 export default function Breadcrumbs({ currentLabel }: { currentLabel?: string }) {
     const pathname = usePathname();
-    const { mainColor } = useColorContext();
     const { t, locale } = useLanguage();
 
     const match = matchRoute(pathname);
@@ -75,7 +73,7 @@ export default function Breadcrumbs({ currentLabel }: { currentLabel?: string })
                                     {!isFirst && <span className="mx-2 text-gray-400">/</span>}
                                     {isLast ? (
                                         <span
-                                            className={`text-${mainColor}-500 dark:text-${mainColor}-300 capitalize`}
+                                            className={`text-accent capitalize`}
                                             title={crumb.label}
                                         >
                                             {crumb.label}
@@ -83,7 +81,7 @@ export default function Breadcrumbs({ currentLabel }: { currentLabel?: string })
                                     ) : (
                                         <Link
                                             href={crumb.href}
-                                            className={`text-${mainColor}-500 hover:underline ${isFirst ? '' : 'capitalize'}`}
+                                            className={`text-accent hover:underline ${isFirst ? '' : 'capitalize'}`}
                                             title={crumb.label}
                                         >
                                             {crumb.label}

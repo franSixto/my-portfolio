@@ -16,7 +16,7 @@ export default function ProjectContent({ project, noDetailedContentLabel }: Proj
     title = "Untitled Project",
     description = "No description available.",
     longDescription = "",
-    imageUrl = "/default-image.png",
+    imageUrl = "/default-image.webp",
     imageAlt = "Project image",
     logoUrl = "/default-logo.png",
     logoAlt = "Project logo",
@@ -32,7 +32,7 @@ export default function ProjectContent({ project, noDetailedContentLabel }: Proj
         {logoUrl && logoUrl !== "/default-logo.png" && (
           <ProjectLogoBanner logoUrl={logoUrl} logoAlt={logoAlt} />
         )}
-        {imageUrl && imageUrl !== "/default-image.png" && (
+        {imageUrl && imageUrl !== "/default-image.webp" && (
           <div className="relative max-w-2xl mx-auto mb-16">
             <Image
               src={imageUrl}

@@ -8,9 +8,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import NavMobile from "@/components/common/NavMobile";
 import { RiMenuLine } from "react-icons/ri";
-import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
-import FloatingColorSelector from "@/components/theme/FloatingColorSelector";
-import PartyModeManager from "@/components/common/PartyModeButton";
 import LanguageSelector from "@/components/common/LanguageSelector";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { matchRoute, type RouteKey } from '@/i18n/routes';
@@ -53,7 +50,6 @@ function NavigationLinks({ isActive }: { isActive: (route: RouteKey) => boolean 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
-    const { mainColor } = useColorContext();
     const { localePath } = useLanguage();
 
     const toggleMenu = () => {
@@ -91,8 +87,6 @@ export default function Header() {
                         
                         <div className="flex items-center justify-end space-x-2">
                             <LanguageSelector />
-                            <FloatingColorSelector />
-                            <PartyModeManager />
                             <div className="block">
                                 <ThemeSelect />
                             </div>
@@ -101,7 +95,7 @@ export default function Header() {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     onClick={toggleMenu}
-                                    className={`p-2 w-[45px] h-[45px] flex justify-center items-center backdrop-blur-sm rounded-full ${COLOR_CLASS_MAP[mainColor]}`}
+                                    className={`p-2 w-[45px] h-[45px] flex justify-center items-center backdrop-blur-sm rounded-full bg-accent/10 hover:bg-accent/20`}
                                 >
                                     <RiMenuLine />
                                 </motion.button>

@@ -4,14 +4,10 @@ import Footer from "@/components/common/Footer";
 import { Work_Sans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Analytics, { AnalyticsInit } from "@/components/Analytics";
-import { ColorProvider } from "@/components/theme/ColorContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { PartyModeProvider } from "@/contexts/PartyModeContext";
 import { getDictionary } from "@/i18n/dictionary";
 import { buildSiteJsonLd, serializeJsonLd } from "@/i18n/seo";
 import type { Locale } from "@/i18n/routes";
-import "@/lib/patchReactDevTools";
-import "@/lib/suppressConsoleErrors";
 import "@/app/globals.css";
 
 const fontPrincipal = Work_Sans({
@@ -123,16 +119,14 @@ export default function SiteShell({
           enableSystem
           disableTransitionOnChange
         >
-          <ColorProvider>
+          
             <LanguageProvider locale={locale} translations={translations}>
-              <PartyModeProvider>
                 <Header />
                 <main id="main-content">{children}</main>
                 <SpeedInsights />
                 <Footer />
-              </PartyModeProvider>
             </LanguageProvider>
-          </ColorProvider>
+          
         </ThemeProvider>
       </body>
     </html>

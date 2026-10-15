@@ -6,7 +6,8 @@
   --foreground: #333;
   --primary: #0070f3;
   --secondary: #f81ce5;
-  --accent: #f81ce5;
+  /* Single accent: blue-700 on light surfaces (6.4:1 on #f9f9f9) */
+  --color-accent: #1d4ed8;
   --muted: #f9f9f9;
   --error: #ff0000;
   --success: #00ff00;
@@ -16,7 +17,8 @@
 /* Variables para modo oscuro */
 [data-theme="dark"] {
   --background: #030712;
-  
+  /* blue-400 on dark surfaces (7.9:1 on #030712) */
+  --color-accent: #60a5fa;
 }
 
 .max-header{

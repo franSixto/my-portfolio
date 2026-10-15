@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React from "react";
-import { useColorContext, COLOR_GRADIENT_MAP } from '../theme/ColorContext';
 
 type TitleH1PagesProps = {
   title: string;
@@ -12,8 +11,6 @@ type TitleH1PagesProps = {
 
 export const TitleH1: React.FC<TitleH1PagesProps> = ({ title, description }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const { mainColor } = useColorContext();
-  const gradient = COLOR_GRADIENT_MAP[mainColor] || COLOR_GRADIENT_MAP.red;
 
   return (
     <motion.div
@@ -25,7 +22,7 @@ export const TitleH1: React.FC<TitleH1PagesProps> = ({ title, description }) => 
       ref={ref}
     >
       <motion.h1
-        className={`text-4xl lg:text-6xl font-extrabold bg-gradient-to-r ${gradient.from} ${gradient.to} text-transparent bg-clip-text uppercase mb-2 leading-8 lg:leading-11 xl:leading-20 transition-colors duration-300`}
+        className={`text-4xl lg:text-6xl font-extrabold text-accent uppercase mb-2 leading-8 lg:leading-11 xl:leading-20 transition-colors duration-300`}
         initial={{ scale: 0.8 }}
         whileInView={inView ? { scale: 1 } : {}}
         transition={{ duration: 0.5 }}

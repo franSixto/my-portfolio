@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { IconType } from 'react-icons';
-import { useColorContext, COLOR_CLASS_MAP } from './ColorContext';
 
 interface SubmitButtonProps {
   isSubmitting: boolean;
@@ -10,8 +9,7 @@ interface SubmitButtonProps {
 }
 
 const SubmitButton: React.FC<SubmitButtonProps> = ({ isSubmitting, submittingText, defaultText, Icon }) => {
-  const { mainColor } = useColorContext();
-  const colorStyles = COLOR_CLASS_MAP[mainColor];
+  const colorStyles = "bg-accent/10 hover:bg-accent/20";
   return (
     <button
       type="submit"

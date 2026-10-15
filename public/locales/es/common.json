@@ -5,9 +5,7 @@
             "title": "UX/UI Lead & Desarrollador",
             "description": "Soy un especialista en UX/UI y desarrollador frontend que crea productos digitales intuitivos, accesibles y visualmente atractivos.",
             "myWork": "Mi Trabajo",
-            "resume": "Currículum",
-            "helloHuman": "Hola Humano,",
-            "petDog": "¡Solo acaricia al perro! ✨"
+            "resume": "Currículum"
         },
         "aboutTeaser": {
             "title": "Un Poco Sobre Mí",
@@ -109,24 +107,8 @@
                 "title": "Construyamos algo grandioso juntos",
                 "description": "Ya sea que busques un diseñador UX/UI, un desarrollador frontend, o un líder de equipo para dar vida a tus ideas — estoy listo para saltar. Sentite libre de contactarme, estaré feliz de conectar.",
                 "button": "Contactame"
-            },
-            "subscribe": {
-                "title": "Mantente Actualizado",
-                "description": "Suscríbete a mi newsletter para recibir las últimas actualizaciones sobre proyectos e insights de la industria.",
-                "placeholder": "Tu dirección de email",
-                "button": "Suscribirse",
-                "success": "¡Gracias por suscribirte!",
-                "error": "Error de suscripción. Por favor intenta de nuevo.",
-                "emailRequired": "El email es requerido",
-                "invalidEmail": "Dirección de email inválida"
             }
         }
-    },
-    "subscribe": {
-        "homeTitle": "Me gusta compartir",
-        "homeDescription": "Envío actualizaciones ocasionales sobre diseño, desarrollo y cosas que encuentro geniales. ¡Unite!",
-        "homeDisclaimer": "Sin spam. Cancelá la suscripción cuando quieras.",
-        "homeWelcome": "¡Me alegra que estés aquí! 😊"
     },
     "projects": {
         "noImage": "Sin imagen",
@@ -206,18 +188,6 @@
             "optimizationDeploy": {
                 "title": "Optimización y Deploy",
                 "description": "Manejo optimización SEO, mejoras de rendimiento del sitio, control de versiones con Git y flujos de CI/CD optimizados. Desde HTML semántico hasta optimización de assets y deploys de producción, me aseguro de que cada proyecto sea rápido, descubrible y a prueba de futuro."
-            }
-        },
-        "funMode": {
-            "play": "Activar Modo Fiesta",
-            "stop": "Detener Modo Fiesta",
-            "playButton": "Activar modo divertido",
-            "stopButton": "¡Detener esto!",
-            "warning": {
-                "title": "¡Atención!",
-                "message": "Este modo tiene música, colores parpadeantes y animaciones, pero también es muy divertido. Pruébalo si estás bien.",
-                "play": "Activar",
-                "cancel": "Cancelar"
             }
         }
     }

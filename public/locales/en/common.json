@@ -5,9 +5,7 @@
       "title": "UX/UI Lead & Developer",
       "description": "I'm a UX/UI specialist and frontend developer crafting intuitive, accessible, and visually engaging digital products.",
       "myWork": "My Work",
-      "resume": "Resume",
-      "helloHuman": "Hello Human,",
-      "petDog": "Just pet the dog! ✨"
+      "resume": "Resume"
     },
     "aboutTeaser": {
       "title": "A Bit About Me",
@@ -109,24 +107,8 @@
         "title": "Let's build something great together",
         "description": "Whether you're looking for a UX/UI designer, a frontend developer, or a team leader to bring your ideas to life — I'm ready to jump in. Feel free to reach out, I'd be happy to connect.",
         "button": "Contact Me"
-      },
-      "subscribe": {
-        "title": "Stay Updated",
-        "description": "Subscribe to my newsletter for the latest updates on projects and industry insights.",
-        "placeholder": "Your email address",
-        "button": "Subscribe",
-        "success": "Thank you for subscribing!",
-        "error": "Subscription error. Please try again.",
-        "emailRequired": "Email is required",
-        "invalidEmail": "Invalid email address"
       }
     }
-  },
-  "subscribe": {
-    "homeTitle": "I like to share",
-    "homeDescription": "I send occasional updates about design, dev & stuff I find cool. Join in!",
-    "homeDisclaimer": "No spam. Unsubscribe anytime.",
-    "homeWelcome": "Glad you're here! 😊"
   },
   "projects": {
     "noImage": "No image",
@@ -206,18 +188,6 @@
       "optimizationDeploy": {
         "title": "Optimization & Deploy",
         "description": "I handle SEO optimization, site performance enhancements, version control with Git, and streamlined CI/CD workflows. From semantic HTML to asset optimization and production deploys, I ensure that every project is fast, discoverable, and future-proof."
-      }
-    },
-    "funMode": {
-      "play": "Play Party Mode",
-      "stop": "Stop Party Mode",
-      "playButton": "Play fun mode",
-      "stopButton": "Stop this!",
-      "warning": {
-        "title": "Heads up!",
-        "message": "This mode has music, flashing colors and animations, but it's also a lot of fun. Give it a try if you're okay.",
-        "play": "Play",
-        "cancel": "Cancel"
       }
     }
   }

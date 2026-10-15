@@ -5,11 +5,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Button from "@/components/theme/Button";
 import { RiVerifiedBadgeLine } from "react-icons/ri";
-import { useColorContext, COLOR_CLASS_MAP } from '@/components/theme/ColorContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AboutMeTeaser() {
-  const { mainColor } = useColorContext();
   const { t, localePath } = useLanguage();
 
   return (
@@ -25,8 +23,7 @@ export default function AboutMeTeaser() {
         transition={{ delay: 0.6, duration: 0.8 }}
         className="dark:bg-gray-900/30 bg-gray-200/30 backdrop-blur-xl rounded-2xl p-8 max-w-2xl mx-auto text-start flex flex-col items-center justify-center">
         <div className="relative flex flex-col gap-5 mb-0 lg:mb-6">
-          <div className={`relative flex justify-center items-center h-full w-full bg-${mainColor}-500 rounded-xl`}
-            style={{ boxShadow: `0 4px 24px 0 var(--tw-shadow-color, ${COLOR_CLASS_MAP[mainColor].split(' ')[0].replace('bg-', '').replace('-100', '')})` }}>
+          <div className="relative flex justify-center items-center h-full w-full bg-accent rounded-xl shadow-lg shadow-accent/40">
             <Image
               src="/me.svg"
               alt={t('home.aboutTeaser.altText')}

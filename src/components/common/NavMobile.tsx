@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { RiCloseLine } from "react-icons/ri";
-import { useColorContext } from '@/components/theme/ColorContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { RouteKey } from '@/i18n/routes';
 
@@ -18,11 +17,9 @@ const MOBILE_ITEMS: ReadonlyArray<{ route: RouteKey; labelKey: string; hash?: st
 function MobileNavigationLinks({
     isActive,
     toggleMenu,
-    mainColor
 }: {
     isActive: (route: RouteKey) => boolean;
     toggleMenu: () => void;
-    mainColor: string;
 }) {
     const { t, localePath } = useLanguage();
 
@@ -59,7 +56,7 @@ function MobileNavigationLinks({
                         >
                             <Link
                                 href={`${localePath(item.route)}${item.hash ?? ""}`}
-                                className={`hover:text-gray-500 dark:hover:text-gray-300 ${!item.hash && isActive(item.route) ? `font-bold text-${mainColor}-600 transition-colors duration-300` : ""}`}
+                                className={`hover:text-gray-500 dark:hover:text-gray-300 ${!item.hash && isActive(item.route) ? `font-bold text-accent transition-colors duration-300` : ""}`}
                                 onClick={toggleMenu}
                             >
                                 {t(item.labelKey)}
@@ -79,7 +76,6 @@ interface NavMobileProps {
 }
 
 const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive }) => {
-    const { mainColor } = useColorContext();
 
     // Añadir o eliminar la clase "overflow-hidden" al <body>
     useEffect(() => {
@@ -115,10 +111,10 @@ const NavMobile: React.FC<NavMobileProps> = ({ isMenuOpen, toggleMenu, isActive 
                 className="absolute top-2 right-2 text-white focus:outline-none z-60"
             >
                 <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white dark:bg-gray-900">
-                <RiCloseLine className={`text-2xl text-${mainColor}-500 transition-colors duration-300`} />
+                <RiCloseLine className={`text-2xl text-accent transition-colors duration-300`} />
                 </div>
             </button>
-            <MobileNavigationLinks isActive={isActive} toggleMenu={toggleMenu} mainColor={mainColor} />
+            <MobileNavigationLinks isActive={isActive} toggleMenu={toggleMenu} />
             </motion.div>
         </div>
     );
