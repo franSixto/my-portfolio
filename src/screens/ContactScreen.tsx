@@ -37,9 +37,10 @@ export default function ContactScreen({ locale }: { locale: Locale }) {
           </section>
         </div>
         <div className="lg:col-span-6 lg:col-start-7">
-          <ContactForm />
+          <ContactForm copy={c.form} locale={locale} />
           <p className="mt-5 text-meta text-muted text-pretty">{c.privacyNote}</p>
           <DirectChannels
+            locale={locale}
             content={{
               heading: c.channels.heading,
               channels: [

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { getTranslator } from "./dictionary";
 import { serializeJsonLd } from "./jsonLd";
 import {
   SITE_URL,
@@ -14,6 +13,7 @@ import { GITHUB_URL, LINKEDIN_URL, SITE_META } from "@/content/site";
 import { aboutContent } from "@/content/pages/about";
 import { contactContent } from "@/content/pages/contact";
 import { homeContent } from "@/content/pages/home";
+import { projectsContent } from "@/content/pages/projects";
 import { servicesHubContent } from "@/content/pages/servicesHub";
 
 export { serializeJsonLd };
@@ -23,9 +23,16 @@ export const SAME_AS = [LINKEDIN_URL, GITHUB_URL];
 
 const OG_LOCALE: Record<Locale, string> = { es: "es_AR", en: "en_US" };
 
-function ogImage(locale: Locale) {
+// Default social image: the opengraph-image.tsx of each locale tree
+// (src/app/opengraph-image.tsx for es, src/app/en/opengraph-image.tsx for en).
+// A page that sets `openGraph` drops the image Next would inherit from the
+// layout, so every page repeats it explicitly. The URLs are stable because
+// neither file sits under a route group (Next adds a hash suffix there).
+export type OgImage = { url: string; width: number; height: number; alt: string };
+
+export function defaultOgImage(locale: Locale): OgImage {
   return {
-    url: "/meta-image.jpg",
+    url: locale === "es" ? "/opengraph-image" : "/en/opengraph-image",
     width: 1200,
     height: 630,
     alt: SITE_META[locale].ogAlt,
@@ -45,11 +52,9 @@ export function buildRootMetadata(locale: Locale): Metadata {
       siteName: SITE_NAME,
       locale: OG_LOCALE[locale],
       type: "website",
-      images: [ogImage(locale)],
     },
     twitter: {
       card: "summary_large_image",
-      images: [ogImage(locale).url],
     },
   };
 }
@@ -64,11 +69,13 @@ type PageMetadataInput = {
   noIndex?: boolean;
   /** Title already contains the site name: skip the layout's title template. */
   absoluteTitle?: boolean;
+  /** Overrides the default social image (e.g. a case-study hero). */
+  image?: OgImage;
 };
 
 /**
  * Per-page metadata. Next shallow-merges `openGraph`, so the full OG object
- * (site name, locale, image) is repeated here instead of relying on the layout.
+ * (site name, locale) is repeated here instead of relying on the layout.
  */
 export function buildPageMetadata({
   locale,
@@ -79,6 +86,7 @@ export function buildPageMetadata({
   type = "website",
   noIndex = false,
   absoluteTitle = false,
+  image = defaultOgImage(locale),
 }: PageMetadataInput): Metadata {
   const alternates = buildAlternates(route, locale, params);
   const socialTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
@@ -94,13 +102,13 @@ export function buildPageMetadata({
       locale: OG_LOCALE[locale],
       alternateLocale: OG_LOCALE[locale === "es" ? "en" : "es"],
       type,
-      images: [ogImage(locale)],
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title: socialTitle,
       description,
-      images: [ogImage(locale).url],
+      images: [image.url],
     },
     ...(noIndex ? { robots: { index: false, follow: true } } : {}),
   };
@@ -122,11 +130,8 @@ export function getStaticPageSeo(
       return aboutContent[locale].seo;
     case "contact":
       return contactContent[locale].seo;
-    case "projects": {
-      // Still dictionary-backed until the case-study copy lands.
-      const t = getTranslator(locale);
-      return { title: t("pages.projects.title"), description: t("pages.projects.description") };
-    }
+    case "projects":
+      return projectsContent[locale].seo;
   }
 }
 

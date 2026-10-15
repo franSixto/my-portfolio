@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getProjectSlugs } from "@/i18n/dictionary";
+import { getCaseSlugs } from "@/content/projects";
 import {
   absoluteUrl,
   liveRouteKeys,
@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: Entry[] = liveRouteKeys()
     .filter((key) => key !== "project")
     .map((key) => ({ key }));
-  for (const slug of getProjectSlugs()) {
+  for (const slug of getCaseSlugs()) {
     entries.push({ key: "project", params: { slug } });
   }
 

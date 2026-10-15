@@ -72,8 +72,8 @@ describe("alternatePath", () => {
   });
 
   it("preserves dynamic params", () => {
-    expect(alternatePath("/proyectos/experience-at-apex", "en")).toBe(
-      "/en/projects/experience-at-apex"
+    expect(alternatePath("/proyectos/apex-america", "en")).toBe(
+      "/en/projects/apex-america"
     );
     expect(alternatePath("/en/projects/officina-artis", "es")).toBe(
       "/proyectos/officina-artis"

@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import sitemap from "./sitemap";
+import { getCaseSlugs } from "@/content/projects";
+import { LEGACY_PROJECT_SLUGS } from "@/i18n/redirects";
 import { liveRouteKeys, routes, SITE_URL } from "@/i18n/routes";
 
 const serviceKeys = [
@@ -47,5 +49,14 @@ describe("sitemap", () => {
         });
       }
     }
+  });
+
+  it("lists every case study in both locales and none of the retired slugs", () => {
+    const urls = entries.map((e) => e.url);
+    for (const slug of getCaseSlugs())
+      for (const base of [`${SITE_URL}/proyectos`, `${SITE_URL}/en/projects`])
+        expect(urls, `${base}/${slug}`).toContain(`${base}/${slug}`);
+    for (const old of Object.keys(LEGACY_PROJECT_SLUGS))
+      expect(urls.filter((u) => u.includes(old)), old).toEqual([]);
   });
 });

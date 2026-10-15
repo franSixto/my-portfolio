@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
+import TrackedLink from "@/components/ui/TrackedLink";
 import { FOOTER } from "@/content/footer";
 import { SERVICE_ROUTE_KEYS } from "@/content/services/nav";
 import { CV_PATH, EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/content/site";
@@ -23,15 +24,18 @@ export default function Footer({ locale }: { locale: Locale }) {
   return (
     <footer id="site-footer" className="mt-8 border-t border-rule bg-surface">
       <Container className="py-16 md:py-20">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-8">
-          <div className="md:col-span-5">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-4">
             <p className="font-sans text-h2 font-semibold text-ink">Francisco Sixto</p>
             <p className="mt-3 max-w-[36ch] text-ui font-medium text-ink">{copy.tagline}</p>
             <p className="mt-3 max-w-[44ch] text-ui text-muted text-pretty">{copy.description}</p>
           </div>
 
-          <nav aria-label={copy.navLabel} className="grid gap-12 md:col-span-7 md:grid-cols-7 md:gap-8">
-          <div className="md:col-span-3">
+          <nav
+            aria-label={copy.navLabel}
+            className="grid gap-12 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-[1.3fr_0.8fr_1.2fr] lg:gap-8"
+          >
+          <div>
             <p className={headingClass}>{copy.servicesHeading}</p>
             <ul className="space-y-3">
               {SERVICE_ROUTE_KEYS.map((key) => (
@@ -49,7 +53,7 @@ export default function Footer({ locale }: { locale: Locale }) {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div>
             <p className={headingClass}>{copy.siteHeading}</p>
             <ul className="space-y-3">
               {site.map((item) => (
@@ -62,16 +66,24 @@ export default function Footer({ locale }: { locale: Locale }) {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div>
             <p className={headingClass}>{copy.contactHeading}</p>
             <ul className="space-y-3">
               <li>
-                <a href={`mailto:${EMAIL}`} aria-label={copy.emailAria} className={`${linkClass} break-all`}>
+                <TrackedLink
+                  channel="email"
+                  locale={locale}
+                  href={`mailto:${EMAIL}`}
+                  aria-label={copy.emailAria}
+                  className={`${linkClass} break-all lg:whitespace-nowrap lg:break-normal`}
+                >
                   {EMAIL}
-                </a>
+                </TrackedLink>
               </li>
               <li>
-                <a
+                <TrackedLink
+                  channel="linkedin"
+                  locale={locale}
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -79,10 +91,12 @@ export default function Footer({ locale }: { locale: Locale }) {
                   className={linkClass}
                 >
                   LinkedIn
-                </a>
+                </TrackedLink>
               </li>
               <li>
-                <a
+                <TrackedLink
+                  channel="github"
+                  locale={locale}
                   href={GITHUB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -90,12 +104,19 @@ export default function Footer({ locale }: { locale: Locale }) {
                   className={linkClass}
                 >
                   GitHub
-                </a>
+                </TrackedLink>
               </li>
               <li>
-                <a href={CV_PATH} target="_blank" aria-label={copy.cvAria} className={linkClass}>
+                <TrackedLink
+                  channel="cv"
+                  locale={locale}
+                  href={CV_PATH}
+                  target="_blank"
+                  aria-label={copy.cvAria}
+                  className={linkClass}
+                >
                   {copy.cvLabel}
-                </a>
+                </TrackedLink>
               </li>
             </ul>
           </div>

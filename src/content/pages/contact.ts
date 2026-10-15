@@ -1,5 +1,24 @@
 import type { Locale } from "@/i18n/routes";
+import { CONTACT_LIMITS, type FieldErrorCode } from "@/lib/contact/validate";
+import type { ProjectTypeKey } from "@/lib/contact/projectTypes";
 import type { PageSeo } from "./types";
+
+export type ContactFormCopy = {
+  heading: string;
+  ariaLabel: string;
+  name: { label: string; placeholder: string };
+  email: { label: string; placeholder: string; help: string };
+  projectType: { label: string; placeholder: string; options: Record<ProjectTypeKey, string> };
+  message: { label: string; placeholder: string; help: string };
+  /** Field errors by validation code (the same codes the API returns). */
+  errors: Record<FieldErrorCode, string>;
+  recaptchaError: string;
+  spamNotice: string;
+  submit: string;
+  submitting: string;
+  success: { title: string; text: string };
+  failure: string;
+};
 
 export type ContactContent = {
   seo: PageSeo;
@@ -7,6 +26,8 @@ export type ContactContent = {
   intro: string;
   include: { heading: string; items: string[] };
   next: { heading: string; steps: string[] };
+  /** Heading above the form is `form.heading`. */
+  form: ContactFormCopy;
   /** Shown under the form. */
   privacyNote: string;
   channels: {
@@ -44,6 +65,48 @@ export const contactContent: Record<Locale, ContactContent> = {
         "Si tiene sentido, coordinamos una charla para entender el proyecto.",
         "Te mando una propuesta con alcance y etapas.",
       ],
+    },
+    form: {
+      heading: "Escribime",
+      ariaLabel: "Formulario de contacto",
+      name: { label: "Nombre", placeholder: "Tu nombre" },
+      email: { label: "Email", placeholder: "tu@empresa.com", help: "Te respondo a esta dirección." },
+      projectType: {
+        label: "Tipo de proyecto",
+        placeholder: "Elegí una opción",
+        options: {
+          "ux-ui": "UX/UI y product design",
+          "web-design": "Diseño web",
+          "web-development": "Desarrollo web",
+          "ai-mvp": "Prototipo o MVP con IA",
+          other: "Otro",
+        },
+      },
+      message: {
+        label: "Mensaje",
+        placeholder: "Contame qué querés hacer, qué existe hoy y qué te gustaría lograr.",
+        help: "Con algunas líneas alcanza.",
+      },
+      errors: {
+        name_required: "Escribí tu nombre.",
+        name_too_long: `Usá un nombre más corto (hasta ${CONTACT_LIMITS.name} caracteres).`,
+        name_invalid: "Revisá tu nombre: no puede tener saltos de línea.",
+        email_required: "Escribí tu email.",
+        email_invalid: "Revisá el email: parece que tiene un error.",
+        email_too_long: "Revisá el email: parece que tiene un error.",
+        project_type_required: "Elegí el tipo de proyecto.",
+        project_type_invalid: "Elegí el tipo de proyecto.",
+        message_required: "Escribí tu mensaje.",
+        message_too_short: "Contame un poco más para poder ayudarte.",
+        message_too_long: `El mensaje es muy largo: el máximo es de ${CONTACT_LIMITS.message} caracteres.`,
+      },
+      recaptchaError: "Completá la verificación de reCAPTCHA.",
+      spamNotice: "Este formulario usa reCAPTCHA para evitar spam.",
+      submit: "Enviar mensaje",
+      submitting: "Enviando…",
+      success: { title: "¡Gracias! Recibí tu mensaje.", text: "Te respondo personalmente por email." },
+      failure:
+        "No se pudo enviar el mensaje. Probá de nuevo o escribime directamente a franciscomsixto@gmail.com.",
     },
     privacyNote:
       "Uso tus datos solo para responderte. No los comparto ni te sumo a ninguna lista.",
@@ -89,6 +152,48 @@ export const contactContent: Record<Locale, ContactContent> = {
         "If it makes sense, we set up a call to understand the project.",
         "I send you a proposal with scope and phases.",
       ],
+    },
+    form: {
+      heading: "Write to me",
+      ariaLabel: "Contact form",
+      name: { label: "Name", placeholder: "Your name" },
+      email: { label: "Email", placeholder: "you@company.com", help: "I'll reply to this address." },
+      projectType: {
+        label: "Project type",
+        placeholder: "Choose an option",
+        options: {
+          "ux-ui": "UX/UI and product design",
+          "web-design": "Web design",
+          "web-development": "Web development",
+          "ai-mvp": "AI-assisted prototype or MVP",
+          other: "Other",
+        },
+      },
+      message: {
+        label: "Message",
+        placeholder: "Tell me what you want to build, what exists today and what you'd like to achieve.",
+        help: "A few lines are enough.",
+      },
+      errors: {
+        name_required: "Please enter your name.",
+        name_too_long: `Please use a shorter name (up to ${CONTACT_LIMITS.name} characters).`,
+        name_invalid: "Please check your name: it can't contain line breaks.",
+        email_required: "Please enter your email.",
+        email_invalid: "That email doesn't look right. Please check it.",
+        email_too_long: "That email doesn't look right. Please check it.",
+        project_type_required: "Please choose a project type.",
+        project_type_invalid: "Please choose a project type.",
+        message_required: "Please write a message.",
+        message_too_short: "Tell me a bit more so I can help.",
+        message_too_long: `That message is too long: the limit is ${CONTACT_LIMITS.message} characters.`,
+      },
+      recaptchaError: "Please complete the reCAPTCHA check.",
+      spamNotice: "This form uses reCAPTCHA to prevent spam.",
+      submit: "Send message",
+      submitting: "Sending…",
+      success: { title: "Thanks! I got your message.", text: "I'll reply personally by email." },
+      failure:
+        "The message couldn't be sent. Please try again or email me directly at franciscomsixto@gmail.com.",
     },
     privacyNote:
       "I only use your details to reply to you. I don't share them or add you to any list.",

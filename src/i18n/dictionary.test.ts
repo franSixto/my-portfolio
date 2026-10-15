@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { mergeWithFallback, translate } from "./translate";
-import { getDictionary, getProject, getProjects } from "./dictionary";
+import { getDictionary } from "./dictionary";
 
 describe("mergeWithFallback", () => {
   it("fills missing keys from the fallback, deeply", () => {
@@ -39,30 +39,6 @@ describe("getDictionary", () => {
   it("returns real strings for both locales", () => {
     expect(translate(getDictionary("es"), "navigation.about")).toBe("Sobre mí");
     expect(translate(getDictionary("en"), "navigation.about")).toBe("About");
-  });
-  it("has projects.noImage in both locales", () => {
-    expect(translate(getDictionary("es"), "projects.noImage")).toBe("Sin imagen");
-    expect(translate(getDictionary("en"), "projects.noImage")).toBe("No image");
-  });
-});
-
-describe("getProjects", () => {
-  it("returns the same slugs in both locales", () => {
-    const es = getProjects("es").map((p) => p.slug);
-    const en = getProjects("en").map((p) => p.slug);
-    expect(es.length).toBe(6);
-    expect(en).toEqual(es);
-  });
-});
-
-describe("getProject", () => {
-  it("matches by slug", () => {
-    expect(getProject("officina-artis", "es")?.slug).toBe("officina-artis");
-  });
-  it("does not match by id when it differs from the slug", () => {
-    const differing = getProjects("es").find((p) => p.id !== p.slug);
-    if (differing) expect(getProject(differing.id, "es")).toBeNull();
-    expect(getProject("nope", "en")).toBeNull();
   });
 });
 

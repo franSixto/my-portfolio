@@ -75,9 +75,9 @@ export const uxUiProductDesign: LocalizedServiceContent = {
       button: "Contame sobre tu producto",
     },
     relatedProjectSlugs: [
-      "experience-at-startu",
-      "experience-at-deep-creek",
-      "experience-at-autocity",
+      "start-university",
+      "deep-creek-solutions",
+      "autocity-grupo-tagle",
     ],
     relatedServices: [
       {
@@ -164,9 +164,9 @@ export const uxUiProductDesign: LocalizedServiceContent = {
       button: "Tell me about your product",
     },
     relatedProjectSlugs: [
-      "experience-at-startu",
-      "experience-at-deep-creek",
-      "experience-at-autocity",
+      "start-university",
+      "deep-creek-solutions",
+      "autocity-grupo-tagle",
     ],
     relatedServices: [
       {

@@ -9,72 +9,9 @@
     "cta": "Hablemos",
     "breadcrumb": "Ruta de navegación"
   },
-  "pages": {
-    "projects": {
-      "title": "Proyectos",
-      "description": "Aquí podés encontrar algunos de los proyectos en los que he trabajado.",
-      "noImage": "Sin imagen",
-      "viewProject": "Ver Proyecto",
-      "liveProject": "Proyecto en Vivo",
-      "technologies": "Tecnologías",
-      "role": "Mi Rol",
-      "backToProjects": "← Volver a Proyectos",
-      "relatedProjects": "Proyectos Relacionados",
-      "projectNotFound": "Proyecto no encontrado",
-      "projectNotFoundDescription": "El proyecto que buscás no existe o ha sido eliminado.",
-      "noDetailedContent": "No hay contenido detallado disponible."
-    }
-  },
-  "projects": {
-    "noImage": "Sin imagen",
-    "officina-artis": {
-      "title": "Officina Artis: Una Galería de Arte Virtual 3D Explorando Espacio, Interacción y Curaduría",
-      "description": "Diseñé y desarrollé una experiencia inmersiva 3D para explorar obras de arte en una galería virtual, combinando programación creativa, narrativa espacial y dirección artística."
-    },
-    "experience-at-startu": {
-      "title": "Transformando la Educación Online: Estrategia UX y Diseño Escalable para más de 20 Sitios Universitarios",
-      "description": "Lideré el diseño y desarrollo de experiencias digitales en múltiples mercados, combinando estrategia, tecnología y trabajo en equipo para transformar más de 20 sitios web educativos y potenciar usabilidad y conversión."
-    },
-    "experience-at-autocity": {
-      "title": "De Motores a Elegancia: Ecosistemas Digitales para Marcas Automotrices, Hoteleras y de Estilo de Vida",
-      "description": "Diseñé y desarrollé sitios web inmersivos y de alta conversión en múltiples industrias—desde plataformas automotrices con características avanzadas hasta experiencias digitales de alta gama para hotelería y clubes de golf."
-    },
-    "experience-at-sixto-van-garret": {
-      "title": "Creando Identidades Digitales Personalizadas: Soluciones Web Únicas para Marcas Distintivas",
-      "description": "Creé experiencias digitales personalizadas para marcas distintivas, desde servicios de lujo hasta startups innovadoras, enfocándome en diseño personalizado y experiencia de usuario estratégica."
-    },
-    "experience-at-deep-creek": {
-      "title": "Transformación Digital Estratégica: Desarrollo de Ciclo Completo para Soluciones Empresariales",
-      "description": "Lideré proyectos digitales integrales desde la concepción hasta el despliegue, entregando soluciones empresariales escalables con enfoque en experiencia de usuario y objetivos de negocio."
-    },
-    "experience-at-apex": {
-      "title": "Soluciones Digitales Orientadas al Rendimiento: Proyectos de Alto Impacto para Empresas Enfocadas en Crecimiento",
-      "description": "Entregué experiencias digitales de vanguardia optimizadas para conversión y crecimiento, combinando pensamiento estratégico con excelencia técnica."
-    }
-  },
-  "contact": {
-    "form": {
-      "title": "Escribime",
-      "name": "Nombre",
-      "email": "Email",
-      "message": "Mensaje",
-      "send": "Enviar mensaje",
-      "sending": "Enviando…",
-      "successTitle": "¡Gracias! Recibí tu mensaje.",
-      "successMessage": "Te respondo personalmente por email.",
-      "recaptchaError": "Completá la verificación de reCAPTCHA.",
-      "nameRequired": "Escribí tu nombre.",
-      "emailRequired": "Escribí tu email.",
-      "emailInvalid": "Revisá el email: parece que tiene un error.",
-      "messageRequired": "Escribí tu mensaje."
-    }
-  },
   "notFound": {
     "title": "No encontré esta página",
     "description": "Puede que la dirección haya cambiado o que el enlace tenga un error. Estos lugares sí existen:",
-    "backHome": "Volver al inicio"
-  },
-  "common": {
     "backHome": "Volver al inicio"
   }
 }

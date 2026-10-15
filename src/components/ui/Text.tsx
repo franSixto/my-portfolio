@@ -1,6 +1,25 @@
 import cx from "classnames";
 import type { ReactNode } from "react";
 
+/** Renders `code` spans written with backticks; everything else stays plain text. */
+export function Inline({ text }: { text: string }) {
+  const parts = text.split("`");
+  if (parts.length === 1) return <>{text}</>;
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <code key={i} className="rounded bg-surface px-1.5 py-0.5 font-sans text-[0.9em]">
+            {part}
+          </code>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 /** Serif intro paragraph under a page or section title. */
 export function Lead({ className, children }: { className?: string; children: ReactNode }) {
   return (

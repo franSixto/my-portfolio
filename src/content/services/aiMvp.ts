@@ -82,7 +82,7 @@ export const aiMvp: LocalizedServiceContent = {
       heading: "¿Tenés una idea que querés probar?",
       button: "Quiero validar mi idea",
     },
-    relatedProjectSlugs: ["experience-at-deep-creek"],
+    relatedProjectSlugs: ["portfolio-fransixto", "deep-creek-solutions"],
     relatedServices: [
       {
         route: "serviceUxUi",
@@ -175,7 +175,7 @@ export const aiMvp: LocalizedServiceContent = {
       heading: "Have an idea you want to test?",
       button: "I want to validate my idea",
     },
-    relatedProjectSlugs: ["experience-at-deep-creek"],
+    relatedProjectSlugs: ["portfolio-fransixto", "deep-creek-solutions"],
     relatedServices: [
       {
         route: "serviceUxUi",

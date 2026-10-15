@@ -2,6 +2,7 @@ import { ThemeProvider } from "next-themes";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import { Newsreader, Schibsted_Grotesk } from "next/font/google";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Analytics, { AnalyticsInit } from "@/components/Analytics";
 import { LanguageProvider } from "@/contexts/LanguageContext";
@@ -78,6 +79,7 @@ export default function SiteShell({
             <main id="main-content" tabIndex={-1} className="outline-none">
               {children}
             </main>
+            <VercelAnalytics />
             <SpeedInsights />
             <Footer locale={locale} />
           </LanguageProvider>

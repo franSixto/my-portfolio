@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { locales } from "@/i18n/routes";
-import { getProjectSlugs } from "@/i18n/dictionary";
+import { getCaseSlugs } from "@/content/projects";
 import { SITE_NAME } from "@/i18n/seo";
 import { SERVICE_ROUTE_KEYS, SERVICE_NAV_LABELS } from "./nav";
 import { serviceContent, getServiceContent } from "./index";
@@ -53,7 +53,7 @@ describe("service content", () => {
   });
 
   it("only references projects that exist", () => {
-    const slugs = getProjectSlugs();
+    const slugs = getCaseSlugs();
     for (const key of keys)
       for (const locale of locales) {
         const c = getServiceContent(key, locale);

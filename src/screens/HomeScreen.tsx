@@ -8,7 +8,7 @@ import Section from "@/components/ui/Section";
 import { toProjectTile } from "@/components/projects/toProjectTile";
 import { FEATURED_PROJECT_SLUGS } from "@/content/featuredProjects";
 import { homeContent } from "@/content/pages/home";
-import { getProject } from "@/i18n/dictionary";
+import { getCaseStudy } from "@/content/projects";
 import { localizedPath, type Locale } from "@/i18n/routes";
 
 // Server component: all copy is resolved here and passed down as props.
@@ -17,8 +17,8 @@ export default function HomeScreen({ locale }: { locale: Locale }) {
   const path = (key: Parameters<typeof localizedPath>[0]) => localizedPath(key, locale);
 
   const projects = FEATURED_PROJECT_SLUGS.flatMap((slug) => {
-    const project = getProject(slug, locale);
-    return project ? [toProjectTile(project, locale)] : [];
+    const study = getCaseStudy(slug);
+    return study ? [toProjectTile(study, locale)] : [];
   });
 
   return (

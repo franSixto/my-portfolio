@@ -1,28 +1,35 @@
 import type { Metadata } from "next";
 
 import ProjectScreen from "@/screens/ProjectScreen";
-import { getProject, getProjectSlugs } from "@/i18n/dictionary";
+import { getCaseCopy, getCaseSlugs, getCaseStudy } from "@/content/projects";
 import { buildPageMetadata } from "@/i18n/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return getProjectSlugs().map((slug) => ({ slug }));
+  return getCaseSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProject(slug, "es");
+  const study = getCaseStudy(slug);
+  const copy = getCaseCopy(slug, "es");
   // Do not throw notFound() here: a metadata-phase 404 bypasses the layout and
   // yields the bare error shell. The page itself calls notFound() instead.
-  if (!project) return { robots: { index: false } };
+  if (!study || !copy) return { robots: { index: false } };
   return buildPageMetadata({
     locale: "es",
     route: "project",
     params: { slug },
-    title: project.title,
-    description: project.description,
+    title: copy.seoTitle,
+    description: copy.seoDescription,
     type: "article",
+    image: {
+      url: study.hero.src,
+      width: study.hero.width,
+      height: study.hero.height,
+      alt: copy.heroAlt,
+    },
   });
 }
 

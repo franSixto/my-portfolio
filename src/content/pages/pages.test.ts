@@ -5,11 +5,12 @@ import { FEATURED_PROJECT_SLUGS } from "@/content/featuredProjects";
 import { SITE_META } from "@/content/site";
 import { TOOLKIT } from "@/content/toolkit";
 import { getStaticPageMetadata, getStaticPageSeo, SITE_NAME, buildSiteJsonLd } from "@/i18n/seo";
-import { getProjectSlugs } from "@/i18n/dictionary";
+import { getCaseSlugs } from "@/content/projects";
 import { locales } from "@/i18n/routes";
 import { aboutContent } from "./about";
 import { contactContent } from "./contact";
 import { homeContent } from "./home";
+import { projectsContent } from "./projects";
 import { servicesHubContent } from "./servicesHub";
 
 const modules = {
@@ -17,6 +18,7 @@ const modules = {
   servicesHub: servicesHubContent,
   about: aboutContent,
   contact: contactContent,
+  projects: projectsContent,
   footer: FOOTER,
   siteMeta: SITE_META,
 } as const;
@@ -96,7 +98,7 @@ describe("es voseo consistency (content modules)", () => {
 });
 
 describe("static page SEO", () => {
-  const routes = ["home", "services", "about", "contact"] as const;
+  const routes = ["home", "services", "about", "projects", "contact"] as const;
 
   it("keeps titles <= 60 (with the site suffix where the template applies) and descriptions <= 155", () => {
     for (const route of routes)
@@ -151,7 +153,7 @@ describe("hub and home content", () => {
   });
 
   it("features only projects that exist", () => {
-    const slugs = getProjectSlugs();
+    const slugs = getCaseSlugs();
     for (const slug of FEATURED_PROJECT_SLUGS) expect(slugs).toContain(slug);
   });
 });

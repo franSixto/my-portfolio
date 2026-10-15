@@ -1,4 +1,5 @@
 import cx from "classnames";
+import { Inline } from "./Text";
 
 export type TermItem = { title: string; text: string };
 
@@ -24,7 +25,9 @@ export function NumberedList({
             {i + 1}
           </span>
           {typeof item === "string" ? (
-            <span className="font-serif text-body text-ink text-pretty">{item}</span>
+            <span className="font-serif text-body text-ink text-pretty">
+              <Inline text={item} />
+            </span>
           ) : (
             <span className="font-serif text-body text-ink text-pretty">
               <strong className="font-sans font-semibold">{item.title}.</strong> {item.text}
@@ -89,7 +92,7 @@ export function RuleList({
           key={item}
           className="relative border-t border-rule py-4 pl-6 first:border-t-0 first:pt-0 first:before:top-[0.6rem] font-serif text-body text-ink text-pretty before:absolute before:left-0 before:top-[1.6rem] before:h-[2px] before:w-3 before:bg-accent"
         >
-          {item}
+          <Inline text={item} />
         </li>
       ))}
     </ul>

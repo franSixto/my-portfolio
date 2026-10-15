@@ -82,7 +82,7 @@ export const webDesign: LocalizedServiceContent = {
       heading: "¿Tu sitio no está haciendo su trabajo?",
       button: "Quiero un sitio para mi empresa",
     },
-    relatedProjectSlugs: ["experience-at-sixto-van-garret", "experience-at-autocity"],
+    relatedProjectSlugs: ["autocity-grupo-tagle", "sixto-van-garret", "start-university"],
     relatedServices: [
       {
         route: "serviceWebDevelopment",
@@ -175,7 +175,7 @@ export const webDesign: LocalizedServiceContent = {
       heading: "Is your website not doing its job?",
       button: "Let's talk about your website",
     },
-    relatedProjectSlugs: ["experience-at-sixto-van-garret", "experience-at-autocity"],
+    relatedProjectSlugs: ["autocity-grupo-tagle", "sixto-van-garret", "start-university"],
     relatedServices: [
       {
         route: "serviceWebDevelopment",

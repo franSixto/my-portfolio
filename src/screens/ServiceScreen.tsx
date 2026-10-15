@@ -10,7 +10,8 @@ import { getServiceContent } from "@/content/services";
 import { SERVICE_NAV_LABELS, type ServiceRouteKey } from "@/content/services/nav";
 import { buildServiceJsonLd } from "@/content/services/seo";
 import { SERVICE_UI } from "@/content/services/ui";
-import { getProject } from "@/i18n/dictionary";
+import { getCaseStudy } from "@/content/projects";
+import { contactHrefForService } from "@/lib/contact/projectTypes";
 import { localizedPath, type Locale } from "@/i18n/routes";
 import { serializeJsonLd } from "@/i18n/seo";
 
@@ -26,8 +27,8 @@ export default function ServiceScreen({
   const ui = SERVICE_UI[locale];
 
   const projects = content.relatedProjectSlugs.flatMap((slug) => {
-    const project = getProject(slug, locale);
-    return project ? [toProjectTile(project, locale)] : [];
+    const study = getCaseStudy(slug);
+    return study ? [toProjectTile(study, locale)] : [];
   });
 
   const services = content.relatedServices.map((s) => ({
@@ -76,7 +77,7 @@ export default function ServiceScreen({
       <CtaBand
         id="service-cta"
         heading={content.cta.heading}
-        action={{ href: localizedPath("contact", locale), label: content.cta.button }}
+        action={{ href: contactHrefForService(route, locale), label: content.cta.button }}
       />
 
       <Section id="related-services" heading={ui.relatedServices} spacing="compact">

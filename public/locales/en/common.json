@@ -9,72 +9,9 @@
     "cta": "Let's talk",
     "breadcrumb": "Breadcrumb"
   },
-  "pages": {
-    "projects": {
-      "title": "Projects",
-      "description": "Here you can find some of the projects I have worked on.",
-      "noImage": "No image",
-      "viewProject": "View Project",
-      "liveProject": "Live Project",
-      "technologies": "Technologies",
-      "role": "My Role",
-      "backToProjects": "← Back to Projects",
-      "relatedProjects": "Related Projects",
-      "projectNotFound": "Project not found",
-      "projectNotFoundDescription": "The project you are looking for does not exist or has been removed.",
-      "noDetailedContent": "No detailed content available."
-    }
-  },
-  "projects": {
-    "noImage": "No image",
-    "officina-artis": {
-      "title": "Officina Artis: A Virtual 3D Art Gallery Exploring Space, Interaction, and Curation",
-      "description": "I designed and developed a 3D immersive experience to explore artworks in a virtual gallery, combining creative coding, spatial storytelling, and artistic direction."
-    },
-    "experience-at-startu": {
-      "title": "Transforming Education Online: UX Strategy and Scalable Design for 20+ University Sites",
-      "description": "I led the design and development of digital experiences across multiple markets, combining strategy, technology, and teamwork to transform over 20 educational websites and boost usability and conversion."
-    },
-    "experience-at-autocity": {
-      "title": "From Engines to Elegance: Digital Ecosystems for Automotive, Hospitality, and Lifestyle Brands",
-      "description": "I designed and developed immersive, high-conversion websites across multiple industries—from automotive platforms with advanced features to high-end hospitality and golf club digital experiences."
-    },
-    "experience-at-sixto-van-garret": {
-      "title": "Crafting Bespoke Digital Identities: Custom Web Solutions for Unique Brands",
-      "description": "I created tailored digital experiences for distinctive brands, from luxury services to innovative startups, focusing on custom design and strategic user experience."
-    },
-    "experience-at-deep-creek": {
-      "title": "Strategic Digital Transformation: Full-Cycle Development for Enterprise Solutions",
-      "description": "I led comprehensive digital projects from conception to deployment, delivering scalable enterprise solutions with focus on user experience and business objectives."
-    },
-    "experience-at-apex": {
-      "title": "Performance-Driven Digital Solutions: High-Impact Projects for Growth-Focused Companies",
-      "description": "I delivered cutting-edge digital experiences optimized for conversion and growth, combining strategic thinking with technical excellence."
-    }
-  },
-  "contact": {
-    "form": {
-      "title": "Write to me",
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "send": "Send message",
-      "sending": "Sending…",
-      "successTitle": "Thanks! I got your message.",
-      "successMessage": "I'll reply personally by email.",
-      "recaptchaError": "Please complete the reCAPTCHA check.",
-      "nameRequired": "Please enter your name.",
-      "emailRequired": "Please enter your email.",
-      "emailInvalid": "That email doesn't look right. Please check it.",
-      "messageRequired": "Please write a message."
-    }
-  },
   "notFound": {
     "title": "I couldn't find this page",
     "description": "The address may have changed or the link may have a typo. These pages do exist:",
-    "backHome": "Back to home"
-  },
-  "common": {
     "backHome": "Back to home"
   }
 }
