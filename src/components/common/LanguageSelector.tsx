@@ -7,11 +7,12 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { alternatePath, otherLocale, type Locale } from "@/i18n/routes";
 
 const languages: Record<Locale, { code: string; switchLabel: string }> = {
-  en: { code: "EN", switchLabel: "Switch to English" },
-  es: { code: "ES", switchLabel: "Cambiar a Español" },
+  en: { code: "EN", switchLabel: "Ver esta página en inglés" },
+  es: { code: "ES", switchLabel: "View this page in Spanish" },
 };
 
-// A plain link to the equivalent URL in the other language (no client-side swap).
+// Text (not flags) in the target language code; the accessible name is written
+// in the language of the current page. A plain link to the equivalent URL in the other language (no client-side swap).
 export default function LanguageSelector({ className }: { className?: string }) {
   const { locale } = useLanguage();
   const pathname = usePathname();
@@ -23,7 +24,6 @@ export default function LanguageSelector({ className }: { className?: string }) 
     <Link
       href={href}
       hrefLang={target}
-      lang={target}
       className={cx(
         "inline-flex h-10 min-w-10 items-center justify-center rounded-[var(--radius-control)] px-2 text-[0.9375rem] font-medium text-muted hover:bg-surface hover:text-ink",
         className

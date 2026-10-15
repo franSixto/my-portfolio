@@ -5,7 +5,9 @@ import { useTheme } from "next-themes";
 import cx from "classnames";
 import { Moon, Sun } from "@/components/ui/icons";
 
-export default function ThemeSelect({ label, className }: { label: string; className?: string }) {
+export type ThemeLabels = { toDark: string; toLight: string };
+
+export default function ThemeSelect({ labels, className }: { labels: ThemeLabels; className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -22,13 +24,13 @@ export default function ThemeSelect({ label, className }: { label: string; class
   if (!mounted) return <span className={classes} aria-hidden="true" />;
 
   const isDark = resolvedTheme === "dark";
+  const label = isDark ? labels.toLight : labels.toDark;
   return (
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cx(classes, "cursor-pointer")}
       aria-label={label}
-      aria-pressed={isDark}
       title={label}
     >
       {isDark ? <Sun /> : <Moon />}

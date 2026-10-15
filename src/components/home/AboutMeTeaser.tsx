@@ -4,18 +4,14 @@ import Section from "@/components/ui/Section";
 
 export type AboutTeaserContent = {
   heading: string;
-  intro: string;
+  text: string;
   photoAlt: string;
-  birthPlace: string;
-  birthDescription: string;
-  sportsText: string;
-  riverPlate: string;
   readMore: { href: string; label: string };
 };
 
 export default function AboutMeTeaser({ content }: { content: AboutTeaserContent }) {
   return (
-    <Section id="about" heading={content.heading} intro={content.intro}>
+    <Section id="about" heading={content.heading}>
       <div className="grid gap-10 md:grid-cols-8 md:gap-8">
         <div className="md:col-span-3">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-media)] bg-surface">
@@ -28,21 +24,8 @@ export default function AboutMeTeaser({ content }: { content: AboutTeaserContent
             />
           </div>
         </div>
-        <div className="md:col-span-5 font-serif text-body text-ink">
-          <p className="text-lead text-pretty">
-            <strong className="font-semibold">{content.birthPlace}</strong>, {content.birthDescription}
-          </p>
-          <p className="mt-6 text-muted text-pretty">
-            {content.sportsText}{" "}
-            <Image
-              src="/riverplate.webp"
-              alt=""
-              width={16}
-              height={16}
-              className="mx-0.5 inline-block align-[-0.1em]"
-            />{" "}
-            {content.riverPlate}
-          </p>
+        <div className="font-serif text-body text-ink md:col-span-5">
+          <p className="text-lead text-pretty">{content.text}</p>
           <ButtonLink href={content.readMore.href} variant="secondary" className="mt-10">
             {content.readMore.label}
           </ButtonLink>

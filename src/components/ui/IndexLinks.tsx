@@ -7,7 +7,13 @@ export default function IndexLinks({
   ariaLabel,
   headingLevel = "h3",
 }: {
-  items: { href: string; title: string; text?: string }[];
+  items: {
+    href: string;
+    title: string;
+    text?: string;
+    /** Visual call-to-action text (decorative; the title remains the link name). */
+    linkLabel?: string;
+  }[];
   ariaLabel?: string;
   headingLevel?: "h3" | "h4" | "p";
 }) {
@@ -25,8 +31,15 @@ export default function IndexLinks({
                 {item.title}
               </Link>
             </Title>
-            {item.text && (
-              <p className="text-ui text-muted md:col-span-6 text-pretty">{item.text}</p>
+            {(item.text || item.linkLabel) && (
+              <div className="md:col-span-6">
+                {item.text && <p className="text-ui text-muted text-pretty">{item.text}</p>}
+                {item.linkLabel && (
+                  <p aria-hidden="true" className="mt-3 text-ui font-medium text-accent">
+                    {item.linkLabel}
+                  </p>
+                )}
+              </div>
             )}
             <span
               aria-hidden="true"

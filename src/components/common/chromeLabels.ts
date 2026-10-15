@@ -7,7 +7,8 @@ export const CHROME_LABELS: Record<
     skipToContent: string;
     openMenu: string;
     closeMenu: string;
-    toggleTheme: string;
+    toDarkTheme: string;
+    toLightTheme: string;
     mainNav: string;
     home: string;
   }
@@ -16,16 +17,18 @@ export const CHROME_LABELS: Record<
     skipToContent: "Saltar al contenido",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
-    toggleTheme: "Cambiar entre modo claro y oscuro",
+    toDarkTheme: "Cambiar a tema oscuro",
+    toLightTheme: "Cambiar a tema claro",
     mainNav: "Navegación principal",
-    home: "Francisco Sixto, inicio",
+    home: "Francisco Sixto, ir al inicio",
   },
   en: {
     skipToContent: "Skip to content",
     openMenu: "Open menu",
     closeMenu: "Close menu",
-    toggleTheme: "Switch between light and dark mode",
+    toDarkTheme: "Switch to dark theme",
+    toLightTheme: "Switch to light theme",
     mainNav: "Main navigation",
-    home: "Francisco Sixto, home",
+    home: "Francisco Sixto, go to home",
   },
 };

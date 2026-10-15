@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export const metadata: Metadata = { robots: { index: false } };
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false },
+};
 
 // Catch-all so unmatched URLs render the locale's not-found.tsx inside this
 // root layout. Real routes take precedence over it. Note: in Next 15 the

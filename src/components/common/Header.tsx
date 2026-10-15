@@ -58,7 +58,7 @@ export default function Header() {
                 return (
                   <li key={item.id}>
                     <Link
-                      href={`${localePath(item.route)}${item.hash ?? ""}`}
+                      href={localePath(item.route)}
                       aria-current={active ? "page" : undefined}
                       className={cx(
                         "relative py-2 text-[0.9375rem] font-medium transition-colors",
@@ -80,14 +80,14 @@ export default function Header() {
             {/* Below sm these controls live in the menu sheet. */}
             <div className="hidden items-center gap-1 sm:flex">
               <LanguageSelector />
-              <ThemeSelect label={labels.toggleTheme} />
+              <ThemeSelect labels={{ toDark: labels.toDarkTheme, toLight: labels.toLightTheme }} />
             </div>
             <Link
               href={localePath("contact")}
               aria-current={currentRoute === "contact" ? "page" : undefined}
               className={buttonClasses({ variant: "primary", size: "sm", className: "ml-1 md:ml-2" })}
             >
-              {t("navigation.contact")}
+              {t("navigation.cta")}
             </Link>
             <button
               ref={toggleRef}
@@ -108,7 +108,7 @@ export default function Header() {
             onClose={closeMenu}
             returnFocusTo={toggleRef}
             currentRoute={currentRoute}
-            themeLabel={labels.toggleTheme}
+            themeLabels={{ toDark: labels.toDarkTheme, toLight: labels.toLightTheme }}
           />
         )}
       </header>

@@ -3,7 +3,7 @@
 import { useEffect, useRef, type RefObject } from "react";
 import cx from "classnames";
 import Link from "next/link";
-import ThemeSelect from "@/components/theme/ThemeSelect";
+import ThemeSelect, { type ThemeLabels } from "@/components/theme/ThemeSelect";
 import LanguageSelector from "@/components/common/LanguageSelector";
 import { NAV_ITEMS, isNavItemActive } from "@/components/common/navItems";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -13,14 +13,14 @@ interface NavMobileProps {
   onClose: () => void;
   returnFocusTo: RefObject<HTMLButtonElement | null>;
   currentRoute: RouteKey | undefined;
-  themeLabel: string;
+  themeLabels: ThemeLabels;
 }
 
 /**
  * Full-height sheet under the header. While open, the page behind is inert
  * and does not scroll; Escape closes it and focus returns to the toggle.
  */
-export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeLabel }: NavMobileProps) {
+export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeLabels }: NavMobileProps) {
   const { t, localePath } = useLanguage();
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
@@ -61,7 +61,7 @@ export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeL
                 <li key={item.id} className="border-t border-rule">
                   <Link
                     ref={index === 0 ? firstLinkRef : undefined}
-                    href={`${localePath(item.route)}${"hash" in item && item.hash ? item.hash : ""}`}
+                    href={localePath(item.route)}
                     onClick={onClose}
                     aria-current={active ? "page" : undefined}
                     className={cx(
@@ -78,7 +78,7 @@ export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeL
         </ul>
         <div className="mt-8 flex items-center gap-2">
           <LanguageSelector className="border border-rule" />
-          <ThemeSelect label={themeLabel} className="border border-rule" />
+          <ThemeSelect labels={themeLabels} className="border border-rule" />
         </div>
       </nav>
     </div>

@@ -14,6 +14,8 @@ describe("localizedPath", () => {
     expect(localizedPath("home", "en")).toBe("/en");
     expect(localizedPath("about", "es")).toBe("/sobre-mi");
     expect(localizedPath("about", "en")).toBe("/en/about");
+    expect(localizedPath("services", "es")).toBe("/servicios");
+    expect(localizedPath("services", "en")).toBe("/en/services");
     expect(localizedPath("projects", "es")).toBe("/proyectos");
     expect(localizedPath("contact", "en")).toBe("/en/contact");
   });
@@ -42,6 +44,8 @@ describe("matchRoute / localeFromPathname", () => {
       params: { slug: "x" },
     });
     expect(matchRoute("/proyectos/")?.key).toBe("projects");
+    expect(matchRoute("/servicios")?.key).toBe("services");
+    expect(matchRoute("/en/services")).toEqual({ key: "services", locale: "en", params: {} });
     expect(matchRoute("/nope")).toBeNull();
   });
 
@@ -63,6 +67,8 @@ describe("alternatePath", () => {
     expect(alternatePath("/sobre-mi", "en")).toBe("/en/about");
     expect(alternatePath("/en/projects", "es")).toBe("/proyectos");
     expect(alternatePath("/en/contact", "es")).toBe("/contacto");
+    expect(alternatePath("/servicios", "en")).toBe("/en/services");
+    expect(alternatePath("/en/services", "es")).toBe("/servicios");
   });
 
   it("preserves dynamic params", () => {
@@ -92,6 +98,17 @@ describe("buildAlternates", () => {
         es: `${SITE_URL}/sobre-mi`,
         en: `${SITE_URL}/en/about`,
         "x-default": `${SITE_URL}/sobre-mi`,
+      },
+    });
+  });
+
+  it("builds alternates for the services hub", () => {
+    expect(buildAlternates("services", "es")).toEqual({
+      canonical: `${SITE_URL}/servicios`,
+      languages: {
+        es: `${SITE_URL}/servicios`,
+        en: `${SITE_URL}/en/services`,
+        "x-default": `${SITE_URL}/servicios`,
       },
     });
   });

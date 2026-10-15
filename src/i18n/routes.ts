@@ -16,6 +16,7 @@ export type RouteDef = {
 
 export const routes = {
   home: { es: "/", en: "/en" },
+  services: { es: "/servicios", en: "/en/services" },
   about: { es: "/sobre-mi", en: "/en/about" },
   projects: { es: "/proyectos", en: "/en/projects" },
   project: { es: "/proyectos/[slug]", en: "/en/projects/[slug]" },

@@ -37,7 +37,7 @@ describe("translate", () => {
 
 describe("getDictionary", () => {
   it("returns real strings for both locales", () => {
-    expect(translate(getDictionary("es"), "navigation.about")).toBe("Acerca de");
+    expect(translate(getDictionary("es"), "navigation.about")).toBe("Sobre mí");
     expect(translate(getDictionary("en"), "navigation.about")).toBe("About");
   });
   it("has projects.noImage in both locales", () => {

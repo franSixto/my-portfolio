@@ -1,22 +1,34 @@
 import AboutContent from "@/components/about/AboutContent";
-import { getTranslator } from "@/i18n/dictionary";
+import { aboutContent } from "@/content/pages/about";
+import { getToolkit } from "@/content/toolkit";
+import { CV_PATH } from "@/content/site";
 import { localizedPath, type Locale } from "@/i18n/routes";
 
 export default function AboutScreen({ locale }: { locale: Locale }) {
-  const t = getTranslator(locale);
+  const c = aboutContent[locale];
   return (
     <AboutContent
       content={{
-        title: t("pages.about.title"),
-        lead: t("pages.about.description"),
-        paragraphs: [1, 2, 3, 4].map((n) => t(`pages.about.paragraph${n}`)),
-        photoAlt: "Fran Sixto",
-        greeting: t("pages.about.niceToMeet"),
-        thankYou: t("pages.about.thankYou"),
-        jobTitle: t("pages.about.jobTitle"),
-        location: t("pages.about.location"),
-        work: { href: localizedPath("projects", locale), label: t("pages.about.myWork") },
-        resume: { href: "/cv-fran-sixto.pdf", label: t("pages.about.downloadResume") },
+        title: c.h1,
+        tagline: c.tagline,
+        location: c.location,
+        intro: c.intro,
+        photoAlt: c.photoAlt,
+        background: c.background,
+        principles: c.principles,
+        toolkit: {
+          heading: c.tools.heading,
+          intro: c.tools.intro,
+          groups: getToolkit(locale),
+        },
+        outside: c.outside,
+        cv: { href: CV_PATH, label: c.cv.label, ariaLabel: c.cv.ariaLabel },
+        cta: {
+          heading: c.cta.heading,
+          text: c.cta.text,
+          primary: { href: localizedPath("contact", locale), label: c.cta.button },
+          secondary: { href: localizedPath("services", locale), label: c.cta.secondary },
+        },
       }}
     />
   );

@@ -4,13 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { absoluteUrl, localizedPath, matchRoute, type RouteKey } from "@/i18n/routes";
-import { serializeJsonLd } from "@/i18n/seo";
+import { serializeJsonLd } from "@/i18n/jsonLd";
 import { SERVICE_NAV_LABELS, isServiceRoute } from "@/content/services/nav";
 import cx from "classnames";
 
 type Crumb = { label: string; href: string };
 
 const LABEL_KEYS: Partial<Record<RouteKey, string>> = {
+    services: 'navigation.services',
     about: 'navigation.about',
     projects: 'navigation.projects',
     contact: 'navigation.contact',
@@ -37,6 +38,9 @@ export default function Breadcrumbs({
                 href: pathname,
             });
         } else {
+            if (isServiceRoute(match.key)) {
+                crumbs.push({ label: t('navigation.services'), href: localizedPath('services', locale) });
+            }
             const labelKey = LABEL_KEYS[match.key];
             const label = isServiceRoute(match.key)
                 ? SERVICE_NAV_LABELS[locale][match.key]
@@ -65,7 +69,7 @@ export default function Breadcrumbs({
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
             />
-            <nav aria-label="Breadcrumb" className={cx("text-meta text-muted", className)}>
+            <nav aria-label={t('navigation.breadcrumb')} className={cx("text-meta text-muted", className)}>
                 <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
                     {crumbs.map((crumb, idx) => {
                         const isLast = idx === crumbs.length - 1 && idx !== 0;

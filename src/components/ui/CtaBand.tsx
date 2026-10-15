@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import Container from "./Container";
 import ButtonLink from "./ButtonLink";
@@ -9,11 +10,14 @@ export default function CtaBand({
   heading,
   description,
   action,
+  secondary,
 }: {
   id: string;
   heading: string;
   description?: ReactNode;
   action: { href: string; label: string };
+  /** Quiet text link under the main button. */
+  secondary?: { href: string; label: string };
 }) {
   const headingId = `${id}-heading`;
   return (
@@ -38,6 +42,16 @@ export default function CtaBand({
               {action.label}
               <ArrowRight />
             </ButtonLink>
+            {secondary && (
+              <p className="mt-5 lg:text-right">
+                <Link
+                  href={secondary.href}
+                  className="text-ui font-medium text-band-ink underline decoration-band-muted underline-offset-[0.3em] hover:decoration-current"
+                >
+                  {secondary.label}
+                </Link>
+              </p>
+            )}
           </div>
         </div>
       </Container>

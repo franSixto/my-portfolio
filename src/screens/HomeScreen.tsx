@@ -2,83 +2,79 @@ import Hero from "@/components/home/Hero";
 import HomeServices from "@/components/home/HomeServices";
 import SelectedWork from "@/components/home/SelectedWork";
 import AboutMeTeaser from "@/components/home/AboutMeTeaser";
-import Toolkit from "@/components/home/Toolkit";
 import CtaBand from "@/components/ui/CtaBand";
+import { NumberedList, TermList } from "@/components/ui/Lists";
+import Section from "@/components/ui/Section";
 import { toProjectTile } from "@/components/projects/toProjectTile";
-import { SERVICE_NAV_LABELS, SERVICE_ROUTE_KEYS } from "@/content/services/nav";
-import { TOOL_GROUPS } from "@/content/tools";
-import { getProjects, getTranslator } from "@/i18n/dictionary";
+import { FEATURED_PROJECT_SLUGS } from "@/content/featuredProjects";
+import { homeContent } from "@/content/pages/home";
+import { getProject } from "@/i18n/dictionary";
 import { localizedPath, type Locale } from "@/i18n/routes";
 
 // Server component: all copy is resolved here and passed down as props.
 export default function HomeScreen({ locale }: { locale: Locale }) {
-  const t = getTranslator(locale);
+  const c = homeContent[locale];
   const path = (key: Parameters<typeof localizedPath>[0]) => localizedPath(key, locale);
+
+  const projects = FEATURED_PROJECT_SLUGS.flatMap((slug) => {
+    const project = getProject(slug, locale);
+    return project ? [toProjectTile(project, locale)] : [];
+  });
 
   return (
     <>
       <Hero
         content={{
-          tagline: t("home.hero.tagline"),
-          title: t("home.hero.title"),
-          description: t("home.hero.description"),
-          note: t("pages.about.location"),
-          primary: { href: path("projects"), label: t("home.hero.myWork") },
-          secondary: { href: "/cv-fran-sixto.pdf", label: t("home.hero.resume") },
+          eyebrow: c.hero.eyebrow,
+          title: c.hero.title,
+          tagline: c.hero.tagline,
+          description: c.hero.subtitle,
+          primary: { href: path("contact"), label: c.hero.primary },
+          secondary: { href: path("projects"), label: c.hero.secondary },
         }}
       />
       <HomeServices
         content={{
-          heading: t("home.services.title"),
-          intro: t("home.services.description"),
-          pagesLabel: t("navigation.servicesAriaLabel"),
-          pages: SERVICE_ROUTE_KEYS.map((key) => ({
-            href: path(key),
-            title: SERVICE_NAV_LABELS[locale][key],
+          heading: c.services.heading,
+          intro: c.services.intro,
+          services: c.services.cards.map((card) => ({
+            href: path(card.route),
+            title: card.title,
+            text: card.value,
+            linkLabel: card.link,
           })),
-          capabilities: (["uxui", "frontend", "teamLeadership", "optimization"] as const).map((key) => ({
-            title: t(`home.services.${key}.title`),
-            description: t(`home.services.${key}.description`),
-          })),
+          hub: { href: path("services"), label: c.services.hubLink },
         }}
       />
+      <Section id="audience" heading={c.audience.heading}>
+        <TermList items={c.audience.items} />
+        <p className="mt-8 text-ui text-muted max-w-[60ch] text-pretty">{c.audience.footnote}</p>
+      </Section>
+      <Section id="process" heading={c.process.heading}>
+        <NumberedList items={c.process.steps} />
+        <p className="mt-10 max-w-[60ch] font-serif text-body text-muted text-pretty">{c.process.aiNote}</p>
+      </Section>
       <SelectedWork
         content={{
-          heading: t("pages.projects.title"),
-          intro: t("pages.projects.description"),
-          all: { href: path("projects"), label: t("home.hero.myWork") },
-          projects: getProjects(locale)
-            .slice(0, 3)
-            .map((project) => toProjectTile(project, locale)),
+          heading: c.work.heading,
+          intro: c.work.intro,
+          all: { href: path("projects"), label: c.work.all },
+          projects,
         }}
       />
       <AboutMeTeaser
         content={{
-          heading: t("home.aboutTeaser.title"),
-          intro: t("home.aboutTeaser.description"),
-          photoAlt: t("home.aboutTeaser.altText"),
-          birthPlace: t("home.aboutTeaser.birthPlace"),
-          birthDescription: t("home.aboutTeaser.birthDescription"),
-          sportsText: t("home.aboutTeaser.sportsText"),
-          riverPlate: t("home.aboutTeaser.riverPlate"),
-          readMore: { href: path("about"), label: t("home.aboutTeaser.readMore") },
-        }}
-      />
-      <Toolkit
-        content={{
-          heading: t("home.highlights.title"),
-          intro: t("home.highlights.description"),
-          groups: TOOL_GROUPS.map((group) => ({
-            title: t(`home.highlights.categories.${group.categoryKey}.title`),
-            tools: group.tools,
-          })),
+          heading: c.about.heading,
+          text: c.about.text,
+          photoAlt: c.about.photoAlt,
+          readMore: { href: path("about"), label: c.about.link },
         }}
       />
       <CtaBand
         id="contact-cta"
-        heading={t("pages.contact.cta.title")}
-        description={t("pages.contact.cta.description")}
-        action={{ href: path("contact"), label: t("pages.contact.cta.button") }}
+        heading={c.cta.heading}
+        description={c.cta.text}
+        action={{ href: path("contact"), label: c.cta.button }}
       />
     </>
   );

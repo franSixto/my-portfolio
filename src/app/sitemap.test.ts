@@ -21,6 +21,19 @@ describe("service routes", () => {
 describe("sitemap", () => {
   const entries = sitemap();
 
+  it("lists the services hub in both locales with hreflang alternates", () => {
+    expect("pending" in routes.services).toBe(false);
+    for (const locale of ["es", "en"] as const) {
+      const entry = entries.find((e) => e.url === `${SITE_URL}${routes.services[locale]}`);
+      expect(entry, locale).toBeDefined();
+      expect(entry?.alternates?.languages).toMatchObject({
+        es: `${SITE_URL}/servicios`,
+        en: `${SITE_URL}/en/services`,
+        "x-default": `${SITE_URL}/servicios`,
+      });
+    }
+  });
+
   it("lists every service in both locales with hreflang alternates", () => {
     for (const key of serviceKeys) {
       for (const locale of ["es", "en"] as const) {

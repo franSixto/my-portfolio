@@ -1,24 +1,42 @@
 import Image from "next/image";
+import Toolkit, { type ToolkitContent } from "@/components/about/Toolkit";
 import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
+import CtaBand from "@/components/ui/CtaBand";
+import { TermList } from "@/components/ui/Lists";
 import PageHeader from "@/components/ui/PageHeader";
-import { ArrowRight, Download } from "@/components/ui/icons";
+import Section from "@/components/ui/Section";
+import { Download } from "@/components/ui/icons";
 import { Prose } from "@/components/ui/Text";
 
 export type AboutContentData = {
   title: string;
-  lead: string;
-  paragraphs: string[];
-  photoAlt: string;
-  greeting: string;
-  thankYou: string;
-  jobTitle: string;
+  tagline: string;
   location: string;
-  work: { href: string; label: string };
-  resume: { href: string; label: string };
+  intro: string[];
+  photoAlt: string;
+  background: {
+    heading: string;
+    timeline: { years: string; role: string; where: string; summary: string }[];
+    educationLabel: string;
+    education: string[];
+    coursesLabel: string;
+    courses: string[];
+  };
+  principles: { heading: string; items: { title: string; text: string }[] };
+  toolkit: ToolkitContent;
+  outside: string;
+  cv: { href: string; label: string; ariaLabel: string };
+  cta: {
+    heading: string;
+    text: string;
+    primary: { href: string; label: string };
+    secondary: { href: string; label: string };
+  };
 };
 
-// Portrait set: one tall lead photo plus a supporting row.
+// Portrait set: one tall lead photo plus a supporting row. Only the lead photo
+// carries an alt; the others are decorative.
 const PHOTOS = {
   lead: { src: "/me4.webp", width: 960, height: 1580 },
   row: [
@@ -29,9 +47,12 @@ const PHOTOS = {
 };
 
 export default function AboutContent({ content }: { content: AboutContentData }) {
+  const { background } = content;
   return (
     <>
-      <PageHeader title={content.title} lead={content.lead} />
+      <PageHeader title={content.title} lead={content.tagline}>
+        <p className="mt-4 text-ui text-muted">{content.location}</p>
+      </PageHeader>
       <Container className="pb-20 md:pb-28">
         <div className="grid gap-14 border-t border-rule pt-10 lg:grid-cols-12 lg:gap-8 lg:pt-14">
           <div className="lg:col-span-5">
@@ -52,7 +73,7 @@ export default function AboutContent({ content }: { content: AboutContentData })
                 >
                   <Image
                     src={photo.src}
-                    alt={content.photoAlt}
+                    alt=""
                     fill
                     sizes="(min-width: 1360px) 250px, (min-width: 1024px) 19vw, 50vw"
                     className="object-cover"
@@ -64,7 +85,7 @@ export default function AboutContent({ content }: { content: AboutContentData })
 
           <div className="lg:col-span-6 lg:col-start-7">
             <Prose className="[&>p:first-child]:text-lead [&>p+p]:mt-6">
-              {content.paragraphs.map((p) => (
+              {content.intro.map((p) => (
                 <p key={p}>{p}</p>
               ))}
             </Prose>
@@ -72,35 +93,85 @@ export default function AboutContent({ content }: { content: AboutContentData })
             <div className="relative mt-14 aspect-[642/351] overflow-hidden rounded-[var(--radius-media)] bg-surface">
               <Image
                 src={PHOTOS.wide.src}
-                alt={content.photoAlt}
+                alt=""
                 fill
                 sizes="(min-width: 1360px) 620px, (min-width: 1024px) 46vw, 100vw"
                 className="object-cover"
               />
             </div>
-
-            <div className="mt-14 border-t border-rule pt-10">
-              <p className="font-sans text-h3 font-semibold text-ink">{content.greeting}</p>
-              <p className="mt-4 max-w-[56ch] font-serif text-body text-muted text-pretty">{content.thankYou}</p>
-              <div className="mt-8 grid gap-1">
-                <p className="font-sans text-[1.1875rem] font-semibold text-ink">Fran Sixto</p>
-                <p className="text-ui text-muted">{content.jobTitle}</p>
-                <p className="text-ui text-muted">{content.location}</p>
-              </div>
-              <div className="mt-10 flex flex-wrap gap-3">
-                <ButtonLink href={content.work.href}>
-                  {content.work.label}
-                  <ArrowRight />
-                </ButtonLink>
-                <ButtonLink href={content.resume.href} variant="secondary" download>
-                  {content.resume.label}
-                  <Download />
-                </ButtonLink>
-              </div>
-            </div>
           </div>
         </div>
       </Container>
+
+      <Section id="background" heading={background.heading} spacing="compact">
+        <ol className="border-b border-rule">
+          {background.timeline.map((row) => (
+            <li
+              key={`${row.years}-${row.where}`}
+              className="grid gap-1 border-t border-rule py-5 first:border-t-0 first:pt-0 md:grid-cols-12 md:gap-6 md:py-6 md:first:pt-0"
+            >
+              <p className="font-sans text-ui font-semibold tabular-nums text-accent md:col-span-3">{row.years}</p>
+              <p className="md:col-span-4">
+                <span className="block font-sans text-[1.1875rem] font-semibold text-ink">{row.role}</span>
+                <span className="block text-ui text-muted">{row.where}</span>
+              </p>
+              <p className="font-serif text-body text-ink text-pretty md:col-span-5">{row.summary}</p>
+            </li>
+          ))}
+        </ol>
+        <dl className="mt-10 grid gap-8 md:grid-cols-2">
+          <div>
+            <dt className="text-meta font-medium text-accent">{background.educationLabel}</dt>
+            <dd className="mt-3">
+              <ul className="space-y-2 text-ui text-muted">
+                {background.education.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt className="text-meta font-medium text-accent">{background.coursesLabel}</dt>
+            <dd className="mt-3">
+              <ul className="space-y-2 text-ui text-muted">
+                {background.courses.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </Section>
+
+      <Section id="principles" heading={content.principles.heading} spacing="compact">
+        <TermList items={content.principles.items} />
+      </Section>
+
+      <Toolkit content={content.toolkit} />
+
+      <Container className="pb-8">
+        <div className="flex flex-col gap-6 border-t border-rule pt-8 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-[60ch] font-serif text-body text-muted text-pretty">{content.outside}</p>
+          <ButtonLink
+            href={content.cv.href}
+            variant="secondary"
+            download
+            ariaLabel={content.cv.ariaLabel}
+            className="shrink-0"
+          >
+            {content.cv.label}
+            <Download />
+          </ButtonLink>
+        </div>
+      </Container>
+
+      <CtaBand
+        id="about-cta"
+        heading={content.cta.heading}
+        description={content.cta.text}
+        action={content.cta.primary}
+        secondary={content.cta.secondary}
+      />
     </>
   );
 }

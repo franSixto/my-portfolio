@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslator } from "./dictionary";
+import { serializeJsonLd } from "./jsonLd";
 import {
   SITE_URL,
   absoluteUrl,
@@ -9,40 +10,46 @@ import {
   type RouteKey,
   type RouteParams,
 } from "./routes";
+import { GITHUB_URL, LINKEDIN_URL, SITE_META } from "@/content/site";
+import { aboutContent } from "@/content/pages/about";
+import { contactContent } from "@/content/pages/contact";
+import { homeContent } from "@/content/pages/home";
+import { servicesHubContent } from "@/content/pages/servicesHub";
+
+export { serializeJsonLd };
 
 export const SITE_NAME = "Francisco Sixto";
-export const PERSON_JOB_TITLE = "UX/UI & Product Designer";
-// Only profile links that already exist in the codebase.
-export const SAME_AS = ["https://www.linkedin.com/in/sixtofrancisco/"];
+export const SAME_AS = [LINKEDIN_URL, GITHUB_URL];
 
 const OG_LOCALE: Record<Locale, string> = { es: "es_AR", en: "en_US" };
-const OG_IMAGE = {
-  url: "/meta-image.jpg",
-  width: 1200,
-  height: 630,
-  alt: "Francisco Sixto Portfolio",
-};
+
+function ogImage(locale: Locale) {
+  return {
+    url: "/meta-image.jpg",
+    width: 1200,
+    height: 630,
+    alt: SITE_META[locale].ogAlt,
+  };
+}
 
 /** Defaults shared by every page of a locale (set in the root layout). */
 export function buildRootMetadata(locale: Locale): Metadata {
-  const t = getTranslator(locale);
-  const description = t("home.hero.description");
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: `${SITE_NAME} | ${t("home.hero.title")}`,
+      default: homeContent[locale].seo.title,
       template: `%s | ${SITE_NAME}`,
     },
-    description,
+    description: SITE_META[locale].description,
     openGraph: {
       siteName: SITE_NAME,
       locale: OG_LOCALE[locale],
       type: "website",
-      images: [OG_IMAGE],
+      images: [ogImage(locale)],
     },
     twitter: {
       card: "summary_large_image",
-      images: [OG_IMAGE.url],
+      images: [ogImage(locale).url],
     },
   };
 }
@@ -55,6 +62,8 @@ type PageMetadataInput = {
   description: string;
   type?: "website" | "article" | "profile";
   noIndex?: boolean;
+  /** Title already contains the site name: skip the layout's title template. */
+  absoluteTitle?: boolean;
 };
 
 /**
@@ -69,55 +78,72 @@ export function buildPageMetadata({
   description,
   type = "website",
   noIndex = false,
+  absoluteTitle = false,
 }: PageMetadataInput): Metadata {
   const alternates = buildAlternates(route, locale, params);
+  const socialTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates,
     openGraph: {
-      title: `${title} | ${SITE_NAME}`,
+      title: socialTitle,
       description,
       url: alternates.canonical,
       siteName: SITE_NAME,
       locale: OG_LOCALE[locale],
       alternateLocale: OG_LOCALE[locale === "es" ? "en" : "es"],
       type,
-      images: [OG_IMAGE],
+      images: [ogImage(locale)],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | ${SITE_NAME}`,
+      title: socialTitle,
       description,
-      images: [OG_IMAGE.url],
+      images: [ogImage(locale).url],
     },
     ...(noIndex ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
-/** Metadata for the static pages whose copy lives in common.json. */
-export function getStaticPageMetadata(
-  route: "home" | "about" | "projects" | "contact",
+export type StaticPageRoute = "home" | "services" | "about" | "projects" | "contact";
+
+/** Title + description of the static pages (copy lives in src/content/pages). */
+export function getStaticPageSeo(
+  route: StaticPageRoute,
   locale: Locale
-): Metadata {
-  const t = getTranslator(locale);
-  const copy = {
-    home: { title: t("home.hero.title"), description: t("home.hero.description") },
-    about: { title: t("pages.about.title"), description: t("pages.about.description") },
-    projects: { title: t("pages.projects.title"), description: t("pages.projects.description") },
-    contact: { title: t("pages.contact.title"), description: t("pages.contact.description") },
-  }[route];
-  const metadata = buildPageMetadata({ locale, route, ...copy });
-  // The root layout's title template does not apply to a page in the same
-  // segment (home), so set the full title explicitly.
-  return route === "home"
-    ? { ...metadata, title: { absolute: `${copy.title} | ${SITE_NAME}` } }
-    : metadata;
+): { title: string; description: string } {
+  switch (route) {
+    case "home":
+      return homeContent[locale].seo;
+    case "services":
+      return servicesHubContent[locale].seo;
+    case "about":
+      return aboutContent[locale].seo;
+    case "contact":
+      return contactContent[locale].seo;
+    case "projects": {
+      // Still dictionary-backed until the case-study copy lands.
+      const t = getTranslator(locale);
+      return { title: t("pages.projects.title"), description: t("pages.projects.description") };
+    }
+  }
+}
+
+export function getStaticPageMetadata(route: StaticPageRoute, locale: Locale): Metadata {
+  return buildPageMetadata({
+    locale,
+    route,
+    ...getStaticPageSeo(route, locale),
+    // The home title is written in full (it already carries the site name).
+    absoluteTitle: route === "home",
+  });
 }
 
 /** Person + WebSite structured data for the layout. */
 export function buildSiteJsonLd(locale: Locale) {
   const homeUrl = absoluteUrl(localizedPath("home", locale));
+  const meta = SITE_META[locale];
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -126,7 +152,14 @@ export function buildSiteJsonLd(locale: Locale) {
         "@id": `${SITE_URL}/#person`,
         name: SITE_NAME,
         url: SITE_URL,
-        jobTitle: PERSON_JOB_TITLE,
+        jobTitle: meta.jobTitle,
+        description: meta.personDescription,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Córdoba",
+          addressCountry: "AR",
+        },
+        knowsAbout: meta.knowsAbout,
         sameAs: SAME_AS,
       },
       {
@@ -139,9 +172,4 @@ export function buildSiteJsonLd(locale: Locale) {
       },
     ],
   };
-}
-
-/** Serialize JSON-LD safely for inline <script> (escape `<`). */
-export function serializeJsonLd(data: unknown): string {
-  return JSON.stringify(data).replace(/</g, "\\u003c");
 }

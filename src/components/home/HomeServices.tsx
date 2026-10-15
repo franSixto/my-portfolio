@@ -1,26 +1,23 @@
+import ButtonLink from "@/components/ui/ButtonLink";
 import IndexLinks from "@/components/ui/IndexLinks";
 import Section from "@/components/ui/Section";
+import { ArrowRight } from "@/components/ui/icons";
 
 export type HomeServicesContent = {
   heading: string;
   intro: string;
-  capabilities: { title: string; description: string }[];
-  pages: { href: string; title: string }[];
-  pagesLabel: string;
+  services: { href: string; title: string; text: string; linkLabel: string }[];
+  hub: { href: string; label: string };
 };
 
 export default function HomeServices({ content }: { content: HomeServicesContent }) {
   return (
     <Section id="services" heading={content.heading} intro={content.intro}>
-      <IndexLinks items={content.pages} ariaLabel={content.pagesLabel} />
-      <div className="mt-16 grid gap-x-8 gap-y-10 md:grid-cols-2">
-        {content.capabilities.map((item) => (
-          <div key={item.title}>
-            <h3 className="font-sans text-[1.1875rem] font-semibold text-ink">{item.title}</h3>
-            <p className="mt-3 font-serif text-body text-muted text-pretty">{item.description}</p>
-          </div>
-        ))}
-      </div>
+      <IndexLinks items={content.services} />
+      <ButtonLink href={content.hub.href} variant="text" className="mt-10">
+        {content.hub.label}
+        <ArrowRight />
+      </ButtonLink>
     </Section>
   );
 }
