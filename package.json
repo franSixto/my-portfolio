@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "cv:build": "node scripts/build-cv.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
