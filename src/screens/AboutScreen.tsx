@@ -22,7 +22,7 @@ export default function AboutScreen({ locale }: { locale: Locale }) {
           groups: getToolkit(locale),
         },
         outside: c.outside,
-        cv: { href: CV_PATH, label: c.cv.label, ariaLabel: c.cv.ariaLabel },
+        cv: { href: CV_PATH[locale], label: c.cv.label, ariaLabel: c.cv.ariaLabel },
         cta: {
           heading: c.cta.heading,
           text: c.cta.text,

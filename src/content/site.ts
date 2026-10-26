@@ -6,7 +6,7 @@ import type { Locale } from "@/i18n/routes";
 export const EMAIL = "franciscomsixto@gmail.com";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/sixtofrancisco/";
 export const GITHUB_URL = "https://github.com/franSixto";
-export const CV_PATH = "/cv-fran-sixto.pdf";
+export const CV_PATH: Record<Locale, string> = { es: "/cv-fran-sixto.pdf", en: "/cv-fran-sixto-en.pdf" };
 
 export const SITE_META: Record<
   Locale,
@@ -24,7 +24,7 @@ export const SITE_META: Record<
     ogAlt: "Francisco Sixto, diseñador UX/UI y de producto",
     jobTitle: "Diseñador UX/UI y de producto",
     personDescription:
-      "Diseñador UX/UI y de producto con más de 10 años de experiencia. Diseña productos SaaS, plataformas educativas y de salud, sitios web y prototipos o MVPs asistidos por IA.",
+      "Diseñador UX/UI y de producto. Diseña productos SaaS, plataformas educativas y de salud, sitios web y prototipos o MVPs asistidos por IA.",
     knowsAbout: [
       "Diseño UX/UI",
       "Diseño de producto",
@@ -42,7 +42,7 @@ export const SITE_META: Record<
     ogAlt: "Francisco Sixto, UX/UI and product designer",
     jobTitle: "UX/UI & Product Designer",
     personDescription:
-      "UX/UI and product designer with 10+ years of experience. Designs SaaS products, education and health platforms, websites, and AI-assisted prototypes and MVPs.",
+      "UX/UI and product designer. Designs SaaS products, education and health platforms, websites, and AI-assisted prototypes and MVPs.",
     knowsAbout: [
       "UX/UI design",
       "Product design",

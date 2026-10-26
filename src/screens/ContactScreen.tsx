@@ -72,7 +72,7 @@ export default function ContactScreen({ locale }: { locale: Locale }) {
                   id: "cv",
                   label: "CV",
                   value: c.channels.cv.label,
-                  href: CV_PATH,
+                  href: CV_PATH[locale],
                   ariaLabel: c.channels.cv.ariaLabel,
                   download: true,
                 },

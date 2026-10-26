@@ -1,12 +1,14 @@
-// Prints docs/cv/cv-es.html to public/cv-fran-sixto.pdf using system Chrome (headless).
+// Prints the CV sources in docs/cv/ to PDFs in public/ using system Chrome (headless).
 import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const input = resolve(root, "docs/cv/cv-es.html");
-const output = resolve(root, "public/cv-fran-sixto.pdf");
+const builds = [
+  ["docs/cv/cv-es.html", "public/cv-fran-sixto.pdf"],
+  ["docs/cv/cv-en.html", "public/cv-fran-sixto-en.pdf"],
+];
 
 const candidates = [
   process.env.CHROME_PATH,
@@ -21,17 +23,20 @@ if (!chrome) {
   process.exit(1);
 }
 
-execFileSync(
-  chrome,
-  [
-    "--headless=new",
-    "--disable-gpu",
-    "--no-pdf-header-footer",
-    // Give the web fonts (Google Fonts) time to load before printing.
-    "--virtual-time-budget=10000",
-    `--print-to-pdf=${output}`,
-    pathToFileURL(input).href,
-  ],
-  { stdio: "inherit" },
-);
-console.log(`CV written to ${output}`);
+for (const [source, target] of builds) {
+  const output = resolve(root, target);
+  execFileSync(
+    chrome,
+    [
+      "--headless=new",
+      "--disable-gpu",
+      "--no-pdf-header-footer",
+      // Give the web fonts (Google Fonts) time to load before printing.
+      "--virtual-time-budget=10000",
+      `--print-to-pdf=${output}`,
+      pathToFileURL(resolve(root, source)).href,
+    ],
+    { stdio: "inherit" },
+  );
+  console.log(`CV written to ${output}`);
+}

@@ -110,7 +110,7 @@ export default function Footer({ locale }: { locale: Locale }) {
                 <TrackedLink
                   channel="cv"
                   locale={locale}
-                  href={CV_PATH}
+                  href={CV_PATH[locale]}
                   target="_blank"
                   aria-label={copy.cvAria}
                   className={linkClass}
