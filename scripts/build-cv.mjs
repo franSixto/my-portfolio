@@ -27,6 +27,8 @@ execFileSync(
     "--headless=new",
     "--disable-gpu",
     "--no-pdf-header-footer",
+    // Give the web fonts (Google Fonts) time to load before printing.
+    "--virtual-time-budget=10000",
     `--print-to-pdf=${output}`,
     pathToFileURL(input).href,
   ],

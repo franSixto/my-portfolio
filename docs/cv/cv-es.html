@@ -4,123 +4,144 @@
 <meta charset="utf-8">
 <title>Francisco Sixto - CV</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Schibsted+Grotesk:wght@400;500;600;700&display=block" rel="stylesheet">
 <style>
-  @page { size: A4; margin: 0.45in 0.65in; }
+  /* Same type system and accent as fransixto.com.ar. Single column, real text: ATS-friendly. */
+  @page { size: A4; margin: 10mm 14mm 9mm; }
+  :root { --ink: #141a17; --muted: #4e5a55; --rule: #d5dbd8; --accent: #0b6b55; }
   * { box-sizing: border-box; }
   html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   body {
-    margin: 0; background: #fff; color: #000;
-    font-family: "Times New Roman", Times, "Liberation Serif", Georgia, serif;
-    font-size: 10.5pt; line-height: 1.2;
+    margin: 0; background: #fff; color: var(--ink);
+    font-family: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+    font-size: 8.5pt; line-height: 1.3;
   }
   a { color: inherit; text-decoration: none; }
-  header { text-align: center; margin-bottom: 7pt; }
-  h1 { font-size: 22pt; font-weight: 700; letter-spacing: 0.04em; margin: 0 0 1pt; text-transform: uppercase; }
-  .title { font-size: 11.5pt; font-style: italic; margin: 0 0 2pt; }
-  .contact { font-size: 10pt; margin: 0; }
+  p { margin: 0; }
+
+  header { display: flex; justify-content: space-between; align-items: flex-end; gap: 16pt;
+    padding-bottom: 7pt; border-bottom: 1.5pt solid var(--ink); }
+  h1 { font-size: 23pt; font-weight: 700; letter-spacing: -0.02em; line-height: 1; margin: 0 0 4pt; }
+  .title { font-size: 10.5pt; font-weight: 500; color: var(--accent); }
+  .focus { font-size: 8.6pt; color: var(--muted); margin-top: 2pt; white-space: nowrap; }
+  .contact { text-align: right; font-size: 8.4pt; line-height: 1.5; color: var(--muted); }
+  .contact a { color: var(--ink); }
+
+  section { margin-top: 7pt; }
   h2 {
-    font-size: 10.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
-    margin: 7pt 0 3pt; padding-bottom: 1pt; border-bottom: 0.75pt solid #000;
+    font-size: 7.6pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--accent); margin: 0 0 5pt; padding-bottom: 2.5pt; border-bottom: 0.6pt solid var(--rule);
     break-after: avoid;
   }
-  p { margin: 0; }
+  .summary { font-family: "Newsreader", Georgia, serif; font-size: 9.9pt; line-height: 1.34; }
+
+  .role { break-inside: avoid; margin-bottom: 4.5pt; }
+  .role:last-child { margin-bottom: 0; }
   .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
-  .role { break-inside: avoid; margin-bottom: 3.5pt; }
-  .role .row:first-child { margin-top: 0; }
-  .org { font-weight: 700; }
-  .meta { white-space: nowrap; }
-  ul { margin: 1pt 0 0; padding-left: 14pt; }
-  li { margin: 0 0 0.5pt; padding-left: 1pt; text-align: left; }
-  .skills p { margin-bottom: 1.5pt; }
-  .skills b { font-weight: 700; }
-  .edu { margin-bottom: 2pt; }
+  .org { font-size: 9.8pt; font-weight: 600; }
+  .org .pos { font-weight: 400; color: var(--muted); }
+  .org .pos::before { content: "·"; margin: 0 5pt; color: var(--rule); }
+  .when { font-size: 8.4pt; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .context { font-size: 8.4pt; color: var(--muted); margin-top: 0.5pt; }
+  ul { margin: 2.5pt 0 0; padding-left: 10pt; }
+  li { margin: 0 0 1.2pt; padding-left: 2pt; }
+  li::marker { color: var(--accent); }
+  li b { font-weight: 600; }
+
+  .grid { display: grid; grid-template-columns: 92pt 1fr; column-gap: 10pt; row-gap: 2.5pt; }
+  .grid dt { font-weight: 600; }
+  .grid dd { margin: 0; color: var(--ink); }
+  .edu .row + .row { margin-top: 2pt; }
+  .edu b { font-weight: 600; }
 </style>
 </head>
 <body>
 <header>
-  <h1>Francisco Sixto</h1>
-  <p class="title">Diseñador UX/UI y de Producto (Senior)</p>
-  <p class="contact">Córdoba, Argentina · <a href="mailto:franciscomsixto@gmail.com">franciscomsixto@gmail.com</a> · <a href="https://linkedin.com/in/sixtofrancisco">linkedin.com/in/sixtofrancisco</a> · <a href="https://github.com/franSixto">github.com/franSixto</a> · <a href="https://fransixto.com.ar">fransixto.com.ar</a></p>
+  <div>
+    <h1>Francisco Sixto</h1>
+    <p class="title">Diseñador UX/UI y de Producto Senior</p>
+    <p class="focus">Producto B2B y SaaS · Design systems · Diseño y desarrollo web</p>
+  </div>
+  <div class="contact">
+    <p>Córdoba, Argentina · Remoto</p>
+    <p><a href="mailto:franciscomsixto@gmail.com">franciscomsixto@gmail.com</a> · <a href="https://fransixto.com.ar">fransixto.com.ar</a></p>
+    <p><a href="https://linkedin.com/in/sixtofrancisco">linkedin.com/in/sixtofrancisco</a> · <a href="https://github.com/franSixto">github.com/franSixto</a></p>
+  </div>
 </header>
 
 <section>
   <h2>Perfil</h2>
-  <p>Diseñador UX/UI y de producto con más de 10 años de experiencia en plataformas web, productos SaaS, edtech y sitios institucionales. Trabajo con equipos de desarrollo, marketing y negocio, y lidero equipos de diseño y maquetación. Desarrollo con React, Next.js, TypeScript y WordPress, y uso herramientas de IA para iterar sobre prototipos que se pueden probar.</p>
+  <p class="summary">Diseñador UX/UI y de producto con más de 10 años de experiencia. Me especializo en productos B2B y SaaS con reglas de negocio complejas —salud, educación, automotriz— y en sistemas de diseño que escalan a muchos sitios o productos. Diseño y construyo: desarrollo con React, Next.js y TypeScript, lideré equipos de diseño y maquetación, y uso IA para prototipar, documentar y programar más rápido.</p>
 </section>
 
 <section>
   <h2>Experiencia</h2>
 
   <div class="role">
-    <div class="row"><span class="org">Independiente</span><span class="meta">Córdoba, Argentina · Remoto</span></div>
-    <div class="row"><em>Diseñador UX/UI freelance</em><span class="meta">2023 – Presente</span></div>
+    <div class="row"><span class="org">Independiente<span class="pos">Diseñador de producto y web</span></span><span class="when">2023 – Actualidad</span></div>
     <ul>
-      <li>Diseñé productos digitales y sitios web para clientes de distintas industrias, del wireframe a la implementación.</li>
-      <li>Desarrollé sitios web con Next.js, React y WordPress; rediseñé y desarrollé mi propio sitio (fransixto.com.ar) con Next.js, TypeScript y desarrollo asistido por IA.</li>
+      <li><b>Rexia</b>, SaaS de inteligencia financiera para salud: diseño de producto para convenios y autorizaciones: flujos, estados, reglas de cobertura y aranceles, trazabilidad y especificaciones asistidas por IA.</li>
+      <li><b>Ortopedia Para Ti</b> y <b>Bienestar Senior</b>: rediseño UX/UI en Figma de dos e-commerce, con siete tipos de página, componentes, navegación y presentación de producto.</li>
+      <li><b>Consultora Prisma</b>: diseño y desarrollo del sitio con Next.js. <b>Vivero Yvyrá</b> (en desarrollo): catálogo botánico full-stack con panel de administración propio sobre Next.js, PostgreSQL y Prisma.</li>
     </ul>
   </div>
 
   <div class="role">
-    <div class="row"><span class="org">Start University</span><span class="meta"></span></div>
-    <div class="row"><em>Líder UX/UI</em><span class="meta">2022 – 2025</span></div>
+    <div class="row"><span class="org">Start University<span class="pos">Líder UX/UI</span></span><span class="when">2022 – 2025</span></div>
     <ul>
-      <li>Lideré el diseño UX/UI de plataformas educativas, portales estudiantiles y herramientas de gestión académica para universidades de Latinoamérica e India, con más de 20 sitios activos.</li>
-      <li>Coordiné un equipo de diseño y maquetación HTML/CSS, del wireframe a la implementación front-end y la revisión de código.</li>
-      <li>Diseñé un portal del estudiante unificado y un sistema de diseño reutilizable en Figma; realicé pruebas de usabilidad y colaboré con desarrollo, marketing y negocio en la migración de 5 sitios heredados y el lanzamiento de 7 sitios nuevos.</li>
+      <li>Lideré el diseño UX/UI de más de 20 sitios educativos activos para universidades de Latinoamérica e India y coordiné un equipo de diseño y maquetación HTML/CSS, del wireframe a la revisión de código, con pruebas de usabilidad, accesibilidad y SEO en cada entrega.</li>
+      <li>Unifiqué el portal del estudiante en un único producto modular que se adapta a cada institución con cambios mínimos de CSS: cada cambio se hace una vez y llega a todas.</li>
+      <li>Diseñé en Figma el sistema base reutilizable sobre el que se migraron 5 sitios heredados a .NET Core y se lanzaron 7 sitios nuevos.</li>
     </ul>
   </div>
 
   <div class="role">
-    <div class="row"><span class="org">Deep Creek Solutions</span><span class="meta"></span></div>
-    <div class="row"><em>Diseñador de producto UX/UI</em><span class="meta">2020 – 2022</span></div>
+    <div class="row"><span class="org">Deep Creek Solutions<span class="pos">Diseñador de producto UX/UI</span></span><span class="when">2020 – 2022</span></div>
+    <p class="context">SaaS de salud y estética. Primer perfil dedicado a UX/UI de la empresa, junto a product owners y especialistas de salud.</p>
     <ul>
-      <li>Diseñé flujos, wireframes, prototipos interactivos e interfaces en Figma para plataformas SaaS de salud y estética.</li>
-      <li>Diseñé un odontograma interactivo y mejoras de UX/UI en dos plataformas de salud; implementé componentes de UI reutilizables y participé en MVPs tempranos. Primer perfil dedicado a UX/UI de la empresa.</li>
+      <li>Diseñé mejoras y nuevas herramientas para Red Sanitaria y Retia Health, usadas por hospitales, clínicas y consultorios, entre ellas un odontograma interactivo para el registro dental y flujos de facturación automatizados.</li>
+      <li>Diseñé desde cero una plataforma de alquiler de equipos y una app de reservas, clientes y pagos para profesionales de estética; implementé componentes de UI reutilizables entre productos y prototipé MVPs para la incubadora interna.</li>
     </ul>
   </div>
 
   <div class="role">
-    <div class="row"><span class="org">Autocity (Grupo Tagle)</span><span class="meta">Córdoba, Argentina</span></div>
-    <div class="row"><em>Líder UX/UI</em><span class="meta">2019 – 2020</span></div>
+    <div class="row"><span class="org">Autocity · Grupo Tagle<span class="pos">Líder UX/UI</span></span><span class="when">2019 – 2020</span></div>
     <ul>
-      <li>Lideré el rediseño del sitio con búsqueda avanzada, comparador de vehículos y cotización online.</li>
-      <li>Diseñé sitios para cinco marcas del Grupo Tagle y plataformas para operaciones de reventa de autos y CRMs de concesionarias.</li>
+      <li>Introduje el proceso de UX/UI en un equipo de enfoque tradicional y lideré el rediseño del catálogo de Autocity con búsqueda avanzada, filtros, comparador de vehículos y cotización online.</li>
+      <li>Diseñé cinco sitios para marcas del grupo —hotel, golf, motos y corporativo— y plataformas para reventa de autos y CRMs de concesionarias; participé en la maquetación front-end (HTML, CSS, Bootstrap).</li>
     </ul>
   </div>
 
   <div class="role">
-    <div class="row"><span class="org">Apex America</span><span class="meta"></span></div>
-    <div class="row"><em>Analista de comunicaciones y diseñador</em><span class="meta">2015 – 2019</span></div>
+    <div class="row"><span class="org">Apex America<span class="pos">Analista de comunicaciones y diseñador</span></span><span class="when">2015 – 2019</span></div>
     <ul>
-      <li>Diseñé campañas de comunicación, materiales visuales y señalética para oficinas en Latinoamérica; gestioné intranets, sitios corporativos y contenido digital.</li>
+      <li>Diseñé un sistema de señalética común para oficinas en Argentina, Chile, Colombia, Paraguay y Honduras, y campañas de comunicación interna para varias áreas; participé en Design Sprints con el equipo de innovación.</li>
     </ul>
   </div>
 
   <div class="role">
-    <div class="row"><span class="org">Madison Comunicación</span><span class="meta"></span></div>
-    <div class="row"><em>Diseñador gráfico y web</em><span class="meta">2013 – 2015</span></div>
-    <ul>
-      <li>Diseñé piezas gráficas publicitarias para medios impresos y digitales y maqueté sitios web con HTML y CSS.</li>
-    </ul>
+    <div class="row"><span class="org">Madison Comunicación<span class="pos">Diseñador gráfico y web: piezas publicitarias y maquetación HTML/CSS</span></span><span class="when">2013 – 2015</span></div>
   </div>
 </section>
 
 <section>
-  <h2>Educación</h2>
-  <div class="edu">
-    <div class="row"><span><b>Colegio Universitario IES</b> · Técnico Superior en Diseño Multimedial</span><span class="meta">2013 – 2016</span></div>
-    <div class="row"><span><b>Colegio Universitario IES</b> · Técnico Superior en Diseño Gráfico y Publicitario</span><span class="meta">2009 – 2013</span></div>
-    <div class="row"><span><b>Cursos:</b> React (Coderhouse, 2024) · JavaScript y Desarrollo Web (Coderhouse, 2022) · Liderazgo para equipos de alto rendimiento (Rindo, 2021) · Formación en Diseño Web (Centro Kandinsky, 2013)</span><span class="meta"></span></div>
-  </div>
+  <h2>Habilidades</h2>
+  <dl class="grid">
+    <dt>Producto y UX</dt><dd>Investigación con usuarios, arquitectura de información, flujos y estados, prototipos, pruebas de usabilidad, design systems, accesibilidad, liderazgo.</dd>
+    <dt>Desarrollo</dt><dd>React, Next.js, TypeScript, JavaScript, HTML, CSS, Tailwind CSS, WordPress, PostgreSQL y Prisma, Three.js y WebGL (Officina Artis, galería de arte 3D propia).</dd>
+    <dt>IA aplicada</dt><dd>Prototipado y documentación asistidos por IA, IA generativa para imagen, desarrollo asistido por LLMs (Claude Code).</dd>
+    <dt>Herramientas</dt><dd>Figma, FigJam, Miro, Adobe Creative Suite, Blender, Jira, Notion, Git y GitHub.</dd>
+    <dt>Idiomas</dt><dd>Español (nativo), inglés.</dd>
+  </dl>
 </section>
 
-<section class="skills">
-  <h2>Habilidades</h2>
-  <p><b>Diseño de producto:</b> UX/UI, design systems, wireframes y prototipos, user research, pruebas de usabilidad, diseño responsive, liderazgo de equipos.</p>
-  <p><b>Desarrollo web:</b> React, Next.js, TypeScript, WordPress, HTML, CSS, JavaScript, Tailwind CSS, Bootstrap.</p>
-  <p><b>IA aplicada:</b> workflows de diseño asistidos por IA, IA generativa, desarrollo asistido por LLMs (Claude Code).</p>
-  <p><b>Herramientas:</b> Figma, Adobe Creative Suite, Adobe XD, Miro / FigJam, Jira, Git y GitHub.</p>
-  <p><b>Idiomas:</b> Español; inglés.</p>
+<section class="edu">
+  <h2>Formación</h2>
+  <div class="row"><span><b>Técnico Superior en Diseño Multimedial</b> · Colegio Universitario IES</span><span class="when">2013 – 2016</span></div>
+  <div class="row"><span><b>Técnico Superior en Diseño Gráfico y Publicitario</b> · Colegio Universitario IES</span><span class="when">2009 – 2013</span></div>
+  <div class="row"><span><b>Cursos</b> · React (Coderhouse, 2024) · JavaScript y Desarrollo Web (Coderhouse, 2022) · Liderazgo para equipos de alto rendimiento (Rindo, 2021) · Diseño Web (Centro Kandinsky, 2013)</span></div>
 </section>
 </body>
 </html>
