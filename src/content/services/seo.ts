@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { SITE_URL, absoluteUrl, localizedPath, type Locale } from "@/i18n/routes";
 import { SITE_NAME, buildPageMetadata } from "@/i18n/seo";
-import { getServiceContent } from "./index";
-import type { ServiceRouteKey } from "./nav";
+import { getLandingContent } from "@/content/solutions";
+import type { LandingRouteKey } from "./nav";
 
-export function getServiceMetadata(key: ServiceRouteKey, locale: Locale): Metadata {
-  const c = getServiceContent(key, locale);
+export function getServiceMetadata(key: LandingRouteKey, locale: Locale): Metadata {
+  const c = getLandingContent(key, locale);
   return buildPageMetadata({
     locale,
     route: key,
@@ -24,9 +24,9 @@ const AREA_SERVED: Record<Locale, { "@type": string; name: string }[]> = {
 
 type JsonLdNode = Record<string, unknown> & { "@type": string };
 
-/** Service (+ FAQPage, since FAQs are rendered visibly) for a service page. */
-export function buildServiceJsonLd(key: ServiceRouteKey, locale: Locale) {
-  const c = getServiceContent(key, locale);
+/** Service (+ FAQPage, since FAQs are rendered visibly) for a service or solution page. */
+export function buildServiceJsonLd(key: LandingRouteKey, locale: Locale) {
+  const c = getLandingContent(key, locale);
   const url = absoluteUrl(localizedPath(key, locale));
 
   const service: JsonLdNode = {

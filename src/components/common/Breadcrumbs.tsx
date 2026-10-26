@@ -5,7 +5,12 @@ import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { absoluteUrl, localizedPath, matchRoute, type RouteKey } from "@/i18n/routes";
 import { serializeJsonLd } from "@/i18n/jsonLd";
-import { SERVICE_NAV_LABELS, isServiceRoute } from "@/content/services/nav";
+import {
+    SOLUTION_PARENT,
+    isServiceRoute,
+    isSolutionRoute,
+    landingNavLabel,
+} from "@/content/services/nav";
 import cx from "classnames";
 
 type Crumb = { label: string; href: string };
@@ -38,12 +43,17 @@ export default function Breadcrumbs({
                 href: pathname,
             });
         } else {
-            if (isServiceRoute(match.key)) {
+            if (isServiceRoute(match.key) || isSolutionRoute(match.key)) {
                 crumbs.push({ label: t('navigation.services'), href: localizedPath('services', locale) });
             }
+            if (isSolutionRoute(match.key)) {
+                // Solutions hang from a parent service: Home / Services / Parent / Solution
+                const parent = SOLUTION_PARENT[match.key];
+                crumbs.push({ label: landingNavLabel(parent, locale), href: localizedPath(parent, locale) });
+            }
             const labelKey = LABEL_KEYS[match.key];
-            const label = isServiceRoute(match.key)
-                ? SERVICE_NAV_LABELS[locale][match.key]
+            const label = isServiceRoute(match.key) || isSolutionRoute(match.key)
+                ? landingNavLabel(match.key, locale)
                 : labelKey ? t(labelKey) : decodeURIComponent(match.key);
             crumbs.push({
                 label,

@@ -4,14 +4,14 @@ export const webDesign: LocalizedServiceContent = {
   es: {
     seoTitle: "Diseño web para empresas y pymes",
     seoDescription:
-      "Sitios web pensados para tu negocio: estructura, contenido, diseño y lanzamiento. Corporativos, institucionales y landing pages. Desde USD 800.",
+      "Sitios web pensados para tu negocio: estructura, contenido, diseño y lanzamiento. Corporativos, institucionales y landing pages. Desde USD 600.",
     serviceType: "Diseño web para empresas",
     h1: "Diseño web para empresas que necesitan que su sitio trabaje",
     intro:
       "Un sitio web no es un folleto online: es donde te encuentran, te evalúan y deciden si te escriben. Diseño sitios a partir de lo que tu negocio necesita lograr y me encargo de todo el proceso, de la estructura al lanzamiento.",
     price: {
-      label: "Desde USD 800",
-      amountUsd: 800,
+      label: "Desde USD 600",
+      amountUsd: 600,
       note: "El valor final depende del alcance: cantidad de secciones, funcionalidades e integraciones. Te paso una cotización concreta después de una primera charla.",
     },
     sections: [
@@ -75,7 +75,7 @@ export const webDesign: LocalizedServiceContent = {
       {
         question: "¿Cuánto cuesta?",
         answer:
-          "Los sitios arrancan desde USD 800. El valor final depende del alcance y te lo confirmo en una cotización después de conocer tu proyecto.",
+          "Una landing page arranca desde USD 600, un sitio de varias páginas desde USD 1.200 y un rediseño desde USD 1.400. El valor final depende del alcance y te lo confirmo en una cotización después de conocer tu proyecto.",
       },
     ],
     cta: {
@@ -97,14 +97,14 @@ export const webDesign: LocalizedServiceContent = {
   en: {
     seoTitle: "Website Design for Businesses",
     seoDescription:
-      "Websites designed around what your business needs: structure, content, visual design and launch. Corporate sites, landing pages, redesigns. From USD 800.",
+      "Websites designed around what your business needs: structure, content, visual design and launch. Corporate sites, landing pages, redesigns. From USD 600.",
     serviceType: "Business website design",
     h1: "Web design for businesses that need their website to work",
     intro:
       "A website isn't an online brochure. It's where people find you, size you up and decide whether to get in touch. I design sites around what your business needs to achieve and handle the whole process, from structure to launch.",
     price: {
-      label: "From USD 800",
-      amountUsd: 800,
+      label: "From USD 600",
+      amountUsd: 600,
       note: "The final price depends on scope: number of sections, features and integrations. I send a specific quote after an initial conversation.",
     },
     sections: [
@@ -168,7 +168,7 @@ export const webDesign: LocalizedServiceContent = {
       {
         question: "How much does it cost?",
         answer:
-          "Websites start from USD 800. The final price depends on scope and I confirm it in a quote after learning about your project.",
+          "A landing page starts from USD 600, a multi-page website from USD 1,200 and a redesign from USD 1,400. The final price depends on scope and I confirm it in a quote after learning about your project.",
       },
     ],
     cta: {

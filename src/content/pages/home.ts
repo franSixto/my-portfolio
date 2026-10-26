@@ -1,5 +1,5 @@
 import type { Locale } from "@/i18n/routes";
-import type { ServiceRouteKey } from "@/content/services/nav";
+import type { LandingRouteKey, ServiceRouteKey } from "@/content/services/nav";
 import type { CtaCopy, PageSeo, TitledText } from "./types";
 
 export type HomeContent = {
@@ -13,8 +13,9 @@ export type HomeContent = {
     subtitle: string;
     primary: string;
     secondary: string;
-    /** Credibility line under the CTAs: client names are proper nouns, shared across locales. */
-    trust: { label: string; names: string[] };
+    /** Heading of the "what do you need" index that links straight to the matching page. */
+    needsHeading: string;
+    needs: { route: LandingRouteKey; label: string }[];
   };
   services: {
     heading: string;
@@ -29,29 +30,35 @@ export type HomeContent = {
   cta: CtaCopy;
 };
 
-const TRUSTED_BY = ["Start University", "Deep Creek Solutions", "Grupo Tagle", "Apex America"];
-
 export const homeContent: Record<Locale, HomeContent> = {
   es: {
     seo: {
       title: "Francisco Sixto | Diseño UX/UI, web y MVPs con IA",
       description:
-        "Diseñador UX/UI y de producto en Córdoba, Argentina, con más de 10 años de experiencia. Productos SaaS, sitios web y prototipos o MVPs con IA.",
+        "Diseñador UX/UI y de producto en Córdoba, Argentina. Productos SaaS, sitios web y prototipos o MVPs con IA.",
     },
     hero: {
       eyebrow: "Diseño UX/UI y de producto · Córdoba, trabajo remoto",
       eyebrowShort: "UX/UI y producto · Córdoba, remoto",
       title: "Diseño y construyo productos digitales claros.",
       subtitle:
-        "UX/UI, producto y desarrollo web para SaaS, empresas y startups. Más de 10 años en salud, educación y negocio.",
+        "UX/UI, producto y desarrollo web para SaaS, empresas y startups.",
       primary: "Contame tu proyecto",
       secondary: "Ver proyectos",
-      trust: { label: "Trabajé con", names: TRUSTED_BY },
+      needsHeading: "¿Qué necesitás?",
+      needs: [
+        { route: "solutionEcommerce", label: "Una tienda online" },
+        { route: "solutionSaas", label: "Un SaaS o dashboard" },
+        { route: "solutionDesignSystem", label: "Un design system" },
+        { route: "solutionLanding", label: "Una landing o un sitio web" },
+        { route: "solutionRedesign", label: "Rediseñar mi sitio actual" },
+        { route: "serviceAiMvp", label: "Un MVP para mi idea" },
+      ],
     },
     services: {
       heading: "Qué hago",
       intro:
-        "Cuatro servicios, una misma forma de trabajar: entender el problema antes de diseñar la solución.",
+        "Cinco servicios, una misma forma de trabajar: entender el problema antes de diseñar la solución.",
       cards: [
         {
           route: "serviceUxUi",
@@ -80,6 +87,13 @@ export const homeContent: Record<Locale, HomeContent> = {
           value:
             "Un prototipo funcional o un MVP acotado para probar tu idea con usuarios antes de invertir en el producto completo. La IA acelera; las decisiones y la revisión son mías.",
           link: "Ver prototipos y MVPs con IA",
+        },
+        {
+          route: "serviceGraphicDesign",
+          title: "Diseño gráfico y de marca con IA",
+          value:
+            "Logo, identidad visual y piezas para redes y campañas. La IA me permite explorar más variantes; el criterio y el acabado son los de un diseñador gráfico.",
+          link: "Ver diseño gráfico y de marca",
         },
       ],
       hubLink: "¿No sabés cuál necesitás? Compará los servicios",
@@ -147,21 +161,29 @@ export const homeContent: Record<Locale, HomeContent> = {
     seo: {
       title: "Francisco Sixto | UX/UI Design, Websites & AI MVPs",
       description:
-        "UX/UI and product designer based in Córdoba, Argentina, with 10+ years of experience. SaaS products, websites and AI-assisted prototypes and MVPs.",
+        "UX/UI and product designer based in Córdoba, Argentina. SaaS products, websites and AI-assisted prototypes and MVPs.",
     },
     hero: {
       eyebrow: "UX/UI & product design · Córdoba, working remotely",
       eyebrowShort: "UX/UI & product · Córdoba, remote",
       title: "I design and build clear digital products.",
       subtitle:
-        "UX/UI, product design and web development for SaaS teams, businesses and startups. 10+ years across health, education and business.",
+        "UX/UI, product design and web development for SaaS teams, businesses and startups.",
       primary: "Tell me about your project",
       secondary: "See projects",
-      trust: { label: "Worked with", names: TRUSTED_BY },
+      needsHeading: "What do you need?",
+      needs: [
+        { route: "solutionEcommerce", label: "An online store" },
+        { route: "solutionSaas", label: "A SaaS or dashboard" },
+        { route: "solutionDesignSystem", label: "A design system" },
+        { route: "solutionLanding", label: "A landing page or site" },
+        { route: "solutionRedesign", label: "A site redesign" },
+        { route: "serviceAiMvp", label: "An MVP to test an idea" },
+      ],
     },
     services: {
       heading: "What I do",
-      intro: "Four services, one way of working: understand the problem before designing the solution.",
+      intro: "Five services, one way of working: understand the problem before designing the solution.",
       cards: [
         {
           route: "serviceUxUi",
@@ -190,6 +212,13 @@ export const homeContent: Record<Locale, HomeContent> = {
           value:
             "A working prototype or a lean MVP to test your idea with users before investing in the full product. AI speeds things up; the decisions and the review are mine.",
           link: "See AI-assisted prototypes and MVPs",
+        },
+        {
+          route: "serviceGraphicDesign",
+          title: "AI-powered graphic and brand design",
+          value:
+            "A logo, a visual identity and pieces for social media and campaigns. AI lets me explore more variations; the judgment and the finish are a graphic designer's.",
+          link: "See graphic and brand design",
         },
       ],
       hubLink: "Not sure which one you need? Compare services",

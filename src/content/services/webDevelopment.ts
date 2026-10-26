@@ -79,7 +79,7 @@ export const webDevelopment: LocalizedServiceContent = {
       heading: "¿Tenés un diseño para implementar o una app para construir?",
       button: "Contame el proyecto",
     },
-    relatedProjectSlugs: ["portfolio-fransixto", "start-university", "officina-artis"],
+    relatedProjectSlugs: ["start-university", "officina-artis", "consultora-prisma"],
     relatedServices: [
       {
         route: "serviceWebDesign",
@@ -169,7 +169,7 @@ export const webDevelopment: LocalizedServiceContent = {
       heading: "Have a design to implement or an app to build?",
       button: "Tell me about the project",
     },
-    relatedProjectSlugs: ["portfolio-fransixto", "start-university", "officina-artis"],
+    relatedProjectSlugs: ["start-university", "officina-artis", "consultora-prisma"],
     relatedServices: [
       {
         route: "serviceWebDesign",

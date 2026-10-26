@@ -255,8 +255,8 @@ export const aboutContent: Record<Locale, AboutContent> = {
     outside:
       "I grew up in a small town in southern Córdoba. Outside work: sports, family, friends and River Plate.",
     cv: {
-      label: "Download CV (PDF, Spanish)",
-      ariaLabel: "Download Francisco Sixto's CV as a PDF (in Spanish)",
+      label: "Download CV (PDF)",
+      ariaLabel: "Download Francisco Sixto's CV as a PDF",
     },
     cta: {
       heading: "Shall we work together?",

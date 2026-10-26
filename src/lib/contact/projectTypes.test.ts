@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   PROJECT_TYPE_KEYS,
   contactHrefForService,
+  contactHrefForSolution,
   projectTypeFromQuery,
 } from "./projectTypes";
 
@@ -14,6 +15,8 @@ describe("projectTypeFromQuery", () => {
     expect(projectTypeFromQuery("web-development")).toBe("web-development");
     expect(projectTypeFromQuery("mvp-ia")).toBe("ai-mvp");
     expect(projectTypeFromQuery("ai-mvp")).toBe("ai-mvp");
+    expect(projectTypeFromQuery("diseno-grafico")).toBe("graphic-design");
+    expect(projectTypeFromQuery("graphic-design")).toBe("graphic-design");
     expect(projectTypeFromQuery("otro")).toBe("other");
     expect(projectTypeFromQuery("other")).toBe("other");
   });
@@ -42,6 +45,8 @@ describe("contactHrefForService", () => {
       "/contacto?tipo=desarrollo-web"
     );
     expect(contactHrefForService("serviceAiMvp", "es")).toBe("/contacto?tipo=mvp-ia");
+    expect(contactHrefForService("serviceGraphicDesign", "es")).toBe("/contacto?tipo=diseno-grafico");
+    expect(contactHrefForService("serviceGraphicDesign", "en")).toBe("/en/contact?type=graphic-design");
     expect(contactHrefForService("serviceUxUi", "en")).toBe("/en/contact?type=ux-ui");
     expect(contactHrefForService("serviceWebDesign", "en")).toBe("/en/contact?type=web-design");
     expect(contactHrefForService("serviceWebDevelopment", "en")).toBe(
@@ -52,11 +57,23 @@ describe("contactHrefForService", () => {
 
   it("produces hrefs that round-trip through projectTypeFromQuery", () => {
     for (const locale of ["es", "en"] as const)
-      for (const key of ["serviceUxUi", "serviceWebDesign", "serviceWebDevelopment", "serviceAiMvp"] as const) {
+      for (const key of ["serviceUxUi", "serviceWebDesign", "serviceWebDevelopment", "serviceAiMvp", "serviceGraphicDesign"] as const) {
         const value = new URL(contactHrefForService(key, locale), "https://x.test").searchParams.get(
           locale === "es" ? "tipo" : "type"
         );
         expect(projectTypeFromQuery(value)).toBeDefined();
       }
+  });
+});
+
+describe("contactHrefForSolution", () => {
+  it("preselects the project type of the parent service", () => {
+    expect(contactHrefForSolution("solutionEcommerce", "es")).toBe("/contacto?tipo=ux-ui");
+    expect(contactHrefForSolution("solutionSaas", "en")).toBe("/en/contact?type=ux-ui");
+    expect(contactHrefForSolution("solutionDesignSystem", "es")).toBe("/contacto?tipo=ux-ui");
+    expect(contactHrefForSolution("solutionLanding", "es")).toBe("/contacto?tipo=diseno-web");
+    expect(contactHrefForSolution("solutionRedesign", "en")).toBe("/en/contact?type=web-design");
+    expect(contactHrefForSolution("solutionBrandIdentity", "es")).toBe("/contacto?tipo=diseno-grafico");
+    expect(contactHrefForSolution("solutionSocialCampaigns", "en")).toBe("/en/contact?type=graphic-design");
   });
 });

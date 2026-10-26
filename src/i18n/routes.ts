@@ -35,6 +35,27 @@ export const routes = {
     es: "/desarrollo-mvp-ia",
     en: "/en/ai-mvp-development",
   },
+  serviceGraphicDesign: {
+    es: "/diseno-grafico-marca-ia",
+    en: "/en/ai-graphic-brand-design",
+  },
+  // Solution landing pages: one project type each, linked from its parent service
+  solutionEcommerce: { es: "/diseno-ecommerce", en: "/en/ecommerce-design" },
+  solutionSaas: { es: "/diseno-saas-dashboard", en: "/en/saas-dashboard-design" },
+  solutionDesignSystem: { es: "/design-system", en: "/en/design-system" },
+  solutionLanding: {
+    es: "/landing-page-sitio-web-empresas",
+    en: "/en/landing-page-business-website",
+  },
+  solutionRedesign: { es: "/rediseno-sitio-web", en: "/en/website-redesign" },
+  solutionBrandIdentity: {
+    es: "/diseno-logo-identidad-de-marca",
+    en: "/en/logo-brand-identity-design",
+  },
+  solutionSocialCampaigns: {
+    es: "/diseno-redes-sociales-campanas",
+    en: "/en/social-media-campaign-design",
+  },
 } as const satisfies Record<string, RouteDef>;
 
 export type RouteKey = keyof typeof routes;

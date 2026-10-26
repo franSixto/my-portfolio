@@ -8,7 +8,7 @@ export type ServiceSection =
 export type ServiceFaq = { question: string; answer: string };
 
 export type ServicePrice = {
-  /** Visible label, e.g. "Desde USD 800". */
+  /** Visible label, e.g. "Desde USD 600". */
   label: string;
   /** Numeric lower bound used for the Offer structured data. */
   amountUsd: number;
@@ -32,3 +32,8 @@ export type ServicePageContent = {
 };
 
 export type LocalizedServiceContent = Record<Locale, ServicePageContent>;
+
+/** A solution page is a service page plus the one-line summary shown in indexes. */
+export type SolutionPageContent = ServicePageContent & { summary: string };
+
+export type LocalizedSolutionContent = Record<Locale, SolutionPageContent>;

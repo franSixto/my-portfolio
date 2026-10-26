@@ -25,11 +25,11 @@ export const servicesHubContent: Record<Locale, ServicesHubContent> = {
     seo: {
       title: "Servicios de diseño UX/UI, web y MVPs",
       description:
-        "Diseño UX/UI y de producto, diseño web, desarrollo web y MVPs con IA. Compará los cuatro servicios y elegí según la etapa de tu proyecto.",
+        "Diseño UX/UI y de producto, diseño web, desarrollo web, MVPs con IA y diseño gráfico y de marca. Compará los cinco servicios y elegí según tu etapa.",
     },
     h1: "Servicios de diseño y desarrollo de productos digitales",
     intro:
-      "La pregunta no es qué servicio suena mejor, sino en qué etapa está tu proyecto. Acá tenés los cuatro, con una guía rápida para saber por dónde empezar.",
+      "La pregunta no es qué servicio suena mejor, sino en qué etapa está tu proyecto. Acá tenés los cinco, con una guía rápida para saber por dónde empezar.",
     start: {
       heading: "¿Por dónde empezar?",
       items: [
@@ -61,12 +61,19 @@ export const servicesHubContent: Record<Locale, ServicesHubContent> = {
             "Elegí este si… tenés una idea que todavía no se probó y necesitás algo concreto para mostrarles a usuarios, clientes o inversores antes de invertir en el producto completo.",
           link: "Ver prototipos y MVPs con IA",
         },
+        {
+          route: "serviceGraphicDesign",
+          title: "Diseño gráfico y de marca con IA",
+          choose:
+            "¿Necesitás imagen de marca o piezas gráficas? Elegí este si… querés un logo, una identidad visual o piezas para redes y campañas, exploradas con IA y terminadas con criterio de diseñador.",
+          link: "Ver diseño gráfico y de marca",
+        },
       ],
     },
     compare: {
       heading: "Comparación rápida",
       caption:
-        "Comparación de los cuatro servicios: para quién es cada uno, qué incluye y qué conviene traer a la primera charla.",
+        "Comparación de los cinco servicios: para quién es cada uno, qué incluye y qué conviene traer a la primera charla.",
       columns: {
         service: "Servicio",
         who: "Para quién",
@@ -98,6 +105,12 @@ export const servicesHubContent: Record<Locale, ServicesHubContent> = {
           get: "Un prototipo funcional o un MVP acotado, con una guía para probarlo",
           bring: "La idea y a quién querés ayudar; no hace falta tenerlo todo definido",
         },
+        {
+          service: "Diseño gráfico y de marca con IA",
+          who: "Emprendimientos y empresas que necesitan imagen de marca o piezas gráficas",
+          get: "Logo e identidad visual con guía de uso, y piezas para redes y campañas",
+          bring: "Qué hace tu marca, a quién le habla y las piezas o el logo actuales",
+        },
       ],
     },
     combine: {
@@ -115,6 +128,10 @@ export const servicesHubContent: Record<Locale, ServicesHubContent> = {
           title: "Diseño UX/UI y de producto + desarrollo web",
           text: "cuando tu equipo necesita que el diseño se implemente tal como se pensó.",
         },
+        {
+          title: "Diseño gráfico y de marca + diseño web",
+          text: "si querés que la identidad nueva llegue directo a un sitio pensado para tu negocio.",
+        },
       ],
     },
     cta: {
@@ -127,11 +144,11 @@ export const servicesHubContent: Record<Locale, ServicesHubContent> = {
     seo: {
       title: "Services: UX/UI, Web Design & MVPs",
       description:
-        "UX/UI and product design, web design, web development and AI-assisted MVPs. Compare the four services and pick the one that fits your stage.",
+        "UX/UI and product design, web design and development, AI-assisted MVPs and brand design. Compare the five services and pick the one for your stage.",
     },
     h1: "Digital product design and development services",
     intro:
-      "The question isn't which service sounds best, it's what stage your project is at. Here are all four, with a quick guide to know where to start.",
+      "The question isn't which service sounds best, it's what stage your project is at. Here are all five, with a quick guide to know where to start.",
     start: {
       heading: "Where to start",
       items: [
@@ -163,12 +180,19 @@ export const servicesHubContent: Record<Locale, ServicesHubContent> = {
             "Choose this if… you have an idea that hasn't been tested yet and need something concrete to show users, customers or investors before investing in the full product.",
           link: "See AI-assisted prototypes and MVPs",
         },
+        {
+          route: "serviceGraphicDesign",
+          title: "AI-powered graphic and brand design",
+          choose:
+            "Do you need a brand image or graphic pieces? Choose this if… you want a logo, a visual identity or pieces for social media and campaigns, explored with AI and finished with a designer's judgment.",
+          link: "See graphic and brand design",
+        },
       ],
     },
     compare: {
       heading: "Quick comparison",
       caption:
-        "Comparison of the four services: who each one is for, what it includes and what to bring to the first conversation.",
+        "Comparison of the five services: who each one is for, what it includes and what to bring to the first conversation.",
       columns: {
         service: "Service",
         who: "Who it's for",
@@ -200,6 +224,12 @@ export const servicesHubContent: Record<Locale, ServicesHubContent> = {
           get: "A working prototype or lean MVP, with a guide to test it",
           bring: "The idea and who it's for; it doesn't need to be fully defined",
         },
+        {
+          service: "AI-powered graphic and brand design",
+          who: "New ventures and businesses that need a brand image or graphic pieces",
+          get: "A logo and visual identity with a usage guide, and pieces for social media and campaigns",
+          bring: "What your brand does, who it talks to and your current logo or pieces",
+        },
       ],
     },
     combine: {
@@ -216,6 +246,10 @@ export const servicesHubContent: Record<Locale, ServicesHubContent> = {
         {
           title: "UX/UI and product design + web development",
           text: "when your team needs the design built exactly as intended.",
+        },
+        {
+          title: "Graphic and brand design + web design",
+          text: "if you want the new identity to go straight into a site built around your business.",
         },
       ],
     },

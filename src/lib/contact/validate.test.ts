@@ -67,7 +67,7 @@ describe("validateContactFields", () => {
   });
 
   it("only accepts project types from the allow-list", () => {
-    for (const projectType of ["ux-ui", "web-design", "web-development", "ai-mvp", "other"])
+    for (const projectType of ["ux-ui", "web-design", "web-development", "ai-mvp", "graphic-design", "other"])
       expect(validateContactFields({ ...valid, projectType }).ok, projectType).toBe(true);
     for (const projectType of ["hacking", "", "UX-UI", 3, null]) {
       const result = validateContactFields({ ...valid, projectType });

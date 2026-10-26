@@ -6,12 +6,14 @@ import { SITE_META } from "@/content/site";
 import { TOOLKIT } from "@/content/toolkit";
 import { getStaticPageMetadata, getStaticPageSeo, SITE_NAME, buildSiteJsonLd } from "@/i18n/seo";
 import { getCaseSlugs } from "@/content/projects";
-import { locales } from "@/i18n/routes";
+import { liveRouteKeys, locales, localizedPath, matchRoute } from "@/i18n/routes";
 import { aboutContent } from "./about";
 import { contactContent } from "./contact";
 import { homeContent } from "./home";
 import { projectsContent } from "./projects";
 import { servicesHubContent } from "./servicesHub";
+import { SERVICE_ROUTE_KEYS } from "@/content/services/nav";
+import { PROJECT_TYPE_KEYS } from "@/lib/contact/projectTypes";
 
 const modules = {
   home: homeContent,
@@ -133,24 +135,47 @@ describe("static page SEO", () => {
 });
 
 describe("hub and home content", () => {
-  it("links the hub to the four services in both locales", () => {
+  it("links the hub, the comparator and the home to the five services in both locales", () => {
     for (const locale of locales) {
       expect(servicesHubContent[locale].start.items.map((i) => i.route)).toEqual([
         "serviceUxUi",
         "serviceWebDesign",
         "serviceWebDevelopment",
         "serviceAiMvp",
+        "serviceGraphicDesign",
       ]);
-      expect(homeContent[locale].services.cards).toHaveLength(4);
-      expect(servicesHubContent[locale].compare.rows).toHaveLength(4);
+      expect(servicesHubContent[locale].start.items.map((i) => i.route)).toEqual([...SERVICE_ROUTE_KEYS]);
+      expect(homeContent[locale].services.cards.map((c) => c.route)).toEqual([...SERVICE_ROUTE_KEYS]);
+      expect(homeContent[locale].services.cards).toHaveLength(5);
+      expect(servicesHubContent[locale].compare.rows).toHaveLength(5);
     }
   });
 
-  it("keeps the home hero lean: no tagline or description, es/en parity, UX/UI in the title tag", () => {
+  it("answers the brand image question in the hub and its comparator", () => {
+    const text = (l: "es" | "en") => JSON.stringify(servicesHubContent[l]);
+    expect(text("es")).toMatch(/¿Necesitás imagen de marca o piezas gráficas\?/);
+    expect(text("en")).toMatch(/Do you need a brand image or graphic pieces\?/);
+    for (const locale of locales) {
+      const c = servicesHubContent[locale];
+      expect(c.compare.rows[4].service).toBe(c.start.items[4].title);
+      expect(c.compare.rows[4].service.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("lists the graphic design project type in the contact form", () => {
+    for (const locale of locales)
+      expect(Object.keys(contactContent[locale].form.projectType.options)).toEqual([...PROJECT_TYPE_KEYS]);
+    expect(contactContent.es.form.projectType.options["graphic-design"]).toBe("Diseño gráfico y de marca");
+  });
+
+  it("keeps the home hero lean: no tagline, clients or industries, UX/UI in the title tag", () => {
     for (const locale of locales) {
       const hero = homeContent[locale].hero as Record<string, unknown>;
       expect(Object.keys(hero).sort()).toEqual(
-        ["eyebrow", "eyebrowShort", "primary", "secondary", "subtitle", "title", "trust"]
+        ["eyebrow", "eyebrowShort", "needs", "needsHeading", "primary", "secondary", "subtitle", "title"]
+      );
+      expect(collectStrings(hero).join("\n")).not.toMatch(
+        /salud|educaci|health|educat|Start University|Deep Creek|Tagle|Apex/i
       );
       expect(homeContent[locale].hero.eyebrowShort.length).toBeGreaterThan(0);
       expect(homeContent[locale].hero.eyebrowShort.length).toBeLessThan(
@@ -158,14 +183,43 @@ describe("hub and home content", () => {
       );
       expect(homeContent[locale].seo.title).toContain("UX/UI");
     }
-    const { es, en } = homeContent;
-    expect(es.hero.trust.names).toEqual(en.hero.trust.names);
-    expect(es.hero.trust.names).toEqual([
-      "Start University",
-      "Deep Creek Solutions",
-      "Grupo Tagle",
-      "Apex America",
+  });
+
+  it("hero needs list links every item to an existing page, in the same order in both locales", () => {
+    const keys = (l: "es" | "en") => homeContent[l].hero.needs.map((n) => n.route);
+    expect(keys("es")).toEqual(keys("en"));
+    expect(keys("es")).toEqual([
+      "solutionEcommerce",
+      "solutionSaas",
+      "solutionDesignSystem",
+      "solutionLanding",
+      "solutionRedesign",
+      "serviceAiMvp",
     ]);
+    for (const locale of locales) {
+      const hero = homeContent[locale].hero;
+      expect(hero.needsHeading.length).toBeGreaterThan(0);
+      for (const need of hero.needs) {
+        expect(liveRouteKeys()).toContain(need.route);
+        expect(matchRoute(localizedPath(need.route, locale))?.key).toBe(need.route);
+        expect(need.label.length).toBeGreaterThan(0);
+        expect(need.label.length).toBeLessThan(40);
+      }
+      expect(new Set(hero.needs.map((n) => n.label)).size).toBe(hero.needs.length);
+      expect(collectStrings(hero.needs).join("\n")).not.toMatch(
+        /vend[ae]|sales|garant|guarant|\d+\s?%|aument|increase|conversion|conversión/i
+      );
+    }
+  });
+
+  it("hero carries no imagery", () => {
+    const hero = readFileSync("src/components/home/Hero.tsx", "utf8");
+    expect(hero).not.toMatch(/next\/image|tiles|HeroTile|\.webp|mosaic/i);
+  });
+
+  it("sells outcomes, not years of experience, outside the about page", () => {
+    for (const locale of locales)
+      expect(collectStrings(homeContent[locale]).join("\n")).not.toMatch(/10 años|10\+ years|years of experience/i);
   });
 
   it("does not hedge about building", () => {

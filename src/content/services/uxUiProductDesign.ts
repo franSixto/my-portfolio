@@ -4,7 +4,7 @@ export const uxUiProductDesign: LocalizedServiceContent = {
   es: {
     seoTitle: "Diseñador UX/UI y de producto freelance",
     seoDescription:
-      "Diseño de producto, interfaces web y mobile y design systems para SaaS, educación y salud. Más de 10 años diseñando productos digitales. Hablemos.",
+      "Diseño de producto, interfaces web y mobile y design systems para SaaS, educación y salud. Hablemos.",
     serviceType: "Diseño UX/UI y de producto",
     h1: "Diseño UX/UI y de producto para equipos que construyen software",
     intro:
@@ -93,7 +93,7 @@ export const uxUiProductDesign: LocalizedServiceContent = {
   en: {
     seoTitle: "Freelance UX/UI & Product Designer",
     seoDescription:
-      "Product design, web and mobile interfaces and design systems for SaaS, education and health products. 10+ years designing digital products.",
+      "Product design, web and mobile interfaces and design systems for SaaS, education and health products.",
     serviceType: "UX/UI and product design",
     h1: "UX/UI and product design for teams building software",
     intro:

@@ -9,11 +9,6 @@ export const aiMvp: LocalizedServiceContent = {
     h1: "Prototipos y MVPs asistidos por IA para validar tu idea",
     intro:
       "Antes de invertir meses en desarrollo, necesitás saber si la idea funciona con usuarios reales. Combino diseño de producto y herramientas de IA para llegar a un prototipo funcional o a un MVP acotado que se pueda probar, usando IA para iterar sobre algo concreto.",
-    price: {
-      label: "Prototipo funcional desde USD 1.500",
-      amountUsd: 1500,
-      note: "La cotización final depende del alcance del prototipo o MVP. La definimos juntos después de una primera charla.",
-    },
     sections: [
       {
         kind: "list",
@@ -75,14 +70,14 @@ export const aiMvp: LocalizedServiceContent = {
       {
         question: "¿Cuánto cuesta?",
         answer:
-          "Un prototipo funcional arranca desde USD 1.500. El valor final depende del alcance y lo definimos juntos antes de empezar.",
+          "Depende de qué haya que probar y de cuánto tiene que funcionar el prototipo. Primero hablamos 30 minutos sobre tu idea y después te paso una propuesta con alcance, etapas y precio cerrado.",
       },
     ],
     cta: {
       heading: "¿Tenés una idea que querés probar?",
       button: "Quiero validar mi idea",
     },
-    relatedProjectSlugs: ["portfolio-fransixto", "deep-creek-solutions"],
+    relatedProjectSlugs: ["deep-creek-solutions"],
     relatedServices: [
       {
         route: "serviceUxUi",
@@ -102,11 +97,6 @@ export const aiMvp: LocalizedServiceContent = {
     h1: "AI-assisted prototypes and MVPs to validate your idea",
     intro:
       "Before spending months on development, you need to know whether the idea works with real users. I combine product design with AI tools to get to a working prototype or a lean MVP you can test, using AI to iterate on something concrete.",
-    price: {
-      label: "Functional prototype from USD 1,500",
-      amountUsd: 1500,
-      note: "The final quote depends on the scope of the prototype or MVP. We define it together after an initial conversation.",
-    },
     sections: [
       {
         kind: "list",
@@ -168,14 +158,14 @@ export const aiMvp: LocalizedServiceContent = {
       {
         question: "How much does it cost?",
         answer:
-          "A functional prototype starts from USD 1,500. The final price depends on scope and we define it together before starting.",
+          "It depends on what needs testing and how much the prototype has to work. We start with a 30-minute call about your idea, then I send a proposal with scope, stages and a fixed price.",
       },
     ],
     cta: {
       heading: "Have an idea you want to test?",
       button: "I want to validate my idea",
     },
-    relatedProjectSlugs: ["portfolio-fransixto", "deep-creek-solutions"],
+    relatedProjectSlugs: ["deep-creek-solutions"],
     relatedServices: [
       {
         route: "serviceUxUi",

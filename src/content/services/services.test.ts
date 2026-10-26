@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { locales } from "@/i18n/routes";
+import { locales, matchRoute, routes } from "@/i18n/routes";
 import { getCaseSlugs } from "@/content/projects";
 import { SITE_NAME } from "@/i18n/seo";
 import { SERVICE_ROUTE_KEYS, SERVICE_NAV_LABELS } from "./nav";
@@ -62,11 +62,11 @@ describe("service content", () => {
       }
   });
 
-  it("shows a price only on webDesign and aiMvp, in USD", () => {
+  it("shows a price only on webDesign, in USD", () => {
     for (const key of keys)
       for (const locale of locales) {
         const c: ServicePageContent = getServiceContent(key, locale);
-        if (key === "serviceWebDesign" || key === "serviceAiMvp") {
+        if (key === "serviceWebDesign") {
           expect(c.price?.amountUsd).toBeGreaterThan(0);
           expect(c.price?.label).toMatch(/USD/);
           expect(c.price?.note.length).toBeGreaterThan(10);
@@ -74,14 +74,8 @@ describe("service content", () => {
           expect(c.price).toBeUndefined();
         }
       }
-    expect(getServiceContent("serviceWebDesign", "es").price?.label).toBe("Desde USD 800");
-    expect(getServiceContent("serviceWebDesign", "en").price?.label).toBe("From USD 800");
-    expect(getServiceContent("serviceAiMvp", "es").price?.label).toBe(
-      "Prototipo funcional desde USD 1.500"
-    );
-    expect(getServiceContent("serviceAiMvp", "en").price?.label).toBe(
-      "Functional prototype from USD 1,500"
-    );
+    expect(getServiceContent("serviceWebDesign", "es").price?.label).toBe("Desde USD 600");
+    expect(getServiceContent("serviceWebDesign", "en").price?.label).toBe("From USD 600");
   });
 
   it("has no unresolved placeholders, hourly rates or timelines", () => {
@@ -92,8 +86,8 @@ describe("service content", () => {
         expect(text).not.toMatch(/\bTODO\b|lorem ipsum/);
         expect(text).not.toMatch(/\d+\s*(-|–|a|to)?\s*\d*\s*(semanas|meses|days|weeks|months|días)/i);
         expect(text).not.toMatch(/por hora|hourly|per hour/i);
-        // No prices other than the two allowed ones
-        if (key !== "serviceWebDesign" && key !== "serviceAiMvp")
+        // No prices outside the one allowed service
+        if (key !== "serviceWebDesign")
           expect(text).not.toMatch(/USD|\$\s?\d/);
       }
   });
@@ -129,5 +123,35 @@ describe("es voseo consistency", () => {
   it("has no tú forms in es common.json", () => {
     const raw = readFileSync("public/locales/es/common.json", "utf8");
     expect(collectStrings(JSON.parse(raw)).filter((t) => TU_FORMS.test(t))).toEqual([]);
+  });
+});
+
+describe("graphic design service", () => {
+  it("has localized routes that resolve in both locales", () => {
+    expect([routes.serviceGraphicDesign.es, routes.serviceGraphicDesign.en]).toEqual([
+      "/diseno-grafico-marca-ia",
+      "/en/ai-graphic-brand-design",
+    ]);
+    expect(matchRoute("/diseno-grafico-marca-ia")).toEqual({
+      key: "serviceGraphicDesign",
+      locale: "es",
+      params: {},
+    });
+    expect(matchRoute("/en/ai-graphic-brand-design")?.key).toBe("serviceGraphicDesign");
+  });
+
+  it("is listed last and uses Apex America as its only proof case", () => {
+    expect(keys[keys.length - 1]).toBe("serviceGraphicDesign");
+    for (const locale of locales)
+      expect(getServiceContent("serviceGraphicDesign", locale).relatedProjectSlugs).toEqual(["apex-america"]);
+  });
+
+  it("links to its solutions' sibling services and has 4-6 FAQs", () => {
+    for (const locale of locales) {
+      const c = getServiceContent("serviceGraphicDesign", locale);
+      expect(c.faqs.length).toBeGreaterThanOrEqual(4);
+      expect(c.faqs.length).toBeLessThanOrEqual(6);
+      expect(c.sections.some((s) => s.kind === "steps")).toBe(true);
+    }
   });
 });

@@ -1,8 +1,8 @@
 import { localizedPath, type Locale } from "@/i18n/routes";
-import type { ServiceRouteKey } from "@/content/services/nav";
+import { SOLUTION_PARENT, type ServiceRouteKey, type SolutionRouteKey } from "@/content/services/nav";
 
 /** Stable keys sent to the API; labels come from the page copy. */
-export const PROJECT_TYPE_KEYS = ["ux-ui", "web-design", "web-development", "ai-mvp", "other"] as const;
+export const PROJECT_TYPE_KEYS = ["ux-ui", "web-design", "web-development", "ai-mvp", "graphic-design", "other"] as const;
 export type ProjectTypeKey = (typeof PROJECT_TYPE_KEYS)[number];
 
 export function isProjectTypeKey(value: unknown): value is ProjectTypeKey {
@@ -19,6 +19,7 @@ const QUERY_VALUE: Record<Locale, Record<ProjectTypeKey, string>> = {
     "web-design": "diseno-web",
     "web-development": "desarrollo-web",
     "ai-mvp": "mvp-ia",
+    "graphic-design": "diseno-grafico",
     other: "otro",
   },
   en: {
@@ -26,6 +27,7 @@ const QUERY_VALUE: Record<Locale, Record<ProjectTypeKey, string>> = {
     "web-design": "web-design",
     "web-development": "web-development",
     "ai-mvp": "ai-mvp",
+    "graphic-design": "graphic-design",
     other: "other",
   },
 };
@@ -48,10 +50,16 @@ const SERVICE_PROJECT_TYPE: Record<ServiceRouteKey, ProjectTypeKey> = {
   serviceWebDesign: "web-design",
   serviceWebDevelopment: "web-development",
   serviceAiMvp: "ai-mvp",
+  serviceGraphicDesign: "graphic-design",
 };
 
 /** Contact URL with the project type preselected, for a service page CTA. */
 export function contactHrefForService(service: ServiceRouteKey, locale: Locale): string {
   const value = QUERY_VALUE[locale][SERVICE_PROJECT_TYPE[service]];
   return `${localizedPath("contact", locale)}?${PROJECT_TYPE_PARAM[locale]}=${value}`;
+}
+
+/** Solution pages preselect the project type of their parent service. */
+export function contactHrefForSolution(solution: SolutionRouteKey, locale: Locale): string {
+  return contactHrefForService(SOLUTION_PARENT[solution], locale);
 }

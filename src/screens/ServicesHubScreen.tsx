@@ -5,6 +5,9 @@ import { TermList } from "@/components/ui/Lists";
 import PageHeader from "@/components/ui/PageHeader";
 import Section from "@/components/ui/Section";
 import { servicesHubContent } from "@/content/pages/servicesHub";
+import { SOLUTION_ROUTE_KEYS, landingNavLabel } from "@/content/services/nav";
+import { SOLUTION_UI } from "@/content/services/ui";
+import { getSolutionContent } from "@/content/solutions";
 import { localizedPath, type Locale } from "@/i18n/routes";
 
 /** Server-rendered "which service do I need" page. */
@@ -21,6 +24,20 @@ export default function ServicesHubScreen({ locale }: { locale: Locale }) {
             title: item.title,
             text: item.choose,
             linkLabel: item.link,
+          }))}
+        />
+      </Section>
+      <Section
+        id="by-project-type"
+        heading={SOLUTION_UI[locale].byType}
+        intro={SOLUTION_UI[locale].byTypeIntro}
+        spacing="compact"
+      >
+        <IndexLinks
+          items={SOLUTION_ROUTE_KEYS.map((key) => ({
+            href: localizedPath(key, locale),
+            title: landingNavLabel(key, locale),
+            text: getSolutionContent(key, locale).summary,
           }))}
         />
       </Section>
