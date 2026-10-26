@@ -6,6 +6,7 @@ export const deepCreekSolutions: CaseStudy = {
   logo: { src: "/projects/logo-deep-creek.png", width: 392, height: 100 },
   relatedService: "serviceUxUi",
   secondaryService: "serviceAiMvp",
+  relatedCases: ["deep-creek-branding"],
   es: {
     cardTitle: "Deep Creek Solutions: productos SaaS de salud y estética",
     cardSummary:

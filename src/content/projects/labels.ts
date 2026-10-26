@@ -1,11 +1,12 @@
 import type { Locale, RouteKey } from "@/i18n/routes";
-import type { CaseSectionId } from "./types";
+import type { CaseSectionId, CaseStatus } from "./types";
 
 /** Shared labels around the case-study copy (server-only). */
 export const PROJECTS_LABELS: Record<
   Locale,
   {
-    sections: Record<CaseSectionId | "relatedService", string>;
+    sections: Record<CaseSectionId | "relatedService" | "gallery" | "relatedCases", string>;
+    status: Record<CaseStatus, string>;
     meta: {
       role: string;
       years: string;
@@ -15,6 +16,7 @@ export const PROJECTS_LABELS: Record<
       platform: string;
       kind: string;
       service: string;
+      status: string;
     };
     externalSuffix: string;
     allProjects: string;
@@ -27,6 +29,7 @@ export const PROJECTS_LABELS: Record<
     sections: {
       context: "Contexto",
       challenge: "El desafío",
+      goals: "Objetivos",
       role: "Mi rol",
       constraints: "Restricciones",
       process: "Proceso",
@@ -35,6 +38,15 @@ export const PROJECTS_LABELS: Record<
       tools: "Tecnologías y herramientas",
       delivered: "Qué se entregó",
       relatedService: "Servicio relacionado",
+      gallery: "Galería",
+      relatedCases: "Proyectos relacionados",
+    },
+    status: {
+      live: "Sitio publicado",
+      "design-proposal": "Propuesta de rediseño en Figma",
+      "in-development": "En desarrollo",
+      "in-progress": "Trabajo en curso",
+      "ongoing-confidential": "En curso, confidencial",
     },
     meta: {
       role: "Rol",
@@ -45,6 +57,7 @@ export const PROJECTS_LABELS: Record<
       platform: "Plataforma",
       kind: "Tipo",
       service: "Servicio",
+      status: "Estado",
     },
     externalSuffix: "(se abre en una pestaña nueva)",
     allProjects: "Ver todos los proyectos",
@@ -61,6 +74,7 @@ export const PROJECTS_LABELS: Record<
     sections: {
       context: "Context",
       challenge: "The challenge",
+      goals: "Goals",
       role: "My role",
       constraints: "Constraints",
       process: "Process",
@@ -69,6 +83,15 @@ export const PROJECTS_LABELS: Record<
       tools: "Tools and technologies",
       delivered: "What was delivered",
       relatedService: "Related service",
+      gallery: "Gallery",
+      relatedCases: "Related projects",
+    },
+    status: {
+      live: "Live site",
+      "design-proposal": "Redesign proposal in Figma",
+      "in-development": "In development",
+      "in-progress": "Work in progress",
+      "ongoing-confidential": "Ongoing, confidential",
     },
     meta: {
       role: "Role",
@@ -79,6 +102,7 @@ export const PROJECTS_LABELS: Record<
       platform: "Platform",
       kind: "Type",
       service: "Service",
+      status: "Status",
     },
     externalSuffix: "(opens in a new tab)",
     allProjects: "See all projects",

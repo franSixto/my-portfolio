@@ -4,14 +4,21 @@ import { FEATURED_PROJECT_SLUGS } from "@/content/featuredProjects";
 import { serviceContent } from "@/content/services";
 import { SITE_NAME } from "@/i18n/seo";
 import { locales, routes } from "@/i18n/routes";
-import { CASE_STUDIES, getCaseCopy, getCaseSlugs, getCaseStudy } from "./index";
-import { CASE_SECTION_IDS } from "./types";
+import { CASE_STUDIES, getCaseCopy, getCaseSlugs, getCaseStudy, getRelatedCases } from "./index";
+import { CASE_SECTION_IDS, OPTIONAL_SECTION_IDS } from "./types";
+import { buildMetaItems } from "./meta";
 import { PROJECTS_LABELS } from "./labels";
 
 const EXPECTED_ORDER = [
   "start-university",
+  "rexia",
   "deep-creek-solutions",
   "autocity-grupo-tagle",
+  "bienestar-senior",
+  "ortopedia-para-ti",
+  "consultora-prisma",
+  "vivero-yvyra",
+  "deep-creek-branding",
   "portfolio-fransixto",
   "sixto-van-garret",
   "officina-artis",
@@ -34,7 +41,7 @@ function collectStrings(value: unknown, out: string[] = []): string[] {
 }
 
 describe("case studies registry", () => {
-  it("lists the seven cases in the approved order with unique slugs", () => {
+  it("lists the thirteen cases in the approved order with unique slugs", () => {
     expect(getCaseSlugs()).toEqual(EXPECTED_ORDER);
     expect(new Set(getCaseSlugs()).size).toBe(CASE_STUDIES.length);
   });
@@ -64,8 +71,12 @@ describe("case studies registry", () => {
   it("fills every section in both locales, with matching shapes", () => {
     for (const study of CASE_STUDIES)
       for (const id of CASE_SECTION_IDS) {
-        const es = study.es.sections[id];
-        const en = study.en.sections[id];
+        const es = study.es.sections[id] ?? [];
+        const en = study.en.sections[id] ?? [];
+        if ((OPTIONAL_SECTION_IDS as readonly string[]).includes(id) && es.length === 0) {
+          expect(en.length, `${study.slug}.${id} optional parity`).toBe(0);
+          continue;
+        }
         expect(es.length, `${study.slug}.es.${id}`).toBeGreaterThan(0);
         expect(en.map((b) => b.type), `${study.slug}.${id}`).toEqual(es.map((b) => b.type));
         for (const [i, block] of es.entries()) {
@@ -178,5 +189,114 @@ describe("references to case studies", () => {
     for (const content of Object.values(serviceContent))
       for (const locale of locales)
         expect(content[locale].relatedProjectSlugs).toEqual(content.es.relatedProjectSlugs);
+  });
+});
+
+const NEW_SLUGS = [
+  "ortopedia-para-ti",
+  "bienestar-senior",
+  "rexia",
+  "deep-creek-branding",
+  "consultora-prisma",
+  "vivero-yvyra",
+];
+const DESIGN_ONLY = ["ortopedia-para-ti", "bienestar-senior", "rexia"];
+const NOT_LIVE = ["ortopedia-para-ti", "bienestar-senior", "vivero-yvyra", "deep-creek-branding", "rexia"];
+const IMPLEMENTATION_ES = /\b(desarroll[ée]|implement[ée]|program[ée]|codifiqu[ée]|constru[ií])\b/i;
+const IMPLEMENTATION_EN = /\bI (built|developed|implemented|coded|programmed|engineered)\b/i;
+const LIVE_CLAIMS = /\b(lanzad[oa]s?|en producci[óo]n|launched|went live|is live|ya est[áa] en l[íi]nea)\b/i;
+
+describe("new case studies", () => {
+  it("registers the six cases with the requested slugs", () => {
+    for (const slug of NEW_SLUGS) expect(getCaseSlugs()).toContain(slug);
+  });
+
+  it("declares a status for the cases whose state needs to be explicit", () => {
+    expect(getCaseStudy("ortopedia-para-ti")?.status).toBe("design-proposal");
+    expect(getCaseStudy("bienestar-senior")?.status).toBe("design-proposal");
+    expect(getCaseStudy("rexia")?.status).toBe("ongoing-confidential");
+    expect(getCaseStudy("vivero-yvyra")?.status).toBe("in-development");
+    expect(getCaseStudy("deep-creek-branding")?.status).toBe("in-progress");
+    expect(getCaseStudy("consultora-prisma")?.status).toBe("live");
+  });
+
+  it("shows the status in the sidebar, localized", () => {
+    const study = getCaseStudy("rexia")!;
+    const es = buildMetaItems(study.es.meta, "es", study.status);
+    const en = buildMetaItems(study.en.meta, "en", study.status);
+    expect(es.at(-1)).toEqual({ label: "Estado", value: PROJECTS_LABELS.es.status["ongoing-confidential"] });
+    expect(en.at(-1)).toEqual({ label: "Status", value: PROJECTS_LABELS.en.status["ongoing-confidential"] });
+    expect(buildMetaItems(study.es.meta, "es").some((i) => i.label === "Estado")).toBe(false);
+  });
+
+  it("keeps design-only cases free of implementation claims", () => {
+    for (const slug of DESIGN_ONLY) {
+      const study = getCaseStudy(slug)!;
+      for (const t of collectStrings(study.es)) expect(t, `${slug}.es`).not.toMatch(IMPLEMENTATION_ES);
+      for (const t of collectStrings(study.en)) expect(t, `${slug}.en`).not.toMatch(IMPLEMENTATION_EN);
+    }
+  });
+
+  it("does not claim launches for proposals, in-development or in-progress work", () => {
+    for (const slug of NOT_LIVE) {
+      const study = getCaseStudy(slug)!;
+      for (const t of [...collectStrings(study.es), ...collectStrings(study.en)])
+        expect(t, slug).not.toMatch(LIVE_CLAIMS);
+    }
+  });
+
+  it("uses typographic covers with honest alt text", () => {
+    for (const slug of NEW_SLUGS) {
+      const study = getCaseStudy(slug)!;
+      expect(study.hero.src).toBe(`/projects/${slug}.webp`);
+      expect(study.es.heroAlt).toMatch(/tipogr[áa]fica/i);
+      expect(study.en.heroAlt).toMatch(/typographic/i);
+    }
+  });
+
+  it("resolves related cases to existing, distinct slugs, in both directions for the Deep Creek pair", () => {
+    for (const study of CASE_STUDIES)
+      for (const slug of study.relatedCases ?? []) {
+        expect(getCaseSlugs(), `${study.slug} -> ${slug}`).toContain(slug);
+        expect(slug).not.toBe(study.slug);
+      }
+    expect(getCaseStudy("deep-creek-branding")?.relatedCases).toContain("deep-creek-solutions");
+    expect(getCaseStudy("deep-creek-solutions")?.relatedCases).toContain("deep-creek-branding");
+    const links = getRelatedCases("deep-creek-branding", "es");
+    expect(links[0]).toEqual({ slug: "deep-creek-solutions", title: getCaseCopy("deep-creek-solutions", "es")!.cardTitle });
+    expect(getRelatedCases("nope", "es")).toEqual([]);
+    expect(getRelatedCases("start-university", "es")).toEqual([]);
+  });
+
+  it("requires alt text in both locales for every gallery image", () => {
+    for (const study of CASE_STUDIES)
+      for (const img of study.gallery ?? []) {
+        expect(existsSync(`public${img.src}`), img.src).toBe(true);
+        expect(img.width).toBeGreaterThan(0);
+        expect(img.height).toBeGreaterThan(0);
+        for (const locale of locales) expect(img.alt[locale].length, `${study.slug}.${locale}`).toBeGreaterThan(10);
+      }
+  });
+
+  it("links the live store of the redesign cases as the current site, not as the redesign", () => {
+    for (const slug of ["ortopedia-para-ti", "bienestar-senior"]) {
+      const study = getCaseStudy(slug)!;
+      for (const locale of locales) {
+        expect(study[locale].links?.length).toBe(1);
+        expect(study[locale].links?.[0].note?.length).toBeGreaterThan(20);
+      }
+    }
+    expect(getCaseStudy("ortopedia-para-ti")?.es.links?.[0].href).toBe("https://ortopediaparati.com/");
+    expect(getCaseStudy("bienestar-senior")?.es.links?.[0].href).toBe("https://www.bienestarsenior.com/");
+    expect(getCaseStudy("consultora-prisma")?.es.links?.[0].href).toBe("https://www.consultoraprisma.com.ar/");
+    expect(getCaseStudy("vivero-yvyra")?.es.links ?? []).toEqual([]);
+    expect(getCaseStudy("rexia")?.es.links ?? []).toEqual([]);
+  });
+
+  it("keeps Rexia separate from the Deep Creek and Red Sanitaria work", () => {
+    const rexia = getCaseStudy("rexia")!;
+    expect(rexia.relatedCases ?? []).not.toContain("deep-creek-solutions");
+    for (const t of [...collectStrings(rexia.es), ...collectStrings(rexia.en)])
+      expect(t).not.toMatch(/Deep Creek|Red Sanitaria|Retia/i);
   });
 });

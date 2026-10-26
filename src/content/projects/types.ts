@@ -11,6 +11,7 @@ export type CaseBlock =
 export const CASE_SECTION_IDS = [
   "context",
   "challenge",
+  "goals",
   "role",
   "constraints",
   "process",
@@ -20,7 +21,24 @@ export const CASE_SECTION_IDS = [
   "delivered",
 ] as const;
 export type CaseSectionId = (typeof CASE_SECTION_IDS)[number];
-export type CaseSections = Record<CaseSectionId, CaseBlock[]>;
+/** Sections a case may omit; when present they must exist in both locales. */
+export const OPTIONAL_SECTION_IDS = ["goals"] as const;
+export type OptionalSectionId = (typeof OPTIONAL_SECTION_IDS)[number];
+export type CaseSections = Record<Exclude<CaseSectionId, OptionalSectionId>, CaseBlock[]> &
+  Partial<Record<OptionalSectionId, CaseBlock[]>>;
+
+/**
+ * Where the work stands. Only set it when the case needs to be explicit about it:
+ * proposals and work in progress must never read as shipped.
+ */
+export type CaseStatus =
+  | "live"
+  | "design-proposal"
+  | "in-development"
+  | "in-progress"
+  | "ongoing-confidential";
+
+export type GalleryImage = CaseImage & { alt: Record<Locale, string> };
 
 export type CaseImage = { src: string; width: number; height: number };
 
@@ -64,4 +82,9 @@ export type CaseStudy = {
   /** Service route the case supports, or "about" when there is none. */
   relatedService: ServiceRouteKey | "about";
   secondaryService?: ServiceRouteKey;
+  status?: CaseStatus;
+  /** Real project images (never mockups). Rendered only when present. */
+  gallery?: GalleryImage[];
+  /** Slugs of other cases to link as "related projects". */
+  relatedCases?: string[];
 } & Record<Locale, CaseCopy>;

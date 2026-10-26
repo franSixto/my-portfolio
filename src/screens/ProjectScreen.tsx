@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import ProjectContent from "@/components/projects/ProjectContent";
 import CtaBand from "@/components/ui/CtaBand";
 import { PROJECTS_LABELS } from "@/content/projects/labels";
-import { getCaseStudy } from "@/content/projects";
+import { getCaseStudy, getRelatedCases } from "@/content/projects";
 import { buildMetaItems } from "@/content/projects/meta";
 import { CASE_SECTION_IDS } from "@/content/projects/types";
 import { SITE_URL, absoluteUrl, localizedPath, type Locale } from "@/i18n/routes";
@@ -31,6 +31,7 @@ export default function ProjectScreen({ locale, slug }: { locale: Locale; slug: 
   const copy = study[locale];
   const labels = PROJECTS_LABELS[locale];
   const jsonLd = buildProjectJsonLd(slug, locale);
+  const relatedCases = getRelatedCases(slug, locale);
 
   const relatedLinks = [study.relatedService, study.secondaryService].flatMap((key, i) =>
     key
@@ -56,16 +57,34 @@ export default function ProjectScreen({ locale, slug }: { locale: Locale; slug: 
         crumbLabel={copy.cardTitle}
         hero={{ ...study.hero, alt: copy.heroAlt }}
         logo={study.logo && { ...study.logo, alt: copy.logoAlt ?? "" }}
-        meta={buildMetaItems(copy.meta, locale)}
+        meta={buildMetaItems(copy.meta, locale, study.status)}
         links={(copy.links ?? []).map((link) => ({
           ...link,
           ariaLabel: `${link.label} ${labels.externalSuffix}`,
         }))}
-        sections={CASE_SECTION_IDS.map((id) => ({
-          id,
-          heading: labels.sections[id],
-          blocks: copy.sections[id],
-        }))}
+        sections={CASE_SECTION_IDS.flatMap((id) => {
+          const blocks = copy.sections[id];
+          return blocks?.length ? [{ id, heading: labels.sections[id], blocks }] : [];
+        })}
+        gallery={
+          study.gallery?.length
+            ? {
+                heading: labels.sections.gallery,
+                images: study.gallery.map(({ alt, ...image }) => ({ ...image, alt: alt[locale] })),
+              }
+            : undefined
+        }
+        relatedCases={
+          relatedCases.length
+            ? {
+                heading: labels.sections.relatedCases,
+                links: relatedCases.map((item) => ({
+                  href: localizedPath("project", locale, { slug: item.slug }),
+                  label: item.title,
+                })),
+              }
+            : undefined
+        }
         related={{
           heading: labels.sections.relatedService,
           links: [
