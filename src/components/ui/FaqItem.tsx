@@ -8,7 +8,7 @@ export default function FaqItem({ question, answer }: { question: string; answer
         <span>{question}</span>
         <span
           aria-hidden="true"
-          className="mt-0.5 shrink-0 text-muted transition-transform duration-200 motion-reduce:transition-none group-open:rotate-45 group-open:text-accent"
+          className="mt-0.5 shrink-0 text-muted transition-transform duration-(--motion-dur-base) ease-(--motion-ease-out) motion-reduce:transition-none group-open:rotate-45 group-open:text-accent"
         >
           <Plus className="size-6" />
         </span>

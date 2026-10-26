@@ -9,6 +9,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { getDictionary } from "@/i18n/dictionary";
 import { buildSiteJsonLd, serializeJsonLd } from "@/i18n/seo";
 import type { Locale } from "@/i18n/routes";
+import RevealObserver from "@/components/layout/RevealObserver";
 import "@/app/globals.css";
 
 // Two variable families, latin only. Schibsted Grotesk: display, headings, UI.
@@ -82,6 +83,7 @@ export default function SiteShell({
             <VercelAnalytics />
             <SpeedInsights />
             <Footer locale={locale} />
+            <RevealObserver />
           </LanguageProvider>
         </ThemeProvider>
       </body>

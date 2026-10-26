@@ -8,6 +8,7 @@ import { Lead } from "@/components/ui/Text";
 import { contactContent } from "@/content/pages/contact";
 import { CV_PATH, EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/content/site";
 import type { Locale } from "@/i18n/routes";
+import { revealProps } from "@/lib/motion/reveal";
 
 export default function ContactScreen({ locale }: { locale: Locale }) {
   const c = contactContent[locale];
@@ -22,14 +23,14 @@ export default function ContactScreen({ locale }: { locale: Locale }) {
           </Heading>
           <Lead className="mt-6 md:mt-8">{c.intro}</Lead>
 
-          <section aria-labelledby="contact-include-title" className="mt-12">
+          <section aria-labelledby="contact-include-title" className="mt-12" {...revealProps("up", 1)}>
             <Heading id="contact-include-title" size="h3">
               {c.include.heading}
             </Heading>
             <RuleList items={c.include.items} className="mt-5" />
           </section>
 
-          <section aria-labelledby="contact-next-title" className="mt-12">
+          <section aria-labelledby="contact-next-title" className="mt-12" {...revealProps("up", 2)}>
             <Heading id="contact-next-title" size="h3">
               {c.next.heading}
             </Heading>

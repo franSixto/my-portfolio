@@ -82,6 +82,16 @@
   --color-danger: #ff9b8a; /* 8.42:1 on surface */
 }
 
+/* Motion tokens. Restrained: short distances, one easing curve. */
+:root {
+  --motion-dur-fast: 150ms;
+  --motion-dur-base: 300ms;
+  --motion-dur-slow: 600ms;
+  --motion-ease-out: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --motion-dist: 12px;
+  --motion-stagger: 70ms;
+}
+
 @layer base {
 html {
   /* clip (not hidden) keeps the sticky header working */
@@ -133,10 +143,10 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-rule::before {
-    animation: draw-rule 700ms cubic-bezier(0.2, 0.7, 0.1, 1) both;
+    animation: draw-rule calc(var(--motion-dur-slow) + 100ms) var(--motion-ease-out) both;
   }
   .hero-settle {
-    animation: settle 700ms cubic-bezier(0.2, 0.7, 0.1, 1) 120ms both;
+    animation: settle calc(var(--motion-dur-slow) + 100ms) var(--motion-ease-out) 120ms both;
   }
 }
 
@@ -157,3 +167,140 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Textures: CSS only, no bitmaps. Colors come from tokens so dark mode follows. */
+.texture-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-rule) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-rule) 70%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: -1px -1px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 55%, transparent 100%);
+}
+/* Home hero grid: much fainter than the page-header grid, and faded out toward
+   the right where the screenshots sit so it never competes with them. */
+.texture-grid-hero {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-rule) 38%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-rule) 38%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: -1px -1px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 70%);
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 70%);
+}
+[data-theme="dark"] .texture-grid-hero {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-rule) 16%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-rule) 16%, transparent) 1px, transparent 1px);
+}
+@media (min-width: 1024px) {
+  .texture-grid-hero {
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 25%, transparent 50%);
+    mask-image: linear-gradient(to right, #000 0%, #000 25%, transparent 50%);
+  }
+}
+.texture-grid-band {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-band-ink) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-band-ink) 9%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 75%);
+  mask-image: linear-gradient(to left, #000 0%, transparent 75%);
+}
+.texture-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+}
+[data-theme="dark"] .texture-grain {
+  opacity: 0.08;
+  filter: invert(1);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tile-frame {
+    transition:
+      transform var(--motion-dur-base) var(--motion-ease-out),
+      box-shadow var(--motion-dur-base) var(--motion-ease-out);
+  }
+  .group:hover .tile-frame,
+  .group:has(a:focus-visible) .tile-frame {
+    transform: translateY(-4px);
+  }
+}
+.group:hover .tile-frame,
+.group:has(a:focus-visible) .tile-frame {
+  box-shadow: 0 18px 40px -22px color-mix(in srgb, var(--color-accent) 55%, transparent);
+  border-color: var(--color-accent);
+}
+
+/*
+ * Scroll reveal. Content is visible by default (no JS, reduced motion, SEO).
+ * It is hidden only when <html> carries .js-motion (set by an inline script in
+ * <head>, and only under prefers-reduced-motion: no-preference) and the element
+ * has not been marked [data-revealed] by RevealObserver. Only opacity,
+ * transform and clip-path animate, so layout never shifts (CLS 0).
+ * Stagger: --i (0..3) is set per element by the server component.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .js-motion [data-reveal] {
+    transition-property: opacity, transform, clip-path;
+    transition-duration: var(--motion-dur-slow);
+    transition-timing-function: var(--motion-ease-out);
+    transition-delay: calc(var(--i, 0) * var(--motion-stagger));
+  }
+  .js-motion [data-reveal][data-revealed="instant"] {
+    transition: none;
+  }
+  .js-motion [data-reveal="up"]:not([data-revealed]) {
+    opacity: 0;
+    transform: translateY(var(--motion-dist));
+  }
+  .js-motion [data-reveal="fade"]:not([data-revealed]) {
+    opacity: 0;
+  }
+  .js-motion [data-reveal="line"] {
+    transform-origin: left center;
+  }
+  .js-motion [data-reveal="line"]:not([data-revealed]) {
+    transform: scaleX(0);
+  }
+  .js-motion [data-reveal="clip"] {
+    clip-path: inset(0 0 0 0);
+  }
+  .js-motion [data-reveal="clip"]:not([data-revealed]) {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+/* Entering UI (mobile sheet, form messages): fades in on mount, no JS. */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-enter {
+    transition:
+      opacity var(--motion-dur-base) var(--motion-ease-out),
+      transform var(--motion-dur-base) var(--motion-ease-out);
+    @starting-style {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+}
+
+/* Cross-document navigations only (see report): short root cross-fade. */
+@view-transition {
+  navigation: auto;
+}
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 200ms;
+    animation-timing-function: var(--motion-ease-out);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+

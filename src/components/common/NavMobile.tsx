@@ -49,7 +49,7 @@ export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeL
   return (
     <div
       id="mobile-nav"
-      className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-paper md:top-[4.5rem] lg:hidden"
+      className="motion-enter fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-paper md:top-[4.5rem] lg:hidden"
     >
       <nav className="mx-auto flex min-h-full max-w-[1360px] flex-col px-5 pb-10 pt-6 md:px-8">
         <ul className="border-b border-rule">

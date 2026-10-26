@@ -1,6 +1,7 @@
 import cx from "classnames";
 import Image from "next/image";
 import Link from "next/link";
+import { revealProps } from "@/lib/motion/reveal";
 
 export type ProjectTileData = {
   href: string;
@@ -21,6 +22,7 @@ export default function ProjectTile({
   headingLevel = "h3",
   layout = "stacked",
   emphasis = "md",
+  reveal,
   className,
 }: {
   project: ProjectTileData;
@@ -30,9 +32,12 @@ export default function ProjectTile({
   headingLevel?: "h2" | "h3";
   layout?: "stacked" | "side";
   emphasis?: "lg" | "md" | "sm";
+  /** Scroll reveal (clip on the image, rise on the text). Defaults to off for the priority tile. */
+  reveal?: boolean;
   className?: string;
 }) {
   const Title = headingLevel;
+  const animate = reveal ?? !priority;
   const titleSize =
     emphasis === "lg" ? "text-[1.625rem] leading-[1.15] tracking-[-0.015em] md:text-[2rem]" : emphasis === "md" ? "text-h3 md:text-[1.625rem] md:leading-tight" : "text-h3";
 
@@ -46,22 +51,30 @@ export default function ProjectTile({
     >
       <div
         className={cx(
-          "relative aspect-[16/9] overflow-hidden rounded-[var(--radius-media)] bg-surface",
+          "tile-frame rounded-[calc(var(--radius-media)+6px)] border border-rule bg-raised p-1.5 md:p-2.5",
           layout === "side" && "lg:col-span-8"
         )}
       >
-        {project.image ? (
-          <Image
-            src={project.image.src}
-            alt={project.image.alt}
-            fill
-            sizes={sizes}
-            priority={priority}
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.015] group-has-[a:focus-visible]:scale-[1.015] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-          />
-        ) : null}
+        <div
+          className="relative aspect-[16/9] overflow-hidden rounded-[var(--radius-media)] bg-surface"
+          {...(animate ? revealProps("clip") : {})}
+        >
+          {project.image ? (
+            <Image
+              src={project.image.src}
+              alt={project.image.alt}
+              fill
+              sizes={sizes}
+              priority={priority}
+              className="object-cover transition-transform duration-(--motion-dur-slow) ease-(--motion-ease-out) group-hover:scale-[1.03] group-has-[a:focus-visible]:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            />
+          ) : null}
+        </div>
       </div>
-      <div className={cx("mt-5", layout === "side" && "lg:col-span-4 lg:mt-0 lg:pb-2")}>
+      <div
+        className={cx("mt-5", layout === "side" && "lg:col-span-4 lg:mt-0 lg:pb-2")}
+        {...(animate ? revealProps("up", 1) : {})}
+      >
         {project.meta && <p className="mb-2 text-meta text-muted">{project.meta}</p>}
         <Title className={cx("font-sans font-semibold text-ink text-balance", titleSize)}>
           <Link

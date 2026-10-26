@@ -20,6 +20,8 @@ export default function SelectedWork({ content }: { content: SelectedWorkContent
       heading={content.heading}
       intro={content.intro}
       layout="stacked"
+      tone="surface"
+      revealContent={false}
       action={
         <ButtonLink href={content.all.href} variant="secondary">
           {content.all.label}

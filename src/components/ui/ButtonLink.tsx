@@ -6,7 +6,7 @@ export type ButtonVariant = "primary" | "secondary" | "inverse" | "text";
 export type ButtonSize = "sm" | "md" | "lg";
 
 const BASE =
-  "inline-flex items-center justify-center gap-2 font-sans font-medium whitespace-nowrap rounded-[var(--radius-control)] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-3 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 font-sans font-medium whitespace-nowrap rounded-[var(--radius-control)] transition-[color,background-color,border-color,text-decoration-color,transform] duration-(--motion-dur-fast) ease-(--motion-ease-out) motion-safe:active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-3 disabled:cursor-not-allowed disabled:opacity-60";
 
 const VARIANTS: Record<ButtonVariant, string> = {
   primary: "bg-accent text-on-accent hover:bg-accent-strong dark:hover:bg-accent-strong",

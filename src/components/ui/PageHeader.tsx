@@ -31,8 +31,9 @@ export default function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <header className="pb-14 pt-8 md:pb-20 md:pt-12">
-      <Container>
+    <header className="relative overflow-hidden pb-14 pt-8 md:pb-20 md:pt-12">
+      <div aria-hidden="true" className="texture-grid pointer-events-none absolute inset-0 opacity-60" />
+      <Container className="relative">
         <Breadcrumbs currentLabel={crumbLabel} className="mb-12 md:mb-20" />
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           <div className={cx(aside ? "lg:col-span-8" : "lg:col-span-10")}>

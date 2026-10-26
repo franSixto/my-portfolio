@@ -1,6 +1,7 @@
 import Heading from "@/components/ui/Heading";
 import TrackedLink, { type ContactChannel } from "@/components/ui/TrackedLink";
 import type { Locale } from "@/i18n/routes";
+import { revealProps } from "@/lib/motion/reveal";
 
 export type DirectChannelsContent = {
   heading: string;
@@ -28,7 +29,7 @@ export default function DirectChannels({
   locale: Locale;
 }) {
   return (
-    <section aria-labelledby="direct-channels-title" className="mt-12">
+    <section aria-labelledby="direct-channels-title" className="mt-12" {...revealProps("up", 2)}>
       <Heading id="direct-channels-title" size="h3">
         {content.heading}
       </Heading>

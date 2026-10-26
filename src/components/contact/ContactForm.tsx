@@ -17,6 +17,7 @@ import {
   type ProjectTypeKey,
 } from "@/lib/contact/projectTypes";
 import { RECAPTCHA_SITE_KEY } from "@/lib/contact/siteKey";
+import { revealProps } from "@/lib/motion/reveal";
 import { validateContactFields, type FieldErrorCode } from "@/lib/contact/validate";
 
 const fieldClass =
@@ -143,6 +144,7 @@ export default function ContactForm({ copy, locale }: { copy: ContactFormCopy; l
       id="contact-form"
       aria-labelledby="contact-form-title"
       className="rounded-[var(--radius-media)] border border-rule bg-raised p-6 md:p-10"
+      {...revealProps("up", 1)}
     >
       <h2 id="contact-form-title" className="mb-8 font-sans text-h3 font-semibold text-ink">
         {copy.heading}
@@ -264,14 +266,14 @@ export default function ContactForm({ copy, locale }: { copy: ContactFormCopy; l
         {/* Always in the DOM so assistive tech announces what gets injected. */}
         <div ref={statusRef} role="status" aria-live="polite" tabIndex={-1} className="outline-none">
           {status === "success" && (
-            <div className="rounded-[var(--radius-control)] bg-accent-soft p-6">
+            <div className="motion-enter rounded-[var(--radius-control)] bg-accent-soft p-6">
               <RiCheckLine aria-hidden="true" className="size-8 text-accent" />
               <p className="mt-3 font-sans text-[1.1875rem] font-semibold text-ink">{copy.success.title}</p>
               <p className="mt-1 text-ui text-muted">{copy.success.text}</p>
             </div>
           )}
           {status === "error" && (
-            <p className="rounded-[var(--radius-control)] border border-danger p-4 text-ui font-medium text-danger text-pretty">
+            <p className="motion-enter rounded-[var(--radius-control)] border border-danger p-4 text-ui font-medium text-danger text-pretty">
               {captchaUnavailable ? copy.captchaUnavailable : copy.failure}
             </p>
           )}

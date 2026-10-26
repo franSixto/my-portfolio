@@ -61,8 +61,8 @@ export default function Header() {
                       href={localePath(item.route)}
                       aria-current={active ? "page" : undefined}
                       className={cx(
-                        "relative py-2 text-[0.9375rem] font-medium transition-colors",
-                        "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:bg-accent after:transition-transform after:duration-200 motion-reduce:after:transition-none",
+                        "relative py-2 text-[0.9375rem] font-medium transition-colors duration-(--motion-dur-fast)",
+                        "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:bg-accent after:transition-transform after:duration-(--motion-dur-base) after:ease-(--motion-ease-out) motion-reduce:after:transition-none",
                         active
                           ? "text-ink after:scale-x-100"
                           : "text-muted hover:text-ink after:scale-x-0 hover:after:scale-x-100"

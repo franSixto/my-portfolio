@@ -43,7 +43,7 @@ export default function IndexLinks({
             )}
             <span
               aria-hidden="true"
-              className="hidden justify-self-end text-muted transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent motion-reduce:transition-none md:col-span-1 md:block"
+              className="hidden justify-self-end text-muted transition-transform duration-(--motion-dur-base) ease-(--motion-ease-out) group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent motion-reduce:transition-none md:col-span-1 md:block"
             >
               <ArrowUpRight className="size-6" />
             </span>

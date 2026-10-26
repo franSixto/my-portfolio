@@ -1,3 +1,5 @@
+import Reveal from "@/components/ui/Reveal";
+
 type Columns = { service: string; who: string; get: string; bring: string };
 
 /**
@@ -35,8 +37,14 @@ export default function ComparisonTable({
         </tr>
       </thead>
       <tbody className="block md:table-row-group">
-        {rows.map((row) => (
-          <tr key={row.service} className="block border-t border-rule py-5 md:table-row md:py-0">
+        {rows.map((row, i) => (
+          <Reveal
+            as="tr"
+            variant="fade"
+            index={i}
+            key={row.service}
+            className="block border-t border-rule py-5 md:table-row md:py-0"
+          >
             <th scope="row" className="block pb-2 text-left font-sans text-[1.1875rem] font-semibold text-ink md:table-cell md:border-t md:border-rule md:px-4 md:py-5 md:align-top md:pl-0 md:text-ui md:text-ink">
               {row.service}
             </th>
@@ -52,7 +60,7 @@ export default function ComparisonTable({
               <span className={label}>{columns.bring}</span>
               {row.bring}
             </td>
-          </tr>
+          </Reveal>
         ))}
       </tbody>
     </table>

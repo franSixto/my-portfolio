@@ -1,6 +1,7 @@
 import cx from "classnames";
 import type { ReactNode } from "react";
 import Container from "./Container";
+import { revealProps } from "@/lib/motion/reveal";
 import Heading from "./Heading";
 import { Eyebrow } from "./Text";
 
@@ -19,6 +20,7 @@ export default function Section({
   tone = "paper",
   ruled = true,
   spacing = "default",
+  revealContent = true,
   className,
   children,
 }: {
@@ -28,10 +30,12 @@ export default function Section({
   intro?: ReactNode;
   action?: ReactNode;
   layout?: "hanging" | "stacked";
-  tone?: "paper" | "surface";
+  tone?: "paper" | "surface" | "accent";
   ruled?: boolean;
   /** "compact" for consecutive blocks inside one long page. */
   spacing?: "default" | "compact";
+  /** Fade the content block in. Off when children reveal themselves. */
+  revealContent?: boolean;
   className?: string;
   children: ReactNode;
 }) {
@@ -52,6 +56,7 @@ export default function Section({
       aria-labelledby={headingId}
       className={cx(
         tone === "surface" && "bg-surface",
+        tone === "accent" && "bg-accent-soft",
         spacing === "compact" ? "py-12 md:py-16" : "py-20 md:py-28",
         className
       )}
@@ -62,19 +67,27 @@ export default function Section({
             <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
               <header className="lg:col-span-4 lg:pr-6">
                 <div className="lg:sticky lg:top-28">
-                  {title}
-                  {action && <div className="mt-6">{action}</div>}
+                  <div {...revealProps("up")}>
+                    {title}
+                    {action && <div className="mt-6">{action}</div>}
+                  </div>
                 </div>
               </header>
-              <div className="lg:col-span-8">{children}</div>
+              <div className="lg:col-span-8" {...(revealContent ? revealProps("up", 1) : {})}>
+                {children}
+              </div>
             </div>
           ) : (
             <>
               <header className="mb-12 md:mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-                <div>{title}</div>
-                {action && <div className="shrink-0">{action}</div>}
+                <div {...revealProps("up")}>{title}</div>
+                {action && (
+                  <div className="shrink-0" {...revealProps("up", 1)}>
+                    {action}
+                  </div>
+                )}
               </header>
-              {children}
+              {revealContent ? <div {...revealProps("up", 1)}>{children}</div> : children}
             </>
           )}
         </div>

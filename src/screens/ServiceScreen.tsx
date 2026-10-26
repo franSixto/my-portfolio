@@ -59,7 +59,7 @@ export default function ServiceScreen({
       <FaqList id="faq" heading={ui.faq} faqs={content.faqs} />
 
       {projects.length > 0 && (
-        <Section id="related-projects" heading={ui.relatedProjects} layout="stacked" spacing="compact">
+        <Section id="related-projects" heading={ui.relatedProjects} layout="stacked" spacing="compact" revealContent={false}>
           <ul className="grid gap-12 md:grid-cols-2 md:gap-8">
             {projects.map((project) => (
               <li key={project.href}>
