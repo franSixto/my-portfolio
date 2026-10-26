@@ -2,7 +2,18 @@ import type { CaseStudy } from "./types";
 
 export const autocityGrupoTagle: CaseStudy = {
   slug: "autocity-grupo-tagle",
-  hero: { src: "/projects/autocity-grupo-tagle.webp", width: 1200, height: 675 },
+  cover: { src: "/projects/covers/autocity-grupo-tagle.webp", width: 1600, height: 900 },
+  gallery: [
+    {
+      src: "/projects/autocity-grupo-tagle.webp",
+      width: 1200,
+      height: 675,
+      alt: {
+        es: "Sitios web de Autocity y marcas del Grupo Tagle",
+        en: "Websites for Autocity and Grupo Tagle brands",
+      },
+    },
+  ],
   logo: { src: "/projects/logo-autocity.svg", width: 94, height: 25 },
   relatedService: "serviceWebDesign",
   secondaryService: "serviceUxUi",
@@ -14,7 +25,7 @@ export const autocityGrupoTagle: CaseStudy = {
     seoDescription:
       "Caso de estudio: rediseño UX/UI del catálogo de autos de Autocity con comparador y cotización online, y sitios web para marcas del Grupo Tagle.",
     h1: "Autocity y Grupo Tagle: un catálogo de autos más fácil de recorrer y sitios para cinco marcas",
-    heroAlt: "Sitios web de Autocity y marcas del Grupo Tagle",
+    coverAlt: "Portada tipográfica del caso Autocity y Grupo Tagle, catálogo de autos y sitios de marca",
     logoAlt: "Logo de Autocity",
     meta: {
       role: "Líder UX/UI",
@@ -108,7 +119,7 @@ export const autocityGrupoTagle: CaseStudy = {
     seoDescription:
       "Case study: UX/UI redesign of Autocity's car catalog with vehicle comparison and online quotes, plus websites for Grupo Tagle brands.",
     h1: "Autocity & Grupo Tagle: an easier car catalog and websites for five brands",
-    heroAlt: "Websites for Autocity and Grupo Tagle brands",
+    coverAlt: "Typographic cover of the Autocity and Grupo Tagle case, car catalog and brand websites",
     logoAlt: "Autocity logo",
     meta: {
       role: "UX/UI Lead",

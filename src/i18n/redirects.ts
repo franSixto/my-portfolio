@@ -12,6 +12,9 @@ export const LEGACY_PROJECT_SLUGS = {
   "experience-at-apex": "apex-america",
 } as const;
 
+/** Case studies taken down after being published: they go to the projects list. */
+export const REMOVED_PROJECT_SLUGS = ["portfolio-fransixto", "deep-creek-branding"] as const;
+
 /**
  * Every rule is a single hop to the final URL (no chains). The specific
  * legacy-slug rules come first so they win over the generic /projects/:slug.
@@ -24,10 +27,17 @@ export function buildRedirects(): RedirectRule[] {
     { source: `/projects/${old}`, destination: `/proyectos/${next}`, permanent: true },
   ]);
 
+  // Temporary: a removed case may come back under the same slug.
+  const removed = REMOVED_PROJECT_SLUGS.flatMap((slug) => [
+    { source: `/proyectos/${slug}`, destination: "/proyectos", permanent: false },
+    { source: `/en/projects/${slug}`, destination: "/en/projects", permanent: false },
+  ]);
+
   return [
     { source: "/about", destination: "/sobre-mi", permanent: true },
     { source: "/projects", destination: "/proyectos", permanent: true },
     ...renamed,
+    ...removed,
     // Slugs never contain a dot: this keeps /projects/*.webp (public assets) out of the redirect.
     { source: "/projects/:slug([^./]+)", destination: "/proyectos/:slug", permanent: true },
     { source: "/contact", destination: "/contacto", permanent: true },

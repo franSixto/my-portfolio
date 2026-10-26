@@ -14,7 +14,7 @@ export type ProjectContentProps = {
   title: string;
   lead: string;
   crumbLabel: string;
-  hero: { src: string; width: number; height: number; alt: string };
+  cover: { src: string; width: number; height: number; alt: string };
   logo?: { src: string; width: number; height: number; alt: string };
   meta: { label: string; value: string }[];
   links: { label: string; href: string; ariaLabel: string; note?: string }[];
@@ -49,7 +49,7 @@ export default function ProjectContent({
   title,
   lead,
   crumbLabel,
-  hero,
+  cover,
   logo,
   meta,
   links,
@@ -65,10 +65,10 @@ export default function ProjectContent({
       <Container>
         <div className="overflow-hidden rounded-[var(--radius-media)] bg-surface">
           <Image
-            src={hero.src}
-            alt={hero.alt}
-            width={hero.width}
-            height={hero.height}
+            src={cover.src}
+            alt={cover.alt}
+            width={cover.width}
+            height={cover.height}
             priority
             sizes="(min-width: 1360px) 1264px, (min-width: 768px) calc(100vw - 4rem), calc(100vw - 2.5rem)"
             className="h-auto w-full"

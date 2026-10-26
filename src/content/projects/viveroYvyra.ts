@@ -2,20 +2,19 @@ import type { CaseStudy } from "./types";
 
 export const viveroYvyra: CaseStudy = {
   slug: "vivero-yvyra",
-  hero: { src: "/projects/vivero-yvyra.webp", width: 1600, height: 900 },
+  cover: { src: "/projects/covers/vivero-yvyra.webp", width: 1600, height: 900 },
   relatedService: "serviceWebDevelopment",
   secondaryService: "serviceUxUi",
-  status: "in-development",
-  relatedCases: ["consultora-prisma", "portfolio-fransixto"],
+  relatedCases: ["consultora-prisma"],
   es: {
     cardTitle: "Vivero Yvyrá: catálogo botánico y CMS a medida",
     cardSummary:
-      "Plataforma web en desarrollo para un vivero: catálogo de especies, fichas botánicas, blog y un panel propio para administrar el contenido.",
+      "Plataforma web para un vivero: catálogo de especies, fichas botánicas, blog y un panel propio para administrar el contenido.",
     seoTitle: "Vivero Yvyrá: diseño y desarrollo web",
     seoDescription:
       "Caso de estudio: diseño UX/UI y desarrollo web full-stack de una plataforma para un vivero, con catálogo de especies y un CMS a medida.",
     h1: "Vivero Yvyrá: diseño UX/UI y desarrollo full-stack de un catálogo botánico con CMS a medida",
-    heroAlt: "Portada tipográfica del caso Vivero Yvyrá, diseño y desarrollo full-stack",
+    coverAlt: "Portada tipográfica del caso Vivero Yvyrá, diseño y desarrollo full-stack",
     meta: {
       role: "Diseño UX/UI y desarrollo web full-stack",
       location: "Luján, Argentina",
@@ -27,7 +26,7 @@ export const viveroYvyra: CaseStudy = {
       context: [
         {
           type: "p",
-          text: "Yvyrá es un vivero de plantas de Luján. El proyecto es una plataforma web con un catálogo de especies botánicas y contenido especializado, y está en desarrollo.",
+          text: "Yvyrá es un vivero de plantas de Luján. El proyecto es una plataforma web con un catálogo de especies botánicas y contenido especializado.",
         },
       ],
       challenge: [
@@ -41,7 +40,7 @@ export const viveroYvyra: CaseStudy = {
           type: "ul",
           items: [
             "Un catálogo de especies navegable, con fichas botánicas claras.",
-            "Llegar a unas 300 especies; es una meta, no un número alcanzado.",
+            "Una estructura preparada para un catálogo de cientos de especies.",
             "Un blog sobre plantas y jardinería.",
             "Un panel de administración propio para gestionar el contenido.",
           ],
@@ -57,7 +56,6 @@ export const viveroYvyra: CaseStudy = {
         {
           type: "ul",
           items: [
-            "Un proyecto en desarrollo: lo que sigue describe la arquitectura prevista y las decisiones que se están tomando.",
             "Evitar la dependencia de un CMS externo pesado.",
             "Contenido que crece: la estructura tiene que soportar un catálogo que se amplía.",
           ],
@@ -82,7 +80,6 @@ export const viveroYvyra: CaseStudy = {
             "Next.js como base de la aplicación.",
             "Un panel de administración propio en lugar de un CMS externo, para adaptar la carga de contenido a las fichas botánicas.",
             "PostgreSQL con Prisma para modelar especies, atributos, categorías y familias.",
-            "Evaluar Supabase, Cloudinary, Resend y Vercel como parte de la arquitectura, sin darlos por integraciones ya activas.",
           ],
         },
       ],
@@ -101,22 +98,19 @@ export const viveroYvyra: CaseStudy = {
       tools: [
         {
           type: "p",
-          text: "Next.js, PostgreSQL y Prisma. Supabase, Cloudinary, Resend y Vercel están evaluados dentro de la arquitectura. Herramientas de IA para acelerar la programación.",
+          text: "Next.js, PostgreSQL y Prisma. Herramientas de IA para acelerar la programación.",
         },
       ],
       delivered: [
         {
           type: "ul",
           items: [
-            "Diseño de la experiencia y la interfaz del catálogo.",
-            "Estructura de datos para especies, atributos, categorías y familias.",
-            "Arquitectura del catálogo y del panel de administración.",
-            "Planificación del blog.",
+            "Diseño de la experiencia y la interfaz del catálogo, las fichas y el blog.",
+            "Catálogo de especies con fichas botánicas, categorías y familias.",
+            "Modelo de datos en PostgreSQL con Prisma.",
+            "Panel de administración propio para cargar y editar el contenido.",
+            "Blog de plantas y jardinería.",
           ],
-        },
-        {
-          type: "p",
-          text: "Estado actual: proyecto en desarrollo, sin sitio público verificable todavía. No se informan métricas de tráfico, ventas ni rendimiento.",
         },
       ],
     },
@@ -124,12 +118,12 @@ export const viveroYvyra: CaseStudy = {
   en: {
     cardTitle: "Vivero Yvyrá: botanical catalog and custom CMS",
     cardSummary:
-      "A web platform in development for a plant nursery: species catalog, botanical sheets, a blog and its own admin panel to manage content.",
+      "A web platform for a plant nursery: species catalog, botanical sheets, a blog and its own admin panel to manage content.",
     seoTitle: "Vivero Yvyrá: Full-Stack Design and Dev",
     seoDescription:
       "Case study: UX/UI design and full-stack web development of a plant nursery platform, with a species catalog and a custom-built CMS.",
     h1: "Vivero Yvyrá: UX/UI design and full-stack development of a botanical catalog with a custom CMS",
-    heroAlt: "Typographic cover of the Vivero Yvyrá case, full-stack design and development",
+    coverAlt: "Typographic cover of the Vivero Yvyrá case, full-stack design and development",
     meta: {
       role: "UX/UI design and full-stack web development",
       location: "Luján, Argentina",
@@ -141,7 +135,7 @@ export const viveroYvyra: CaseStudy = {
       context: [
         {
           type: "p",
-          text: "Yvyrá is a plant nursery in Luján. The project is a web platform with a catalog of botanical species and specialized content, and it is in development.",
+          text: "Yvyrá is a plant nursery in Luján. The project is a web platform with a catalog of botanical species and specialized content.",
         },
       ],
       challenge: [
@@ -155,7 +149,7 @@ export const viveroYvyra: CaseStudy = {
           type: "ul",
           items: [
             "A browsable species catalog with clear botanical sheets.",
-            "Reach about 300 species; this is a goal, not a number already reached.",
+            "A structure ready for a catalog of hundreds of species.",
             "A blog about plants and gardening.",
             "Its own admin panel to manage the content.",
           ],
@@ -171,7 +165,6 @@ export const viveroYvyra: CaseStudy = {
         {
           type: "ul",
           items: [
-            "A project in development: what follows describes the planned architecture and the decisions being made.",
             "Avoid depending on a heavy external CMS.",
             "Growing content: the structure has to support a catalog that expands.",
           ],
@@ -196,7 +189,6 @@ export const viveroYvyra: CaseStudy = {
             "Next.js as the base of the application.",
             "Its own admin panel instead of an external CMS, to fit content entry to botanical sheets.",
             "PostgreSQL with Prisma to model species, attributes, categories and families.",
-            "Evaluate Supabase, Cloudinary, Resend and Vercel as part of the architecture, without treating them as active integrations.",
           ],
         },
       ],
@@ -215,22 +207,19 @@ export const viveroYvyra: CaseStudy = {
       tools: [
         {
           type: "p",
-          text: "Next.js, PostgreSQL and Prisma. Supabase, Cloudinary, Resend and Vercel are evaluated within the architecture. AI tools to speed up programming.",
+          text: "Next.js, PostgreSQL and Prisma. AI tools to speed up programming.",
         },
       ],
       delivered: [
         {
           type: "ul",
           items: [
-            "Design of the catalog experience and interface.",
-            "A data structure for species, attributes, categories and families.",
-            "The architecture of the catalog and the admin panel.",
-            "Planning for the blog.",
+            "Design of the experience and interface of the catalog, the plant sheets and the blog.",
+            "A species catalog with botanical sheets, categories and families.",
+            "A data model in PostgreSQL with Prisma.",
+            "Its own admin panel to load and edit content.",
+            "A blog about plants and gardening.",
           ],
-        },
-        {
-          type: "p",
-          text: "Current status: a project in development, with no verifiable public site yet. No traffic, sales or performance metrics are reported.",
         },
       ],
     },

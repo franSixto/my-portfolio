@@ -2,7 +2,7 @@ import type { CaseStudy } from "./types";
 
 export const ortopediaParaTi: CaseStudy = {
   slug: "ortopedia-para-ti",
-  hero: { src: "/projects/ortopedia-para-ti.webp", width: 1600, height: 900 },
+  cover: { src: "/projects/covers/ortopedia-para-ti.webp", width: 1600, height: 900 },
   relatedService: "serviceUxUi",
   secondaryService: "serviceWebDesign",
   status: "design-proposal",
@@ -15,7 +15,7 @@ export const ortopediaParaTi: CaseStudy = {
     seoDescription:
       "Caso de estudio: rediseño UX/UI en Figma de la tienda online Ortopedia Para Ti. Lenguaje visual, componentes, ficha de producto, menú y blog.",
     h1: "Ortopedia Para Ti: propuesta de rediseño UX/UI para un e-commerce de productos ortopédicos",
-    heroAlt: "Portada tipográfica del caso Ortopedia Para Ti, rediseño UX/UI de e-commerce",
+    coverAlt: "Portada tipográfica del caso Ortopedia Para Ti, rediseño UX/UI de e-commerce",
     meta: {
       role: "Diseño UX/UI (sin implementación)",
       platform: "WordPress y WooCommerce (tienda actual)",
@@ -127,7 +127,7 @@ export const ortopediaParaTi: CaseStudy = {
     seoDescription:
       "Case study: UX/UI redesign in Figma for the Ortopedia Para Ti online store. Visual language, components, product page, menu and blog layout.",
     h1: "Ortopedia Para Ti: a UX/UI redesign proposal for an orthopedic products e-commerce",
-    heroAlt: "Typographic cover of the Ortopedia Para Ti case, an e-commerce UX/UI redesign",
+    coverAlt: "Typographic cover of the Ortopedia Para Ti case, an e-commerce UX/UI redesign",
     meta: {
       role: "UX/UI design (no implementation)",
       platform: "WordPress and WooCommerce (current store)",

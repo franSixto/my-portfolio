@@ -19,7 +19,7 @@ function buildProjectJsonLd(slug: string, locale: Locale) {
     name: copy.h1,
     description: copy.seoDescription,
     url: absoluteUrl(localizedPath("project", locale, { slug })),
-    image: absoluteUrl(study.hero.src),
+    image: absoluteUrl(study.cover.src),
     author: { "@id": `${SITE_URL}/#person` },
     inLanguage: locale,
   };
@@ -55,7 +55,7 @@ export default function ProjectScreen({ locale, slug }: { locale: Locale; slug: 
         title={copy.h1}
         lead={copy.cardSummary}
         crumbLabel={copy.cardTitle}
-        hero={{ ...study.hero, alt: copy.heroAlt }}
+        cover={{ ...study.cover, alt: copy.coverAlt }}
         logo={study.logo && { ...study.logo, alt: copy.logoAlt ?? "" }}
         meta={buildMetaItems(copy.meta, locale, study.status)}
         links={(copy.links ?? []).map((link) => ({

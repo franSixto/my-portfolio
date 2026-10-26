@@ -4,13 +4,11 @@ import { apexAmerica } from "./apexAmerica";
 import { autocityGrupoTagle } from "./autocityGrupoTagle";
 import { bienestarSenior } from "./bienestarSenior";
 import { consultoraPrisma } from "./consultoraPrisma";
-import { deepCreekBranding } from "./deepCreekBranding";
 import { deepCreekSolutions } from "./deepCreekSolutions";
 import { ortopediaParaTi } from "./ortopediaParaTi";
 import { rexia } from "./rexia";
 import { viveroYvyra } from "./viveroYvyra";
 import { officinaArtis } from "./officinaArtis";
-import { portfolioFransixto } from "./portfolioFransixto";
 import { sixtoVanGarret } from "./sixtoVanGarret";
 import { startUniversity } from "./startUniversity";
 import type { CaseCopy, CaseStudy } from "./types";
@@ -25,8 +23,6 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
   ortopediaParaTi,
   consultoraPrisma,
   viveroYvyra,
-  deepCreekBranding,
-  portfolioFransixto,
   sixtoVanGarret,
   officinaArtis,
   apexAmerica,

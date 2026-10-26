@@ -2,7 +2,18 @@ import type { CaseStudy } from "./types";
 
 export const apexAmerica: CaseStudy = {
   slug: "apex-america",
-  hero: { src: "/projects/apex-projects.webp", width: 1600, height: 900 },
+  cover: { src: "/projects/covers/apex-america.webp", width: 1600, height: 900 },
+  gallery: [
+    {
+      src: "/projects/apex-projects.webp",
+      width: 1600,
+      height: 900,
+      alt: {
+        es: "Piezas de comunicación y señalética para Apex America",
+        en: "Communication pieces and signage for Apex America",
+      },
+    },
+  ],
   logo: { src: "/projects/logo-apex.png", width: 109, height: 40 },
   // No service fits: the case supports the background story, so it links to About.
   relatedService: "about",
@@ -14,7 +25,7 @@ export const apexAmerica: CaseStudy = {
     seoDescription:
       "Caso de estudio: comunicación interna, señalética y contenido de marca para las oficinas de Apex America en Latinoamérica. Design Sprints.",
     h1: "Apex America: comunicación interna y señalética para oficinas en Latinoamérica",
-    heroAlt: "Piezas de comunicación y señalética para Apex America",
+    coverAlt: "Portada tipográfica del caso Apex America, comunicación interna y señalética",
     logoAlt: "Logo de Apex America",
     meta: {
       role: "Analista de comunicaciones y diseñador",
@@ -96,7 +107,7 @@ export const apexAmerica: CaseStudy = {
     seoDescription:
       "Case study: internal communications, signage and brand content for Apex America offices across Latin America, plus Design Sprints.",
     h1: "Apex America: internal communications and signage for offices across Latin America",
-    heroAlt: "Communication pieces and signage for Apex America",
+    coverAlt: "Typographic cover of the Apex America case, internal communication and signage",
     logoAlt: "Apex America logo",
     meta: {
       role: "Communications Analyst & Designer",

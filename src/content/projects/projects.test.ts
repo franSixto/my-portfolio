@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { FEATURED_PROJECT_SLUGS } from "@/content/featuredProjects";
 import { serviceContent } from "@/content/services";
@@ -18,8 +18,6 @@ const EXPECTED_ORDER = [
   "ortopedia-para-ti",
   "consultora-prisma",
   "vivero-yvyra",
-  "deep-creek-branding",
-  "portfolio-fransixto",
   "sixto-van-garret",
   "officina-artis",
   "apex-america",
@@ -141,16 +139,16 @@ describe("case studies copy hygiene", () => {
 describe("case studies assets and links", () => {
   it("uses existing images with explicit dimensions and meaningful alt text", () => {
     for (const study of CASE_STUDIES) {
-      expect(existsSync(`public${study.hero.src}`), study.hero.src).toBe(true);
-      expect(study.hero.width).toBeGreaterThan(0);
-      expect(study.hero.height).toBeGreaterThan(0);
+      expect(existsSync(`public${study.cover.src}`), study.cover.src).toBe(true);
+      expect(study.cover.width).toBeGreaterThan(0);
+      expect(study.cover.height).toBeGreaterThan(0);
       if (study.logo) {
         expect(existsSync(`public${study.logo.src}`), study.logo.src).toBe(true);
         expect(study.logo.width).toBeGreaterThan(0);
         expect(study.logo.height).toBeGreaterThan(0);
       }
       for (const locale of locales) {
-        expect(study[locale].heroAlt.length).toBeGreaterThan(10);
+        expect(study[locale].coverAlt.length).toBeGreaterThan(10);
         if (study.logo) expect(study[locale].logoAlt?.length).toBeGreaterThan(3);
       }
     }
@@ -184,8 +182,8 @@ describe("references to case studies", () => {
     const related = (key: keyof typeof serviceContent) => serviceContent[key].es.relatedProjectSlugs;
     expect(related("serviceUxUi")).toEqual(["start-university", "deep-creek-solutions", "autocity-grupo-tagle"]);
     expect(related("serviceWebDesign")).toEqual(["autocity-grupo-tagle", "sixto-van-garret", "start-university"]);
-    expect(related("serviceWebDevelopment")).toEqual(["portfolio-fransixto", "start-university", "officina-artis"]);
-    expect(related("serviceAiMvp")).toEqual(["portfolio-fransixto", "deep-creek-solutions"]);
+    expect(related("serviceWebDevelopment")).toEqual(["start-university", "officina-artis", "consultora-prisma"]);
+    expect(related("serviceAiMvp")).toEqual(["deep-creek-solutions"]);
     for (const content of Object.values(serviceContent))
       for (const locale of locales)
         expect(content[locale].relatedProjectSlugs).toEqual(content.es.relatedProjectSlugs);
@@ -196,18 +194,17 @@ const NEW_SLUGS = [
   "ortopedia-para-ti",
   "bienestar-senior",
   "rexia",
-  "deep-creek-branding",
   "consultora-prisma",
   "vivero-yvyra",
 ];
 const DESIGN_ONLY = ["ortopedia-para-ti", "bienestar-senior", "rexia"];
-const NOT_LIVE = ["ortopedia-para-ti", "bienestar-senior", "vivero-yvyra", "deep-creek-branding", "rexia"];
+const NOT_LIVE = ["ortopedia-para-ti", "bienestar-senior", "vivero-yvyra", "rexia"];
 const IMPLEMENTATION_ES = /\b(desarroll[ée]|implement[ée]|program[ée]|codifiqu[ée]|constru[ií])\b/i;
 const IMPLEMENTATION_EN = /\bI (built|developed|implemented|coded|programmed|engineered)\b/i;
 const LIVE_CLAIMS = /\b(lanzad[oa]s?|en producci[óo]n|launched|went live|is live|ya est[áa] en l[íi]nea)\b/i;
 
 describe("new case studies", () => {
-  it("registers the six cases with the requested slugs", () => {
+  it("registers the new cases with the requested slugs", () => {
     for (const slug of NEW_SLUGS) expect(getCaseSlugs()).toContain(slug);
   });
 
@@ -215,8 +212,10 @@ describe("new case studies", () => {
     expect(getCaseStudy("ortopedia-para-ti")?.status).toBe("design-proposal");
     expect(getCaseStudy("bienestar-senior")?.status).toBe("design-proposal");
     expect(getCaseStudy("rexia")?.status).toBe("ongoing-confidential");
-    expect(getCaseStudy("vivero-yvyra")?.status).toBe("in-development");
-    expect(getCaseStudy("deep-creek-branding")?.status).toBe("in-progress");
+    expect(getCaseStudy("vivero-yvyra")?.status).toBeUndefined();
+    const vivero = getCaseStudy("vivero-yvyra")!;
+    for (const t of [...collectStrings(vivero.es), ...collectStrings(vivero.en)])
+      expect(t).not.toMatch(/en desarrollo|in development|no un n[úu]mero|not a number|evaluad|evaluate/i);
     expect(getCaseStudy("consultora-prisma")?.status).toBe("live");
   });
 
@@ -245,25 +244,59 @@ describe("new case studies", () => {
     }
   });
 
-  it("uses typographic covers with honest alt text", () => {
-    for (const slug of NEW_SLUGS) {
-      const study = getCaseStudy(slug)!;
-      expect(study.hero.src).toBe(`/projects/${slug}.webp`);
-      expect(study.es.heroAlt).toMatch(/tipogr[áa]fica/i);
-      expect(study.en.heroAlt).toMatch(/typographic/i);
+  it("gives every case a generated typographic cover with honest alt text", () => {
+    for (const study of CASE_STUDIES) {
+      expect(study.cover, study.slug).toEqual({ src: `/projects/covers/${study.slug}.webp`, width: 1600, height: 900 });
+      expect(study.es.coverAlt, `${study.slug}.es`).toMatch(/^Portada tipogr[áa]fica/i);
+      expect(study.en.coverAlt, `${study.slug}.en`).toMatch(/^Typographic cover/i);
     }
+    expect(new Set(CASE_STUDIES.map((s) => s.cover.src)).size).toBe(CASE_STUDIES.length);
   });
 
-  it("resolves related cases to existing, distinct slugs, in both directions for the Deep Creek pair", () => {
+  it("keeps the cover generator in sync with the registry", () => {
+    const script = readFileSync("scripts/build-case-covers.mjs", "utf8");
+    const slugs = [...script.matchAll(/slug: "([a-z0-9-]+)"/g)].map((m) => m[1]);
+    expect([...slugs].sort()).toEqual([...getCaseSlugs()].sort());
+  });
+
+  it("gives every cover its own pattern, all of them defined", () => {
+    const script = readFileSync("scripts/build-case-covers.mjs", "utf8");
+    const arts = [...script.matchAll(/art: "([a-z-]+)"/g)].map((m) => m[1]);
+    expect(arts).toHaveLength(getCaseSlugs().length);
+    expect(new Set(arts).size).toBe(arts.length);
+    for (const art of arts) expect(script, art).toMatch(new RegExp(`\\n  "?${art}"?: \\(p\\) =>`));
+    expect(script).not.toMatch(/PORTADA TIPOGR/);
+  });
+
+  it("never presents a generated cover as a real image, and keeps real images apart", () => {
+    for (const study of CASE_STUDIES)
+      for (const img of study.gallery ?? []) {
+        expect(img.src, study.slug).not.toMatch(/\/projects\/covers\//);
+        expect(img.src, study.slug).not.toBe(study.cover.src);
+      }
+  });
+
+  it("still references every real image the cases used before covers existed", () => {
+    const PREVIOUS_REAL_HEROES: Record<string, string> = {
+      "start-university": "/projects/websites-startu-small.webp",
+      "deep-creek-solutions": "/projects/deep-creek-solutions.webp",
+      "autocity-grupo-tagle": "/projects/autocity-grupo-tagle.webp",
+      "sixto-van-garret": "/projects/sixto-van-garret.webp",
+      "officina-artis": "/projects/officina-artis.webp",
+      "apex-america": "/projects/apex-projects.webp",
+    };
+    for (const [slug, src] of Object.entries(PREVIOUS_REAL_HEROES))
+      expect(getCaseStudy(slug)?.gallery?.map((g) => g.src), slug).toContain(src);
+  });
+
+  it("resolves related cases to existing, distinct slugs", () => {
     for (const study of CASE_STUDIES)
       for (const slug of study.relatedCases ?? []) {
         expect(getCaseSlugs(), `${study.slug} -> ${slug}`).toContain(slug);
         expect(slug).not.toBe(study.slug);
       }
-    expect(getCaseStudy("deep-creek-branding")?.relatedCases).toContain("deep-creek-solutions");
-    expect(getCaseStudy("deep-creek-solutions")?.relatedCases).toContain("deep-creek-branding");
-    const links = getRelatedCases("deep-creek-branding", "es");
-    expect(links[0]).toEqual({ slug: "deep-creek-solutions", title: getCaseCopy("deep-creek-solutions", "es")!.cardTitle });
+    const links = getRelatedCases("vivero-yvyra", "es");
+    expect(links[0]).toEqual({ slug: "consultora-prisma", title: getCaseCopy("consultora-prisma", "es")!.cardTitle });
     expect(getRelatedCases("nope", "es")).toEqual([]);
     expect(getRelatedCases("start-university", "es")).toEqual([]);
   });

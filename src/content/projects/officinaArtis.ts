@@ -2,7 +2,18 @@ import type { CaseStudy } from "./types";
 
 export const officinaArtis: CaseStudy = {
   slug: "officina-artis",
-  hero: { src: "/projects/officina-artis.webp", width: 1200, height: 675 },
+  cover: { src: "/projects/covers/officina-artis.webp", width: 1600, height: 900 },
+  gallery: [
+    {
+      src: "/projects/officina-artis.webp",
+      width: 1200,
+      height: 675,
+      alt: {
+        es: "Vista 3D de la galería virtual Officina Artis",
+        en: "3D view of the Officina Artis virtual gallery",
+      },
+    },
+  ],
   logo: { src: "/projects/logo-officina-artis.webp", width: 676, height: 108 },
   relatedService: "serviceWebDevelopment",
   es: {
@@ -13,7 +24,7 @@ export const officinaArtis: CaseStudy = {
     seoDescription:
       "Experimento propio: una galería de arte virtual en 3D para el navegador, con Three.js, WebGL y Blender. Diseño espacial, navegación y curaduría.",
     h1: "Officina Artis: una galería de arte virtual en 3D para el navegador",
-    heroAlt: "Vista 3D de la galería virtual Officina Artis",
+    coverAlt: "Portada tipográfica del caso Officina Artis, galería de arte virtual en 3D",
     logoAlt: "Logo de Officina Artis",
     meta: {
       role: "Concepto, diseño y desarrollo 3D",
@@ -103,7 +114,7 @@ export const officinaArtis: CaseStudy = {
     seoDescription:
       "Self-initiated experiment: a 3D virtual art gallery in the browser, built with Three.js, WebGL and Blender. Spatial design, navigation and curation.",
     h1: "Officina Artis: a 3D virtual art gallery for the browser",
-    heroAlt: "3D view of the Officina Artis virtual gallery",
+    coverAlt: "Typographic cover of the Officina Artis case, a 3D virtual art gallery",
     logoAlt: "Officina Artis logo",
     meta: {
       role: "Concept, design and 3D development",

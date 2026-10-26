@@ -2,7 +2,7 @@ import type { CaseStudy } from "./types";
 
 export const bienestarSenior: CaseStudy = {
   slug: "bienestar-senior",
-  hero: { src: "/projects/bienestar-senior.webp", width: 1600, height: 900 },
+  cover: { src: "/projects/covers/bienestar-senior.webp", width: 1600, height: 900 },
   relatedService: "serviceUxUi",
   secondaryService: "serviceWebDesign",
   status: "design-proposal",
@@ -15,7 +15,7 @@ export const bienestarSenior: CaseStudy = {
     seoDescription:
       "Caso de estudio: rediseño UX/UI en Figma de siete tipos de página para la tienda Bienestar Senior. Navegación, jerarquía y fichas de producto.",
     h1: "Bienestar Senior: rediseño UX/UI de siete tipos de página para un e-commerce de ortopedia y bienestar",
-    heroAlt: "Portada tipográfica del caso Bienestar Senior, rediseño UX/UI de e-commerce",
+    coverAlt: "Portada tipográfica del caso Bienestar Senior, rediseño UX/UI de e-commerce",
     meta: {
       role: "Rediseño UX/UI en Figma (sin implementación)",
       platform: "Shopify (tienda actual)",
@@ -139,7 +139,7 @@ export const bienestarSenior: CaseStudy = {
     seoDescription:
       "Case study: UX/UI redesign in Figma of seven page types for the Bienestar Senior store. Navigation, information hierarchy and product pages.",
     h1: "Bienestar Senior: a UX/UI redesign of seven page types for an orthopedics and wellbeing e-commerce",
-    heroAlt: "Typographic cover of the Bienestar Senior case, an e-commerce UX/UI redesign",
+    coverAlt: "Typographic cover of the Bienestar Senior case, an e-commerce UX/UI redesign",
     meta: {
       role: "UX/UI redesign in Figma (no implementation)",
       platform: "Shopify (current store)",

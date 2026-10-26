@@ -12,6 +12,6 @@ export function toProjectTile(study: CaseStudy, locale: Locale): ProjectTileData
     title: copy.cardTitle,
     description: copy.cardSummary,
     meta: showStatus ? `${copy.meta.role} · ${PROJECTS_LABELS[locale].status[study.status!]}` : copy.meta.role,
-    image: { src: study.hero.src, alt: copy.heroAlt },
+    image: { src: study.cover.src, alt: copy.coverAlt },
   };
 }

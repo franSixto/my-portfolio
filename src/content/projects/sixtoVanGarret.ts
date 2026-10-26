@@ -2,7 +2,18 @@ import type { CaseStudy } from "./types";
 
 export const sixtoVanGarret: CaseStudy = {
   slug: "sixto-van-garret",
-  hero: { src: "/projects/sixto-van-garret.webp", width: 1200, height: 675 },
+  cover: { src: "/projects/covers/sixto-van-garret.webp", width: 1600, height: 900 },
+  gallery: [
+    {
+      src: "/projects/sixto-van-garret.webp",
+      width: 1200,
+      height: 675,
+      alt: {
+        es: "Tienda online de Sixto Van Garret",
+        en: "Sixto Van Garret online store",
+      },
+    },
+  ],
   logo: { src: "/projects/logo-sixto-van-garret.png", width: 400, height: 130 },
   relatedService: "serviceWebDesign",
   es: {
@@ -13,7 +24,7 @@ export const sixtoVanGarret: CaseStudy = {
     seoDescription:
       "Caso de estudio: diseño de una tienda online en Tienda Nube para Sixto Van Garret. Navegación clara, jerarquía de contenido y una identidad en dorado.",
     h1: "Sixto Van Garret: una tienda online simple para una marca de estilo de vida",
-    heroAlt: "Tienda online de Sixto Van Garret",
+    coverAlt: "Portada tipográfica del caso Sixto Van Garret, tienda online en Tienda Nube",
     logoAlt: "Logo de Sixto Van Garret",
     meta: {
       role: "Diseño web",
@@ -89,7 +100,7 @@ export const sixtoVanGarret: CaseStudy = {
     seoDescription:
       "Case study: designing a Tienda Nube online store for Sixto Van Garret. Clear navigation, content hierarchy and a gold-accented brand identity.",
     h1: "Sixto Van Garret: a simple online store for a lifestyle brand",
-    heroAlt: "Sixto Van Garret online store",
+    coverAlt: "Typographic cover of the Sixto Van Garret case, online store on Tienda Nube",
     logoAlt: "Sixto Van Garret logo",
     meta: {
       role: "Web design",

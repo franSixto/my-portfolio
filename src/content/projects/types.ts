@@ -68,7 +68,8 @@ export type CaseCopy = {
   seoTitle: string;
   seoDescription: string;
   h1: string;
-  heroAlt: string;
+  /** Describes the generated typographic cover; it must never read as a screenshot. */
+  coverAlt: string;
   logoAlt?: string;
   meta: CaseMeta;
   links?: CaseLink[];
@@ -77,13 +78,21 @@ export type CaseCopy = {
 
 export type CaseStudy = {
   slug: string;
-  hero: CaseImage;
+  /**
+   * Generated typographic cover (1600x900, `/projects/covers/<slug>.webp`, built by
+   * `scripts/build-case-covers.mjs`). It is the case's face: listings, related cards,
+   * the case header and social previews. Never a screenshot.
+   */
+  cover: CaseImage;
   logo?: CaseImage;
   /** Service route the case supports, or "about" when there is none. */
   relatedService: ServiceRouteKey | "about";
   secondaryService?: ServiceRouteKey;
   status?: CaseStatus;
-  /** Real project images (never mockups). Rendered only when present. */
+  /**
+   * Real project images (never mockups), shown inside the case page under "Gallery".
+   * To add one: drop the file in `public/projects/`, append `{ src, width, height, alt: { es, en } }`.
+   */
   gallery?: GalleryImage[];
   /** Slugs of other cases to link as "related projects". */
   relatedCases?: string[];

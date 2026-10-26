@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import nextConfig from "../../next.config";
 import { getCaseSlugs } from "@/content/projects";
-import { LEGACY_PROJECT_SLUGS, buildRedirects } from "./redirects";
+import { LEGACY_PROJECT_SLUGS, REMOVED_PROJECT_SLUGS, buildRedirects } from "./redirects";
 
 const OLD_TO_NEW = {
   "experience-at-startu": "start-university",
@@ -41,6 +41,15 @@ describe("redirects", () => {
         permanent: true,
       });
     }
+  });
+
+  it("sends removed case studies to the projects list instead of a 404", () => {
+    for (const slug of REMOVED_PROJECT_SLUGS) {
+      expect(getCaseSlugs()).not.toContain(slug);
+      expect(find(`/proyectos/${slug}`)?.destination, `es ${slug}`).toBe("/proyectos");
+      expect(find(`/en/projects/${slug}`)?.destination, `en ${slug}`).toBe("/en/projects");
+    }
+    expect(REMOVED_PROJECT_SLUGS).toEqual(["portfolio-fransixto", "deep-creek-branding"]);
   });
 
   it("never chains: no destination is another rule's source", () => {

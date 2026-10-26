@@ -25,10 +25,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: copy.seoDescription,
     type: "article",
     image: {
-      url: study.hero.src,
-      width: study.hero.width,
-      height: study.hero.height,
-      alt: copy.heroAlt,
+      url: study.cover.src,
+      width: study.cover.width,
+      height: study.cover.height,
+      alt: copy.coverAlt,
     },
   });
 }

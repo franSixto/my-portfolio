@@ -2,7 +2,18 @@ import type { CaseStudy } from "./types";
 
 export const startUniversity: CaseStudy = {
   slug: "start-university",
-  hero: { src: "/projects/websites-startu-small.webp", width: 1200, height: 675 },
+  cover: { src: "/projects/covers/start-university.webp", width: 1600, height: 900 },
+  gallery: [
+    {
+      src: "/projects/websites-startu-small.webp",
+      width: 1200,
+      height: 675,
+      alt: {
+        es: "Collage de sitios y plataformas educativas diseñadas en Start University",
+        en: "Collage of education websites and platforms designed at Start University",
+      },
+    },
+  ],
   logo: { src: "/projects/logo-startu.png", width: 410, height: 123 },
   relatedService: "serviceUxUi",
   secondaryService: "serviceWebDesign",
@@ -14,7 +25,7 @@ export const startUniversity: CaseStudy = {
     seoDescription:
       "Caso de estudio: diseño UX/UI de plataformas educativas en Start University. Portal del estudiante unificado y sistema base para más de 20 sitios.",
     h1: "Start University: un portal del estudiante y un sistema base para más de 20 sitios educativos",
-    heroAlt: "Collage de sitios y plataformas educativas diseñadas en Start University",
+    coverAlt: "Portada tipográfica del caso Start University, portal del estudiante y sitios educativos",
     logoAlt: "Logo de Start University",
     meta: {
       role: "Líder UX/UI",
@@ -108,7 +119,7 @@ export const startUniversity: CaseStudy = {
     seoDescription:
       "Case study: UX/UI design for education platforms at Start University. A unified student portal and a shared base system for 20+ websites.",
     h1: "Start University: one student portal and a shared base system for 20+ education websites",
-    heroAlt: "Collage of education websites and platforms designed at Start University",
+    coverAlt: "Typographic cover of the Start University case, student portal and education websites",
     logoAlt: "Start University logo",
     meta: {
       role: "UX/UI Lead",

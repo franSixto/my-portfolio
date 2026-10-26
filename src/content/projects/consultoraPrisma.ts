@@ -2,7 +2,7 @@ import type { CaseStudy } from "./types";
 
 export const consultoraPrisma: CaseStudy = {
   slug: "consultora-prisma",
-  hero: { src: "/projects/consultora-prisma.webp", width: 1600, height: 900 },
+  cover: { src: "/projects/covers/consultora-prisma.webp", width: 1600, height: 900 },
   relatedService: "serviceWebDesign",
   secondaryService: "serviceWebDevelopment",
   status: "live",
@@ -15,7 +15,7 @@ export const consultoraPrisma: CaseStudy = {
     seoDescription:
       "Caso de estudio: diseño y desarrollo web para Consultora Prisma, de investigación social y opinión pública. Contenido claro para servicios especializados.",
     h1: "Consultora Prisma: diseño y desarrollo web para una consultora de investigación social y opinión pública",
-    heroAlt: "Portada tipográfica del caso Consultora Prisma, diseño y desarrollo web",
+    coverAlt: "Portada tipográfica del caso Consultora Prisma, diseño y desarrollo web",
     meta: {
       role: "Diseño y desarrollo web",
       location: "La Plata, Argentina",
@@ -137,7 +137,7 @@ export const consultoraPrisma: CaseStudy = {
     seoDescription:
       "Case study: web design and development for Consultora Prisma, a social research and public opinion consultancy. Clear content for specialized services.",
     h1: "Consultora Prisma: web design and development for a social research and public opinion consultancy",
-    heroAlt: "Typographic cover of the Consultora Prisma case, web design and development",
+    coverAlt: "Typographic cover of the Consultora Prisma case, web design and development",
     meta: {
       role: "Web design and development",
       location: "La Plata, Argentina",

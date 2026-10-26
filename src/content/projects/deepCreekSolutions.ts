@@ -2,11 +2,21 @@ import type { CaseStudy } from "./types";
 
 export const deepCreekSolutions: CaseStudy = {
   slug: "deep-creek-solutions",
-  hero: { src: "/projects/deep-creek-solutions.webp", width: 1600, height: 900 },
+  cover: { src: "/projects/covers/deep-creek-solutions.webp", width: 1600, height: 900 },
+  gallery: [
+    {
+      src: "/projects/deep-creek-solutions.webp",
+      width: 1600,
+      height: 900,
+      alt: {
+        es: "Pantallas de productos diseñados en Deep Creek Solutions",
+        en: "Screens from products designed at Deep Creek Solutions",
+      },
+    },
+  ],
   logo: { src: "/projects/logo-deep-creek.png", width: 392, height: 100 },
   relatedService: "serviceUxUi",
   secondaryService: "serviceAiMvp",
-  relatedCases: ["deep-creek-branding"],
   es: {
     cardTitle: "Deep Creek Solutions: productos SaaS de salud y estética",
     cardSummary:
@@ -15,7 +25,7 @@ export const deepCreekSolutions: CaseStudy = {
     seoDescription:
       "Caso de estudio: diseño de producto UX/UI para SaaS de salud y estética en Deep Creek Solutions. Odontograma interactivo, flujos y prototipos.",
     h1: "Deep Creek Solutions: diseño de producto para SaaS de salud y estética",
-    heroAlt: "Pantallas de productos diseñados en Deep Creek Solutions",
+    coverAlt: "Portada tipográfica del caso Deep Creek Solutions, productos SaaS de salud y estética",
     logoAlt: "Logo de Deep Creek Solutions",
     meta: {
       role: "Diseñador de producto UX/UI",
@@ -107,7 +117,7 @@ export const deepCreekSolutions: CaseStudy = {
     seoDescription:
       "Case study: UX/UI product design for health and beauty SaaS at Deep Creek Solutions. An interactive dental chart, user flows and prototypes.",
     h1: "Deep Creek Solutions: product design for health and beauty SaaS",
-    heroAlt: "Screens from products designed at Deep Creek Solutions",
+    coverAlt: "Typographic cover of the Deep Creek Solutions case, health and aesthetics SaaS products",
     logoAlt: "Deep Creek Solutions logo",
     meta: {
       role: "UX/UI Product Designer",

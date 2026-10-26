@@ -2,7 +2,7 @@ import type { CaseStudy } from "./types";
 
 export const rexia: CaseStudy = {
   slug: "rexia",
-  hero: { src: "/projects/rexia.webp", width: 1600, height: 900 },
+  cover: { src: "/projects/covers/rexia.webp", width: 1600, height: 900 },
   relatedService: "serviceUxUi",
   status: "ongoing-confidential",
   relatedCases: ["start-university"],
@@ -14,7 +14,7 @@ export const rexia: CaseStudy = {
     seoDescription:
       "Caso de estudio: product design y UX/UI para Rexia, una plataforma SaaS para sistemas de salud. Gestión de convenios, autorizaciones y flujos complejos.",
     h1: "Rexia: product design y UX/UI para una plataforma de inteligencia financiera en salud",
-    heroAlt: "Portada tipográfica del caso Rexia, product design para un SaaS de salud",
+    coverAlt: "Portada tipográfica del caso Rexia, product design para un SaaS de salud",
     meta: {
       role: "Diseñador de producto",
       platform: "SaaS para sistemas de salud",
@@ -134,7 +134,7 @@ export const rexia: CaseStudy = {
     seoDescription:
       "Case study: product design and UX/UI for Rexia, a SaaS platform for health systems. Agreement management, authorizations and complex flows.",
     h1: "Rexia: product design and UX/UI for a financial intelligence platform in healthcare",
-    heroAlt: "Typographic cover of the Rexia case, product design for a healthcare SaaS",
+    coverAlt: "Typographic cover of the Rexia case, product design for a healthcare SaaS",
     meta: {
       role: "Product designer",
       platform: "SaaS for health systems",
