@@ -29,7 +29,11 @@ export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeL
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
     background.forEach((el) => (el.inert = true));
-    document.body.style.overflow = "hidden";
+    // Lock the root, not <body>: <html> has overflow-x: clip, so a body-only lock
+    // never reaches the viewport (the page keeps scrolling and the header leaves),
+    // and a locked <body> becomes its own scroller, which breaks the sticky header.
+    const root = document.documentElement;
+    root.style.overflow = "hidden";
     firstLinkRef.current?.focus();
 
     const onKey = (event: KeyboardEvent) => {
@@ -40,7 +44,7 @@ export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeL
 
     return () => {
       background.forEach((el) => (el.inert = false));
-      document.body.style.overflow = "";
+      root.style.overflow = "";
       document.removeEventListener("keydown", onKey);
       toggle?.focus();
     };
@@ -49,7 +53,7 @@ export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeL
   return (
     <div
       id="mobile-nav"
-      className="motion-enter fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto bg-paper md:top-[4.5rem] lg:hidden"
+      className="motion-enter fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto overscroll-contain bg-paper md:top-[4.5rem] lg:hidden"
     >
       <nav className="mx-auto flex min-h-full max-w-[1360px] flex-col px-5 pb-10 pt-6 md:px-8">
         <ul className="border-b border-rule">
