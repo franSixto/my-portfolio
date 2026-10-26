@@ -35,7 +35,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     location: "Córdoba, Argentina · Trabajo remoto",
     intro: [
       "Soy Francisco Sixto, diseñador UX/UI y de producto con más de 10 años de experiencia. Diseño plataformas web, productos SaaS e interfaces para equipos que necesitan que lo diseñado se pueda construir y mantener.",
-      "Me formé en diseño gráfico y multimedia, y eso sigue en mi forma de trabajar: cuido la jerarquía, el detalle visual y la consistencia. Con los años sumé desarrollo con React, Next.js y WordPress, y hoy uso herramientas de IA para llegar más rápido a prototipos que se pueden probar. Diseño primero; cuando el proyecto lo pide, también lo construyo.",
+      "Me formé en diseño gráfico y multimedia, y eso sigue en mi forma de trabajar: cuido la jerarquía, el detalle visual y la consistencia. Con los años sumé desarrollo con React, Next.js y WordPress, y hoy uso herramientas de IA para llegar más rápido a prototipos que se pueden probar. Diseño y desarrollo: lo que diseño, también lo construyo.",
     ],
     photoAlt: "Retrato de Francisco Sixto",
     background: {
@@ -156,7 +156,7 @@ export const aboutContent: Record<Locale, AboutContent> = {
     location: "Córdoba, Argentina · Working remotely",
     intro: [
       "I'm Francisco Sixto, a UX/UI and product designer with more than 10 years of experience. I design web platforms, SaaS products and interfaces for teams that need what gets designed to be buildable and maintainable.",
-      "I trained in graphic and multimedia design, and it still shows in how I work: I care about hierarchy, visual detail and consistency. Over the years I added development with React, Next.js and WordPress, and today I use AI tools to get to testable prototypes faster. Design comes first; when the project calls for it, I build it too.",
+      "I trained in graphic and multimedia design, and it still shows in how I work: I care about hierarchy, visual detail and consistency. Over the years I added development with React, Next.js and WordPress, and today I use AI tools to get to testable prototypes faster. I design and I develop: what I design, I build too.",
     ],
     photoAlt: "Portrait of Francisco Sixto",
     background: {

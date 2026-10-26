@@ -146,6 +146,35 @@ describe("hub and home content", () => {
     }
   });
 
+  it("keeps the home hero lean: no tagline or description, es/en parity, UX/UI in the title tag", () => {
+    for (const locale of locales) {
+      const hero = homeContent[locale].hero as Record<string, unknown>;
+      expect(Object.keys(hero).sort()).toEqual(
+        ["eyebrow", "eyebrowShort", "primary", "secondary", "subtitle", "title", "trust"]
+      );
+      expect(homeContent[locale].hero.eyebrowShort.length).toBeGreaterThan(0);
+      expect(homeContent[locale].hero.eyebrowShort.length).toBeLessThan(
+        homeContent[locale].hero.eyebrow.length
+      );
+      expect(homeContent[locale].seo.title).toContain("UX/UI");
+    }
+    const { es, en } = homeContent;
+    expect(es.hero.trust.names).toEqual(en.hero.trust.names);
+    expect(es.hero.trust.names).toEqual([
+      "Start University",
+      "Deep Creek Solutions",
+      "Grupo Tagle",
+      "Apex America",
+    ]);
+  });
+
+  it("does not hedge about building", () => {
+    for (const locale of locales)
+      expect(collectStrings(homeContent[locale]).join("\n")).not.toMatch(
+        /lo pide|calls for it|cuando hace falta/i
+      );
+  });
+
   it("shows no prices outside the service pages", () => {
     for (const mod of [homeContent, servicesHubContent, aboutContent, contactContent])
       for (const locale of locales)

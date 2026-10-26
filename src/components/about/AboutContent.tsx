@@ -2,12 +2,14 @@ import Image from "next/image";
 import Toolkit, { type ToolkitContent } from "@/components/about/Toolkit";
 import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
+import { CropMarks, MeasureLine } from "@/components/ui/Decor";
 import CtaBand from "@/components/ui/CtaBand";
 import { TermList } from "@/components/ui/Lists";
 import PageHeader from "@/components/ui/PageHeader";
 import Section from "@/components/ui/Section";
 import { Download } from "@/components/ui/icons";
 import { Prose } from "@/components/ui/Text";
+import { revealProps } from "@/lib/motion/reveal";
 
 export type AboutContentData = {
   title: string;
@@ -35,16 +37,7 @@ export type AboutContentData = {
   };
 };
 
-// Portrait set: one tall lead photo plus a supporting row. Only the lead photo
-// carries an alt; the others are decorative.
-const PHOTOS = {
-  lead: { src: "/me4.webp", width: 960, height: 1580 },
-  row: [
-    { src: "/me1.webp", width: 624, height: 768 },
-    { src: "/me2.webp", width: 432, height: 768 },
-  ],
-  wide: { src: "/me3.webp", width: 642, height: 351 },
-};
+const PORTRAIT = { src: "/fran-sixto.webp", width: 768, height: 1365 };
 
 export default function AboutContent({ content }: { content: AboutContentData }) {
   const { background } = content;
@@ -56,30 +49,19 @@ export default function AboutContent({ content }: { content: AboutContentData })
       <Container className="pb-20 md:pb-28">
         <div className="grid gap-14 border-t border-rule pt-10 lg:grid-cols-12 lg:gap-8 lg:pt-14">
           <div className="lg:col-span-5">
-            <div className="grid grid-cols-2 gap-4 lg:sticky lg:top-28">
-              <div className="relative col-span-2 aspect-[4/5] overflow-hidden rounded-[var(--radius-media)] bg-surface sm:col-span-1 sm:row-span-2 sm:aspect-auto lg:col-span-2 lg:row-span-1 lg:aspect-[4/5]">
+            <div className="relative mx-auto max-w-md lg:sticky lg:top-28 lg:max-w-none">
+              <CropMarks />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-media)] bg-surface">
                 <Image
-                  src={PHOTOS.lead.src}
+                  src={PORTRAIT.src}
                   alt={content.photoAlt}
                   fill
-                  sizes="(min-width: 1360px) 520px, (min-width: 1024px) 38vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover object-top"
+                  priority
+                  sizes="(min-width: 1360px) 520px, (min-width: 1024px) 38vw, 448px"
+                  className="object-cover object-[50%_20%]"
                 />
               </div>
-              {PHOTOS.row.map((photo) => (
-                <div
-                  key={photo.src}
-                  className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-media)] bg-surface"
-                >
-                  <Image
-                    src={photo.src}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1360px) 250px, (min-width: 1024px) 19vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
+              <MeasureLine className="mt-6" />
             </div>
           </div>
 
@@ -89,16 +71,6 @@ export default function AboutContent({ content }: { content: AboutContentData })
                 <p key={p}>{p}</p>
               ))}
             </Prose>
-
-            <div className="relative mt-14 aspect-[642/351] overflow-hidden rounded-[var(--radius-media)] bg-surface">
-              <Image
-                src={PHOTOS.wide.src}
-                alt=""
-                fill
-                sizes="(min-width: 1360px) 620px, (min-width: 1024px) 46vw, 100vw"
-                className="object-cover"
-              />
-            </div>
           </div>
         </div>
       </Container>
@@ -150,7 +122,10 @@ export default function AboutContent({ content }: { content: AboutContentData })
       <Toolkit content={content.toolkit} />
 
       <Container className="pb-8">
-        <div className="flex flex-col gap-6 border-t border-rule pt-8 md:flex-row md:items-center md:justify-between">
+        <div
+          className="flex flex-col gap-6 border-t border-rule pt-8 md:flex-row md:items-center md:justify-between"
+          {...revealProps("up")}
+        >
           <p className="max-w-[60ch] font-serif text-body text-muted text-pretty">{content.outside}</p>
           <ButtonLink
             href={content.cv.href}

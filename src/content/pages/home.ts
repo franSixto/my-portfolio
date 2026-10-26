@@ -7,11 +7,14 @@ export type HomeContent = {
   seo: PageSeo;
   hero: {
     eyebrow: string;
+    /** Shorter variant shown below the sm breakpoint so it fits on one line. */
+    eyebrowShort: string;
     title: string;
-    tagline: string;
     subtitle: string;
     primary: string;
     secondary: string;
+    /** Credibility line under the CTAs: client names are proper nouns, shared across locales. */
+    trust: { label: string; names: string[] };
   };
   services: {
     heading: string;
@@ -26,6 +29,8 @@ export type HomeContent = {
   cta: CtaCopy;
 };
 
+const TRUSTED_BY = ["Start University", "Deep Creek Solutions", "Grupo Tagle", "Apex America"];
+
 export const homeContent: Record<Locale, HomeContent> = {
   es: {
     seo: {
@@ -34,13 +39,14 @@ export const homeContent: Record<Locale, HomeContent> = {
         "Diseñador UX/UI y de producto en Córdoba, Argentina, con más de 10 años de experiencia. Productos SaaS, sitios web y prototipos o MVPs con IA.",
     },
     hero: {
-      eyebrow: "Francisco Sixto · Córdoba, Argentina",
-      title: "Diseñador UX/UI y de producto para SaaS, empresas y startups",
-      tagline: "Diseñador por vocación, multidisciplinario por evolución.",
+      eyebrow: "Diseño UX/UI y de producto · Córdoba, trabajo remoto",
+      eyebrowShort: "UX/UI y producto · Córdoba, remoto",
+      title: "Diseño y construyo productos digitales claros.",
       subtitle:
-        "Hace más de 10 años que diseño productos digitales: plataformas SaaS, educativas y de salud, sitios web para empresas y prototipos o MVPs asistidos por IA para validar ideas. Diseño, y cuando el proyecto lo pide, también lo construyo.",
+        "UX/UI, producto y desarrollo web para SaaS, empresas y startups. Más de 10 años en salud, educación y negocio.",
       primary: "Contame tu proyecto",
       secondary: "Ver proyectos",
+      trust: { label: "Trabajé con", names: TRUSTED_BY },
     },
     services: {
       heading: "Qué hago",
@@ -144,13 +150,14 @@ export const homeContent: Record<Locale, HomeContent> = {
         "UX/UI and product designer based in Córdoba, Argentina, with 10+ years of experience. SaaS products, websites and AI-assisted prototypes and MVPs.",
     },
     hero: {
-      eyebrow: "Francisco Sixto · Córdoba, Argentina",
-      title: "UX/UI and product designer for SaaS teams, businesses and startups",
-      tagline: "Designer by vocation, multidisciplinary by evolution.",
+      eyebrow: "UX/UI & product design · Córdoba, working remotely",
+      eyebrowShort: "UX/UI & product · Córdoba, remote",
+      title: "I design and build clear digital products.",
       subtitle:
-        "For more than 10 years I've been designing digital products: SaaS, education and health platforms, business websites, and AI-assisted prototypes and MVPs to validate ideas. I design, and when the project calls for it, I build it too.",
+        "UX/UI, product design and web development for SaaS teams, businesses and startups. 10+ years across health, education and business.",
       primary: "Tell me about your project",
       secondary: "See projects",
+      trust: { label: "Worked with", names: TRUSTED_BY },
     },
     services: {
       heading: "What I do",
