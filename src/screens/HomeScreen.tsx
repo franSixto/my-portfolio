@@ -7,7 +7,6 @@ import { NumberedList, TermList } from "@/components/ui/Lists";
 import Section from "@/components/ui/Section";
 import { toProjectTile } from "@/components/projects/toProjectTile";
 import { FEATURED_PROJECT_SLUGS } from "@/content/featuredProjects";
-import { HOME_MOSAIC_SLUGS } from "@/content/homeMosaic";
 import { homeContent } from "@/content/pages/home";
 import { getCaseStudy } from "@/content/projects";
 import { localizedPath, type Locale } from "@/i18n/routes";
@@ -22,20 +21,6 @@ export default function HomeScreen({ locale }: { locale: Locale }) {
     return study ? [toProjectTile(study, locale)] : [];
   });
 
-  const heroTiles = HOME_MOSAIC_SLUGS.flatMap((slug) => {
-    const study = getCaseStudy(slug);
-    if (!study) return [];
-    const copy = study[locale];
-    return [
-      {
-        href: localizedPath("project", locale, { slug }),
-        title: copy.cardTitle,
-        alt: copy.heroAlt,
-        src: study.hero.src,
-      },
-    ];
-  });
-
   return (
     <>
       <Hero
@@ -46,8 +31,8 @@ export default function HomeScreen({ locale }: { locale: Locale }) {
           subtitle: c.hero.subtitle,
           primary: { href: path("contact"), label: c.hero.primary },
           secondary: { href: path("projects"), label: c.hero.secondary },
-          trust: c.hero.trust,
-          tiles: heroTiles,
+          needsHeading: c.hero.needsHeading,
+          needs: c.hero.needs.map((n) => ({ href: path(n.route), label: n.label })),
         }}
       />
       <HomeServices
