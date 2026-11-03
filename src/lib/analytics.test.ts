@@ -18,3 +18,13 @@ describe("sanitizeEventProps", () => {
     expect(sanitizeEventProps({ locale: "en", project_type: "" })).toEqual({ locale: "en" });
   });
 });
+
+describe("sanitizeEventProps placement", () => {
+  it("keeps the non-personal placement of a contact link", () => {
+    expect(sanitizeEventProps({ channel: "whatsapp", locale: "es", placement: "header_chooser" })).toEqual({
+      channel: "whatsapp",
+      locale: "es",
+      placement: "header_chooser",
+    });
+  });
+});

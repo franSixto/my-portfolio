@@ -6,7 +6,7 @@ import { track } from "@vercel/analytics";
  */
 export type AnalyticsEvent = "contact_submit" | "contact_link_click";
 
-const ALLOWED_PROPS = ["project_type", "locale", "channel"] as const;
+const ALLOWED_PROPS = ["project_type", "locale", "channel", "placement"] as const;
 type AllowedProp = (typeof ALLOWED_PROPS)[number];
 export type EventProps = Partial<Record<AllowedProp, string>>;
 

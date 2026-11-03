@@ -11,6 +11,12 @@ export const CHROME_LABELS: Record<
     toLightTheme: string;
     mainNav: string;
     home: string;
+    /** Copy for the "talk" CTA that offers WhatsApp or the contact form. */
+    contactChooser: {
+      panelLabel: string;
+      whatsapp: { label: string; hint: string; ariaLabel: string };
+      form: { label: string; hint: string };
+    };
   }
 > = {
   es: {
@@ -21,6 +27,15 @@ export const CHROME_LABELS: Record<
     toLightTheme: "Cambiar a tema claro",
     mainNav: "Navegación principal",
     home: "Francisco Sixto, ir al inicio",
+    contactChooser: {
+      panelLabel: "Elegí cómo contactarme",
+      whatsapp: {
+        label: "WhatsApp",
+        hint: "Respuesta más rápida",
+        ariaLabel: "WhatsApp. Respuesta más rápida (se abre en una pestaña nueva)",
+      },
+      form: { label: "Formulario", hint: "Contame tu proyecto con detalle" },
+    },
   },
   en: {
     skipToContent: "Skip to content",
@@ -30,5 +45,14 @@ export const CHROME_LABELS: Record<
     toLightTheme: "Switch to light theme",
     mainNav: "Main navigation",
     home: "Francisco Sixto, go to home",
+    contactChooser: {
+      panelLabel: "Choose how to reach me",
+      whatsapp: {
+        label: "WhatsApp",
+        hint: "Fastest reply",
+        ariaLabel: "WhatsApp. Fastest reply (opens in a new tab)",
+      },
+      form: { label: "Contact form", hint: "Tell me about your project in detail" },
+    },
   },
 };

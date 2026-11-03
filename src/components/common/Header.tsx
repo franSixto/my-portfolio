@@ -10,7 +10,7 @@ import LanguageSelector from "@/components/common/LanguageSelector";
 import NavMobile from "@/components/common/NavMobile";
 import { CHROME_LABELS } from "@/components/common/chromeLabels";
 import { NAV_ITEMS, isNavItemActive } from "@/components/common/navItems";
-import { buttonClasses } from "@/components/ui/ButtonLink";
+import ContactChooser from "@/components/contact/ContactChooser";
 import { Close, Menu } from "@/components/ui/icons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { matchRoute } from "@/i18n/routes";
@@ -82,13 +82,9 @@ export default function Header() {
               <LanguageSelector />
               <ThemeSelect labels={{ toDark: labels.toDarkTheme, toLight: labels.toLightTheme }} />
             </div>
-            <Link
-              href={localePath("contact")}
-              aria-current={currentRoute === "contact" ? "page" : undefined}
-              className={buttonClasses({ variant: "primary", size: "sm", className: "ml-1 md:ml-2" })}
-            >
+            <ContactChooser size="sm" className="ml-1 md:ml-2">
               {t("navigation.cta")}
-            </Link>
+            </ContactChooser>
             <button
               ref={toggleRef}
               type="button"
