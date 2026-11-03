@@ -15,6 +15,7 @@ export const FOOTER: Record<
     linkedinAria: string;
     githubAria: string;
     emailAria: string;
+    whatsappAria: string;
     cvLabel: string;
     cvAria: string;
     copyright: (year: number) => string;
@@ -37,6 +38,7 @@ export const FOOTER: Record<
     contactHeading: "Contacto",
     linkedinAria: "Perfil de LinkedIn de Francisco Sixto (se abre en una pestaña nueva)",
     githubAria: "Perfil de GitHub de Francisco Sixto (se abre en una pestaña nueva)",
+    whatsappAria: "Escribime por WhatsApp (se abre en una pestaña nueva)",
     emailAria: "Escribir un email a Francisco Sixto",
     cvLabel: "Descargar CV (PDF)",
     cvAria: "Descargar el CV de Francisco Sixto en PDF",
@@ -59,6 +61,7 @@ export const FOOTER: Record<
     contactHeading: "Contact",
     linkedinAria: "Francisco Sixto on LinkedIn (opens in a new tab)",
     githubAria: "Francisco Sixto on GitHub (opens in a new tab)",
+    whatsappAria: "Message me on WhatsApp (opens in a new tab)",
     emailAria: "Email Francisco Sixto",
     cvLabel: "Download CV (PDF)",
     cvAria: "Download Francisco Sixto's CV as a PDF",

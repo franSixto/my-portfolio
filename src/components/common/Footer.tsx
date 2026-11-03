@@ -4,6 +4,7 @@ import TrackedLink from "@/components/ui/TrackedLink";
 import { FOOTER } from "@/content/footer";
 import { SERVICE_ROUTE_KEYS } from "@/content/services/nav";
 import { CV_PATH, EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/content/site";
+import { whatsappUrl } from "@/lib/contact/whatsapp";
 import { getTranslator } from "@/i18n/dictionary";
 import { localizedPath, type Locale } from "@/i18n/routes";
 
@@ -69,6 +70,19 @@ export default function Footer({ locale }: { locale: Locale }) {
           <div>
             <p className={headingClass}>{copy.contactHeading}</p>
             <ul className="space-y-3">
+              <li>
+                <TrackedLink
+                  channel="whatsapp"
+                  locale={locale}
+                  href={whatsappUrl(locale)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={copy.whatsappAria}
+                  className={linkClass}
+                >
+                  WhatsApp
+                </TrackedLink>
+              </li>
               <li>
                 <TrackedLink
                   channel="email"

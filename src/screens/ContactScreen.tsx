@@ -8,6 +8,7 @@ import { Lead } from "@/components/ui/Text";
 import { contactContent } from "@/content/pages/contact";
 import { CV_PATH, EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/content/site";
 import type { Locale } from "@/i18n/routes";
+import { whatsappUrl } from "@/lib/contact/whatsapp";
 import { revealProps } from "@/lib/motion/reveal";
 
 export default function ContactScreen({ locale }: { locale: Locale }) {
@@ -32,6 +33,14 @@ export default function ContactScreen({ locale }: { locale: Locale }) {
             content={{
               heading: c.channels.heading,
               channels: [
+                {
+                  id: "whatsapp",
+                  label: c.channels.whatsapp.label,
+                  value: "WhatsApp",
+                  href: whatsappUrl(locale),
+                  ariaLabel: c.channels.whatsapp.ariaLabel,
+                  external: true,
+                },
                 {
                   id: "email",
                   label: c.channels.email.label,

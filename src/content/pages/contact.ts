@@ -34,6 +34,7 @@ export type ContactContent = {
   privacyNote: string;
   channels: {
     heading: string;
+    whatsapp: { label: string; ariaLabel: string };
     email: { label: string; ariaLabel: string };
     linkedin: { label: string; ariaLabel: string };
     github: { label: string; ariaLabel: string };
@@ -117,6 +118,7 @@ export const contactContent: Record<Locale, ContactContent> = {
       "Uso tus datos solo para responderte. No los comparto ni te sumo a ninguna lista.",
     channels: {
       heading: "También podés escribirme por",
+      whatsapp: { label: "WhatsApp", ariaLabel: "Escribime por WhatsApp (se abre en una pestaña nueva)" },
       email: { label: "Email", ariaLabel: "Escribir un email a Francisco Sixto" },
       linkedin: {
         label: "LinkedIn",
@@ -207,6 +209,7 @@ export const contactContent: Record<Locale, ContactContent> = {
       "I only use your details to reply to you. I don't share them or add you to any list.",
     channels: {
       heading: "You can also reach me via",
+      whatsapp: { label: "WhatsApp", ariaLabel: "Message me on WhatsApp (opens in a new tab)" },
       email: { label: "Email", ariaLabel: "Email Francisco Sixto" },
       linkedin: {
         label: "LinkedIn",
