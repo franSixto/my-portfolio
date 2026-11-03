@@ -6,7 +6,7 @@ export type ButtonVariant = "primary" | "secondary" | "inverse" | "text";
 export type ButtonSize = "sm" | "md" | "lg";
 
 const BASE =
-  "inline-flex items-center justify-center gap-2 font-sans font-medium whitespace-nowrap rounded-[var(--radius-control)] transition-[color,background-color,border-color,text-decoration-color,transform] duration-(--motion-dur-fast) ease-(--motion-ease-out) motion-safe:active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-3 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 font-sans font-medium rounded-[var(--radius-control)] transition-[color,background-color,border-color,text-decoration-color,transform] duration-(--motion-dur-fast) ease-(--motion-ease-out) motion-safe:active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-3 disabled:cursor-not-allowed disabled:opacity-60";
 
 const VARIANTS: Record<ButtonVariant, string> = {
   primary: "bg-accent text-on-accent hover:bg-accent-strong dark:hover:bg-accent-strong",
@@ -14,7 +14,7 @@ const VARIANTS: Record<ButtonVariant, string> = {
     "border border-rule-strong text-ink hover:border-ink hover:bg-surface",
   inverse:
     "bg-band-action text-band-on-action hover:bg-band-ink focus-visible:outline-band-action",
-  text: "text-ink underline decoration-rule-strong underline-offset-[0.3em] hover:decoration-accent px-0",
+  text: "text-left justify-start text-ink underline decoration-rule-strong underline-offset-[0.3em] hover:decoration-accent px-0",
 };
 
 const SIZES: Record<ButtonSize, string> = {
@@ -32,7 +32,7 @@ export function buttonClasses({
   size?: ButtonSize;
   className?: string;
 } = {}) {
-  return cx(BASE, VARIANTS[variant], variant === "text" ? "h-auto" : SIZES[size], className);
+  return cx(BASE, VARIANTS[variant], variant === "text" ? "h-auto" : cx("whitespace-nowrap", SIZES[size]), className);
 }
 
 /**

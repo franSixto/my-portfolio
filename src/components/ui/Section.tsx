@@ -65,7 +65,7 @@ export default function Section({
         <div className={cx(ruled && "border-t border-rule pt-8 md:pt-10")}>
           {layout === "hanging" ? (
             <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
-              <header className="lg:col-span-4 lg:pr-6">
+              <header className="min-w-0 lg:col-span-4 lg:pr-6">
                 <div className="lg:sticky lg:top-28">
                   <div {...revealProps("up")}>
                     {title}
@@ -73,7 +73,7 @@ export default function Section({
                   </div>
                 </div>
               </header>
-              <div className="lg:col-span-8" {...(revealContent ? revealProps("up", 1) : {})}>
+              <div className="min-w-0 lg:col-span-8" {...(revealContent ? revealProps("up", 1) : {})}>
                 {children}
               </div>
             </div>
