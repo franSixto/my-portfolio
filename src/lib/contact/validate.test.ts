@@ -29,7 +29,6 @@ describe("validateContactFields", () => {
       expect(result.errors).toEqual({
         name: "name_required",
         email: "email_required",
-        projectType: "project_type_required",
         message: "message_required",
       });
   });
@@ -69,10 +68,26 @@ describe("validateContactFields", () => {
   it("only accepts project types from the allow-list", () => {
     for (const projectType of ["ux-ui", "web-design", "web-development", "ai-mvp", "graphic-design", "other"])
       expect(validateContactFields({ ...valid, projectType }).ok, projectType).toBe(true);
-    for (const projectType of ["hacking", "", "UX-UI", 3, null]) {
+    for (const projectType of ["hacking", "UX-UI", 3]) {
       const result = validateContactFields({ ...valid, projectType });
       expect(result.ok, String(projectType)).toBe(false);
+      if (!result.ok) expect(result.errors.projectType).toBe("project_type_invalid");
     }
+  });
+
+  it("treats the project type as optional", () => {
+    const withoutType = { ...valid, projectType: undefined };
+    for (const input of [withoutType, { ...valid, projectType: "" }, { ...valid, projectType: null }]) {
+      const result = validateContactFields(input);
+      expect(result.ok).toBe(true);
+      if (result.ok) expect(result.data.projectType).toBeUndefined();
+    }
+  });
+
+  it("accepts a payload without a project type end to end", () => {
+    const withoutType = { ...valid, projectType: undefined };
+    const result = validateContactPayload(withoutType);
+    expect(result.ok).toBe(true);
   });
 
   it("ignores non-string values instead of throwing", () => {

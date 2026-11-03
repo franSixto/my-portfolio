@@ -168,6 +168,16 @@ describe("hub and home content", () => {
     expect(contactContent.es.form.projectType.options["graphic-design"]).toBe("Diseño gráfico y de marca");
   });
 
+  it("promises a concrete reply time in the form and the success message", () => {
+    const promise = { es: "Te respondo dentro de las 24 h hábiles.", en: "I reply within 1 business day." };
+    for (const locale of locales) {
+      const form = contactContent[locale].form;
+      expect(form.responseTime).toBe(promise[locale]);
+      expect(form.success.text).toContain(promise[locale]);
+      expect(JSON.stringify(form)).not.toMatch(/respondo personalmente por email|reply personally by email/);
+    }
+  });
+
   it("keeps the home hero lean: no tagline, clients or industries, UX/UI in the title tag", () => {
     for (const locale of locales) {
       const hero = homeContent[locale].hero as Record<string, unknown>;

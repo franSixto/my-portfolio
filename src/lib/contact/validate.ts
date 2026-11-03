@@ -17,7 +17,6 @@ export type FieldErrorCode =
   | "email_required"
   | "email_invalid"
   | "email_too_long"
-  | "project_type_required"
   | "project_type_invalid"
   | "message_required"
   | "message_too_short"
@@ -26,7 +25,8 @@ export type FieldErrorCode =
 export type ContactData = {
   name: string;
   email: string;
-  projectType: ProjectTypeKey;
+  /** Optional: visitors may skip it. */
+  projectType?: ProjectTypeKey;
   message: string;
   locale: "es" | "en";
 };
@@ -49,7 +49,9 @@ export function validateContactFields(
   const name = text(input.name);
   const email = text(input.email);
   const message = text(input.message);
-  const projectType = typeof input.projectType === "string" ? input.projectType : "";
+  // Absent, null or "" all mean "not specified"; anything else must be on the allow-list.
+  const rawType = input.projectType;
+  const projectType = rawType === undefined || rawType === null || rawType === "" ? undefined : rawType;
 
   if (!name) errors.name = "name_required";
   else if (name.length > CONTACT_LIMITS.name) errors.name = "name_too_long";
@@ -59,8 +61,7 @@ export function validateContactFields(
   else if (email.length > CONTACT_LIMITS.email) errors.email = "email_too_long";
   else if (!EMAIL.test(email)) errors.email = "email_invalid";
 
-  if (!projectType) errors.projectType = "project_type_required";
-  else if (!isProjectTypeKey(projectType)) errors.projectType = "project_type_invalid";
+  if (projectType !== undefined && !isProjectTypeKey(projectType)) errors.projectType = "project_type_invalid";
 
   if (!message) errors.message = "message_required";
   else if (message.length < CONTACT_LIMITS.messageMin) errors.message = "message_too_short";
@@ -73,7 +74,7 @@ export function validateContactFields(
     data: {
       name,
       email,
-      projectType: projectType as ProjectTypeKey,
+      projectType: projectType as ProjectTypeKey | undefined,
       message,
       locale: input.locale === "en" ? "en" : "es",
     },

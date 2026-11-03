@@ -201,7 +201,6 @@ export default function ContactForm({ copy, locale }: { copy: ContactFormCopy; l
             <Label htmlFor="projectType" text={copy.projectType.label} />
             <select
               id="projectType"
-              aria-required="true"
               aria-invalid={errors.projectType ? true : undefined}
               aria-describedby={describedBy(errors.projectType && "projectType-error")}
               className={fieldClass}
@@ -280,12 +279,15 @@ export default function ContactForm({ copy, locale }: { copy: ContactFormCopy; l
         </div>
 
         {!done && (
-          <SubmitButton
-            isSubmitting={submitting}
-            submittingText={copy.submitting}
-            defaultText={copy.submit}
-            Icon={RiMailSendLine}
-          />
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+            <SubmitButton
+              isSubmitting={submitting}
+              submittingText={copy.submitting}
+              defaultText={copy.submit}
+              Icon={RiMailSendLine}
+            />
+            <p className="text-meta text-muted">{copy.responseTime}</p>
+          </div>
         )}
       </form>
     </section>

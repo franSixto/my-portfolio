@@ -16,6 +16,8 @@ export type ContactFormCopy = {
   /** Shown when the server could not verify the captcha (502 captcha_unavailable). */
   captchaUnavailable: string;
   spamNotice: string;
+  /** Concrete reply-time promise, shown next to the submit button. */
+  responseTime: string;
   submit: string;
   submitting: string;
   success: { title: string; text: string };
@@ -64,7 +66,7 @@ export const contactContent: Record<Locale, ContactContent> = {
     next: {
       heading: "Qué pasa después",
       steps: [
-        "Leo tu mensaje y te respondo personalmente por email.",
+        "Leo tu mensaje y te respondo personalmente por email, dentro de las 24 h hábiles.",
         "Si tiene sentido, coordinamos una charla para entender el proyecto.",
         "Te mando una propuesta con alcance y etapas.",
       ],
@@ -75,7 +77,7 @@ export const contactContent: Record<Locale, ContactContent> = {
       name: { label: "Nombre", placeholder: "Tu nombre" },
       email: { label: "Email", placeholder: "tu@empresa.com", help: "Te respondo a esta dirección." },
       projectType: {
-        label: "Tipo de proyecto",
+        label: "Tipo de proyecto (opcional)",
         placeholder: "Elegí una opción",
         options: {
           "ux-ui": "UX/UI y product design",
@@ -98,7 +100,6 @@ export const contactContent: Record<Locale, ContactContent> = {
         email_required: "Escribí tu email.",
         email_invalid: "Revisá el email: parece que tiene un error.",
         email_too_long: "Revisá el email: parece que tiene un error.",
-        project_type_required: "Elegí el tipo de proyecto.",
         project_type_invalid: "Elegí el tipo de proyecto.",
         message_required: "Escribí tu mensaje.",
         message_too_short: "Contame un poco más para poder ayudarte.",
@@ -108,9 +109,10 @@ export const contactContent: Record<Locale, ContactContent> = {
       captchaUnavailable:
         "No pudimos verificar el captcha. Probá de nuevo en unos minutos o escribime por email.",
       spamNotice: "Este formulario usa reCAPTCHA para evitar spam.",
+      responseTime: "Te respondo dentro de las 24 h hábiles.",
       submit: "Enviar mensaje",
       submitting: "Enviando…",
-      success: { title: "¡Gracias! Recibí tu mensaje.", text: "Te respondo personalmente por email." },
+      success: { title: "¡Gracias! Recibí tu mensaje.", text: "Lo leo yo personalmente. Te respondo dentro de las 24 h hábiles." },
       failure:
         "No se pudo enviar el mensaje. Probá de nuevo o escribime directamente a franciscomsixto@gmail.com.",
     },
@@ -155,7 +157,7 @@ export const contactContent: Record<Locale, ContactContent> = {
     next: {
       heading: "What happens next",
       steps: [
-        "I read your message and reply personally by email.",
+        "I read your message and reply personally by email within 1 business day.",
         "If it makes sense, we set up a call to understand the project.",
         "I send you a proposal with scope and phases.",
       ],
@@ -166,7 +168,7 @@ export const contactContent: Record<Locale, ContactContent> = {
       name: { label: "Name", placeholder: "Your name" },
       email: { label: "Email", placeholder: "you@company.com", help: "I'll reply to this address." },
       projectType: {
-        label: "Project type",
+        label: "Project type (optional)",
         placeholder: "Choose an option",
         options: {
           "ux-ui": "UX/UI and product design",
@@ -189,7 +191,6 @@ export const contactContent: Record<Locale, ContactContent> = {
         email_required: "Please enter your email.",
         email_invalid: "That email doesn't look right. Please check it.",
         email_too_long: "That email doesn't look right. Please check it.",
-        project_type_required: "Please choose a project type.",
         project_type_invalid: "Please choose a project type.",
         message_required: "Please write a message.",
         message_too_short: "Tell me a bit more so I can help.",
@@ -199,9 +200,10 @@ export const contactContent: Record<Locale, ContactContent> = {
       captchaUnavailable:
         "We couldn't verify the captcha. Please try again in a few minutes or email me.",
       spamNotice: "This form uses reCAPTCHA to prevent spam.",
+      responseTime: "I reply within 1 business day.",
       submit: "Send message",
       submitting: "Sending…",
-      success: { title: "Thanks! I got your message.", text: "I'll reply personally by email." },
+      success: { title: "Thanks! I got your message.", text: "I read it myself. I reply within 1 business day." },
       failure:
         "The message couldn't be sent. Please try again or email me directly at franciscomsixto@gmail.com.",
     },

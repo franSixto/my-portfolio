@@ -1,6 +1,6 @@
 import type { ContactData } from "./validate";
 
-const PROJECT_TYPE_LABEL: Record<ContactData["projectType"], string> = {
+const PROJECT_TYPE_LABEL: Record<NonNullable<ContactData["projectType"]>, string> = {
   "ux-ui": "UX/UI y product design",
   "web-design": "Diseño web",
   "web-development": "Desarrollo web",
@@ -8,6 +8,12 @@ const PROJECT_TYPE_LABEL: Record<ContactData["projectType"], string> = {
   "graphic-design": "Diseño gráfico y de marca",
   other: "Otro",
 };
+
+const UNSPECIFIED_TYPE = "Sin especificar";
+
+function typeLabel(projectType: ContactData["projectType"]): string {
+  return projectType ? PROJECT_TYPE_LABEL[projectType] : UNSPECIFIED_TYPE;
+}
 
 const LOCALE_LABEL: Record<ContactData["locale"], string> = { es: "Español", en: "Inglés" };
 
@@ -24,12 +30,12 @@ export function buildContactEmail(data: ContactData, owner: string): ContactEmai
   const safeName = data.name.replace(/[\r\n]+/g, " ");
   return {
     to: owner,
-    subject: `Contacto web: ${PROJECT_TYPE_LABEL[data.projectType]} (${safeName})`,
+    subject: `Contacto web: ${typeLabel(data.projectType)} (${safeName})`,
     replyTo: data.email,
     text: [
       `Nombre: ${data.name}`,
       `Email: ${data.email}`,
-      `Tipo de proyecto: ${PROJECT_TYPE_LABEL[data.projectType]} (${data.projectType})`,
+      `Tipo de proyecto: ${data.projectType ? `${typeLabel(data.projectType)} (${data.projectType})` : UNSPECIFIED_TYPE}`,
       `Idioma del sitio: ${data.locale}`,
       "",
       data.message,
@@ -64,10 +70,10 @@ const SERIF = `Georgia,'Times New Roman',serif`;
 function buildContactHtml(data: ContactData, safeName: string): string {
   const name = escapeHtml(safeName);
   const email = escapeHtml(data.email);
-  const type = escapeHtml(PROJECT_TYPE_LABEL[data.projectType]);
+  const type = escapeHtml(typeLabel(data.projectType));
   const message = escapeHtml(data.message).replace(/\r?\n/g, "<br>");
   const firstName = escapeHtml(safeName.split(" ")[0] || safeName);
-  const preview = escapeHtml(`${safeName} · ${PROJECT_TYPE_LABEL[data.projectType]} · ${data.message}`.slice(0, 140));
+  const preview = escapeHtml(`${safeName} · ${typeLabel(data.projectType)} · ${data.message}`.slice(0, 140));
   const replyHref = `mailto:${encodeURIComponent(data.email)}?subject=${encodeURIComponent(
     "Re: tu consulta en fransixto.com.ar"
   )}`;

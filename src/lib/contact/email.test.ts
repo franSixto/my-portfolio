@@ -82,4 +82,14 @@ describe("buildContactEmail html", () => {
     expect(html).toContain('lang="es"');
     expect(html).toMatch(/display:none[^>]*>[^<]*Ada Lovelace/);
   });
+
+  it("handles a missing project type in subject, text and html", () => {
+    const withoutType = { ...data, projectType: undefined };
+    const mail = buildContactEmail(withoutType, "owner@example.com");
+    expect(mail.subject).toBe("Contacto web: Sin especificar (Ada Lovelace)");
+    expect(mail.text).toContain("Tipo de proyecto: Sin especificar");
+    expect(mail.text).not.toContain("undefined");
+    expect(mail.html).not.toContain("undefined");
+    expect(mail.html).toContain("Sin especificar");
+  });
 });
