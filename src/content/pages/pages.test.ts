@@ -185,6 +185,15 @@ describe("hub and home content", () => {
     }
   });
 
+  it("leads the Spanish home title with searchable service terms and the city, brand last", () => {
+    const { title, description } = homeContent.es.seo;
+    expect(title).toMatch(/^Diseñador web y UX\/UI en Córdoba/);
+    expect(title).toMatch(/\| Francisco Sixto$/);
+    expect(title.length).toBeLessThanOrEqual(60);
+    expect(description).toMatch(/diseño web/i);
+    expect(description.length).toBeLessThanOrEqual(160);
+  });
+
   it("hero needs list links every item to an existing page, in the same order in both locales", () => {
     const keys = (l: "es" | "en") => homeContent[l].hero.needs.map((n) => n.route);
     expect(keys("es")).toEqual(keys("en"));

@@ -33,9 +33,9 @@ export type HomeContent = {
 export const homeContent: Record<Locale, HomeContent> = {
   es: {
     seo: {
-      title: "Francisco Sixto | Diseño UX/UI, web y MVPs con IA",
+      title: "Diseñador web y UX/UI en Córdoba | Francisco Sixto",
       description:
-        "Diseñador UX/UI y de producto en Córdoba, Argentina. Productos SaaS, sitios web y prototipos o MVPs con IA.",
+        "Diseño web, tiendas online y diseño UX/UI para pymes, empresas y SaaS. Trabajo desde Córdoba, Argentina, para todo el país. Contame tu proyecto.",
     },
     hero: {
       eyebrow: "Diseño UX/UI y de producto · Córdoba, trabajo remoto",
