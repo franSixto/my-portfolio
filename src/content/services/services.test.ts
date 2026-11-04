@@ -5,7 +5,6 @@ import { getCaseSlugs } from "@/content/projects";
 import { SITE_NAME } from "@/i18n/seo";
 import { SERVICE_ROUTE_KEYS, SERVICE_NAV_LABELS } from "./nav";
 import { serviceContent, getServiceContent } from "./index";
-import type { ServicePageContent } from "./types";
 
 const keys = SERVICE_ROUTE_KEYS;
 
