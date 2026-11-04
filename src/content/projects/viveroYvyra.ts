@@ -7,6 +7,17 @@ export const viveroYvyra: CaseStudy = {
   secondaryService: "serviceUxUi",
   status: "live",
   relatedCases: ["consultora-prisma"],
+  gallery: [
+    {
+      src: "/projects/mockups/vivero-yvyra.webp",
+      width: 1600,
+      height: 1000,
+      alt: {
+        es: "Sitio publicado de Vivero Yvyrá en escritorio y celular",
+        en: "Vivero Yvyrá's published website on desktop and mobile",
+      },
+    },
+  ],
   es: {
     cardTitle: "Vivero Yvyrá: catálogo botánico y CMS a medida",
     cardSummary:

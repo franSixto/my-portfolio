@@ -7,6 +7,17 @@ export const bienestarSenior: CaseStudy = {
   secondaryService: "serviceWebDesign",
   status: "live",
   relatedCases: ["ortopedia-para-ti"],
+  gallery: [
+    {
+      src: "/projects/mockups/bienestar-senior.webp",
+      width: 1600,
+      height: 1000,
+      alt: {
+        es: "Sitio publicado de Bienestar Senior en escritorio y celular",
+        en: "Bienestar Senior's published website on desktop and mobile",
+      },
+    },
+  ],
   es: {
     cardTitle: "Bienestar Senior: rediseño UX/UI de e-commerce",
     cardSummary:

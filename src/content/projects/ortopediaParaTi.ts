@@ -7,6 +7,17 @@ export const ortopediaParaTi: CaseStudy = {
   secondaryService: "serviceWebDesign",
   status: "live",
   relatedCases: ["bienestar-senior"],
+  gallery: [
+    {
+      src: "/projects/mockups/ortopedia-para-ti.webp",
+      width: 1600,
+      height: 1000,
+      alt: {
+        es: "Sitio publicado de Ortopedia Para Ti en escritorio y celular",
+        en: "Ortopedia Para Ti's published website on desktop and mobile",
+      },
+    },
+  ],
   es: {
     cardTitle: "Ortopedia Para Ti: rediseño UX/UI de e-commerce",
     cardSummary:

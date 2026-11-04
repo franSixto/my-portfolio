@@ -7,6 +7,17 @@ export const consultoraPrisma: CaseStudy = {
   secondaryService: "serviceWebDevelopment",
   status: "live",
   relatedCases: ["vivero-yvyra"],
+  gallery: [
+    {
+      src: "/projects/mockups/consultora-prisma.webp",
+      width: 1600,
+      height: 1000,
+      alt: {
+        es: "Sitio publicado de Consultora Prisma en escritorio y celular",
+        en: "Consultora Prisma's published website on desktop and mobile",
+      },
+    },
+  ],
   es: {
     cardTitle: "Consultora Prisma: sitio web de investigación social",
     cardSummary:

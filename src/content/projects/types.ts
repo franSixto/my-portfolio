@@ -90,7 +90,7 @@ export type CaseStudy = {
   secondaryService?: ServiceRouteKey;
   status?: CaseStatus;
   /**
-   * Real project images (never mockups), shown inside the case page under "Gallery".
+   * Real project images; device mockups are allowed only when they frame real screenshots of the published site. Shown inside the case page under "Gallery".
    * To add one: drop the file in `public/projects/`, append `{ src, width, height, alt: { es, en } }`.
    */
   gallery?: GalleryImage[];

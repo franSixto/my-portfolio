@@ -7,6 +7,26 @@ export const rexia: CaseStudy = {
   secondaryService: "serviceGraphicDesign",
   status: "ongoing-confidential",
   relatedCases: ["start-university"],
+  gallery: [
+    {
+      src: "/projects/mockups/rexia.webp",
+      width: 1600,
+      height: 1000,
+      alt: {
+        es: "Sitio publicado de Rexia en escritorio y celular",
+        en: "Rexia's published website on desktop and mobile",
+      },
+    },
+    {
+      src: "/projects/mockups/retia.webp",
+      width: 1600,
+      height: 1000,
+      alt: {
+        es: "Sitio de Retia, un producto de Rexia, en escritorio y celular",
+        en: "Retia's website, a Rexia product, on desktop and mobile",
+      },
+    },
+  ],
   es: {
     cardTitle: "Rexia: product design para un SaaS de salud",
     cardSummary:

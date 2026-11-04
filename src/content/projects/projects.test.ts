@@ -1,5 +1,14 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+
+// WebP VP8 dimensions straight from the file header (lossy "VP8 " chunk), no image lib needed in tests.
+function sharpSizeOf(path: string): { w: number; h: number } {
+  const b = readFileSync(path);
+  const fourcc = b.toString("ascii", 12, 16);
+  if (fourcc === "VP8 ") return { w: b.readUInt16LE(26) & 0x3fff, h: b.readUInt16LE(28) & 0x3fff };
+  if (fourcc === "VP8X") return { w: 1 + b.readUIntLE(24, 3), h: 1 + b.readUIntLE(27, 3) };
+  throw new Error(`Unsupported WebP chunk ${fourcc}`);
+}
 import { FEATURED_PROJECT_SLUGS } from "@/content/featuredProjects";
 import { serviceContent } from "@/content/services";
 import { SITE_NAME } from "@/i18n/seo";
@@ -320,6 +329,28 @@ describe("new case studies", () => {
         expect(img.height).toBeGreaterThan(0);
         for (const locale of locales) expect(img.alt[locale].length, `${study.slug}.${locale}`).toBeGreaterThan(10);
       }
+  });
+
+  it("opens the gallery of each published client site with a device mockup of its real site", () => {
+    const MOCKUPS: Record<string, string[]> = {
+      "vivero-yvyra": ["vivero-yvyra"],
+      "consultora-prisma": ["consultora-prisma"],
+      "ortopedia-para-ti": ["ortopedia-para-ti"],
+      "bienestar-senior": ["bienestar-senior"],
+      rexia: ["rexia", "retia"],
+    };
+    for (const [slug, names] of Object.entries(MOCKUPS)) {
+      const gallery = getCaseStudy(slug)?.gallery ?? [];
+      expect(gallery.length, slug).toBeGreaterThanOrEqual(names.length);
+      names.forEach((name, i) => {
+        const img = gallery[i];
+        expect(img.src, slug).toBe(`/projects/mockups/${name}.webp`);
+        expect(existsSync(`public${img.src}`), img.src).toBe(true);
+        const meta = sharpSizeOf(`public${img.src}`);
+        expect({ w: img.width, h: img.height }, img.src).toEqual(meta);
+        for (const locale of locales) expect(img.alt[locale].length, `${slug}.${locale}`).toBeGreaterThan(20);
+      });
+    }
   });
 
   it("links the published sites of the live cases", () => {
