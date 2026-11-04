@@ -197,8 +197,8 @@ const NEW_SLUGS = [
   "consultora-prisma",
   "vivero-yvyra",
 ];
-const DESIGN_ONLY = ["ortopedia-para-ti", "bienestar-senior", "rexia"];
-const NOT_LIVE = ["ortopedia-para-ti", "bienestar-senior", "vivero-yvyra", "rexia"];
+const DESIGN_ONLY = ["rexia"];
+const NOT_LIVE = ["rexia"];
 const IMPLEMENTATION_ES = /\b(desarroll[ée]|implement[ée]|program[ée]|codifiqu[ée]|constru[ií])\b/i;
 const IMPLEMENTATION_EN = /\bI (built|developed|implemented|coded|programmed|engineered)\b/i;
 const LIVE_CLAIMS = /\b(lanzad[oa]s?|en producci[óo]n|launched|went live|is live|ya est[áa] en l[íi]nea)\b/i;
@@ -209,10 +209,10 @@ describe("new case studies", () => {
   });
 
   it("declares a status for the cases whose state needs to be explicit", () => {
-    expect(getCaseStudy("ortopedia-para-ti")?.status).toBe("design-proposal");
-    expect(getCaseStudy("bienestar-senior")?.status).toBe("design-proposal");
+    expect(getCaseStudy("ortopedia-para-ti")?.status).toBe("live");
+    expect(getCaseStudy("bienestar-senior")?.status).toBe("live");
     expect(getCaseStudy("rexia")?.status).toBe("ongoing-confidential");
-    expect(getCaseStudy("vivero-yvyra")?.status).toBeUndefined();
+    expect(getCaseStudy("vivero-yvyra")?.status).toBe("live");
     const vivero = getCaseStudy("vivero-yvyra")!;
     for (const t of [...collectStrings(vivero.es), ...collectStrings(vivero.en)])
       expect(t).not.toMatch(/en desarrollo|in development|no un n[úu]mero|not a number|evaluad|evaluate/i);
@@ -311,25 +311,65 @@ describe("new case studies", () => {
       }
   });
 
-  it("links the live store of the redesign cases as the current site, not as the redesign", () => {
-    for (const slug of ["ortopedia-para-ti", "bienestar-senior"]) {
+  it("links the published sites of the live cases", () => {
+    const hrefs: Record<string, string> = {
+      "ortopedia-para-ti": "https://ortopediaparati.com",
+      "bienestar-senior": "https://www.bienestarsenior.com",
+      "vivero-yvyra": "https://www.viveroyvyra.com.ar",
+    };
+    for (const [slug, href] of Object.entries(hrefs)) {
       const study = getCaseStudy(slug)!;
       for (const locale of locales) {
-        expect(study[locale].links?.length).toBe(1);
-        expect(study[locale].links?.[0].note?.length).toBeGreaterThan(20);
+        expect(study[locale].links?.length, `${slug}.${locale}`).toBe(1);
+        expect(study[locale].links?.[0].href).toMatch(new RegExp(`^${href}/?$`));
+        expect(study[locale].links?.[0].note).toBeUndefined();
       }
+      expect(study.es.links?.[0].label).toBe("Visitar el sitio");
+      expect(study.en.links?.[0].label).toBe("Visit the site");
     }
-    expect(getCaseStudy("ortopedia-para-ti")?.es.links?.[0].href).toBe("https://ortopediaparati.com/");
-    expect(getCaseStudy("bienestar-senior")?.es.links?.[0].href).toBe("https://www.bienestarsenior.com/");
     expect(getCaseStudy("consultora-prisma")?.es.links?.[0].href).toBe("https://www.consultoraprisma.com.ar/");
-    expect(getCaseStudy("vivero-yvyra")?.es.links ?? []).toEqual([]);
-    expect(getCaseStudy("rexia")?.es.links ?? []).toEqual([]);
+  });
+
+  it("presents Ortopedia Para Ti and Bienestar Senior as implemented and published redesigns", () => {
+    for (const slug of ["ortopedia-para-ti", "bienestar-senior"]) {
+      const study = getCaseStudy(slug)!;
+      expect(study.es.meta.role).toBe(slug === "bienestar-senior" ? "Rediseño UX/UI en Figma" : "Diseño UX/UI");
+      expect(study.en.meta.role).toBe(slug === "bienestar-senior" ? "UX/UI redesign in Figma" : "UX/UI design");
+      for (const t of collectStrings(study.es))
+        expect(t, `${slug}.es`).not.toMatch(/propuesta|sin implementaci|no formó parte|no un sitio publicado|sin programaci/i);
+      for (const t of collectStrings(study.en))
+        expect(t, `${slug}.en`).not.toMatch(/proposal|no implementation|not part of my work|not a published site|no coding/i);
+      expect(study.es.sections.delivered.some((b) => b.type === "p" && /implementado y publicado/.test(b.text))).toBe(true);
+      expect(study.en.sections.delivered.some((b) => b.type === "p" && /implemented and published/.test(b.text))).toBe(true);
+    }
+  });
+
+  it("states Vivero Yvyra is published, without reported results", () => {
+    const vivero = getCaseStudy("vivero-yvyra")!;
+    const es = vivero.es.sections.delivered.at(-1);
+    const en = vivero.en.sections.delivered.at(-1);
+    expect(es?.type === "p" && es.text).toMatch(/publicado/);
+    expect(en?.type === "p" && en.text).toMatch(/published/);
+  });
+
+  it("links Rexia and Retia websites and mentions branding and website in the role", () => {
+    const rexia = getCaseStudy("rexia")!;
+    expect(rexia.es.meta.role).toBe("Diseñador de producto, branding y sitio web");
+    expect(rexia.en.meta.role).toBe("Product designer, branding and website");
+    for (const locale of locales) {
+      expect(rexia[locale].links?.map((l) => l.href)).toEqual(["https://rexia.ar/", "https://retia.ar/"]);
+      expect(rexia[locale].links?.[0].note).toBeUndefined();
+      expect(rexia[locale].links?.[1].note?.length).toBeGreaterThan(10);
+    }
+    expect(rexia.es.links?.map((l) => l.label)).toEqual(["Visitar rexia.ar", "Visitar retia.ar"]);
+    expect(rexia.en.links?.map((l) => l.label)).toEqual(["Visit rexia.ar", "Visit retia.ar"]);
+    expect(rexia.secondaryService).toBe("serviceGraphicDesign");
   });
 
   it("keeps Rexia separate from the Deep Creek and Red Sanitaria work", () => {
     const rexia = getCaseStudy("rexia")!;
     expect(rexia.relatedCases ?? []).not.toContain("deep-creek-solutions");
     for (const t of [...collectStrings(rexia.es), ...collectStrings(rexia.en)])
-      expect(t).not.toMatch(/Deep Creek|Red Sanitaria|Retia/i);
+      expect(t).not.toMatch(/Deep Creek|Red Sanitaria/i);
   });
 });

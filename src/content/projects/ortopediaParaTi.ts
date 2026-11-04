@@ -5,28 +5,26 @@ export const ortopediaParaTi: CaseStudy = {
   cover: { src: "/projects/covers/ortopedia-para-ti.webp", width: 1600, height: 900 },
   relatedService: "serviceUxUi",
   secondaryService: "serviceWebDesign",
-  status: "design-proposal",
+  status: "live",
   relatedCases: ["bienestar-senior"],
   es: {
     cardTitle: "Ortopedia Para Ti: rediseño UX/UI de e-commerce",
     cardSummary:
-      "Propuesta de rediseño en Figma para una tienda online de productos ortopédicos: nuevo lenguaje visual, componentes actualizados, ficha de producto, menú y blog.",
+      "Rediseño en Figma de una tienda online de productos ortopédicos: nuevo lenguaje visual, componentes actualizados, ficha de producto, menú y blog.",
     seoTitle: "Ortopedia Para Ti: rediseño de e-commerce",
     seoDescription:
       "Caso de estudio: rediseño UX/UI en Figma de la tienda online Ortopedia Para Ti. Lenguaje visual, componentes, ficha de producto, menú y blog.",
-    h1: "Ortopedia Para Ti: propuesta de rediseño UX/UI para un e-commerce de productos ortopédicos",
+    h1: "Ortopedia Para Ti: rediseño UX/UI para un e-commerce de productos ortopédicos",
     coverAlt: "Portada tipográfica del caso Ortopedia Para Ti, rediseño UX/UI de e-commerce",
     meta: {
-      role: "Diseño UX/UI (sin implementación)",
-      platform: "WordPress y WooCommerce (tienda actual)",
+      role: "Diseño UX/UI",
       kind: "Rediseño de e-commerce",
       service: "UX/UI y diseño web",
     },
     links: [
       {
-        label: "Ver la tienda actual",
+        label: "Visitar el sitio",
         href: "https://ortopediaparati.com/",
-        note: "Es el sitio vigente del cliente. El rediseño se presenta como propuesta de diseño en Figma.",
       },
     ],
     sections: {
@@ -60,7 +58,7 @@ export const ortopediaParaTi: CaseStudy = {
       role: [
         {
           type: "p",
-          text: "Me encargué del diseño UX/UI en Figma. La implementación en el sitio no formó parte de mi trabajo: lo que se presenta acá es una propuesta de diseño, no un sitio publicado.",
+          text: "Me encargué del diseño UX/UI en Figma. El rediseño está implementado y publicado.",
         },
       ],
       constraints: [
@@ -69,7 +67,7 @@ export const ortopediaParaTi: CaseStudy = {
           items: [
             "Una tienda existente, con catálogo y estructura de menú ya definidos.",
             "Elementos actuales que convenía reaprovechar en lugar de rehacer.",
-            "Alcance acotado al diseño de interfaz: sin programación ni puesta en línea.",
+            "Alcance acotado al diseño de interfaz.",
           ],
         },
       ],
@@ -88,7 +86,7 @@ export const ortopediaParaTi: CaseStudy = {
         {
           type: "ul",
           items: [
-            "Reutilizar y reinterpretar elementos existentes antes que reemplazarlos, para que la propuesta siga siendo reconocible.",
+            "Reutilizar y reinterpretar elementos existentes antes que reemplazarlos, para que la marca siga siendo reconocible.",
             "Tratar la ficha de producto y el menú como piezas centrales, porque ordenan la compra y la navegación del catálogo.",
             "Presentar el contenido del blog con la misma lógica visual que el resto de la tienda.",
           ],
@@ -97,7 +95,7 @@ export const ortopediaParaTi: CaseStudy = {
       solution: [
         {
           type: "p",
-          text: "Una propuesta de rediseño con look and feel renovado y componentes modernizados, aplicada a las pantallas y secciones principales del e-commerce, incluidas la ficha de producto, el menú y la presentación del blog.",
+          text: "Un rediseño con look and feel renovado y componentes modernizados, aplicada a las pantallas y secciones principales del e-commerce, incluidas la ficha de producto, el menú y la presentación del blog.",
         },
       ],
       tools: [{ type: "p", text: "Figma." }],
@@ -114,7 +112,7 @@ export const ortopediaParaTi: CaseStudy = {
         },
         {
           type: "p",
-          text: "Estado actual: propuesta de rediseño diseñada en Figma. No se informan métricas ni resultados de negocio.",
+          text: "Estado actual: el rediseño está implementado y publicado. No se informan métricas ni resultados de negocio.",
         },
       ],
     },
@@ -122,23 +120,21 @@ export const ortopediaParaTi: CaseStudy = {
   en: {
     cardTitle: "Ortopedia Para Ti: e-commerce UX/UI redesign",
     cardSummary:
-      "A Figma redesign proposal for an online orthopedic products store: new visual language, updated components, product page, menu and blog.",
+      "A Figma redesign of an online orthopedic products store: new visual language, updated components, product page, menu and blog.",
     seoTitle: "Ortopedia Para Ti: E-commerce Redesign",
     seoDescription:
       "Case study: UX/UI redesign in Figma for the Ortopedia Para Ti online store. Visual language, components, product page, menu and blog layout.",
-    h1: "Ortopedia Para Ti: a UX/UI redesign proposal for an orthopedic products e-commerce",
+    h1: "Ortopedia Para Ti: a UX/UI redesign for an orthopedic products e-commerce",
     coverAlt: "Typographic cover of the Ortopedia Para Ti case, an e-commerce UX/UI redesign",
     meta: {
-      role: "UX/UI design (no implementation)",
-      platform: "WordPress and WooCommerce (current store)",
+      role: "UX/UI design",
       kind: "E-commerce redesign",
       service: "UX/UI and web design",
     },
     links: [
       {
-        label: "See the current store",
+        label: "Visit the site",
         href: "https://ortopediaparati.com/",
-        note: "This is the client's current site. The redesign is presented as a design proposal made in Figma.",
       },
     ],
     sections: {
@@ -172,7 +168,7 @@ export const ortopediaParaTi: CaseStudy = {
       role: [
         {
           type: "p",
-          text: "I was responsible for the UX/UI design in Figma. Putting it into the site was not part of my work: what you see here is a design proposal, not a published site.",
+          text: "I was responsible for the UX/UI design in Figma. The redesign is implemented and published.",
         },
       ],
       constraints: [
@@ -181,7 +177,7 @@ export const ortopediaParaTi: CaseStudy = {
           items: [
             "An existing store, with its catalog and menu structure already defined.",
             "Current elements that were worth reusing instead of redoing.",
-            "Scope limited to interface design: no coding and no go-live.",
+            "Scope limited to interface design.",
           ],
         },
       ],
@@ -200,7 +196,7 @@ export const ortopediaParaTi: CaseStudy = {
         {
           type: "ul",
           items: [
-            "Reuse and reinterpret existing elements rather than replace them, so the proposal stays recognizable.",
+            "Reuse and reinterpret existing elements rather than replace them, so the brand stays recognizable.",
             "Treat the product page and the menu as core pieces, because they structure buying and catalog navigation.",
             "Present the blog content with the same visual logic as the rest of the store.",
           ],
@@ -209,7 +205,7 @@ export const ortopediaParaTi: CaseStudy = {
       solution: [
         {
           type: "p",
-          text: "A redesign proposal with a renewed look and feel and modernized components, applied to the main screens and sections of the e-commerce, including the product page, the menu and the blog layout.",
+          text: "A redesign with a renewed look and feel and modernized components, applied to the main screens and sections of the e-commerce, including the product page, the menu and the blog layout.",
         },
       ],
       tools: [{ type: "p", text: "Figma." }],
@@ -226,7 +222,7 @@ export const ortopediaParaTi: CaseStudy = {
         },
         {
           type: "p",
-          text: "Current status: a redesign proposal designed in Figma. No metrics or business results are reported.",
+          text: "Current status: the redesign is implemented and published. No metrics or business results are reported.",
         },
       ],
     },

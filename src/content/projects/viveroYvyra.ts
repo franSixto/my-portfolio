@@ -5,6 +5,7 @@ export const viveroYvyra: CaseStudy = {
   cover: { src: "/projects/covers/vivero-yvyra.webp", width: 1600, height: 900 },
   relatedService: "serviceWebDevelopment",
   secondaryService: "serviceUxUi",
+  status: "live",
   relatedCases: ["consultora-prisma"],
   es: {
     cardTitle: "Vivero Yvyrá: catálogo botánico y CMS a medida",
@@ -22,6 +23,12 @@ export const viveroYvyra: CaseStudy = {
       kind: "Plataforma web con CMS a medida",
       service: "Diseño y desarrollo web",
     },
+    links: [
+      {
+        label: "Visitar el sitio",
+        href: "https://www.viveroyvyra.com.ar/",
+      },
+    ],
     sections: {
       context: [
         {
@@ -112,6 +119,10 @@ export const viveroYvyra: CaseStudy = {
             "Blog de plantas y jardinería.",
           ],
         },
+        {
+          type: "p",
+          text: "Estado actual: sitio publicado. No se informan métricas ni resultados.",
+        },
       ],
     },
   },
@@ -131,6 +142,12 @@ export const viveroYvyra: CaseStudy = {
       kind: "Web platform with a custom CMS",
       service: "Web design and development",
     },
+    links: [
+      {
+        label: "Visit the site",
+        href: "https://www.viveroyvyra.com.ar/",
+      },
+    ],
     sections: {
       context: [
         {
@@ -220,6 +237,10 @@ export const viveroYvyra: CaseStudy = {
             "Its own admin panel to load and edit content.",
             "A blog about plants and gardening.",
           ],
+        },
+        {
+          type: "p",
+          text: "Current status: published site. No metrics or results are reported.",
         },
       ],
     },

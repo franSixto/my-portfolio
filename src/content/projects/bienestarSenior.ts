@@ -5,7 +5,7 @@ export const bienestarSenior: CaseStudy = {
   cover: { src: "/projects/covers/bienestar-senior.webp", width: 1600, height: 900 },
   relatedService: "serviceUxUi",
   secondaryService: "serviceWebDesign",
-  status: "design-proposal",
+  status: "live",
   relatedCases: ["ortopedia-para-ti"],
   es: {
     cardTitle: "Bienestar Senior: rediseño UX/UI de e-commerce",
@@ -17,16 +17,14 @@ export const bienestarSenior: CaseStudy = {
     h1: "Bienestar Senior: rediseño UX/UI de siete tipos de página para un e-commerce de ortopedia y bienestar",
     coverAlt: "Portada tipográfica del caso Bienestar Senior, rediseño UX/UI de e-commerce",
     meta: {
-      role: "Rediseño UX/UI en Figma (sin implementación)",
-      platform: "Shopify (tienda actual)",
+      role: "Rediseño UX/UI en Figma",
       kind: "Rediseño de e-commerce",
       service: "UX/UI y diseño web",
     },
     links: [
       {
-        label: "Ver la tienda actual",
+        label: "Visitar el sitio",
         href: "https://www.bienestarsenior.com/",
-        note: "Es el sitio vigente del cliente. El rediseño se presenta como propuesta de diseño en Figma.",
       },
     ],
     sections: {
@@ -60,7 +58,7 @@ export const bienestarSenior: CaseStudy = {
       role: [
         {
           type: "p",
-          text: "Me encargué del rediseño UX/UI en Figma. La implementación no formó parte de mi trabajo: el resultado es una propuesta de diseño, no un sitio publicado.",
+          text: "Me encargué del rediseño UX/UI en Figma. El rediseño está implementado y publicado.",
         },
       ],
       constraints: [
@@ -69,7 +67,7 @@ export const bienestarSenior: CaseStudy = {
           items: [
             "Una tienda existente, con componentes que convenía reaprovechar.",
             "Un alcance amplio: siete tipos de página que debían funcionar como un conjunto.",
-            "Alcance limitado al diseño de interfaz, sin programación ni puesta en línea.",
+            "Alcance limitado al diseño de interfaz.",
           ],
         },
       ],
@@ -91,7 +89,7 @@ export const bienestarSenior: CaseStudy = {
             "Diseñar los siete tipos de página con los mismos componentes y reglas, para que el sitio se lea como una unidad.",
             "Priorizar la navegación y la jerarquía de información antes que la decoración.",
             "Cuidar la presentación del producto como la pieza que más pesa en la decisión de compra.",
-            "Incluir el blog y los artículos dentro de la propuesta como parte del sistema.",
+            "Incluir el blog y los artículos dentro del rediseño como parte del sistema.",
           ],
         },
       ],
@@ -126,7 +124,7 @@ export const bienestarSenior: CaseStudy = {
         },
         {
           type: "p",
-          text: "Estado actual: propuesta de rediseño diseñada en Figma. El blog y los artículos forman parte de la propuesta. No se informan métricas ni resultados de negocio.",
+          text: "Estado actual: el rediseño está implementado y publicado. El blog y los artículos forman parte del rediseño. No se informan métricas ni resultados de negocio.",
         },
       ],
     },
@@ -141,16 +139,14 @@ export const bienestarSenior: CaseStudy = {
     h1: "Bienestar Senior: a UX/UI redesign of seven page types for an orthopedics and wellbeing e-commerce",
     coverAlt: "Typographic cover of the Bienestar Senior case, an e-commerce UX/UI redesign",
     meta: {
-      role: "UX/UI redesign in Figma (no implementation)",
-      platform: "Shopify (current store)",
+      role: "UX/UI redesign in Figma",
       kind: "E-commerce redesign",
       service: "UX/UI and web design",
     },
     links: [
       {
-        label: "See the current store",
+        label: "Visit the site",
         href: "https://www.bienestarsenior.com/",
-        note: "This is the client's current site. The redesign is presented as a design proposal made in Figma.",
       },
     ],
     sections: {
@@ -184,7 +180,7 @@ export const bienestarSenior: CaseStudy = {
       role: [
         {
           type: "p",
-          text: "I was responsible for the UX/UI redesign in Figma. Putting it into the site was not part of my work: the result is a design proposal, not a published site.",
+          text: "I was responsible for the UX/UI redesign in Figma. The redesign is implemented and published.",
         },
       ],
       constraints: [
@@ -193,7 +189,7 @@ export const bienestarSenior: CaseStudy = {
           items: [
             "An existing store, with components worth reusing.",
             "A wide scope: seven page types that had to work as a set.",
-            "Scope limited to interface design, with no coding and no go-live.",
+            "Scope limited to interface design.",
           ],
         },
       ],
@@ -215,7 +211,7 @@ export const bienestarSenior: CaseStudy = {
             "Design the seven page types with the same components and rules, so the site reads as one whole.",
             "Put navigation and information hierarchy ahead of decoration.",
             "Treat the product presentation as the piece that weighs most in the buying decision.",
-            "Include the blog and its articles in the proposal as part of the system.",
+            "Include the blog and its articles in the redesign as part of the system.",
           ],
         },
       ],
@@ -250,7 +246,7 @@ export const bienestarSenior: CaseStudy = {
         },
         {
           type: "p",
-          text: "Current status: a redesign proposal designed in Figma. The blog and its articles are part of the proposal. No metrics or business results are reported.",
+          text: "Current status: the redesign is implemented and published. The blog and its articles are part of the redesign. No metrics or business results are reported.",
         },
       ],
     },

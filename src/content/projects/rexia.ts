@@ -4,23 +4,32 @@ export const rexia: CaseStudy = {
   slug: "rexia",
   cover: { src: "/projects/covers/rexia.webp", width: 1600, height: 900 },
   relatedService: "serviceUxUi",
+  secondaryService: "serviceGraphicDesign",
   status: "ongoing-confidential",
   relatedCases: ["start-university"],
   es: {
     cardTitle: "Rexia: product design para un SaaS de salud",
     cardSummary:
-      "Diseño de producto y UX/UI para una plataforma de inteligencia financiera para sistemas de salud: gestión de convenios y autorizaciones.",
+      "Product design y UX/UI para una plataforma de inteligencia financiera en salud, más su branding y sitio web.",
     seoTitle: "Rexia: product design en SaaS de salud",
     seoDescription:
       "Caso de estudio: product design y UX/UI para Rexia, una plataforma SaaS para sistemas de salud. Gestión de convenios, autorizaciones y flujos complejos.",
     h1: "Rexia: product design y UX/UI para una plataforma de inteligencia financiera en salud",
     coverAlt: "Portada tipográfica del caso Rexia, product design para un SaaS de salud",
     meta: {
-      role: "Diseñador de producto",
+      role: "Diseñador de producto, branding y sitio web",
       platform: "SaaS para sistemas de salud",
       kind: "Product design y UX/UI",
       service: "UX/UI y producto",
     },
+    links: [
+      { label: "Visitar rexia.ar", href: "https://rexia.ar/" },
+      {
+        label: "Visitar retia.ar",
+        href: "https://retia.ar/",
+        note: "Sitio de Retia, un producto de Rexia.",
+      },
+    ],
     sections: {
       context: [
         {
@@ -52,6 +61,10 @@ export const rexia: CaseStudy = {
         {
           type: "p",
           text: "Soy responsable del diseño de producto: flujos, estructura de la información, UX y UI para procesos complejos. Trabajo de forma interdisciplinaria con producto y desarrollo, y documento las decisiones con diagramas y especificaciones.",
+        },
+        {
+          type: "p",
+          text: "También creé el branding de Rexia y su sitio web, rexia.ar. Además diseñé el sitio de Retia, un producto de Rexia, en retia.ar.",
         },
       ],
       constraints: [
@@ -121,7 +134,7 @@ export const rexia: CaseStudy = {
         },
         {
           type: "p",
-          text: "Estado actual: trabajo en curso y confidencial, sin capturas ni datos internos. No se informan métricas.",
+          text: "Estado actual: el trabajo de producto es en curso y confidencial, sin capturas ni datos internos. No se informan métricas.",
         },
       ],
     },
@@ -129,18 +142,26 @@ export const rexia: CaseStudy = {
   en: {
     cardTitle: "Rexia: product design for a healthcare SaaS",
     cardSummary:
-      "Product design and UX/UI for a financial intelligence platform for health systems: agreement management and authorizations.",
+      "Product design and UX/UI for a financial intelligence platform in healthcare, plus its branding and website.",
     seoTitle: "Rexia: Healthcare SaaS Product Design",
     seoDescription:
       "Case study: product design and UX/UI for Rexia, a SaaS platform for health systems. Agreement management, authorizations and complex flows.",
     h1: "Rexia: product design and UX/UI for a financial intelligence platform in healthcare",
     coverAlt: "Typographic cover of the Rexia case, product design for a healthcare SaaS",
     meta: {
-      role: "Product designer",
+      role: "Product designer, branding and website",
       platform: "SaaS for health systems",
       kind: "Product design and UX/UI",
       service: "UX/UI and product",
     },
+    links: [
+      { label: "Visit rexia.ar", href: "https://rexia.ar/" },
+      {
+        label: "Visit retia.ar",
+        href: "https://retia.ar/",
+        note: "Website for Retia, a Rexia product.",
+      },
+    ],
     sections: {
       context: [
         {
@@ -172,6 +193,10 @@ export const rexia: CaseStudy = {
         {
           type: "p",
           text: "I am responsible for product design: flows, information structure, UX and UI for complex processes. I work across disciplines with product and engineering, and I document decisions with diagrams and specifications.",
+        },
+        {
+          type: "p",
+          text: "I also created Rexia's branding and its website, rexia.ar. I also designed the website for Retia, a Rexia product, at retia.ar.",
         },
       ],
       constraints: [
@@ -241,7 +266,7 @@ export const rexia: CaseStudy = {
         },
         {
           type: "p",
-          text: "Current status: ongoing and confidential work, with no screenshots or internal data. No metrics are reported.",
+          text: "Current status: the product work is ongoing and confidential, with no screenshots or internal data. No metrics are reported.",
         },
       ],
     },
