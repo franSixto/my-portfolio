@@ -432,11 +432,13 @@ describe("Business a Day case", () => {
     expect(study().es.meta.since).toBeUndefined();
   });
 
-  it("states honestly that the daily idea is generated on demand", () => {
+  it("states that the daily idea is generated automatically every night, with no on-demand caveat", () => {
     const es = collectStrings(study().es.sections).join("\n");
     const en = collectStrings(study().en.sections).join("\n");
-    expect(es).toMatch(/a demanda/);
-    expect(en).toMatch(/on demand/);
+    expect(es).toMatch(/automáticamente cada noche/);
+    expect(en).toMatch(/automatically every night/);
+    expect(es).not.toMatch(/a demanda/);
+    expect(en).not.toMatch(/on demand/);
     expect(es).toMatch(/No se informan métricas de uso/);
     expect(en).toMatch(/No usage metrics are reported/);
   });

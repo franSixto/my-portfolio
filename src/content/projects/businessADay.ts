@@ -68,7 +68,7 @@ export const businessADay: CaseStudy = {
       constraints: [
         {
           type: "p",
-          text: "Hoy la idea del día se genera a demanda: la primera persona que entra y la pide la genera y queda publicada. La publicación depende de que alguien la dispare, por lo que no sale todos los días sin falta.",
+          text: "Cada idea, con sus 12 secciones y sus 7 prompts, se genera en una sola llamada a la IA y en menos de 60 segundos, el límite de las funciones del hosting. La idea del día se genera y se publica automáticamente cada noche, a las 00:00 de Argentina.",
         },
       ],
       process: [
@@ -179,7 +179,7 @@ export const businessADay: CaseStudy = {
       constraints: [
         {
           type: "p",
-          text: "Today the idea of the day is generated on demand: the first person who visits and asks for it generates it, and it gets published. Publication depends on someone triggering it, so it is not published every single day.",
+          text: "Each idea, with its 12 sections and 7 prompts, is generated in a single AI call and in under 60 seconds, the hosting's function limit. The idea of the day is generated and published automatically every night at midnight, Argentina time.",
         },
       ],
       process: [
