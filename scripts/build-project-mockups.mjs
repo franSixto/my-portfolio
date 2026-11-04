@@ -21,7 +21,7 @@ const SITES = [
   { slug: "consultora-prisma", url: "https://www.consultoraprisma.com.ar/", domain: "consultoraprisma.com.ar" },
   { slug: "ortopedia-para-ti", url: "https://ortopediaparati.com/", domain: "ortopediaparati.com" },
   { slug: "bienestar-senior", url: "https://www.bienestarsenior.com/", domain: "bienestarsenior.com" },
-  { slug: "rexia", url: "https://rexia.ar/", domain: "rexia.ar" },
+  { slug: "rexia", url: "https://rexia.ar/", domain: "rexia.ar", waitFor: "div.transition-all.duration-500.translate-y-3" },
   { slug: "retia", url: "https://retia.ar/", domain: "retia.ar" },
 ];
 
@@ -56,7 +56,7 @@ function findChrome() {
   return chrome;
 }
 
-async function capture(browser, url, file, viewport, userAgent) {
+async function capture(browser, url, file, viewport, userAgent, waitFor) {
   const page = await browser.newPage();
   try {
     if (userAgent) await page.setUserAgent(userAgent);
@@ -88,6 +88,18 @@ async function capture(browser, url, file, viewport, userAgent) {
     await hideFloating();
     await sleep(600);
     await hideFloating();
+    // Looping JS-driven hero (rexia): its list items fade in one by one, then reset. Wait for the full
+    // state (every item revealed, i.e. none left with opacity-0) right before shooting.
+    if (waitFor) {
+      await page.waitForFunction(
+        (sel) => {
+          const items = [...document.querySelectorAll("div.transition-all.duration-500")].filter((d) => d.className.includes("items-start"));
+          return items.length > 0 && items.every((d) => getComputedStyle(d).opacity === "1");
+        },
+        { timeout: 40000, polling: 100 },
+        waitFor,
+      );
+    }
     await page.screenshot({ path: file, type: "png", clip: { x: 0, y: 0, width: viewport.width, height: viewport.height } });
   } finally {
     await page.close();
@@ -100,7 +112,7 @@ const H = 1000;
 const BG = "#f0f2ef";
 const INK = "#14201c";
 const BR = { x: 100, y: 80, w: 1160, bar: 48, ch: 725, r: 16 }; // browser window; content is 16:10
-const PH = { x: 1170, y: 244, bezel: 12, sw: 306, sh: 662, r: 46 }; // phone; screen 390:844
+const PH = { x: 1170, y: 244, bezel: 12, top: 40, sw: 306, sh: 634, r: 46, sr: 8 }; // phone; thick top bezel holds the camera, screen sits below it
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
@@ -126,9 +138,9 @@ function browserFrameSvg(domain) {
 }
 
 function phoneFrameSvg() {
-  const { x, y, bezel, sw, sh, r } = PH;
+  const { x, y, bezel, top, sw, sh, r } = PH;
   const w = sw + bezel * 2;
-  const h = sh + bezel * 2;
+  const h = sh + top + bezel;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
   <defs><filter id="s" x="-30%" y="-20%" width="160%" height="150%"><feGaussianBlur stdDeviation="22"/></filter></defs>
   <rect x="${x - 6}" y="${y + 26}" width="${w + 12}" height="${h}" rx="${r + 4}" fill="#14201c" opacity="0.34" filter="url(#s)"/>
@@ -138,8 +150,10 @@ function phoneFrameSvg() {
 }
 
 function phoneCameraSvg() {
-  const { x, y, bezel, sw } = PH;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><circle cx="${x + bezel + sw / 2}" cy="${y + bezel + 15}" r="6" fill="${INK}"/><circle cx="${x + bezel + sw / 2 + 1.5}" cy="${y + bezel + 13.5}" r="1.6" fill="#2d3d37"/></svg>`;
+  const { x, y, bezel, top, sw } = PH;
+  const cx = x + bezel + sw / 2;
+  const cy = y + top / 2;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><rect x="${cx - 26}" y="${cy - 3}" width="52" height="6" rx="3" fill="#2a3732"/><circle cx="${cx + 38}" cy="${cy}" r="5.5" fill="#0b1210"/><circle cx="${cx + 39.5}" cy="${cy - 1.5}" r="1.6" fill="#2d3d37"/></svg>`;
 }
 
 const maskSvg = (w, h, path) => Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><path d="${path}" fill="#fff"/></svg>`);
@@ -158,12 +172,12 @@ async function compose(site) {
     ch - 1,
     `M0 0 H${w - 3} V${ch - 1 - r} a${r} ${r} 0 0 1 -${r} ${r} H${r} a${r} ${r} 0 0 1 -${r} -${r} Z`,
   );
-  const { sw, sh, bezel } = PH;
+  const { sw, sh, bezel, top, sr } = PH;
   const mob = await fitted(
     resolve(RAW_DIR, `${site.slug}-mobile.png`),
     sw,
     sh,
-    `M${PH.r} 0 H${sw - PH.r} a${PH.r} ${PH.r} 0 0 1 ${PH.r} ${PH.r} V${sh - PH.r} a${PH.r} ${PH.r} 0 0 1 -${PH.r} ${PH.r} H${PH.r} a${PH.r} ${PH.r} 0 0 1 -${PH.r} -${PH.r} V${PH.r} a${PH.r} ${PH.r} 0 0 1 ${PH.r} -${PH.r} Z`,
+    `M${sr} 0 H${sw - sr} a${sr} ${sr} 0 0 1 ${sr} ${sr} V${sh - PH.r} a${PH.r} ${PH.r} 0 0 1 -${PH.r} ${PH.r} H${PH.r} a${PH.r} ${PH.r} 0 0 1 -${PH.r} -${PH.r} V${sr} a${sr} ${sr} 0 0 1 ${sr} -${sr} Z`,
   );
   const out = resolve(OUT_DIR, `${site.slug}.webp`);
   await sharp(Buffer.from(backgroundSvg()))
@@ -171,7 +185,7 @@ async function compose(site) {
       { input: Buffer.from(browserFrameSvg(site.domain)) },
       { input: desk, left: x + 2, top: y + bar + 1 },
       { input: Buffer.from(phoneFrameSvg()) },
-      { input: mob, left: PH.x + bezel, top: PH.y + bezel },
+      { input: mob, left: PH.x + bezel, top: PH.y + top },
       { input: Buffer.from(phoneCameraSvg()) },
     ])
     .webp({ quality: 80 })
@@ -187,8 +201,8 @@ await mkdir(OUT_DIR, { recursive: true });
 const browser = await puppeteer.launch({ executablePath: findChrome(), headless: true, args: ["--no-sandbox", "--hide-scrollbars"] });
 try {
   for (const site of sites) {
-    await capture(browser, site.url, resolve(RAW_DIR, `${site.slug}-desktop.png`), DESKTOP);
-    await capture(browser, site.url, resolve(RAW_DIR, `${site.slug}-mobile.png`), MOBILE, MOBILE_UA);
+    await capture(browser, site.url, resolve(RAW_DIR, `${site.slug}-desktop.png`), DESKTOP, undefined, site.waitFor);
+    await capture(browser, site.url, resolve(RAW_DIR, `${site.slug}-mobile.png`), MOBILE, MOBILE_UA, site.waitFor);
     console.log("wrote", await compose(site));
   }
 } finally {
