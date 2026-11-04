@@ -62,20 +62,21 @@ describe("service content", () => {
       }
   });
 
-  it("shows a price only on webDesign, in USD", () => {
+  it("shows no prices and exposes no price field", () => {
     for (const key of keys)
       for (const locale of locales) {
-        const c: ServicePageContent = getServiceContent(key, locale);
-        if (key === "serviceWebDesign") {
-          expect(c.price?.amountUsd).toBeGreaterThan(0);
-          expect(c.price?.label).toMatch(/USD/);
-          expect(c.price?.note.length).toBeGreaterThan(10);
-        } else {
-          expect(c.price).toBeUndefined();
-        }
+        const c = getServiceContent(key, locale);
+        expect(c).not.toHaveProperty("price");
+        expect(collectStrings(c).join("\n")).not.toMatch(/USD|\bARS\b|\$\s?\d|desde \d|from \d/i);
       }
-    expect(getServiceContent("serviceWebDesign", "es").price?.label).toBe("Desde USD 600");
-    expect(getServiceContent("serviceWebDesign", "en").price?.label).toBe("From USD 600");
+  });
+
+  it("explains how webDesign is quoted without stating any price", () => {
+    for (const locale of locales) {
+      const text = collectStrings(getServiceContent("serviceWebDesign", locale)).join("\n");
+      expect(text).toMatch(locale === "es" ? /30 minutos/ : /30 minutes|30-minute/);
+      expect(text).toMatch(locale === "es" ? /precio cerrado/ : /fixed price/);
+    }
   });
 
   it("has no unresolved placeholders, hourly rates or timelines", () => {
@@ -86,9 +87,6 @@ describe("service content", () => {
         expect(text).not.toMatch(/\bTODO\b|lorem ipsum/);
         expect(text).not.toMatch(/\d+\s*(-|–|a|to)?\s*\d*\s*(semanas|meses|days|weeks|months|días)/i);
         expect(text).not.toMatch(/por hora|hourly|per hour/i);
-        // No prices outside the one allowed service
-        if (key !== "serviceWebDesign")
-          expect(text).not.toMatch(/USD|\$\s?\d/);
       }
   });
 

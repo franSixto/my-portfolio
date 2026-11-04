@@ -1,5 +1,4 @@
 import PageHeader from "@/components/ui/PageHeader";
-import PriceNote from "@/components/ui/PriceNote";
 import Section from "@/components/ui/Section";
 import ProjectTile from "@/components/ui/ProjectTile";
 import CtaBand from "@/components/ui/CtaBand";
@@ -65,7 +64,6 @@ export default function ServiceScreen({
         eyebrow={landingNavLabel(solution ? SOLUTION_PARENT[route] : route, locale)}
         title={content.h1}
         lead={content.intro}
-        aside={content.price && <PriceNote label={content.price.label} note={content.price.note} />}
       />
 
       {content.sections.map((section, i) => (

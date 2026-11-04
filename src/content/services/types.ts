@@ -7,15 +7,6 @@ export type ServiceSection =
 
 export type ServiceFaq = { question: string; answer: string };
 
-export type ServicePrice = {
-  /** Visible label, e.g. "Desde USD 600". */
-  label: string;
-  /** Numeric lower bound used for the Offer structured data. */
-  amountUsd: number;
-  /** Short note: the final quote depends on scope. */
-  note: string;
-};
-
 export type ServicePageContent = {
   seoTitle: string;
   seoDescription: string;
@@ -24,7 +15,6 @@ export type ServicePageContent = {
   h1: string;
   intro: string;
   sections: ServiceSection[];
-  price?: ServicePrice;
   faqs: ServiceFaq[];
   cta: { heading: string; button: string };
   relatedProjectSlugs: string[];

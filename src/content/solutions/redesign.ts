@@ -11,11 +11,6 @@ export const redesign: LocalizedSolutionContent = {
       "Rediseñar no es tirar todo. Es revisar qué sigue funcionando, qué quedó viejo y qué le impide al sitio cumplir su trabajo, y renovarlo con un criterio claro: estructura, navegación, lenguaje visual y componentes.",
     summary:
       "Revisión del sitio actual, decisión de qué conservar y qué renovar, y un diseño nuevo que se mantiene reconocible.",
-    price: {
-      label: "Desde USD 1.400",
-      amountUsd: 1400,
-      note: "El valor final depende del tamaño del sitio y de cuánto haya que renovar. Te paso una cotización concreta después de una primera charla.",
-    },
     sections: [
       {
         kind: "list",
@@ -91,7 +86,7 @@ export const redesign: LocalizedSolutionContent = {
       {
         question: "¿Cuánto cuesta?",
         answer:
-          "Un rediseño arranca desde USD 1.400: incluye revisar el sitio actual y cuidar que no se pierda el posicionamiento. El valor final depende del tamaño del sitio y de cuánto haya que renovar.",
+          "Depende del tamaño del sitio y de cuánto haya que renovar; incluye revisar el sitio actual y cuidar que no se pierda el posicionamiento. Primero hablamos 30 minutos sobre tu proyecto y después te paso una propuesta con alcance, etapas y precio cerrado.",
       },
     ],
     cta: {
@@ -124,11 +119,6 @@ export const redesign: LocalizedSolutionContent = {
       "Redesigning doesn't mean throwing everything out. It means reviewing what still works, what has aged and what keeps the site from doing its job, then renewing it with a clear logic: structure, navigation, visual language and components.",
     summary:
       "A review of the current site, a decision on what to keep and what to renew, and a new design that stays recognizable.",
-    price: {
-      label: "From USD 1,400",
-      amountUsd: 1400,
-      note: "The final price depends on the size of the site and how much needs renewing. I send a specific quote after an initial conversation.",
-    },
     sections: [
       {
         kind: "list",
@@ -204,7 +194,7 @@ export const redesign: LocalizedSolutionContent = {
       {
         question: "How much does it cost?",
         answer:
-          "A redesign starts from USD 1,400: it includes reviewing the current site and making sure search rankings aren't lost. The final price depends on the size of the site and how much needs renewing.",
+          "It depends on the size of the site and how much needs renewing, and it includes reviewing the current site and making sure search rankings aren't lost. We start with a 30-minute call about your project, then I send a proposal with scope, stages and a fixed price.",
       },
     ],
     cta: {

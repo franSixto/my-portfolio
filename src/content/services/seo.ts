@@ -39,21 +39,6 @@ export function buildServiceJsonLd(key: LandingRouteKey, locale: Locale) {
     provider: { "@id": `${SITE_URL}/#person` },
     areaServed: AREA_SERVED[locale],
   };
-  if (c.price) {
-    service.offers = {
-      "@type": "Offer",
-      url,
-      description: c.price.label,
-      price: String(c.price.amountUsd),
-      priceCurrency: "USD",
-      priceSpecification: {
-        "@type": "PriceSpecification",
-        priceCurrency: "USD",
-        minPrice: c.price.amountUsd,
-      },
-    };
-  }
-
   const nodes: JsonLdNode[] = [service];
   if (c.faqs.length > 0) {
     nodes.push({

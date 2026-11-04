@@ -176,7 +176,6 @@ describe("solution content", () => {
       expect(es.faqs.length).toBe(en.faqs.length);
       expect(es.relatedProjectSlugs).toEqual(en.relatedProjectSlugs);
       expect(es.relatedServices.map((r) => r.route)).toEqual(en.relatedServices.map((r) => r.route));
-      expect(es.price?.amountUsd).toBe(en.price?.amountUsd);
     }
   });
 
@@ -217,21 +216,11 @@ describe("solution content", () => {
       }
   });
 
-  it("shows starting prices only on the standardized web pages", () => {
-    const FLOORS: Partial<Record<(typeof keys)[number], number>> = { solutionLanding: 600, solutionRedesign: 1400 };
+  it("shows no prices and exposes no price field", () => {
     for (const key of keys)
       for (const locale of locales) {
-        const c = getSolutionContent(key, locale);
-        const text = pageText(key, locale);
-        if (FLOORS[key]) {
-          expect(c.price?.amountUsd, key).toBe(FLOORS[key]);
-          expect(c.price?.label).toMatch(/USD/);
-          if (key === "solutionLanding") expect(text).toMatch(/USD 1[.,]200/);
-          expect(text).not.toMatch(/USD 800/);
-        } else {
-          expect(c.price).toBeUndefined();
-          expect(text).not.toMatch(/USD|\$\s?\d/);
-        }
+        expect(getSolutionContent(key, locale)).not.toHaveProperty("price");
+        expect(pageText(key, locale)).not.toMatch(/USD|\bARS\b|\$\s?\d|desde \d|from \d/i);
       }
   });
 
@@ -344,14 +333,13 @@ describe("pages are not doorway variants of each other", () => {
   it("shares few 5-word phrases with any other solution or service", () => {
     for (const locale of locales) {
       const pages = [
-        // The price block is the parent service's by design, so it is left out.
         ...keys.map((k) => {
-          const c = { ...getSolutionContent(k, locale), price: undefined };
+          const c = getSolutionContent(k, locale);
           return [k, shingles(collectStrings(c).join("\n"))] as const;
         }),
         ...SERVICE_ROUTE_KEYS.map(
           (k) => {
-            const c = { ...getServiceContent(k, locale), price: undefined };
+            const c = getServiceContent(k, locale);
             return [k, shingles(collectStrings(c).join("\n"))] as const;
           }
         ),
@@ -380,7 +368,7 @@ describe("structured data and metadata", () => {
         expect(service.name).toBe(c.h1);
         expect(service.provider).toEqual({ "@id": "https://www.fransixto.com.ar/#person" });
         expect(faq.mainEntity).toHaveLength(c.faqs.length);
-        expect(Boolean(service.offers)).toBe(key === "solutionLanding" || key === "solutionRedesign");
+        expect(service.offers).toBeUndefined();
       }
   });
 
@@ -438,11 +426,11 @@ describe("graphic and brand design pages", () => {
   });
 
   it("explains how the price is quoted without stating any", () => {
-    for (const key of allGraphic)
+    for (const key of [...allGraphic, "solutionLanding", "solutionRedesign"] as unknown as (typeof allGraphic)[number][])
       for (const locale of locales) {
         const text = textOf(key, locale);
-        expect(text).toMatch(locale === "es" ? /30 minutos/ : /30-minute/);
-        expect(text).not.toMatch(/USD|\$\s?\d/);
+        expect(text).toMatch(locale === "es" ? /30 minutos|precio cerrado|cotización/ : /30-minute|fixed price|quote/);
+        expect(text).not.toMatch(/USD|\bARS\b|\$\s?\d|desde \d|from \d/i);
       }
   });
 });

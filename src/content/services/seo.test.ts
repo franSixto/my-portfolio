@@ -13,19 +13,15 @@ describe("buildServiceJsonLd", () => {
       { "@type": "Country", name: "Argentina" },
       { "@type": "Place", name: "Latinoamérica" },
     ]);
-    expect(service.offers).toMatchObject({
-      "@type": "Offer",
-      priceCurrency: "USD",
-      price: "600",
-      priceSpecification: { "@type": "PriceSpecification", minPrice: 600, priceCurrency: "USD" },
-    });
     const faq = graph.find((n) => n["@type"] === "FAQPage")!;
     expect(faq.mainEntity).toHaveLength(
       getServiceContent("serviceWebDesign", "es").faqs.length
     );
   });
 
-  it("omits offers when the service shows no price and is worldwide in en", () => {
+  it("never emits offers or Offer nodes, and is worldwide in en", () => {
+    const json = JSON.stringify(buildServiceJsonLd("serviceWebDesign", "es"));
+    expect(json).not.toMatch(/"offers"|"Offer"|PriceSpecification/);
     const service = buildServiceJsonLd("serviceUxUi", "en")["@graph"].find(
       (n) => n["@type"] === "Service"
     )!;

@@ -4,18 +4,13 @@ export const landing: LocalizedSolutionContent = {
   es: {
     seoTitle: "Landing page y sitio web para empresas",
     seoDescription:
-      "Landing page profesional o sitio web para tu empresa: qué decir, cómo organizarlo y cómo se ve, hasta publicarlo. Desde USD 600.",
+      "Landing page profesional o sitio web para tu empresa: qué decir, cómo organizarlo y cómo se ve, hasta publicarlo.",
     serviceType: "Diseño y desarrollo de landing pages y sitios web para empresas",
     h1: "Landing page profesional y sitio web para tu empresa",
     intro:
       "Quien llega a tu sitio decide rápido si entiende qué hacés y si te contacta. Diseño y desarrollo landing pages y sitios para empresas empezando por lo que hay que decir: cómo se organiza el contenido, cómo se recorre y cuál es el camino hasta el contacto.",
     summary:
       "Contenido ordenado, un recorrido claro hasta el contacto y un sitio publicado, en una página o en varias.",
-    price: {
-      label: "Landing desde USD 600 · Sitio desde USD 1.200",
-      amountUsd: 600,
-      note: "El valor final depende de la cantidad de secciones o páginas y de las integraciones. Te paso una cotización concreta después de una primera charla.",
-    },
     sections: [
       {
         kind: "list",
@@ -85,7 +80,7 @@ export const landing: LocalizedSolutionContent = {
       {
         question: "¿Cuánto cuesta?",
         answer:
-          "Una landing page arranca desde USD 600 y un sitio de varias páginas desde USD 1.200. El valor final depende del alcance y te lo confirmo en una cotización después de conocer tu proyecto.",
+          "Depende de cuántas secciones o páginas necesite el sitio y de las integraciones que lleve. Primero hablamos 30 minutos sobre tu proyecto y después te paso una propuesta con alcance, etapas y precio cerrado.",
       },
     ],
     cta: {
@@ -111,18 +106,13 @@ export const landing: LocalizedSolutionContent = {
   en: {
     seoTitle: "Landing Page and Business Website",
     seoDescription:
-      "A professional landing page or business website: what to say, how to organize it and how it looks, through to launch. From USD 600.",
+      "A professional landing page or business website: what to say, how to organize it and how it looks, through to launch.",
     serviceType: "Landing page and business website design and development",
     h1: "A professional landing page and website for your business",
     intro:
       "People who land on your site decide fast whether they understand what you do and whether to get in touch. I design and build landing pages and business websites starting from what needs to be said: how the content is organized, how it's read and what the path to contact looks like.",
     summary:
       "Organized content, a clear path to contact and a published site, in one page or several.",
-    price: {
-      label: "Landing from USD 600 · Website from USD 1,200",
-      amountUsd: 600,
-      note: "The final price depends on the number of sections or pages and on integrations. I send a specific quote after an initial conversation.",
-    },
     sections: [
       {
         kind: "list",
@@ -192,7 +182,7 @@ export const landing: LocalizedSolutionContent = {
       {
         question: "How much does it cost?",
         answer:
-          "A landing page starts from USD 600 and a multi-page website from USD 1,200. The final price depends on scope and I confirm it in a quote after learning about your project.",
+          "It depends on how many sections or pages the site needs and on the integrations it includes. After a 30-minute call about your project, I send a proposal with scope, stages and a fixed price.",
       },
     ],
     cta: {

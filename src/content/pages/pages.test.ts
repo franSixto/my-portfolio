@@ -248,10 +248,10 @@ describe("hub and home content", () => {
       );
   });
 
-  it("shows no prices outside the service pages", () => {
-    for (const mod of [homeContent, servicesHubContent, aboutContent, contactContent])
+  it("shows no prices in any page or the footer", () => {
+    for (const mod of [homeContent, servicesHubContent, aboutContent, contactContent, projectsContent, FOOTER, SITE_META])
       for (const locale of locales)
-        expect(collectStrings(mod[locale]).join("\n")).not.toMatch(/USD|\$\s?\d/);
+        expect(collectStrings(mod[locale]).join("\n")).not.toMatch(/USD|\bARS\b|\$\s?\d|desde \d|from \d/i);
   });
 
   it("features only projects that exist", () => {
