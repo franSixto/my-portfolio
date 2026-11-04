@@ -5,7 +5,7 @@ import cx from "classnames";
 import Link from "next/link";
 import ThemeSelect, { type ThemeLabels } from "@/components/theme/ThemeSelect";
 import LanguageSelector from "@/components/common/LanguageSelector";
-import { NAV_ITEMS, isNavItemActive } from "@/components/common/navItems";
+import { NAV_ITEMS, isNavItemActive, servicesMenu } from "@/components/common/navItems";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { RouteKey } from "@/i18n/routes";
 
@@ -21,7 +21,8 @@ interface NavMobileProps {
  * and does not scroll; Escape closes it and focus returns to the toggle.
  */
 export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeLabels }: NavMobileProps) {
-  const { t, localePath } = useLanguage();
+  const { t, locale, localePath } = useLanguage();
+  const services = servicesMenu(locale).services;
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
@@ -75,6 +76,28 @@ export default function NavMobile({ onClose, returnFocusTo, currentRoute, themeL
                   >
                     {t(item.labelKey)}
                   </Link>
+                  {item.id === "services" && (
+                    <ul className="mb-3 ml-1 border-l border-rule pl-4">
+                      {services.map((service) => {
+                        const current = currentRoute === service.route;
+                        return (
+                          <li key={service.route}>
+                            <Link
+                              href={service.href}
+                              onClick={onClose}
+                              aria-current={current ? "page" : undefined}
+                              className={cx(
+                                "block py-2.5 font-sans text-ui font-medium",
+                                current ? "text-accent" : "text-muted hover:text-ink"
+                              )}
+                            >
+                              {service.label}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                 </li>
               );
             }

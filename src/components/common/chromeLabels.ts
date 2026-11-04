@@ -11,6 +11,8 @@ export const CHROME_LABELS: Record<
     toLightTheme: string;
     mainNav: string;
     home: string;
+    /** Copy for the services dropdown / mobile sub-list. */
+    servicesMenu: { panelLabel: string; allServices: string };
     /** Copy for the "talk" CTA that offers WhatsApp or the contact form. */
     contactChooser: {
       panelLabel: string;
@@ -27,6 +29,7 @@ export const CHROME_LABELS: Record<
     toLightTheme: "Cambiar a tema claro",
     mainNav: "Navegación principal",
     home: "Francisco Sixto, ir al inicio",
+    servicesMenu: { panelLabel: "Servicios", allServices: "Ver todos los servicios" },
     contactChooser: {
       panelLabel: "Elegí cómo contactarme",
       whatsapp: {
@@ -45,6 +48,7 @@ export const CHROME_LABELS: Record<
     toLightTheme: "Switch to light theme",
     mainNav: "Main navigation",
     home: "Francisco Sixto, go to home",
+    servicesMenu: { panelLabel: "Services", allServices: "All services" },
     contactChooser: {
       panelLabel: "Choose how to reach me",
       whatsapp: {

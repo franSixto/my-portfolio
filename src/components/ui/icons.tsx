@@ -44,6 +44,14 @@ export function Plus({ className = "size-5" }: IconProps) {
   );
 }
 
+export function Chevron({ className = "size-5" }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
 export function Menu({ className = "size-5" }: IconProps) {
   return (
     <svg {...base} className={className}>

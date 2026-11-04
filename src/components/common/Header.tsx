@@ -7,6 +7,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import ThemeSelect from "@/components/theme/ThemeSelect";
 import LanguageSelector from "@/components/common/LanguageSelector";
+import ServicesNavItem from "@/components/common/ServicesNavItem";
 import NavMobile from "@/components/common/NavMobile";
 import { CHROME_LABELS } from "@/components/common/chromeLabels";
 import { NAV_ITEMS, isNavItemActive } from "@/components/common/navItems";
@@ -55,21 +56,32 @@ export default function Header() {
             <ul className="flex items-center gap-8">
               {NAV_ITEMS.map((item) => {
                 const active = isNavItemActive(item, currentRoute);
+                const linkClasses = cx(
+                  "relative py-2 text-[0.9375rem] font-medium transition-colors duration-(--motion-dur-fast)",
+                  "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:bg-accent after:transition-transform after:duration-(--motion-dur-base) after:ease-(--motion-ease-out) motion-reduce:after:transition-none",
+                  "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent",
+                  active
+                    ? "text-ink after:scale-x-100"
+                    : "text-muted hover:text-ink after:scale-x-0 hover:after:scale-x-100"
+                );
                 return (
                   <li key={item.id}>
-                    <Link
-                      href={localePath(item.route)}
-                      aria-current={active ? "page" : undefined}
-                      className={cx(
-                        "relative py-2 text-[0.9375rem] font-medium transition-colors duration-(--motion-dur-fast)",
-                        "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:bg-accent after:transition-transform after:duration-(--motion-dur-base) after:ease-(--motion-ease-out) motion-reduce:after:transition-none",
-                        active
-                          ? "text-ink after:scale-x-100"
-                          : "text-muted hover:text-ink after:scale-x-0 hover:after:scale-x-100"
-                      )}
-                    >
-                      {t(item.labelKey)}
-                    </Link>
+                    {item.id === "services" ? (
+                      <ServicesNavItem
+                        label={t(item.labelKey)}
+                        active={active}
+                        currentRoute={currentRoute}
+                        triggerClassName={linkClasses}
+                      />
+                    ) : (
+                      <Link
+                        href={localePath(item.route)}
+                        aria-current={active ? "page" : undefined}
+                        className={linkClasses}
+                      >
+                        {t(item.labelKey)}
+                      </Link>
+                    )}
                   </li>
                 );
               })}
