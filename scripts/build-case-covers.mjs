@@ -97,6 +97,15 @@ const ART = {
     `<path d="M1160 380 H1210 V510 H1330" fill="none" stroke="${p.rule}" stroke-width="3"/>` +
     ring(1352, 250, 22, p.accent, 4) + line(1374, 250, 1420, 250, p.accent, 4) + box(1420, 222, 80, 56, p.accent, 4, 10) +
     ring(1352, 510, 22, p.rule) + line(1374, 510, 1420, 510, p.rule) + box(1420, 482, 80, 56, p.rule, 3, 10),
+  // Business a Day: one card, twelve analysis rows, the daily idea.
+  idea: (p) =>
+    box(1000, 170, 420, 410, p.rule) +
+    Array.from({ length: 12 }, (_, i) => {
+      const y = 205 + i * 30;
+      const c = i === 5 ? p.accent : p.rule;
+      return line(1030, y, 1030 + (i % 3 === 0 ? 300 : i % 3 === 1 ? 240 : 270), y, c, i === 5 ? 5 : 3);
+    }).join("") +
+    poly("1470,170 1500,200 1470,230 1440,200", p.accent),
   // Consultora Prisma: a prism splitting light.
   prism: (p) =>
     poly("1150,190 1020,540 1280,540", p.rule) +
@@ -125,6 +134,7 @@ const COVERS = [
   { slug: "ortopedia-para-ti", title: ["Ortopedia", "Para Ti"], category: "UX/UI Design · Rediseño de e-commerce", palette: "paper", art: "catalog" },
   { slug: "bienestar-senior", title: ["Bienestar", "Senior"], category: "UX/UI Design · Rediseño de e-commerce", palette: "dark", art: "targets" },
   { slug: "rexia", title: ["Rexia"], category: "Product Design · UX/UI · SaaS de salud", palette: "pine", art: "decision" },
+  { slug: "business-a-day", title: ["Business", "a Day"], category: "Producto propio · UX/UI · Desarrollo con IA", palette: "dark", art: "idea" },
   { slug: "consultora-prisma", title: ["Consultora", "Prisma"], category: "Diseño web · Desarrollo web", palette: "paper", art: "prism" },
   { slug: "vivero-yvyra", title: ["Vivero", "Yvyrá"], category: "UX/UI · Desarrollo full-stack · CMS a medida", palette: "pine", art: "leaf" },
 ];

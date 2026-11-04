@@ -22,6 +22,7 @@ const SITES = [
   { slug: "ortopedia-para-ti", url: "https://ortopediaparati.com/", domain: "ortopediaparati.com" },
   { slug: "bienestar-senior", url: "https://www.bienestarsenior.com/", domain: "bienestarsenior.com" },
   { slug: "rexia", url: "https://rexia.ar/", domain: "rexia.ar", waitFor: "div.transition-all.duration-500.translate-y-3" },
+  { slug: "business-a-day", url: "https://www.businessaday.com/", domain: "businessaday.com" },
   { slug: "retia", url: "https://retia.ar/", domain: "retia.ar" },
 ];
 

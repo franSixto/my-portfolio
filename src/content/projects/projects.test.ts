@@ -21,6 +21,7 @@ import { PROJECTS_LABELS } from "./labels";
 const EXPECTED_ORDER = [
   "start-university",
   "rexia",
+  "business-a-day",
   "deep-creek-solutions",
   "autocity-grupo-tagle",
   "bienestar-senior",
@@ -48,7 +49,7 @@ function collectStrings(value: unknown, out: string[] = []): string[] {
 }
 
 describe("case studies registry", () => {
-  it("lists the thirteen cases in the approved order with unique slugs", () => {
+  it("lists the twelve cases in the approved order with unique slugs", () => {
     expect(getCaseSlugs()).toEqual(EXPECTED_ORDER);
     expect(new Set(getCaseSlugs()).size).toBe(CASE_STUDIES.length);
   });
@@ -203,7 +204,7 @@ describe("references to case studies", () => {
     expect(related("serviceUxUi")).toEqual(["start-university", "deep-creek-solutions", "autocity-grupo-tagle"]);
     expect(related("serviceWebDesign")).toEqual(["autocity-grupo-tagle", "sixto-van-garret", "start-university"]);
     expect(related("serviceWebDevelopment")).toEqual(["start-university", "officina-artis", "consultora-prisma"]);
-    expect(related("serviceAiMvp")).toEqual(["deep-creek-solutions"]);
+    expect(related("serviceAiMvp")).toEqual(["deep-creek-solutions", "business-a-day"]);
     for (const content of Object.values(serviceContent))
       for (const locale of locales)
         expect(content[locale].relatedProjectSlugs).toEqual(content.es.relatedProjectSlugs);
@@ -338,6 +339,7 @@ describe("new case studies", () => {
       "ortopedia-para-ti": ["ortopedia-para-ti"],
       "bienestar-senior": ["bienestar-senior"],
       rexia: ["rexia", "retia"],
+      "business-a-day": ["business-a-day"],
     };
     for (const [slug, names] of Object.entries(MOCKUPS)) {
       const gallery = getCaseStudy(slug)?.gallery ?? [];
@@ -358,6 +360,7 @@ describe("new case studies", () => {
       "ortopedia-para-ti": "https://ortopediaparati.com",
       "bienestar-senior": "https://www.bienestarsenior.com",
       "vivero-yvyra": "https://www.viveroyvyra.com.ar",
+      "business-a-day": "https://www.businessaday.com",
     };
     for (const [slug, href] of Object.entries(hrefs)) {
       const study = getCaseStudy(slug)!;
@@ -413,5 +416,33 @@ describe("new case studies", () => {
     expect(rexia.relatedCases ?? []).not.toContain("deep-creek-solutions");
     for (const t of [...collectStrings(rexia.es), ...collectStrings(rexia.en)])
       expect(t).not.toMatch(/Deep Creek|Red Sanitaria/i);
+  });
+});
+
+describe("Business a Day case", () => {
+  const study = () => getCaseStudy("business-a-day")!;
+
+  it("is a live own product sitting right after Rexia", () => {
+    expect(getCaseSlugs().indexOf("business-a-day")).toBe(getCaseSlugs().indexOf("rexia") + 1);
+    expect(study().status).toBe("live");
+    expect(study().relatedService).toBe("serviceAiMvp");
+    expect(study().es.meta.role).toBe("Producto, diseño UX/UI y desarrollo");
+    expect(study().en.meta.role).toBe("Product, UX/UI design and development");
+    expect(study().es.meta.years).toBeUndefined();
+    expect(study().es.meta.since).toBeUndefined();
+  });
+
+  it("states honestly that the daily idea is generated on demand", () => {
+    const es = collectStrings(study().es.sections).join("\n");
+    const en = collectStrings(study().en.sections).join("\n");
+    expect(es).toMatch(/a demanda/);
+    expect(en).toMatch(/on demand/);
+    expect(es).toMatch(/No se informan métricas de uso/);
+    expect(en).toMatch(/No usage metrics are reported/);
+  });
+
+  it("does not name the AI model, database or auth provider", () => {
+    for (const t of [...collectStrings(study().es), ...collectStrings(study().en)])
+      expect(t).not.toMatch(/OpenAI|Gemini|Supabase|Firebase|Postgres|Prisma|Clerk|Auth0|NextAuth/);
   });
 });

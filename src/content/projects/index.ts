@@ -2,6 +2,7 @@
 import type { Locale } from "@/i18n/routes";
 import { apexAmerica } from "./apexAmerica";
 import { autocityGrupoTagle } from "./autocityGrupoTagle";
+import { businessADay } from "./businessADay";
 import { bienestarSenior } from "./bienestarSenior";
 import { consultoraPrisma } from "./consultoraPrisma";
 import { deepCreekSolutions } from "./deepCreekSolutions";
@@ -17,6 +18,7 @@ import type { CaseCopy, CaseStudy } from "./types";
 export const CASE_STUDIES: readonly CaseStudy[] = [
   startUniversity,
   rexia,
+  businessADay,
   deepCreekSolutions,
   autocityGrupoTagle,
   bienestarSenior,
