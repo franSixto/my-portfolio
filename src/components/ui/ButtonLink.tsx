@@ -6,7 +6,7 @@ export type ButtonVariant = "primary" | "secondary" | "inverse" | "text";
 export type ButtonSize = "sm" | "md" | "lg";
 
 const BASE =
-  "inline-flex items-center justify-center gap-2 font-sans font-medium rounded-[var(--radius-control)] transition-[color,background-color,border-color,text-decoration-color,transform] duration-(--motion-dur-fast) ease-(--motion-ease-out) motion-safe:active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-3 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex max-w-full items-center justify-center gap-2 font-sans font-medium rounded-[var(--radius-control)] transition-[color,background-color,border-color,text-decoration-color,transform] duration-(--motion-dur-fast) ease-(--motion-ease-out) motion-safe:active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-3 disabled:cursor-not-allowed disabled:opacity-60";
 
 const VARIANTS: Record<ButtonVariant, string> = {
   primary: "bg-accent text-on-accent hover:bg-accent-strong dark:hover:bg-accent-strong",
@@ -18,9 +18,9 @@ const VARIANTS: Record<ButtonVariant, string> = {
 };
 
 const SIZES: Record<ButtonSize, string> = {
-  sm: "h-10 px-4 text-[0.9375rem]",
-  md: "h-12 px-5 text-ui",
-  lg: "h-14 px-6 text-[1.0625rem]",
+  sm: "min-h-10 px-4 py-2 text-[0.9375rem]",
+  md: "min-h-12 px-5 py-2.5 text-ui",
+  lg: "min-h-14 px-6 py-3 text-[1.0625rem]",
 };
 
 export function buttonClasses({
@@ -32,7 +32,7 @@ export function buttonClasses({
   size?: ButtonSize;
   className?: string;
 } = {}) {
-  return cx(BASE, VARIANTS[variant], variant === "text" ? "h-auto" : cx("whitespace-nowrap", SIZES[size]), className);
+  return cx(BASE, VARIANTS[variant], variant === "text" ? "h-auto" : cx("text-center", SIZES[size]), className);
 }
 
 /**

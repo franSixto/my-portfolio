@@ -161,6 +161,17 @@ describe("case studies assets and links", () => {
     }
   });
 
+  it("has a non-empty related-service link label for every service a case points at", () => {
+    for (const study of CASE_STUDIES) {
+      for (const key of [study.relatedService, study.secondaryService]) {
+        if (!key) continue;
+        for (const labels of Object.values(PROJECTS_LABELS)) {
+          expect(labels.serviceLink[key], `${study.slug} -> ${key}`).toBeTruthy();
+        }
+      }
+    }
+  });
+
   it("only links to https URLs", () => {
     for (const study of CASE_STUDIES)
       for (const locale of locales)

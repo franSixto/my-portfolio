@@ -78,7 +78,7 @@ export default function ProjectContent({
 
       <Container className="pb-20 pt-14 md:pb-28 md:pt-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <aside className="lg:col-span-3" {...revealProps("fade", 1)}>
+          <aside className="min-w-0 lg:col-span-3" {...revealProps("fade", 1)}>
             <div className="space-y-8 lg:sticky lg:top-28">
               {logo && (
                 <div className="flex h-14 w-44 items-center justify-center rounded-[var(--radius-control)] bg-white p-3 ring-1 ring-rule">
@@ -119,7 +119,7 @@ export default function ProjectContent({
             </div>
           </aside>
 
-          <div className="max-w-[68ch] text-pretty font-serif text-body text-ink lg:col-span-7 lg:col-start-5">
+          <div className="min-w-0 max-w-[68ch] text-pretty font-serif text-body text-ink lg:col-span-7 lg:col-start-5">
             {sections.map((section) => (
               <section
                 key={section.id}
