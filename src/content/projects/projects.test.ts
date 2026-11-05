@@ -192,11 +192,7 @@ describe("case studies assets and links", () => {
 describe("references to case studies", () => {
   it("features only cases that exist", () => {
     for (const slug of FEATURED_PROJECT_SLUGS) expect(getCaseSlugs()).toContain(slug);
-    expect([...FEATURED_PROJECT_SLUGS]).toEqual([
-      "start-university",
-      "deep-creek-solutions",
-      "autocity-grupo-tagle",
-    ]);
+    expect([...FEATURED_PROJECT_SLUGS]).toEqual(["vivero-yvyra", "consultora-prisma", "rexia"]);
   });
 
   it("relates every service to cases that exist, as recommended", () => {

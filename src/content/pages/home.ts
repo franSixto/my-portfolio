@@ -142,7 +142,7 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     work: {
       heading: "Proyectos seleccionados",
-      intro: "Productos educativos, de salud y sitios de marca en los que trabajé.",
+      intro: "Lo último en lo que trabajé: plataformas web, sitios a medida y producto digital.",
       all: "Ver todos los proyectos",
     },
     about: {
@@ -267,7 +267,7 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     work: {
       heading: "Selected work",
-      intro: "Education and health products, and brand websites I've worked on.",
+      intro: "My most recent work: web platforms, custom websites and digital products.",
       all: "See all projects",
     },
     about: {

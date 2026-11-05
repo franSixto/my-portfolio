@@ -35,7 +35,10 @@ export const aboutContent: Record<Locale, AboutContent> = {
     location: "Córdoba, Argentina · Trabajo remoto",
     intro: [
       "Soy Francisco Sixto, diseñador UX/UI y de producto con más de 10 años de experiencia. Diseño plataformas web, productos SaaS e interfaces para equipos que necesitan que lo diseñado se pueda construir y mantener.",
-      "Me formé en diseño gráfico y multimedia, y eso sigue en mi forma de trabajar: cuido la jerarquía, el detalle visual y la consistencia. Con los años sumé desarrollo con React, Next.js y WordPress, y hoy uso herramientas de IA para llegar más rápido a prototipos que se pueden probar. Diseño y desarrollo: lo que diseño, también lo construyo.",
+      "Me formé en diseño gráfico y multimedia, y eso sigue en mi forma de trabajar: cuido la jerarquía, el detalle visual y la consistencia. Con los años crucé al desarrollo, y hoy lo que diseño también lo construyo y lo publico.",
+      "Las herramientas cambian cada vez más rápido y ya no son lo que separa un buen proyecto de uno mediocre. Cualquiera puede generar una pantalla o un sitio en minutos. Lo difícil sigue siendo lo mismo de siempre: entender qué problema hay que resolver, para quién, y tomar las decisiones correctas en el orden correcto.",
+      "Ahí está lo que aporto: criterio para priorizar, oficio visual para que el resultado se vea y se sienta bien, y la experiencia de haber llevado productos desde la idea hasta que la gente los usa. Trabajé en equipos grandes y en proyectos donde era el único responsable de todo, y aprendí que lo que importa es que funcione, se entienda y se pueda sostener en el tiempo.",
+      "Hoy acompaño a empresas, consultoras y emprendedores que necesitan a alguien que se haga cargo del proyecto de punta a punta, que escuche, que pregunte lo incómodo y que entregue algo real.",
     ],
     photoAlt: "Retrato de Francisco Sixto",
     background: {
@@ -156,7 +159,10 @@ export const aboutContent: Record<Locale, AboutContent> = {
     location: "Córdoba, Argentina · Working remotely",
     intro: [
       "I'm Francisco Sixto, a UX/UI and product designer with more than 10 years of experience. I design web platforms, SaaS products and interfaces for teams that need what gets designed to be buildable and maintainable.",
-      "I trained in graphic and multimedia design, and it still shows in how I work: I care about hierarchy, visual detail and consistency. Over the years I added development with React, Next.js and WordPress, and today I use AI tools to get to testable prototypes faster. I design and I develop: what I design, I build too.",
+      "I trained in graphic and multimedia design, and it still shows in how I work: I care about hierarchy, visual detail and consistency. Over the years I crossed into development, and today what I design, I also build and ship.",
+      "Tools change faster every year and they are no longer what separates a good project from a mediocre one. Anyone can generate a screen or a website in minutes. The hard part is the same as always: understanding which problem needs solving, for whom, and making the right decisions in the right order.",
+      "That is what I bring: judgment to prioritize, visual craft so the result looks and feels right, and the experience of taking products from an idea to the point where people use them. I've worked in large teams and on projects where I was responsible for everything, and I've learned that what matters is that it works, makes sense and can be maintained over time.",
+      "Today I work with companies, consultancies and founders who need someone to own the project end to end: someone who listens, asks the uncomfortable questions and delivers something real.",
     ],
     photoAlt: "Portrait of Francisco Sixto",
     background: {
