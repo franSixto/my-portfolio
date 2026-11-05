@@ -18,6 +18,7 @@ export const FOOTER: Record<
     whatsappAria: string;
     cvLabel: string;
     cvAria: string;
+    privacyLabel: string;
     copyright: (year: number) => string;
   }
 > = {
@@ -42,6 +43,7 @@ export const FOOTER: Record<
     emailAria: "Escribir un email a Francisco Sixto",
     cvLabel: "Descargar CV (PDF)",
     cvAria: "Descargar el CV de Francisco Sixto en PDF",
+    privacyLabel: "Política de privacidad",
     copyright: (year) => `© ${year} Francisco Sixto. Córdoba, Argentina.`,
   },
   en: {
@@ -65,6 +67,7 @@ export const FOOTER: Record<
     emailAria: "Email Francisco Sixto",
     cvLabel: "Download CV (PDF)",
     cvAria: "Download Francisco Sixto's CV as a PDF",
+    privacyLabel: "Privacy policy",
     copyright: (year) => `© ${year} Francisco Sixto. Córdoba, Argentina.`,
   },
 };

@@ -76,4 +76,16 @@ describe("sitemap", () => {
     for (const old of Object.keys(LEGACY_PROJECT_SLUGS))
       expect(urls.filter((u) => u.includes(old)), old).toEqual([]);
   });
+
+  it("lists the privacy policy in both locales with hreflang alternates", () => {
+    for (const locale of ["es", "en"] as const) {
+      const entry = entries.find((e) => e.url === `${SITE_URL}${routes.privacy[locale]}`);
+      expect(entry, locale).toBeDefined();
+      expect(entry?.alternates?.languages).toMatchObject({
+        es: `${SITE_URL}/privacidad`,
+        en: `${SITE_URL}/en/privacy`,
+        "x-default": `${SITE_URL}/privacidad`,
+      });
+    }
+  });
 });

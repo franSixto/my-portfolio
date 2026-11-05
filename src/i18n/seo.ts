@@ -13,6 +13,7 @@ import { GITHUB_URL, LINKEDIN_URL, SITE_META } from "@/content/site";
 import { aboutContent } from "@/content/pages/about";
 import { contactContent } from "@/content/pages/contact";
 import { homeContent } from "@/content/pages/home";
+import { privacyContent } from "@/content/pages/privacy";
 import { projectsContent } from "@/content/pages/projects";
 import { servicesHubContent } from "@/content/pages/servicesHub";
 
@@ -114,7 +115,7 @@ export function buildPageMetadata({
   };
 }
 
-export type StaticPageRoute = "home" | "services" | "about" | "projects" | "contact";
+export type StaticPageRoute = "home" | "services" | "about" | "projects" | "contact" | "privacy";
 
 /** Title + description of the static pages (copy lives in src/content/pages). */
 export function getStaticPageSeo(
@@ -132,6 +133,8 @@ export function getStaticPageSeo(
       return contactContent[locale].seo;
     case "projects":
       return projectsContent[locale].seo;
+    case "privacy":
+      return privacyContent[locale].seo;
   }
 }
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ContactForm from "@/components/contact/ContactForm";
 import DirectChannels from "@/components/contact/DirectChannels";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
@@ -7,7 +8,7 @@ import { NumberedList, RuleList } from "@/components/ui/Lists";
 import { Lead } from "@/components/ui/Text";
 import { contactContent } from "@/content/pages/contact";
 import { CV_PATH, EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/content/site";
-import type { Locale } from "@/i18n/routes";
+import { localizedPath, type Locale } from "@/i18n/routes";
 import { whatsappUrl } from "@/lib/contact/whatsapp";
 import { revealProps } from "@/lib/motion/reveal";
 
@@ -27,7 +28,15 @@ export default function ContactScreen({ locale }: { locale: Locale }) {
         </div>
         <div className="lg:col-span-6 lg:col-start-7 lg:row-span-2 lg:row-start-1">
           <ContactForm copy={c.form} locale={locale} />
-          <p className="mt-5 text-meta text-muted text-pretty">{c.privacyNote}</p>
+          <p className="mt-5 text-meta text-muted text-pretty">
+            {c.privacyNote}{" "}
+            <Link
+              href={localizedPath("privacy", locale)}
+              className="underline underline-offset-[0.25em] decoration-accent hover:text-ink"
+            >
+              {c.privacyLinkLabel}
+            </Link>
+          </p>
           <DirectChannels
             locale={locale}
             content={{

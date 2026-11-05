@@ -20,6 +20,7 @@ export default function Footer({ locale }: { locale: Locale }) {
     { href: localizedPath("projects", locale), label: t("navigation.projects") },
     { href: localizedPath("about", locale), label: t("navigation.about") },
     { href: localizedPath("contact", locale), label: t("navigation.contact") },
+    { href: localizedPath("privacy", locale), label: copy.privacyLabel },
   ];
 
   return (

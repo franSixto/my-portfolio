@@ -21,6 +21,7 @@ export const routes = {
   projects: { es: "/proyectos", en: "/en/projects" },
   project: { es: "/proyectos/[slug]", en: "/en/projects/[slug]" },
   contact: { es: "/contacto", en: "/en/contact" },
+  privacy: { es: "/privacidad", en: "/en/privacy" },
   // Service landing pages
   serviceUxUi: {
     es: "/diseno-ux-ui-product-design",

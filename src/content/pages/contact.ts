@@ -34,6 +34,7 @@ export type ContactContent = {
   form: ContactFormCopy;
   /** Shown under the form. */
   privacyNote: string;
+  privacyLinkLabel: string;
   channels: {
     heading: string;
     whatsapp: { label: string; ariaLabel: string };
@@ -117,7 +118,8 @@ export const contactContent: Record<Locale, ContactContent> = {
         "No se pudo enviar el mensaje. Probá de nuevo o escribime directamente a franciscomsixto@gmail.com.",
     },
     privacyNote:
-      "Uso tus datos solo para responderte. No los comparto ni te sumo a ninguna lista.",
+      "Uso tus datos solo para responderte. No los vendo ni te sumo a ninguna lista.",
+    privacyLinkLabel: "Política de privacidad",
     channels: {
       heading: "También podés escribirme por",
       whatsapp: { label: "WhatsApp", ariaLabel: "Escribime por WhatsApp (se abre en una pestaña nueva)" },
@@ -208,7 +210,8 @@ export const contactContent: Record<Locale, ContactContent> = {
         "The message couldn't be sent. Please try again or email me directly at franciscomsixto@gmail.com.",
     },
     privacyNote:
-      "I only use your details to reply to you. I don't share them or add you to any list.",
+      "I only use your details to reply to you. I don't sell them or add you to any list.",
+    privacyLinkLabel: "Privacy policy",
     channels: {
       heading: "You can also reach me via",
       whatsapp: { label: "WhatsApp", ariaLabel: "Message me on WhatsApp (opens in a new tab)" },

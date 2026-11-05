@@ -20,6 +20,7 @@ const LABEL_KEYS: Partial<Record<RouteKey, string>> = {
     about: 'navigation.about',
     projects: 'navigation.projects',
     contact: 'navigation.contact',
+    privacy: 'navigation.privacy',
 };
 
 export default function Breadcrumbs({

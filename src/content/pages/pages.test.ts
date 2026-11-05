@@ -10,6 +10,7 @@ import { liveRouteKeys, locales, localizedPath, matchRoute } from "@/i18n/routes
 import { aboutContent } from "./about";
 import { contactContent } from "./contact";
 import { homeContent } from "./home";
+import { privacyContent } from "./privacy";
 import { projectsContent } from "./projects";
 import { servicesHubContent } from "./servicesHub";
 import { SERVICE_ROUTE_KEYS } from "@/content/services/nav";
@@ -21,6 +22,7 @@ const modules = {
   about: aboutContent,
   contact: contactContent,
   projects: projectsContent,
+  privacy: privacyContent,
   footer: FOOTER,
   siteMeta: SITE_META,
 } as const;
@@ -100,7 +102,7 @@ describe("es voseo consistency (content modules)", () => {
 });
 
 describe("static page SEO", () => {
-  const routes = ["home", "services", "about", "projects", "contact"] as const;
+  const routes = ["home", "services", "about", "projects", "contact", "privacy"] as const;
 
   it("keeps titles <= 60 (with the site suffix where the template applies) and descriptions <= 155", () => {
     for (const route of routes)
