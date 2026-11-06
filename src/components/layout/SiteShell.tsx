@@ -4,7 +4,8 @@ import Footer from "@/components/common/Footer";
 import { Newsreader, Schibsted_Grotesk } from "next/font/google";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Analytics, { AnalyticsInit } from "@/components/Analytics";
+import Analytics, { AnalyticsInit, MetaPixelInit, MetaPixelNoscript } from "@/components/Analytics";
+import MetaPixelPageViews from "@/components/MetaPixel";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { getDictionary } from "@/i18n/dictionary";
 import { buildSiteJsonLd, serializeJsonLd } from "@/i18n/seo";
@@ -46,6 +47,7 @@ export default function SiteShell({
       <head>
         <Analytics />
         <AnalyticsInit />
+        <MetaPixelInit />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -80,6 +82,8 @@ export default function SiteShell({
             <main id="main-content" tabIndex={-1} className="outline-none">
               {children}
             </main>
+            <MetaPixelNoscript />
+            <MetaPixelPageViews />
             <VercelAnalytics />
             <SpeedInsights />
             <Footer locale={locale} />

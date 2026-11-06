@@ -1,4 +1,5 @@
 import { track } from "@vercel/analytics";
+import { META_PIXEL_ID, sendMetaEvent } from "./metaPixel";
 
 /**
  * Privacy-respecting events: only an event name plus a few coarse, non-personal
@@ -39,4 +40,5 @@ export function trackEvent(name: AnalyticsEvent, props: EventProps = {}): void {
   } catch {
     // ignore
   }
+  sendMetaEvent(Boolean(META_PIXEL_ID), name, clean);
 }

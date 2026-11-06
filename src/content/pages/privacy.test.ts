@@ -75,3 +75,29 @@ describe("privacy links", () => {
     for (const locale of locales) expect(contactContent[locale].privacyNote).not.toMatch(/no los comparto|don't share them/i);
   });
 });
+
+describe("privacy Meta Pixel disclosure", () => {
+  it("names the Meta Pixel and Meta Platforms in both languages", () => {
+    for (const locale of locales) {
+      const t = allText(locale);
+      expect(t, locale).toContain("Meta Pixel");
+      expect(t, locale).toContain("Meta Platforms");
+    }
+  });
+
+  it("covers purposes, no personal data sent and how to manage it", () => {
+    expect(allText("es")).toMatch(/audiencias/);
+    expect(allText("es")).toMatch(/preferencias de anuncios de Meta/i);
+    expect(allText("es")).toMatch(/nombres, emails ni (el )?contenido de los mensajes/);
+    expect(allText("en")).toMatch(/audiences/);
+    expect(allText("en")).toMatch(/Meta ad preferences/i);
+    expect(allText("en")).toMatch(/names, emails or message contents/);
+  });
+
+  it("mentions Meta Platforms in the international transfers section", () => {
+    for (const locale of locales) {
+      const s = privacyContent[locale].sections.find((x) => /transfer|Transferencias/i.test(x.heading));
+      expect(JSON.stringify(s), locale).toContain("Meta Platforms");
+    }
+  });
+});
