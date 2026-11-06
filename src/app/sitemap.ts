@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getCaseSlugs } from "@/content/projects";
 import {
   absoluteUrl,
-  liveRouteKeys,
+  indexableRouteKeys,
   localizedPath,
   locales,
   type RouteKey,
@@ -12,7 +12,7 @@ import {
 type Entry = { key: RouteKey; params?: RouteParams };
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const entries: Entry[] = liveRouteKeys()
+  const entries: Entry[] = indexableRouteKeys()
     .filter((key) => key !== "project")
     .map((key) => ({ key }));
   for (const slug of getCaseSlugs()) {

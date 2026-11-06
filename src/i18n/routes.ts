@@ -12,6 +12,8 @@ export type RouteDef = {
   en: string;
   /** Route planned but not built yet: excluded from nav and sitemap. */
   pending?: true;
+  /** Built and reachable, but never offered to search: excluded from the sitemap and nav. */
+  unlisted?: true;
 };
 
 export const routes = {
@@ -22,6 +24,8 @@ export const routes = {
   project: { es: "/proyectos/[slug]", en: "/en/projects/[slug]" },
   contact: { es: "/contacto", en: "/en/contact" },
   privacy: { es: "/privacidad", en: "/en/privacy" },
+  // Post-submission landing (Ads lead form button). Noindex, not in the sitemap.
+  thanks: { es: "/gracias", en: "/en/thanks", unlisted: true },
   // Service landing pages
   serviceUxUi: {
     es: "/diseno-ux-ui-product-design",
@@ -75,6 +79,11 @@ export function liveRouteKeys(): RouteKey[] {
   return (Object.keys(routes) as RouteKey[]).filter(
     (key) => !(routes[key] as RouteDef).pending
   );
+}
+
+/** Live routes that may appear in the sitemap (live minus unlisted). */
+export function indexableRouteKeys(): RouteKey[] {
+  return liveRouteKeys().filter((key) => !(routes[key] as RouteDef).unlisted);
 }
 
 export function localizedPath(

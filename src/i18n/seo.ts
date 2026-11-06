@@ -16,6 +16,7 @@ import { homeContent } from "@/content/pages/home";
 import { privacyContent } from "@/content/pages/privacy";
 import { projectsContent } from "@/content/pages/projects";
 import { servicesHubContent } from "@/content/pages/servicesHub";
+import { thanksContent } from "@/content/pages/thanks";
 
 export { serializeJsonLd };
 
@@ -115,7 +116,7 @@ export function buildPageMetadata({
   };
 }
 
-export type StaticPageRoute = "home" | "services" | "about" | "projects" | "contact" | "privacy";
+export type StaticPageRoute = "home" | "services" | "about" | "projects" | "contact" | "privacy" | "thanks";
 
 /** Title + description of the static pages (copy lives in src/content/pages). */
 export function getStaticPageSeo(
@@ -135,6 +136,8 @@ export function getStaticPageSeo(
       return projectsContent[locale].seo;
     case "privacy":
       return privacyContent[locale].seo;
+    case "thanks":
+      return thanksContent[locale].seo;
   }
 }
 
@@ -145,6 +148,8 @@ export function getStaticPageMetadata(route: StaticPageRoute, locale: Locale): M
     ...getStaticPageSeo(route, locale),
     // The home title is written in full (it already carries the site name).
     absoluteTitle: route === "home",
+    // Reachable and crawlable (so Google sees the noindex), but never indexed.
+    noIndex: route === "thanks",
   });
 }
 
