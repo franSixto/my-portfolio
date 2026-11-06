@@ -30,7 +30,7 @@ describe("privacy content", () => {
     for (const locale of locales) {
       const c = privacyContent[locale];
       expect(c.h1.length).toBeGreaterThan(0);
-      expect(c.updated.iso).toBe("2026-11-05");
+      expect(c.updated.iso).toBe("2026-11-06");
       expect(c.sections.length).toBeGreaterThanOrEqual(10);
       for (const s of c.sections) {
         expect(s.heading.length).toBeGreaterThan(0);
@@ -99,5 +99,20 @@ describe("privacy Meta Pixel disclosure", () => {
       const s = privacyContent[locale].sections.find((x) => /transfer|Transferencias/i.test(x.heading));
       expect(JSON.stringify(s), locale).toContain("Meta Platforms");
     }
+  });
+});
+
+describe("privacy Google tag disclosure", () => {
+  it("names the Google tag / Google Tag Manager and Google as provider in both languages", () => {
+    for (const locale of locales) {
+      const t = allText(locale);
+      expect(t, locale).toContain("Google Tag Manager");
+      expect(t, locale).toMatch(/etiqueta de Google|Google tag/);
+    }
+  });
+
+  it("keeps the last-updated text in sync with the ISO date", () => {
+    expect(privacyContent.es.updated.text).toBe("6 de noviembre de 2026");
+    expect(privacyContent.en.updated.text).toBe("6 November 2026");
   });
 });

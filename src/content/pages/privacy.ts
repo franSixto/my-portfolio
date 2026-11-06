@@ -28,7 +28,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
     },
     h1: "Política de privacidad",
     lead: "Esta política explica qué datos personales se recopilan cuando visitás este sitio, completás el formulario de contacto o enviás tus datos a través de un anuncio de Google, y qué derechos tenés sobre ellos.",
-    updated: { label: "Última actualización", text: "5 de noviembre de 2026", iso: "2026-11-05" },
+    updated: { label: "Última actualización", text: "6 de noviembre de 2026", iso: "2026-11-06" },
     sections: [
       {
         heading: "Responsable del tratamiento",
@@ -84,6 +84,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
           "El sitio está alojado en Vercel. Como cualquier servicio de hosting, puede procesar datos técnicos de cada visita, como la dirección IP, para entregar el sitio.",
           "Uso Vercel Analytics para obtener métricas agregadas de uso y eventos no personales, por ejemplo qué canal de contacto se utilizó. Nunca se envían nombres, emails ni textos de mensajes a la analítica.",
           "Cuando está habilitado, el sitio también usa Google Analytics para medir el uso del sitio, lo que puede implicar el uso de cookies.",
+          "El sitio también carga la etiqueta de Google (Google Tag Manager) para medir el sitio y la publicidad. El proveedor es Google.",
           "Cuando está habilitado, el sitio también usa el Meta Pixel (Meta Platforms) para medir la publicidad, registrar visitas y conversiones de contacto, y crear audiencias publicitarias en las plataformas de Meta. El Meta Pixel usa cookies e identificadores que Meta puede vincular con las cuentas de sus usuarios. El sitio no envía a través del Meta Pixel nombres, emails ni el contenido de los mensajes.",
         ],
         items: [],
@@ -91,7 +92,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       {
         heading: "Cookies y publicidad",
         paragraphs: [
-          "Google Analytics, Google Ads y, cuando está habilitado, el Meta Pixel pueden usar cookies o tecnologías similares para medir el uso del sitio y la efectividad de la publicidad. Podés bloquear o eliminar las cookies desde la configuración de tu navegador, administrar la personalización de anuncios desde la Configuración de anuncios de Google y controlar los anuncios que ves en las plataformas de Meta desde tus preferencias de anuncios de Meta. Si las bloqueás, algunas funciones de medición pueden dejar de funcionar, pero el sitio sigue siendo utilizable.",
+          "Google Analytics, la etiqueta de Google, Google Ads y, cuando está habilitado, el Meta Pixel pueden usar cookies o tecnologías similares para medir el uso del sitio y la efectividad de la publicidad. Podés bloquear o eliminar las cookies desde la configuración de tu navegador, administrar la personalización de anuncios desde la Configuración de anuncios de Google y controlar los anuncios que ves en las plataformas de Meta desde tus preferencias de anuncios de Meta. Si las bloqueás, algunas funciones de medición pueden dejar de funcionar, pero el sitio sigue siendo utilizable.",
         ],
         items: [],
       },
@@ -152,7 +153,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
     },
     h1: "Privacy policy",
     lead: "This policy explains what personal data is collected when you visit this site, fill in the contact form or submit your details through a Google ad, and what rights you have over it.",
-    updated: { label: "Last updated", text: "5 November 2026", iso: "2026-11-05" },
+    updated: { label: "Last updated", text: "6 November 2026", iso: "2026-11-06" },
     sections: [
       {
         heading: "Data controller",
@@ -208,6 +209,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
           "The site is hosted on Vercel. Like any hosting service, it may process technical data about each visit, such as the IP address, in order to deliver the site.",
           "I use Vercel Analytics to get aggregated usage metrics and non-personal events, for example which contact channel was used. Names, emails and message text are never sent to analytics.",
           "When enabled, the site also uses Google Analytics to measure site usage, which may involve the use of cookies.",
+          "The site also loads the Google tag (Google Tag Manager) to measure the site and advertising. The provider is Google.",
           "When enabled, the site also uses the Meta Pixel (Meta Platforms) to measure advertising, record visits and contact conversions, and build advertising audiences on Meta platforms. The Meta Pixel uses cookies and identifiers that Meta may link to its users' accounts. The site does not send names, emails or message contents through the Meta Pixel.",
         ],
         items: [],
@@ -215,7 +217,7 @@ export const privacyContent: Record<Locale, PrivacyContent> = {
       {
         heading: "Cookies and advertising",
         paragraphs: [
-          "Google Analytics, Google Ads and, when enabled, the Meta Pixel may use cookies or similar technologies to measure site usage and advertising performance. You can block or delete cookies in your browser settings, manage ad personalisation in Google's Ads Settings, and control the ads you see on Meta platforms in your Meta ad preferences. If you block them, some measurement features may stop working, but the site remains usable.",
+          "Google Analytics, the Google tag, Google Ads and, when enabled, the Meta Pixel may use cookies or similar technologies to measure site usage and advertising performance. You can block or delete cookies in your browser settings, manage ad personalisation in Google's Ads Settings, and control the ads you see on Meta platforms in your Meta ad preferences. If you block them, some measurement features may stop working, but the site remains usable.",
         ],
         items: [],
       },

@@ -1,5 +1,6 @@
 import Script from "next/script";
 import { META_PIXEL_ID } from "@/lib/metaPixel";
+import { gaConfigScript } from "@/lib/googleTag";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
 
@@ -14,17 +15,12 @@ export default function Analytics() {
   );
 }
 
-// Para inicializar gtag
+// GA config. dataLayer/gtag are defined once by <GoogleTag /> in <head>.
 export function AnalyticsInit() {
   if (!GA_ID) return null;
   return (
     <Script id="gtag-init" strategy="afterInteractive">
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GA_ID}');
-      `}
+      {gaConfigScript(GA_ID)}
     </Script>
   );
 }

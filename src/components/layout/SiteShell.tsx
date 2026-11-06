@@ -5,6 +5,7 @@ import { Newsreader, Schibsted_Grotesk } from "next/font/google";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Analytics, { AnalyticsInit, MetaPixelInit, MetaPixelNoscript } from "@/components/Analytics";
+import GoogleTag from "@/components/GoogleTag";
 import MetaPixelPageViews from "@/components/MetaPixel";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { getDictionary } from "@/i18n/dictionary";
@@ -45,6 +46,7 @@ export default function SiteShell({
     <html lang={locale} className={`${fontSans.variable} ${fontSerif.variable}`} suppressHydrationWarning>
       {/* eslint-disable-next-line @next/next/no-head-element -- root layout shell, App Router head */}
       <head>
+        <GoogleTag />
         <Analytics />
         <AnalyticsInit />
         <MetaPixelInit />

@@ -55,3 +55,6 @@ export const SITE_META: Record<
     ],
   },
 };
+
+/** Google tag ID (public by design, it ships in the page HTML). Loaded once, first in <head>. */
+export const GOOGLE_TAG_ID = "GTM-PRBTMJG9";
